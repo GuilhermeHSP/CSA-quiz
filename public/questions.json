@@ -1,0 +1,24 @@
+[
+  {
+    "question": "What is the purpose of the ServiceNow Update Set?",
+    "options": [
+      "To deploy changes between instances",
+      "To schedule automated reports",
+      "To manage user permissions",
+      "To create new tables in the database"
+    ],
+    "correctAnswer": "To deploy changes between instances",
+    "explanation": "Update Sets are used to move customizations from one instance to another in the ServiceNow environment."
+  },
+  {
+    "question": "Which application is used to manage user access in ServiceNow?",
+    "options": [
+      "User Administration",
+      "System Security",
+      "Access Control",
+      "Organization Administration"
+    ],
+    "correctAnswer": "User Administration",
+    "explanation": "The User Administration application is specifically designed to manage user accounts, roles, and group memberships."
+  }
+]
