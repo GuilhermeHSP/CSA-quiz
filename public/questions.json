@@ -8,20 +8,20 @@
       "Chatbot",
       "Virtual Agent"
     ],
-    "correctAnswer": "Sidebar",
+    "correctAnswers": ["Sidebar"],
     "explanation": "..."
   },
   {
     "question": "What tool allows you to drag and drop to specify links between source fields on an import set table and destination fields on any ServiceNow table?",
     "options": [
-      "import workspace",
-      "data source map",
+      "Import workspace",
+      "Data source map",
       "Mapping assist utility",
-      "import designer",
-      "transform designer",
-      "transform dashboard"
+      "Import designer",
+      "Transform designer",
+      "Transform dashboard"
     ],
-    "correctAnswer": "Mapping assist utility",
+    "correctAnswers": ["Mapping assist utility"],
     "explanation": "The Mapping Assist Utility in ServiceNow provides a drag-and-drop interface that simplifies the process of mapping fields between an import set and a target table during data transformation."
   },
   {
@@ -32,7 +32,7 @@
       "Only groups that the report creator belongs to",
       "All users and groups"
     ],
-    "correctAnswer": "The report creator only",
+    "correctAnswers": ["The report creator only"],
     "explanation": "By default, when a report is created in ServiceNow, it is private and only visible to the report creator. It must be explicitly shared with users, groups, or roles."
   },
   {
@@ -43,19 +43,300 @@
       "Before, synchronous, schedule job, views",
       "Before, after, Async, display"
     ],
-    "correctAnswer": "Before, after, Async, display",
+    "correctAnswers": ["Before, after, Async, display"],
     "explanation": "Business rules in ServiceNow can be configured to run at specific times in the transaction: before, after, async (asynchronous), and display (before a form is presented)."
   },
   {
     "question": "If a knowledge base has no access details specified, what users are able to read articles in that knowledge base?",
     "options": [
-      "no users",
-      "itil users",
-      "users with kb_user role",
-      "any user with an article’s permalink",
-      "any active user"
+      "No users",
+      "Itil users",
+      "Users with kb_user role",
+      "Any user with an article’s permalink",
+      "Any active user"
     ],
-    "correctAnswer": " any active user",
+    "correctAnswers": ["Any active user"],
     "explanation": "..."
+  },
+  {
+    "question": "Which ServiceNow products can be used to discover and populate the CMDB? (Choose two.)",
+    "options": [
+      "Discovery",
+      "IntegrationHub ETL",
+      "Finder",
+      "CMDB Plug-in",
+      "CMDB Integration Dashboard"
+    ],
+    "correctAnswers": ["Discovery", "IntegrationHub ETL"],
+    "explanation": "Discovery and IntegrationHub ETL are used to automatically populate the CMDB. Others are not designed for direct CI population."
+  },
+  {
+    "question": "How are Workflows moved between instances?",
+    "options": [
+      "Workflows are moved using Update Sets",
+      "Workflows are moved using Transform Maps",
+      "Workflows are moved using Application Sets",
+      "Workflows cannot be moved between instances"
+    ],
+    "correctAnswers": ["Workflows are moved using Update Sets"],
+    "explanation": "Update Sets are used to move customizations like workflows between instances in ServiceNow."
+  },
+  {
+    "question": "Which statement is true about business rules?",
+    "options": [
+      "A business rule must run before a database action occurs",
+      "A business rule can be a piece of Javascript",
+      "A business rule must not run before a database action occurs",
+      "A business rule monitors fields on a form"
+    ],
+    "correctAnswers": ["A business rule can be a piece of Javascript"],
+    "explanation": "Business rules in ServiceNow are server-side JavaScript configured to run when records are inserted, updated, or deleted."
+  },
+  {
+    "question": "Which of the following allows a user to edit field values in a list without opening the form?",
+    "options": [
+      "Data Editor",
+      "Edit Menu",
+      "List Editor",
+      "Form Designer"
+    ],
+    "correctAnswers": ["List Editor"],
+    "explanation": "The List Editor allows users to perform inline editing of fields directly from the list view."
+  },
+  {
+    "question": "What is a formatter?",
+    "options": [
+      "A formatter allows you to configure applications on your instance",
+      "A formatter is a form element used to display information that is not a field in the record",
+      "A formatter allows you to populate fields automatically",
+      "A formatter is a set of conditions applied to a table to help find and work with data"
+    ],
+    "correctAnswers": ["A formatter is a form element used to display information that is not a field in the record"],
+    "explanation": "Formatters are UI elements used on forms to display contextual information such as approvals, activities, or process flows."
+  },
+  {
+    "question": "Which one of the following statements applies to a set of fields when they are coalesced during an import?",
+    "options": [
+      "If a match is found using the coalesce fields, the existing record is updated with the information being imported",
+      "If a match is not found using the coalesce fields, the system does not create a Transform Map",
+      "If a match is found using the coalesce fields, the system creates a new record",
+      "If a match is not found using the coalesce fields, the existing record is updated with the information being imported"
+    ],
+    "correctAnswers": ["If a match is found using the coalesce fields, the existing record is updated with the information being imported"],
+    "explanation": "Coalesce fields allow the import process to determine whether to insert or update records."
+  },
+  {
+    "question": "Which ServiceNow products can be used to discover and populate the CMDB? (Choose two.)",
+    "options": [
+      "Discovery",
+      "IntegrationHub ETL",
+      "Finder",
+      "CMDB Plug-in",
+      "CMDB Integration Dashboard"
+    ],
+    "correctAnswers": [
+      "Discovery",
+      "IntegrationHub ETL"
+    ],
+    "explanation": "Discovery and IntegrationHub ETL are used to automatically populate the CMDB."
+  },
+  {
+    "question": "Which are valid ServiceNow User Authentication Methods? (Choose three.)",
+    "options": [
+      "XML feed",
+      "Local database",
+      "LDAP",
+      "SSO",
+      "FTP authentication"
+    ],
+    "correctAnswers": [
+      "Local database",
+      "LDAP",
+      "SSO"
+    ],
+    "explanation": "Valid authentication methods include Local Database, LDAP, and SSO. XML feed and FTP are not authentication methods."
+  },
+  {
+    "question": "Which of the following concepts are associated with the ServiceNow CMDB? (Choose four.)",
+    "options": [
+      "Service Processes",
+      "User Permissions",
+      "Tables and Fields",
+      "A Database",
+      "The Dependency View"
+    ],
+    "correctAnswers": [
+      "Service Processes",
+      "Tables and Fields",
+      "A Database",
+      "The Dependency View"
+    ],
+    "explanation": "These are core concepts of the ServiceNow CMDB. 'User Permissions' is not part of the CMDB model."
+  },
+  {
+    "question": "Which tool is used to have conversations with logged-in users in real-time?",
+    "options": [
+      "Connect Chat",
+      "Now Messenger",
+      "User Presence",
+      "Comments"
+    ],
+    "correctAnswers": ["Connect Chat"],
+    "explanation": "Connect Chat enables real-time messaging between logged-in users within the ServiceNow platform."
+  },
+  {
+    "question": "What is generated from the Service Catalog once a user places an order for an item or service?",
+    "options": [
+      "A change request",
+      "An Order Guide",
+      "A request",
+      "An SLA"
+    ],
+    "correctAnswers": ["A request"],
+    "explanation": "When an item is ordered from the Service Catalog, a Request (REQ) is generated."
+  },
+  {
+    "question": "What is the purpose of a Related List?",
+    "options": [
+      "To create a one-to-many relationship",
+      "To dot-walk to a core table",
+      "To present related fields",
+      "To present related records"
+    ],
+    "correctAnswers": ["To present related records"],
+    "explanation": "Related lists show related records from other tables that have a relationship with the current record."
+  },
+  {
+    "question": "What is a Record Producer?",
+    "options": [
+      "A Record Producer is a type of Catalog Item that is used for Requests, not Services",
+      "A Record Producer creates user records",
+      "A Record Producer is a type of Catalog Item that provides easy ordering by bundling requests",
+      "A Record Producer is a type of a Catalog Item that allows users to create task-based records from the Service Catalog"
+    ],
+    "correctAnswers": ["A Record Producer is a type of a Catalog Item that allows users to create task-based records from the Service Catalog"],
+    "explanation": "Record Producers simplify form creation by allowing users to submit records directly from the catalog."
+  },
+  {
+    "question": "What is the Import Set Table?",
+    "options": [
+      "A table where data will be placed, post-transformation",
+      "A table that determines relationships",
+      "A staging area for imported records",
+      "A repository for Update Set information"
+    ],
+    "correctAnswers": ["A staging area for imported records"],
+    "explanation": "An Import Set Table temporarily holds data before it is transformed into the target table."
+  },
+  {
+    "question": "What is a Dictionary Override?",
+    "options": [
+      "A Dictionary Override is an incoming customer update in an Update Set which applies to the same objects as a newer local customer update",
+      "A Dictionary Override is the addition, modification, or removal of anything that could have an effect on IT services",
+      "A Dictionary Override is a task within a flow that requests an action before the flow can continue",
+      "A Dictionary Override sets field properties in extended tables"
+    ],
+    "correctAnswers": ["A Dictionary Override sets field properties in extended tables"],
+    "explanation": "Dictionary Overrides allow changes to field behavior in extended tables without altering the parent table."
+  },
+  {
+    "question": "Which term refers to application menus and modules which you may want to access quickly and often?",
+    "options": [
+      "Breadcrumb",
+      "Favorite",
+      "Tag",
+      "Bookmark"
+    ],
+    "correctAnswers": ["Favorite"],
+    "explanation": "Favorites in the Application Navigator help users quickly access frequently used items."
+  },
+  {
+    "question": "Which group of permissions is used to control Application and Module access?",
+    "options": [
+      "Access Control Rules",
+      "UI Policies",
+      "Roles",
+      "Assignment Rules"
+    ],
+    "correctAnswers": ["Roles"],
+    "explanation": "Roles define access to applications and modules for users in ServiceNow."
+  },
+  {
+    "question": "Which three Variable Types can be added to a Service Catalog Item?",
+    "options": [
+      "True/False, Multiple Choice, and Ordered",
+      "True/False, Checkbox, and Number List",
+      "Number List, Single Line Text, and Reference",
+      "Multiple Choice, Select Box, and Checkbox"
+    ],
+    "correctAnswers": ["Multiple Choice", "Select Box", "Checkbox"],
+    "explanation": "These are valid variable types used to build input forms for catalog items."
+  },
+  {
+    "question": "A Service Catalog may include which of the following components?",
+    "options": [
+      "Order Guides, Exchange Rates, Calendars",
+      "Order Guides, Catalog Items, and Interceptors",
+      "Catalog Items, Asset Contracts, Task Surveys",
+      "Record Producers, Order Guides, and Catalog Items"
+    ],
+    "correctAnswers": ["Record Producers, Order Guides, and Catalog Items"],
+    "explanation": "These are the core building blocks of a Service Catalog in ServiceNow."
+  },
+  {
+    "question": "What is the name of the conversational bot platform that provides assistance to help users obtain information, make decisions, and perform common tasks?",
+    "options": [
+      "Answer Agent",
+      "Live Feed",
+      "Virtual Agent",
+      "Connect Chat"
+    ],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": "Virtual Agent is ServiceNow's AI-powered chatbot for guided conversations."
+  },
+  {
+    "question": "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three.)",
+    "options": [
+      "Banner Image",
+      "Record Number Format",
+      "Browser Tab Title",
+      "System Date Format",
+      "Form Header Size"
+    ],
+    "correctAnswers": ["Banner Image", "Record Number Format", "System Date Format"],
+    "explanation": "These elements are available in the Basic Configuration UI 16 module."
+  },
+  {
+    "question": "What information does the System Dictionary contain?",
+    "options": [
+      "The human-readable labels and language settings",
+      "The definition for each table and column",
+      "The information on how tables relate to each other",
+      "The language dictionary used for spell checking"
+    ],
+    "correctAnswers": ["The definition for each table and column"],
+    "explanation": "The System Dictionary holds metadata about tables and fields."
+  },
+  {
+    "question": "Buttons, form links, and context menu items are all examples of what type of functionality?",
+    "options": [
+      "Business Rule",
+      "UI Action",
+      "Client Script",
+      "UI Policy"
+    ],
+    "correctAnswers": ["UI Action"],
+    "explanation": "UI Actions control buttons, menu items, and links in ServiceNow UI."
+  },
+  {
+    "question": "A REQ number in the Service Catalog represents:",
+    "options": [
+      "The order number.",
+      "The stage.",
+      "The task to complete.",
+      "The individual item in the order."
+    ],
+    "correctAnswers": ["The order number."],
+    "explanation": "The REQ number uniquely identifies a Service Catalog request."
   }
 ]
