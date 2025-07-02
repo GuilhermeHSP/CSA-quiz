@@ -1,24 +1,61 @@
 [
   {
-    "question": "What is the purpose of the ServiceNow Update Set?",
+    "question": "What allows agents to initiate a group discussion from a Workspace task-based or interaction-based record?",
     "options": [
-      "To deploy changes between instances",
-      "To schedule automated reports",
-      "To manage user permissions",
-      "To create new tables in the database"
+      "Connect Hub",
+      "Sidebar",
+      "Help Menu",
+      "Chatbot",
+      "Virtual Agent"
     ],
-    "correctAnswer": "To deploy changes between instances",
-    "explanation": "Update Sets are used to move customizations from one instance to another in the ServiceNow environment."
+    "correctAnswer": "Sidebar",
+    "explanation": "..."
   },
   {
-    "question": "Which application is used to manage user access in ServiceNow?",
+    "question": "What tool allows you to drag and drop to specify links between source fields on an import set table and destination fields on any ServiceNow table?",
     "options": [
-      "User Administration",
-      "System Security",
-      "Access Control",
-      "Organization Administration"
+      "import workspace",
+      "data source map",
+      "Mapping assist utility",
+      "import designer",
+      "transform designer",
+      "transform dashboard"
     ],
-    "correctAnswer": "User Administration",
-    "explanation": "The User Administration application is specifically designed to manage user accounts, roles, and group memberships."
+    "correctAnswer": "Mapping assist utility",
+    "explanation": "The Mapping Assist Utility in ServiceNow provides a drag-and-drop interface that simplifies the process of mapping fields between an import set and a target table during data transformation."
+  },
+  {
+    "question": "By default, a report is shared with the following:",
+    "options": [
+      "All roles",
+      "The report creator only",
+      "Only groups that the report creator belongs to",
+      "All users and groups"
+    ],
+    "correctAnswer": "The report creator only",
+    "explanation": "By default, when a report is created in ServiceNow, it is private and only visible to the report creator. It must be explicitly shared with users, groups, or roles."
+  },
+  {
+    "question": "On a business rule, which setting determines at what points the rule executes? What are the options for specifying that timing?",
+    "options": [
+      "Prior to, synchronous, on update",
+      "Insert, update, delete, query",
+      "Before, synchronous, schedule job, views",
+      "Before, after, Async, display"
+    ],
+    "correctAnswer": "Before, after, Async, display",
+    "explanation": "Business rules in ServiceNow can be configured to run at specific times in the transaction: before, after, async (asynchronous), and display (before a form is presented)."
+  },
+  {
+    "question": "If a knowledge base has no access details specified, what users are able to read articles in that knowledge base?",
+    "options": [
+      "no users",
+      "itil users",
+      "users with kb_user role",
+      "any user with an article’s permalink",
+      "any active user"
+    ],
+    "correctAnswer": " any active user",
+    "explanation": "..."
   }
 ]
