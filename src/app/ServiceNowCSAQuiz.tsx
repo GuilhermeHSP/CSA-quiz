@@ -248,7 +248,7 @@ export default function ServiceNowCSAQuiz() {
             return (
               <Button
                 key={option}
-                style={{ overflowWrap: 'anywhere' }}
+                style={{ overflowWrap: 'break-word' }}
                 onClick={() => {
                   if (isMultipleChoice) {
                     toggleAnswer(option)
@@ -258,11 +258,12 @@ export default function ServiceNowCSAQuiz() {
                   }
                 }}
                 disabled={showFeedback}
-                className={`w-full max-w-full px-4 py-5 sm:py-6 
-                  text-left justify-start whitespace-normal break-words
+                className={`w-full max-w-full h-auto px-4 py-5 sm:py-6 
+                  text-left whitespace-normal break-words 
                   leading-loose tracking-wide text-sm sm:text-base
-                  ${showFeedback && isCorrect ? 'bg-green-500 text-white' : ''}
-                  ${showFeedback && isWrongSelection ? 'bg-red-500 text-white' : ''}
+                  items-start justify-start
+                  ${showFeedback && isCorrect ? 'bg-green-600 text-white' : ''}
+                  ${showFeedback && isWrongSelection ? 'bg-red-600 text-white' : ''}
                   ${!showFeedback && isSelected ? 'bg-gray-300 dark:bg-gray-700' : ''}
                 `}
               >
