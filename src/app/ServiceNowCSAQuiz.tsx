@@ -26,7 +26,6 @@ export default function ServiceNowCSAQuiz() {
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
 
-  // Dark mode automático
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add('dark')
@@ -240,7 +239,7 @@ export default function ServiceNowCSAQuiz() {
         )}
         <h2 className="text-xl font-semibold">{current.question}</h2>
 
-        <div className="grid grid-cols-1 gap-3">
+        <div className="flex flex-col gap-5">
           {current.options.map((option) => {
             const isSelected = selectedAnswers.includes(option)
             const isCorrect = current.correctAnswers.includes(option)
@@ -258,9 +257,9 @@ export default function ServiceNowCSAQuiz() {
                   }
                 }}
                 disabled={showFeedback}
-                className={`w-full max-w-full px-4 py-4 sm:py-5 
-                  text-left justify-start whitespace-normal break-words break-all
-                  leading-relaxed text-sm sm:text-base
+                className={`w-full max-w-full px-4 py-5 sm:py-6 
+                  text-left justify-start whitespace-normal break-words
+                  leading-loose tracking-wide text-sm sm:text-base
                   ${showFeedback && isCorrect ? 'bg-green-500 text-white' : ''}
                   ${showFeedback && isWrongSelection ? 'bg-red-500 text-white' : ''}
                   ${!showFeedback && isSelected ? 'bg-gray-300 dark:bg-gray-700' : ''}
