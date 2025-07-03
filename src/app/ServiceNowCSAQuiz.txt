@@ -7,7 +7,8 @@ import { Check, X } from 'lucide-react'
 type Question = {
   question: string
   options: string[]
-  correctAnswer: string
+  correctAnswer?: string
+  correctAnswers: string[]
   explanation: string
 }
 
@@ -17,11 +18,10 @@ export default function ServiceNowCSAQuiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [showFeedback, setShowFeedback] = useState(false)
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
+  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([])
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
 
-  // Embaralha array de perguntas
   const shuffleArray = (array: Question[]) => {
     return array
       .map((q) => ({ q, sort: Math.random() }))
@@ -29,33 +29,57 @@ export default function ServiceNowCSAQuiz() {
       .map(({ q }) => q)
   }
 
-  // Carrega e embaralha as perguntas
   useEffect(() => {
     const fetchQuestions = async () => {
-      const response = await fetch('/questions.json') // certifique-se que está em public/
+      const response = await fetch('/questions.json')
       const data: Question[] = await response.json()
-      setBaseQuestions(data)
-      setShuffledQuestions(shuffleArray(data))
+
+      const normalized = data.map(q => ({
+        ...q,
+        correctAnswers: q.correctAnswers ?? [q.correctAnswer]
+      }))
+
+      setBaseQuestions(normalized)
+      setShuffledQuestions(shuffleArray(normalized))
     }
 
     fetchQuestions()
   }, [])
 
-  const handleAnswerSelection = (selectedOption: string) => {
-    setSelectedAnswer(selectedOption)
-    setShowFeedback(true)
-    setQuestionsAnswered(questionsAnswered + 1)
+  const toggleAnswer = (option: string) => {
+    if (showFeedback) return
 
-    if (selectedOption === shuffledQuestions[currentQuestionIndex].correctAnswer) {
+    if (selectedAnswers.includes(option)) {
+      setSelectedAnswers(selectedAnswers.filter((ans) => ans !== option))
+    } else {
+      setSelectedAnswers([...selectedAnswers, option])
+    }
+  }
+
+  const checkAnswers = (singleSelection?: string) => {
+    const current = shuffledQuestions[currentQuestionIndex]
+    const correct = current.correctAnswers
+
+    const selected =
+      correct.length > 1 ? selectedAnswers : [singleSelection ?? '']
+
+    const isCorrect =
+      selected.length === correct.length &&
+      selected.every((ans) => correct.includes(ans))
+
+    if (isCorrect) {
       setScore(score + 1)
     }
+
+    setShowFeedback(true)
+    setQuestionsAnswered(questionsAnswered + 1)
   }
 
   const moveToNextQuestion = () => {
     if (currentQuestionIndex < shuffledQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
       setShowFeedback(false)
-      setSelectedAnswer(null)
+      setSelectedAnswers([])
     } else {
       setQuizCompleted(true)
     }
@@ -66,7 +90,7 @@ export default function ServiceNowCSAQuiz() {
     setCurrentQuestionIndex(0)
     setScore(0)
     setShowFeedback(false)
-    setSelectedAnswer(null)
+    setSelectedAnswers([])
     setQuizCompleted(false)
     setQuestionsAnswered(0)
   }
@@ -112,6 +136,9 @@ export default function ServiceNowCSAQuiz() {
     )
   }
 
+  const current = shuffledQuestions[currentQuestionIndex]
+  const isMultipleChoice = current.correctAnswers.length > 1
+
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8">
       <CardHeader>
@@ -122,49 +149,80 @@ export default function ServiceNowCSAQuiz() {
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        <h2 className="text-xl font-semibold">
-          {shuffledQuestions[currentQuestionIndex].question}
-        </h2>
+        <h2 className="text-xl font-semibold">{current.question}</h2>
 
         <div className="grid grid-cols-1 gap-3">
-          {shuffledQuestions[currentQuestionIndex].options.map((option) => (
-            <Button
-              key={option}
-              onClick={() => handleAnswerSelection(option)}
-              variant={
-                showFeedback
-                  ? option === shuffledQuestions[currentQuestionIndex].correctAnswer
-                    ? 'default'
-                    : option === selectedAnswer
-                    ? 'destructive'
+          {current.options.map((option) => {
+            const isSelected = selectedAnswers.includes(option)
+            const isCorrect = current.correctAnswers.includes(option)
+            const isWrongSelection = isSelected && !isCorrect
+
+            return (
+              <Button
+                key={option}
+                onClick={() => {
+                  if (isMultipleChoice) {
+                    toggleAnswer(option)
+                  } else {
+                    setSelectedAnswers([option])
+                    checkAnswers(option)
+                  }
+                }}
+                variant={
+                  showFeedback
+                    ? isCorrect
+                      ? 'default'
+                      : isWrongSelection
+                      ? 'destructive'
+                      : 'outline'
+                    : isSelected
+                    ? 'secondary'
                     : 'outline'
-                  : 'outline'
-              }
-              disabled={showFeedback}
-              className="p-4 text-left justify-start"
-            >
-              {option}
-            </Button>
-          ))}
+                }
+                disabled={showFeedback}
+                className="w-full px-4 py-4 sm:py-5 text-left justify-start whitespace-normal break-words leading-relaxed text-sm sm:text-base"
+              >
+                {isMultipleChoice && (
+                  <input
+                    type="checkbox"
+                    checked={isSelected}
+                    readOnly
+                    className="mr-2"
+                  />
+                )}
+                {option}
+              </Button>
+            )
+          })}
         </div>
+
+        {!showFeedback && isMultipleChoice && (
+          <Button
+            onClick={() => checkAnswers()}
+            className="mt-4 w-full"
+            disabled={selectedAnswers.length === 0}
+          >
+            Confirm Answer
+          </Button>
+        )}
 
         {showFeedback && (
           <div className="mt-4 p-4 rounded-lg bg-gray-100">
             <div className="flex items-start gap-2">
-              {selectedAnswer === shuffledQuestions[currentQuestionIndex].correctAnswer ? (
+              {selectedAnswers.length === current.correctAnswers.length &&
+              selectedAnswers.every((ans) => current.correctAnswers.includes(ans)) ? (
                 <Check className="text-green-600 mt-1" />
               ) : (
                 <X className="text-red-600 mt-1" />
               )}
               <div>
                 <p className="font-semibold">
-                  {selectedAnswer === shuffledQuestions[currentQuestionIndex].correctAnswer
+                  {selectedAnswers.length === current.correctAnswers.length &&
+                  selectedAnswers.every((ans) => current.correctAnswers.includes(ans))
                     ? 'Correct!'
                     : 'Incorrect!'}
                 </p>
-                <p className="mt-2 text-gray-700">
-                  {shuffledQuestions[currentQuestionIndex].explanation}
-                </p>
+                <p className="mt-2 text-gray-700">{current.explanation}</p>
               </div>
             </div>
             <Button onClick={moveToNextQuestion} className="mt-4 w-full">
