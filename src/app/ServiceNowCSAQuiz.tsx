@@ -248,6 +248,7 @@ export default function ServiceNowCSAQuiz() {
             return (
               <Button
                 key={option}
+                style={{ overflowWrap: 'anywhere' }}
                 onClick={() => {
                   if (isMultipleChoice) {
                     toggleAnswer(option)
