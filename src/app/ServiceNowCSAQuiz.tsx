@@ -180,7 +180,7 @@ export default function ServiceNowCSAQuiz() {
                     : 'outline'
                 }
                 disabled={showFeedback}
-                className="py-7 px-5 text-left justify-start whitespace-normal break-words leading-relaxed"
+                className="w-full px-4 py-4 sm:py-5 text-left justify-start whitespace-normal break-words leading-relaxed text-sm sm:text-base"
               >
                 {isMultipleChoice && (
                   <input
