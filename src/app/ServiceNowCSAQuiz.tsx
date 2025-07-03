@@ -12,7 +12,10 @@ type Question = {
   explanation: string
 }
 
+type Mode = 'menu' | 'study' | 'exam'
+
 export default function ServiceNowCSAQuiz() {
+  const [mode, setMode] = useState<Mode>('menu')
   const [baseQuestions, setBaseQuestions] = useState<Question[]>([])
   const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -21,6 +24,7 @@ export default function ServiceNowCSAQuiz() {
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([])
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
+  const [timeLeft, setTimeLeft] = useState(0)
 
   // Dark mode automático
   useEffect(() => {
@@ -42,22 +46,7 @@ export default function ServiceNowCSAQuiz() {
       .map(({ q }) => q)
   }
 
-  // Carregar salvo ou buscar perguntas
   useEffect(() => {
-    const savedProgress = localStorage.getItem('ServiceNowCSAQuiz')
-    if (savedProgress) {
-      const data = JSON.parse(savedProgress)
-      setBaseQuestions(data.baseQuestions)
-      setShuffledQuestions(data.shuffledQuestions)
-      setCurrentQuestionIndex(data.currentQuestionIndex)
-      setScore(data.score)
-      setSelectedAnswers(data.selectedAnswers)
-      setQuizCompleted(data.quizCompleted)
-      setQuestionsAnswered(data.questionsAnswered)
-      setShowFeedback(data.showFeedback)
-      return
-    }
-
     const fetchQuestions = async () => {
       const response = await fetch('/questions.json')
       const data: Question[] = await response.json()
@@ -66,16 +55,51 @@ export default function ServiceNowCSAQuiz() {
         correctAnswers: q.correctAnswers ?? [q.correctAnswer]
       }))
       setBaseQuestions(normalized)
-      setShuffledQuestions(shuffleArray(normalized))
     }
     fetchQuestions()
   }, [])
 
-  // Persistir progresso
+  const startQuiz = (selectedMode: Mode) => {
+    setMode(selectedMode)
+    if (selectedMode === 'study') {
+      const savedProgress = localStorage.getItem('ServiceNowCSAQuiz')
+      if (savedProgress) {
+        const data = JSON.parse(savedProgress)
+        setShuffledQuestions(data.shuffledQuestions)
+        setCurrentQuestionIndex(data.currentQuestionIndex)
+        setScore(data.score)
+        setSelectedAnswers(data.selectedAnswers)
+        setQuizCompleted(data.quizCompleted)
+        setQuestionsAnswered(data.questionsAnswered)
+        setShowFeedback(data.showFeedback)
+        return
+      }
+      setShuffledQuestions(shuffleArray(baseQuestions))
+    }
+    if (selectedMode === 'exam') {
+      setShuffledQuestions(shuffleArray(baseQuestions).slice(0, 60))
+      setTimeLeft(90 * 60)
+    }
+  }
+
   useEffect(() => {
-    if (shuffledQuestions.length > 0) {
+    if (mode !== 'exam' || quizCompleted) return
+    const timer = setInterval(() => {
+      setTimeLeft(t => {
+        if (t <= 1) {
+          clearInterval(timer)
+          setQuizCompleted(true)
+          return 0
+        }
+        return t - 1
+      })
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [mode, quizCompleted])
+
+  useEffect(() => {
+    if (mode === 'study' && shuffledQuestions.length > 0) {
       localStorage.setItem('ServiceNowCSAQuiz', JSON.stringify({
-        baseQuestions,
         shuffledQuestions,
         currentQuestionIndex,
         score,
@@ -85,7 +109,7 @@ export default function ServiceNowCSAQuiz() {
         showFeedback
       }))
     }
-  }, [baseQuestions, shuffledQuestions, currentQuestionIndex, score, selectedAnswers, quizCompleted, questionsAnswered, showFeedback])
+  }, [mode, shuffledQuestions, currentQuestionIndex, score, selectedAnswers, quizCompleted, questionsAnswered, showFeedback])
 
   const toggleAnswer = useCallback((option: string) => {
     if (showFeedback) return
@@ -120,13 +144,15 @@ export default function ServiceNowCSAQuiz() {
   }
 
   const resetQuiz = () => {
-    setShuffledQuestions(shuffleArray(baseQuestions))
+    setMode('menu')
+    setShuffledQuestions([])
     setCurrentQuestionIndex(0)
     setScore(0)
     setShowFeedback(false)
     setSelectedAnswers([])
     setQuizCompleted(false)
     setQuestionsAnswered(0)
+    setTimeLeft(0)
     localStorage.removeItem('ServiceNowCSAQuiz')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -135,41 +161,53 @@ export default function ServiceNowCSAQuiz() {
     return () => Math.round((score / shuffledQuestions.length) * 100)
   }, [score, shuffledQuestions])
 
-  if (shuffledQuestions.length === 0) return null
+  if (mode === 'menu') {
+    return (
+      <Card className="w-full max-w-2xl mx-auto mt-8">
+        <CardHeader className="flex justify-between items-center">
+          <CardTitle className="text-2xl text-center">CSA | ServiceNow</CardTitle>
+          <Button onClick={toggleDarkMode} size="icon" variant="ghost">
+            <Moon className="dark:hidden" />
+            <Sun className="hidden dark:inline" />
+          </Button>
+        </CardHeader>
+        <CardContent className="space-y-6 text-center">
+          <Button className="w-full" onClick={() => startQuiz('study')}>
+            Modo Estudo
+          </Button>
+          <Button className="w-full" onClick={() => startQuiz('exam')}>
+            Modo Simulado
+          </Button>
+        </CardContent>
+      </Card>
+    )
+  }
 
   if (quizCompleted) {
     return (
       <Card className="w-full max-w-2xl mx-auto mt-8">
         <CardHeader className="flex justify-between items-center">
-          <CardTitle className="text-2xl text-center">Quiz Results</CardTitle>
-          <div className="flex gap-2">
-            <Button onClick={resetQuiz} size="sm" variant="outline">Restart Quiz</Button>
-            <Button onClick={toggleDarkMode} size="icon" variant="ghost">
-              <Moon className="dark:hidden" />
-              <Sun className="hidden dark:inline" />
-            </Button>
-          </div>
+          <CardTitle className="text-2xl text-center">Resultados</CardTitle>
+          <Button onClick={toggleDarkMode} size="icon" variant="ghost">
+            <Moon className="dark:hidden" />
+            <Sun className="hidden dark:inline" />
+          </Button>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-center">
-            <p className="text-4xl font-bold mb-2">{calculatePercentage()}%</p>
-            <p className="text-lg">
-              Você acertou {score} de {shuffledQuestions.length} questões
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-green-100 dark:bg-green-900 p-4 rounded-lg">
-              <p className="font-semibold text-green-800 dark:text-green-200">Corretas</p>
-              <p className="text-2xl font-bold text-green-800 dark:text-green-200">{score}</p>
-            </div>
-            <div className="bg-red-100 dark:bg-red-900 p-4 rounded-lg">
-              <p className="font-semibold text-red-800 dark:text-red-200">Erradas</p>
-              <p className="text-2xl font-bold text-red-800 dark:text-red-200">{shuffledQuestions.length - score}</p>
-            </div>
-          </div>
-          <div className="text-center">
-            <Button onClick={resetQuiz} className="w-full">Restart Quiz</Button>
-          </div>
+        <CardContent className="space-y-6 text-center">
+          <p className="text-4xl font-bold mb-2">{calculatePercentage()}%</p>
+          <p className="text-lg">
+            Você acertou {score} de {shuffledQuestions.length} questões
+          </p>
+          {mode === 'exam' && (
+            <>
+              {calculatePercentage() >= 70 ? (
+                <p className="text-green-600 font-bold">✅ Aprovado!</p>
+              ) : (
+                <p className="text-red-600 font-bold">❌ Reprovado</p>
+              )}
+            </>
+          )}
+          <Button onClick={resetQuiz} className="w-full">Restart</Button>
         </CardContent>
       </Card>
     )
@@ -183,7 +221,7 @@ export default function ServiceNowCSAQuiz() {
       <CardHeader className="flex justify-between items-center">
         <CardTitle className="text-2xl">CSA | ServiceNow</CardTitle>
         <div className="flex gap-2">
-          <Button onClick={resetQuiz} size="sm" variant="outline">Restart Quiz</Button>
+          <Button onClick={resetQuiz} size="sm" variant="outline">Restart</Button>
           <Button onClick={toggleDarkMode} size="icon" variant="ghost">
             <Moon className="dark:hidden" />
             <Sun className="hidden dark:inline" />
@@ -192,10 +230,14 @@ export default function ServiceNowCSAQuiz() {
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="flex justify-between text-gray-600 dark:text-gray-400">
-          <p>Pergunta {currentQuestionIndex + 1} de {shuffledQuestions.length}</p>
+          <p>Question {currentQuestionIndex + 1} of {shuffledQuestions.length}</p>
           <p>Score: {score}</p>
         </div>
-
+        {mode === 'exam' && (
+          <p className="text-lg text-right">
+            Tempo: {Math.floor(timeLeft/60)}:{(timeLeft%60).toString().padStart(2,'0')}
+          </p>
+        )}
         <h2 className="text-xl font-semibold">{current.question}</h2>
 
         <div className="grid grid-cols-1 gap-3">
@@ -215,27 +257,17 @@ export default function ServiceNowCSAQuiz() {
                     checkAnswers(option)
                   }
                 }}
-                variant={
-                  showFeedback
-                    ? isCorrect
-                      ? 'default'
-                      : isWrongSelection
-                      ? 'destructive'
-                      : 'outline'
-                    : isSelected
-                    ? 'secondary'
-                    : 'outline'
-                }
                 disabled={showFeedback}
-                className="w-full px-4 py-4 sm:py-5 text-left justify-start whitespace-normal break-words leading-relaxed text-sm sm:text-base"
+                className={`w-full max-w-full px-4 py-4 sm:py-5 
+                  text-left justify-start whitespace-normal break-words break-all
+                  leading-relaxed text-sm sm:text-base
+                  ${showFeedback && isCorrect ? 'bg-green-500 text-white' : ''}
+                  ${showFeedback && isWrongSelection ? 'bg-red-500 text-white' : ''}
+                  ${!showFeedback && isSelected ? 'bg-gray-300 dark:bg-gray-700' : ''}
+                `}
               >
                 {isMultipleChoice && (
-                  <input
-                    type="checkbox"
-                    checked={isSelected}
-                    readOnly
-                    className="mr-2"
-                  />
+                  <input type="checkbox" checked={isSelected} readOnly className="mr-2" />
                 )}
                 {option}
               </Button>
@@ -266,8 +298,8 @@ export default function ServiceNowCSAQuiz() {
                 <p className="font-semibold">
                   {new Set(selectedAnswers).size === new Set(current.correctAnswers).size &&
                   [...selectedAnswers].every(ans => current.correctAnswers.includes(ans))
-                    ? 'Correto!'
-                    : 'Incorreto!'}
+                    ? 'Correct!'
+                    : 'Incorrect!'}
                 </p>
                 <p className="mt-2 text-gray-700 dark:text-gray-300">{current.explanation}</p>
               </div>
