@@ -394,12 +394,12 @@
   {
     "question": "Table Access Control rules are processed in which order?",
     "options": [
-      "any table name (wildcard), parent table name, table name",
-      "table name, parent table name, any table name (wildcard)",
-      "parent table name, table name, any table name (wildcard)",
-      "any table name (wildcard), table name, parent table name"
+      "Any table name (wildcard), parent table name, table name",
+      "Table name, parent table name, any table name (wildcard)",
+      "Parent table name, table name, any table name (wildcard)",
+      "Any table name (wildcard), table name, parent table name"
     ],
-    "correctAnswers": ["table name, parent table name, any table name (wildcard)"],
+    "correctAnswers": ["Table name, Parent table name, Any table name (wildcard)"],
     "explanation": ""
   },
   {
