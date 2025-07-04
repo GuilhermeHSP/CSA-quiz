@@ -399,7 +399,7 @@
       "Parent table name, table name, any table name (wildcard)",
       "Any table name (wildcard), table name, parent table name"
     ],
-    "correctAnswers": ["Table name, Parent table name, Any table name (wildcard)"],
+    "correctAnswers": ["Table name, parent table name, any table name (wildcard)"],
     "explanation": ""
   },
   {
@@ -500,8 +500,8 @@
   },
   {
     "question": "Which term best describes something that is created, has work performed upon it, and is eventually moved to a state of closed?",
-    "options": ["report", "flow", "event", "task"],
-    "correctAnswers": ["task"],
+    "options": ["Report", "Flow", "Event", "Task"],
+    "correctAnswers": ["Task"],
     "explanation": ""
   },
   {
@@ -1403,6 +1403,120 @@
       "Add the table reference using the slush bucket"
     ],
     "correctAnswers": ["Drag the data pill onto the flow definition"],
+    "explanation": ""
+  },
+  {
+    "question": "You have heard about a new application released by ServiceNow. You want to try it out, to see if it might be useful for your company's ServiceNow implementation. What would be the best way to get hands-on experience with the new application?",
+    "options": [
+      "Search the wiki for the sales demo request form",
+      "Check the latest release notes at docs servicenow.com",
+      "Activate the application plug in, on your personal dev instance",
+      "Activate the application plug in, on your company's production instance."
+    ],
+    "correctAnswers": ["Activate the application plug in, on your personal dev instance"],
+    "explanation": ""
+  },
+  {
+    "question": "On the Form header, which icon do you use to access form templates?",
+    "options": ["Stamp", "Pages", "More Options (...)", "Paperclip"],
+    "correctAnswers": ["More Options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature enables business process owners to organize Flow Designer content into unified and digitized cross-enterprise processes via a digitized task board interface?",
+    "options": [
+      "Flow Designer",
+      "Workflow Editor",
+      "Process Workflow Designer",
+      "Process Automation Designer"
+    ],
+    "correctAnswers": ["Process Automation Designer"],
+    "explanation": ""
+  },
+  {
+    "question": "When creating a new notification, what must you define? (Choose three.)",
+    "options": [
+      "The associated knowledge base",
+      "Settings for handing inactive user accounts",
+      "Under what conditions is the notification sent",
+      "Who receives the notification",
+      "What the content of the notification"
+    ],
+    "correctAnswers": [
+      "Under what conditions is the notification sent",
+      "Who receives the notification",
+      "What the content of the notification"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What section on a task record would you use to see the most recent update made to a record?",
+    "options": ["Audit Log", "Timeline", "Activity", "Journal"],
+    "correctAnswers": ["Activity"],
+    "explanation": ""
+  },
+  {
+    "question": "When using the Data Pill Picker, use which keys to dot-walk to fields in other tables?",
+    "options": ["Plus, Minus", "Ctrl <, Ctrl >", "Arrows", "Ctrl C, Ctrl V", "Shift F4, Shift F5"],
+    "correctAnswers": ["Arrows"],
+    "explanation": ""
+  },
+  {
+    "question": "What instance resource allows you to access guided tours, information about actions, and instructions on how to use inputs and outputs in your flow?",
+    "options": ["Docs", "Community", "Help Panel (question mark icon)", "Wiki"],
+    "correctAnswers": ["Help Panel (question mark icon)"],
+    "explanation": ""
+  },
+  {
+    "question": "What role enables someone to authorize a request, with no other permissions on the platform?",
+    "options": [
+      "Approval Group [approval_group]",
+      "Authorize [authorize_user]",
+      "Reviewer [reviewer_user]",
+      "Verification [verify_user]",
+      "Approver [approver_user]"
+    ],
+    "correctAnswers": ["Approver [approver_user]"],
+    "explanation": ""
+  },
+  {
+    "question": "You have been asked to create a way for users to order a new iPhone, but only if they get two levels of approval. The approvers and users should be automatically notified at each approval level. What feature would you use to manage the approvals and notifications?",
+    "options": [
+      "Approval Chains",
+      "Flows",
+      "Approver Delegates",
+      "Parent-Child Approvers",
+      "Approval Criteria"
+    ],
+    "correctAnswers": ["Flows"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the main components of the Form Design interface? (Choose three.)",
+    "options": ["Field Layout", "Page Header", "Field Navigator", "Field Picker", "Form Layout"],
+    "correctAnswers": ["Page Header", "Field Navigator", "Form Layout"],
+    "explanation": ""
+  },
+  {
+    "question": "When moving a homepage or dashboard between instances, what must you remember?",
+    "options": [
+      "Manually add them to the update set",
+      "They cannot be moved via update set",
+      "They are automatically added to the update set",
+      "Create a separate update set for them"
+    ],
+    "correctAnswers": ["Manually add them to the update set"],
+    "explanation": ""
+  },
+  {
+    "question": "When looking at a long list of records, you want to quickly filter, to show only those which have Short Description containing email. How might you do that?",
+    "options": [
+      "Click List Magnifier to expand column search, on Short Description, type email, click enter",
+      "On Search box, select text, type email, click enter",
+      "Click List Magnifier to expand column search, on Short Description, type *email, click enter",
+      "Click List Magnifier to expand column search, on Short Description, type %email, click enter"
+    ],
+    "correctAnswers": ["Click List Magnifier to expand column search, on Short Description, type *email, click enter"],
     "explanation": ""
   }
 ]
