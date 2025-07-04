@@ -2006,5 +2006,384 @@
     "options": ["Layout", "Format", "Configure", "Style"],
     "correctAnswers": ["Style"],
     "explanation": ""
+  },
+  {
+    "question": "What contains the configuration changes made in an instance (i.e. changes in a form) and helps to implement the changes from the Dev environment to another environment?",
+    "options": ["Transform maps", "Update sets", "Import sets", "System dictionaries"],
+    "correctAnswers": ["Update sets"],
+    "explanation": ""
+  },
+  {
+    "question": "What icon do you use to change the label on a Favorite?",
+    "options": ["Star", "Clock", "Triangle", "Pencil"],
+    "correctAnswers": ["Pencil"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the object name for a rule that applies to the entire Incident table (all rows and fields)?",
+    "options": ["incident.*", "incidental", "incident.!", "incident.None"],
+    "correctAnswers": ["incident.*"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the options that can be set to determine when a Business Rule executes? (Choose four.)",
+    "options": ["Async", "Load", "Change", "Display", "After", "Before", "Submit", "Click"],
+    "correctAnswers": ["Async", "Display", "After", "Before"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the steps for importing data using an import set?",
+    "options": [
+      "Create Import Set; Create transform map; Transform data; Clean up import table",
+      "Create a Transform Map, Load Data, Transform Data, Run Transform Map Script",
+      "Identify source; Import transform map; Run transformer; Verify import",
+      "Select source file; Run AutoMap; Transform data; Clean up target table"
+    ],
+    "correctAnswers": ["Create Import Set; Create transform map; Transform data; Clean up import table"],
+    "explanation": ""
+  },
+  {
+    "question": "What instance resource allows you to access guided tours, information about actions, and instructions on how to use inputs and outputs in your flow?",
+    "options": ["Now Support", "Community", "Docs", "Help Panel (question mark icon)"],
+    "correctAnswers": ["Help Panel (question mark icon)"],
+    "explanation": ""
+  },
+  {
+    "question": "If a user is on an Incident form and is alerted when they change the value of the Priority field, which type of script executes in the Platform?",
+    "options": ["A server script", "A client script", "A fix script", "A business rule"],
+    "correctAnswers": ["A client script"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability provides assistance to help users obtain information, make decisions, and perform common work tasks via a messaging interface?",
+    "options": ["Now Support", "ServiceNow Messenger", "Agent Workspace", "Virtual Agent", "Knowledge Chat"],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": ""
+  },
+  {
+    "question": "After finishing your work on High Security Settings, what is a possible way to return to normal admin security levels?",
+    "options": [
+      "Select Global Update Set",
+      "Log out and back in",
+      "End Impersonation",
+      "Select Normal role",
+      "Use System Administration > Normal Security module"
+    ],
+    "correctAnswers": ["Log out and back in"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tool is used to define relationships between fields in an import set table and a target table?",
+    "options": ["Schema Map", "Field Transformer", "Transform Map", "Transform Schema"],
+    "correctAnswers": ["Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability allows you to provide knowledge articles via a conversational messaging interface?",
+    "options": ["Agent Assist", "Virtual Agent", "Now Messenger", "Instance Chat"],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the first step in the process to import spreadsheet data into ServiceNow?",
+    "options": ["Select Import Set", "Run Data Scrubber", "Define Data Source", "Create Import Set", "Set Coalesce"],
+    "correctAnswers": ["Define Data Source"],
+    "explanation": ""
+  },
+  {
+    "question": "Which action enables personalization in a form for the admin role, only?",
+    "options": [
+      "Navigate to sys_form_properties.list and set the property glide.ui.enable_personalize_form.admin to true.",
+      "Navigate to Context Menu > Configure > Form Layout and select “Enable Personalization” and enter the “admin” role.",
+      "Navigate to Context Menu > Configure > Table and add the role ‘Admin’ in the “Available User” list box.",
+      "Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."
+    ],
+    "correctAnswers": ["Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."],
+    "explanation": ""
+  },
+  {
+    "question": "Which allows the creation of a task-based record from Service Catalog?",
+    "options": ["Record Producers", "UI Builder", "Assignment Rule", "UI Actions", "Flow Designer"],
+    "correctAnswers": ["Record Producers"],
+    "explanation": ""
+  },
+  {
+    "question": "If users would like to locate and assign a task to themselves in the Platform, what action could they perform from the list view to make the assignment? (Choose two.)",
+    "options": [
+      "Select the record using the check box, then select the Person icon",
+      "Select the record using the check box then select the Assign To Me UI action on the List Header",
+      "Double click on the Assigned to value, type the name of the user, and select the green check",
+      "Right click on the Task number and select the Assign to me option in the menu",
+      "Select the Task number, and select the Assign to me UI action on the form"
+    ],
+    "correctAnswers": [
+      "Double click on the Assigned to value, type the name of the user, and select the green check",
+      "Right click on the Task number and select the Assign to me option in the menu"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature can be used to categorize a set of records from a list and make them visible to other users?",
+    "options": ["Tags", "History", "Favorites", "Activity Formatter"],
+    "correctAnswers": ["Tags"],
+    "explanation": ""
+  },
+  {
+    "question": "Which element is used to track items not saved with a field, in a record?",
+    "options": ["Sidebar", "List Editor", "Activity formatter", "Dictionary"],
+    "correctAnswers": ["Activity formatter"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow utility provides a modern interactive graphical interface to visualize configuration items and their relationships?",
+    "options": ["Flow Design", "CI Class Map", "Dependency View", "Business Service Map"],
+    "correctAnswers": ["Dependency View"],
+    "explanation": ""
+  },
+  {
+    "question": "On the knowledge base record, which tab would you use to define which users are able to write articles to the knowledge base?",
+    "options": ["Can Contribute", "Cannot Author", "Can Read", "Can Write", "Can Author"],
+    "correctAnswers": ["Can Contribute"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the steps to apply an update set retrieved from another instance?",
+    "options": [
+      "Load the Update Set > Import the Update Set > Install",
+      "Verify Update Set is Complete, Retrieve, Preview, Commit",
+      "Verify Update Set is Complete, Test Connection, Apply",
+      "Import the Update Set > Verify the Update Set is complete > Link the Update Set > Publish"
+    ],
+    "correctAnswers": ["Verify Update Set is Complete, Retrieve, Preview, Commit"],
+    "explanation": ""
+  },
+  {
+    "question": "Which role(s) are required to impersonate a user? (Choose two.)",
+    "options": ["security_admin", "sys_admin", "impersonator", "sys_user", "admin"],
+    "correctAnswers": ["sys_admin", "sys_user"],
+    "explanation": ""
+  },
+  {
+    "question": "What enables you to trace the connection from an infrastructure item, like a Server, to the Services that are dependent on that Server?",
+    "options": ["Automapping Utility", "Relationships", "Service Tracer", "Transform Map"],
+    "correctAnswers": ["Relationships"],
+    "explanation": ""
+  },
+  {
+    "question": "Which type of scripts run in the browser?",
+    "options": ["UI Policies", "Script Include Scripts", "Access Control Scripts", "Business Rule Scripts"],
+    "correctAnswers": ["UI Policies"],
+    "explanation": ""
+  },
+  {
+    "question": "What action helps to see which modules are visible to a user?",
+    "options": ["Install the Bomgar plug-in", "Initiate a Connect Chat session", "Launch a NowChat window", "Impersonate the user"],
+    "correctAnswers": ["Impersonate the user"],
+    "explanation": ""
+  },
+  {
+    "question": "What section on a task record is used to see the most recent updates made to a record?",
+    "options": ["Timeline", "Related List", "Activity Stream", "Audit Log"],
+    "correctAnswers": ["Activity Stream"],
+    "explanation": ""
+  },
+  {
+    "question": "When an administrator sets a policy that is applied to all data entered into the Platform (UI, Import Sets, or Web Services), where does this policy run by default?",
+    "options": ["Network", "Server", "Client", "Browser"],
+    "correctAnswers": ["Server"],
+    "explanation": ""
+  },
+  {
+    "question": "On the Form header, which element allows you to access form templates?",
+    "options": ["Stamp", "More Options (...)", "Pages", "Paperclip"],
+    "correctAnswers": ["More Options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tables are available by default in a ServiceNow instance? (Choose three.)",
+    "options": ["User", "Issue", "Incident", "Project", "Task", "Item"],
+    "correctAnswers": ["User", "Incident", "Task"],
+    "explanation": ""
+  },
+  {
+    "question": "Which module in the Service Catalog application is used to create a new catalog item?",
+    "options": ["Configuration Items", "Maintain Items", "Content Items", "Catalog Items"],
+    "correctAnswers": ["Catalog Items"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature can be used to give users the choice to easily populate the most-used fields for a specific table?",
+    "options": ["Tags", "Formatter", "Template", "Reference type fields"],
+    "correctAnswers": ["Template"],
+    "explanation": ""
+  },
+  {
+    "question": "Which helps to visualize configuration items and their relationships?",
+    "options": ["Tables", "Schema Map", "Flow Design", "Transform Map", "Dependency View"],
+    "correctAnswers": ["Dependency View"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the definition of a group?",
+    "options": [
+      "A collection of subject matter experts",
+      "A department",
+      "An escalation pod",
+      "A collection of users",
+      "A collection of tasks"
+    ],
+    "correctAnswers": ["A collection of users"],
+    "explanation": ""
+  },
+  {
+    "question": "The customer has asked that you change the default layout of the Task list. They would like these columns, in this order: Number, Task Type, Parent, Short Description, Assignment Group, Assignee, Updated. After navigating to the list, where would you click, to meet this requirement?",
+    "options": [
+      "Click List Context Menu > Personalize List",
+      "Click List Context Menu > Configure > Columns",
+      "Right click List Gear icon > Configure > Columns",
+      "Right click on any column header, Context Menu > Configure > List Layout"
+    ],
+    "correctAnswers": ["Right click on any column header, Context Menu > Configure > List Layout"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the different Notification methods that can be used to alert users when events that concern them have occurred? (Choose three.)",
+    "options": ["Meeting Invitation", "Email", "Browser Pop ups", "Messenger", "SMS"],
+    "correctAnswers": ["Meeting Invitation", "Email", "SMS"],
+    "explanation": ""
+  },
+  {
+    "question": "Which displays the list of activities, or history, on a form?",
+    "options": ["Formatter", "Dictionary", "Sidebar", "History Menu"],
+    "correctAnswers": ["History Menu"],
+    "explanation": ""
+  },
+  {
+    "question": "When importing data from a spreadsheet, which step defines where the incoming data columns will be written in the receiving table?",
+    "options": ["Select Data Source", "Schedule Transform", "Load Data", "Create Transform Map", "Field Alignment"],
+    "correctAnswers": ["Create Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the benefits of building flows using Flow Designer? (Choose three.)",
+    "options": [
+      "Provides IDE for complicated scripting",
+      "Provides built-in libraries /API for complex coding",
+      "Automatically populates SLA records",
+      "Provides natural-language descriptions of flow logic",
+      "Supports No-Code application development",
+      "Supports easy integration with 3rd party systems"
+    ],
+    "correctAnswers": [
+      "Provides natural-language descriptions of flow logic",
+      "Supports No-Code application development",
+      "Supports easy integration with 3rd party systems"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What helps to define the structure of a catalog item form that is displayed to the customer?",
+    "options": ["Variables", "Catalog Description", "Catalog Definition", "Order Guides"],
+    "correctAnswers": ["Variables"],
+    "explanation": ""
+  },
+  {
+    "question": "While using the CMDB, what do you call the component that needs to be managed in order to deliver services?",
+    "options": ["Configuration Item", "Asset", "Catalog Items", "Data Flow", "Service Offerings"],
+    "correctAnswers": ["Configuration Item"],
+    "explanation": ""
+  },
+  {
+    "question": "An administrator creates “customer_table_admin” and “customer_table_user” roles for the newly created 'Customer Table’. Which ACL rule would grant access to all rows and all fields to both roles?",
+    "options": ["customer.none", "customer.all", "customer.field", "customer.*"],
+    "correctAnswers": ["customer.none"],
+    "explanation": ""
+  },
+  {
+    "question": "In a Knowledge Base record, where can an administrator find the User Criteria for who can read the articles?",
+    "options": ["From the Accessible to tab", "From the Available to tab", "From the Can Access tab", "From the Can Read tab"],
+    "correctAnswers": ["From the Can Read tab"],
+    "explanation": ""
+  },
+  {
+    "question": "On a list, what does each row show?",
+    "options": ["A filter", "A record", "A table", "A field"],
+    "correctAnswers": ["A record"],
+    "explanation": ""
+  },
+  {
+    "question": "When moving a homepage or dashboard between instances, what must you remember?",
+    "options": [
+      "Download both as PDF and XML files",
+      "They cannot be moved via update set",
+      "The Platform will automatically add them to the update set",
+      "Manually add them to the update set"
+    ],
+    "correctAnswers": ["Manually add them to the update set"],
+    "explanation": ""
+  },
+  {
+    "question": "Which set of steps is used to import spreadsheet data into a ServiceNow table?",
+    "options": [
+      "Select Data Source, Schedule Transform",
+      "Load Data, Create Transform Map, Run Transform",
+      "Define Data Source, Select Transform Map, Run Transform",
+      "Select Import Set, Select Transform Map, Run Transform"
+    ],
+    "correctAnswers": ["Load Data, Create Transform Map, Run Transform"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tables are children of the Task table and come with the base system? (Choose three.)",
+    "options": ["Config", "Problem", "Dictionary", "cmdb", "Incident", "Change Request"],
+    "correctAnswers": ["Problem", "Incident", "Change Request"],
+    "explanation": ""
+  },
+  {
+    "question": "Where should an administrator navigate to add the 'Save' button in the form header?",
+    "options": [
+      "Context Menu > Form Design",
+      "All > System Properties > UI Action Settings",
+      "All > System Properties > UI Properties",
+      "Context Menu > Form Layout"
+    ],
+    "correctAnswers": ["All > System Properties > UI Properties"],
+    "explanation": ""
+  },
+  {
+    "question": "The testing team needs to be able to perform activities in the test instance, as though they are a member of the Service Desk group. What role would they need to be able to switch between user accounts, without logging out and back in?",
+    "options": ["service desk", "impersonator", "admin", "incognito"],
+    "correctAnswers": ["impersonator"],
+    "explanation": ""
+  },
+  {
+    "question": "What module enables an administrator to define destinations for imported data on any ServiceNow table?",
+    "options": ["Load Data", "Field Transform", "Schema Map", "Transform Map"],
+    "correctAnswers": ["Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "What protects applications by restricting access to data in another application, in the same instance?",
+    "options": ["Admin Center", "Access Control Rules", "Assignment Rules", "Application Scope"],
+    "correctAnswers": ["Application Scope"],
+    "explanation": ""
+  },
+  {
+    "question": "On a form header, what icon would you click to access Template features?",
+    "options": ["Context Menu", "Paper clip", "Stamp", "More options (...)"],
+    "correctAnswers": ["More options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "What does ServiceNow recommend as a best practice regarding data imports?",
+    "options": [
+      "Adjust your Transform maps, after the data is loaded into the target table.",
+      "Use extremely large Import Sets, instead of multiple large Import Sets.",
+      "Create a new Import set table for each new data load.",
+      "Plan time before your import to remove obsolete or inaccurate data.",
+      "Monitor data quality and clean imported data, using the Data Scrub Workspace."
+    ],
+    "correctAnswers": ["Plan time before your import to remove obsolete or inaccurate data."],
+    "explanation": ""
   }
 ]
