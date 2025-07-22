@@ -38,12 +38,16 @@ export default function ServiceNowCSAQuiz() {
     document.documentElement.classList.toggle('dark')
   }
 
-  const shuffleArray = (array: Question[]) => {
-    return array
-      .map((q) => ({ q, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ q }) => q)
-  }
+const shuffleArray = (array: Question[]) => {
+  return array
+    .map((q) => ({
+      ...q,
+      options: [...q.options].sort(() => Math.random() - 0.5), // embaralha alternativas
+      sort: Math.random()
+    }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ sort, ...q }) => q)
+}
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -81,20 +85,27 @@ export default function ServiceNowCSAQuiz() {
     }
   }
 
-  useEffect(() => {
-    if (mode !== 'exam' || quizCompleted) return
-    const timer = setInterval(() => {
-      setTimeLeft(t => {
-        if (t <= 1) {
-          clearInterval(timer)
-          setQuizCompleted(true)
-          return 0
-        }
-        return t - 1
-      })
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [mode, quizCompleted])
+useEffect(() => {
+  if (mode !== 'exam' || quizCompleted) return
+
+  const timer = setInterval(() => {
+    setTimeLeft((prevTime) => {
+      if (prevTime <= 1) {
+        clearInterval(timer)
+        return 0
+      }
+      return prevTime - 1
+    })
+  }, 1000)
+
+  return () => clearInterval(timer)
+}, [mode, quizCompleted])
+
+useEffect(() => {
+  if (mode === 'exam' && timeLeft === 0 && !quizCompleted) {
+    setQuizCompleted(true)
+  }
+}, [timeLeft, mode, quizCompleted])
 
   useEffect(() => {
     if (mode === 'study' && shuffledQuestions.length > 0) {
