@@ -38,16 +38,14 @@ export default function ServiceNowCSAQuiz() {
     document.documentElement.classList.toggle('dark')
   }
 
-  const shuffleArray = (array: Question[]) => {
-    return array
-      .map((q) => ({
-        ...q,
-        options: [...q.options].sort(() => Math.random() - 0.5), // embaralha alternativas
-        _sortKey: Math.random()
-      }))
-      .sort((a, b) => a._sortKey - b._sortKey)
-      .map(({ _sortKey, ...q }) => q)
-  }
+const shuffleArray = (array: Question[]) => {
+  return [...array]
+    .map((q) => ({
+      ...q,
+      options: [...q.options].sort(() => Math.random() - 0.5) // embaralha alternativas
+    }))
+    .sort(() => Math.random() - 0.5) // embaralha perguntas
+}
 
   useEffect(() => {
     const fetchQuestions = async () => {
