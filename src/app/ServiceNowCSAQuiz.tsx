@@ -38,16 +38,16 @@ export default function ServiceNowCSAQuiz() {
     document.documentElement.classList.toggle('dark')
   }
 
-const shuffleArray = (array: Question[]) => {
-  return array
-    .map((q) => ({
-      ...q,
-      options: [...q.options].sort(() => Math.random() - 0.5), // embaralha alternativas
-      sort: Math.random()
-    }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ sort, ...q }) => q)
-}
+  const shuffleArray = (array: Question[]) => {
+    return array
+      .map((q) => ({
+        ...q,
+        options: [...q.options].sort(() => Math.random() - 0.5), // embaralha alternativas
+        _sortKey: Math.random()
+      }))
+      .sort((a, b) => a._sortKey - b._sortKey)
+      .map(({ _sortKey, ...q }) => q)
+  }
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -85,27 +85,27 @@ const shuffleArray = (array: Question[]) => {
     }
   }
 
-useEffect(() => {
-  if (mode !== 'exam' || quizCompleted) return
+  useEffect(() => {
+    if (mode !== 'exam' || quizCompleted) return
 
-  const timer = setInterval(() => {
-    setTimeLeft((prevTime) => {
-      if (prevTime <= 1) {
-        clearInterval(timer)
-        return 0
-      }
-      return prevTime - 1
-    })
-  }, 1000)
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(timer)
+          return 0
+        }
+        return prevTime - 1
+      })
+    }, 1000)
 
-  return () => clearInterval(timer)
-}, [mode, quizCompleted])
+    return () => clearInterval(timer)
+  }, [mode, quizCompleted])
 
-useEffect(() => {
-  if (mode === 'exam' && timeLeft === 0 && !quizCompleted) {
-    setQuizCompleted(true)
-  }
-}, [timeLeft, mode, quizCompleted])
+  useEffect(() => {
+    if (mode === 'exam' && timeLeft === 0 && !quizCompleted) {
+      setQuizCompleted(true)
+    }
+  }, [timeLeft, mode, quizCompleted])
 
   useEffect(() => {
     if (mode === 'study' && shuffledQuestions.length > 0) {
@@ -245,7 +245,7 @@ useEffect(() => {
         </div>
         {mode === 'exam' && (
           <p className="text-lg text-right">
-            Tempo: {Math.floor(timeLeft/60)}:{(timeLeft%60).toString().padStart(2,'0')}
+            Tempo: {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
           </p>
         )}
         <h2 className="text-xl font-semibold">{current.question}</h2>
