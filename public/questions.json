@@ -246,7 +246,7 @@
   {
     "question": "Which of the following is used to initiate a flow?",
     "options": ["A Trigger", "Core Action", "A spoke", "An Event"],
-    "correctAnswers": ["An Event"],
+    "correctAnswers": ["A Trigger"],
     "explanation": ""
   },
   {
@@ -331,7 +331,7 @@
       "Insert saves changes and exits the form, Update saves changes and remains on the form",
       "Insert saves changes and remains on the form, Update saves changes and exits the form"
     ],
-    "correctAnswers": ["Insert saves changes and exits the form, Update saves changes and remains on the form"],
+    "correctAnswers": ["Insert creates a new record and Update saves changes, both exit the form"],
     "explanation": ""
   },
   {
@@ -667,9 +667,9 @@
     "explanation": ""
   },
   {
-    "question": "What are the steps for applying an update set to an instance? (Select 3 Answers)",
-    "options": ["Preview", "Retrieve", "Copy", "Delete", "Commit"],
-    "correctAnswers": ["Retrieve"],
+    "question": "What are the steps to retrive an Update Set?",
+    "options": ["Verify Update Set is complete, Retrieve, Preview, Apply", "Verify Update Set is Complete, Test Connection, Apply", "Verify Update Set is Complete, Test Connection, Commit", "Verify Update Set is Complete, Retrieve, Preview, Commit"],
+    "correctAnswers": ["Verify Update Set is Complete, Retrieve, Preview, Commit"],
     "explanation": ""
   },
   {
