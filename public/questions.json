@@ -52,7 +52,7 @@
       "If a match is not found using the coalesce fields, the existing record is updated"
     ],
     "correctAnswers": ["If a match is found using the coalesce fields, the existing record is updated with the information being imported"],
-    "explanation": ""
+    "explanation": "Os 'Coalesce fields' são usados como chave única para encontrar registros existentes durante uma importação. Se houver correspondência, o registro é atualizado. Caso contrário, um novo é criado, conforme descrito no Módulo 4: Manage Data > Seção 4.3: Import Data > Coalesce fields"
   },
   {
     "question": "Which ServiceNow products can be used to discover and populate the CMDB?",
@@ -150,7 +150,7 @@
     "question": "Which term refers to application menus and modules you may want to access quickly?",
     "options": ["Breadcrumb", "Favorite", "Tag", "Bookmark"],
     "correctAnswers": ["Favorite"],
-    "explanation": ""
+    "explanation": "'Favorites' é uma funcionalidade que permite ao usuário marcar menus e módulos mais usados, para acessá-los de forma rápida no futuro, sem ter que navegar por toda a estrutura do ServiceNow."
   },
   {
     "question": "Which group of permissions is used to control Application and Module access?",
@@ -177,8 +177,8 @@
       "Catalog Items, Asset Contracts, Task Surveys",
       "Record Producers, Order Guides, and Catalog Items"
     ],
-    "correctAnswers": ["Record Producers", "Order Guides", "Catalog Items"],
-    "explanation": ""
+    "correctAnswers": ["Record Producers, Order Guides, and Catalog Items"],
+    "explanation": "O Service Catalog pode incluir Record Producers, Order Guides e Catalog Items, conforme descrito no módulo 5 do guia oficial: ServiceNow Administration Fundamentals: Participant Guide, seção 5.2 - 'What is Service Catalog?'"
   },
   {
     "question": "What is the name of the conversational bot platform that provides assistance?",
@@ -357,7 +357,7 @@
     "explanation": ""
   },
   {
-    "question": "As it relates to ServiceNow reporting, what is a metric?",
+    "question": "As it relate to ServiceNow reporting, which of the following statement describes what a metric can do?",
     "options": [
       "A metric is a report gauge used on homepages to display real-time data",
       "A metric is a time measurement used to report the effectiveness of workflows and SLAs",
@@ -365,7 +365,7 @@
       "A metric is a comparative measurement used to report the effectiveness of flows and SLAs"
     ],
     "correctAnswers": ["A metric is used to measure and evaluate the effectiveness of IT service management processes"],
-    "explanation": ""
+    "explanation": "Uma métrica mede e avalia a eficácia dos processos de gerenciamento de serviços de TI. Baseado na documentação do ServiceNow - Managing the Now Platform > Configure core features > Metrics"
   },
   {
     "question": "Which statement describes the purpose of an Order Guide?",
@@ -490,7 +490,7 @@
     "question": "What module in the Service Catalog application does an Administrator access to begin creating a new item?",
     "options": ["Maintain Categories", "Maintain Items", "Content Items", "Items"],
     "correctAnswers": ["Maintain Items"],
-    "explanation": ""
+    "explanation": "O módulo 'Maintain Items' permite visualizar, editar e criar novos itens de catálogo, opções que os usuários podem solicitar através do catálogo de serviços."
   },
   {
     "question": "A knowledge article must be which of the following states to display to a user?",
