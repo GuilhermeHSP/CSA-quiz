@@ -466,7 +466,7 @@
       "FULFILLMENT (Number)>RITM (Number)>TASK (Number)"
     ],
     "correctAnswers": ["REQ (Number)>RITM (Number)>TASK (Number)"],
-    "explanation": ""
+    "explanation": "O caminho correto é acessar o Pedido (REQ), depois o Item Solicitado (RITM) e então as Tarefas (TASK) de fulfillment associadas ao item. Fonte: Módulo 5: Configure self-service, Seção 5.2: Service Catalog, Artigo Service Catalog item request output."
   },
   {
     "question": "Which would NOT appear in the History section of the Application Navigator?",
@@ -505,10 +505,10 @@
     "explanation": ""
   },
   {
-    "question": "Knowledge Base Search results can be sorted by which of the following?",
+    "question": "Knowledge Base Search can be sorted by which of the following? (Choose three.)",
     "options": ["Most recent update", "Popularity", "Relevancy", "Manager assignment", "Number of views"],
     "correctAnswers": ["Most recent update", "Relevancy", "Number of views"],
-    "explanation": ""
+    "explanation": "De acordo com a documentação do Search knowledge base: 'It also displays lists of articles by: Featured content (most recent update), Most useful (relevancy) and most viewed (number of views)'"
   },
   {
     "question": "What allows agents to initiate a group discussion from a Workspace task-based or interaction-based record?",
@@ -639,7 +639,7 @@
       "Product Owner does not have itil role"
     ],
     "correctAnswers": ["Product Owner does not have itil role"],
-    "explanation": ""
+    "explanation": "A 'itil role' é uma função padrão no ServiceNow que concede acesso às funcionalidades de gerenciamento de serviços de TI (ITSM), como: visualizar e editar Incidents, Problems, Changes, Requests, Tasks e usar listas como My Work e My Group Work List."
   },
   {
     "question": "Which tab contains the Activity Stream for a task?",
@@ -2089,17 +2089,17 @@
     "options": ["Select Import Set", "Run Data Scrubber", "Define Data Source", "Create Import Set", "Set Coalesce"],
     "correctAnswers": ["Define Data Source"],
     "explanation": ""
-  },
+  },  
   {
     "question": "Which action enables personalization in a form for the admin role, only?",
     "options": [
       "Navigate to sys_form_properties.list and set the property glide.ui.enable_personalize_form.admin to true.",
       "Navigate to Context Menu > Configure > Form Layout and select “Enable Personalization” and enter the “admin” role.",
-      "Navigate to Context Menu > Configure > Table and add the role ‘Admin’ in the “Available User” list box.",
+      "Navigate to Context Menu > Configure > Table and add the role 'Admin' in the “Available User” list box.",
       "Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."
     ],
     "correctAnswers": ["Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."],
-    "explanation": ""
+    "explanation": "A propriedade 'glide.ui.personalize_form.role' define qual papel pode personalizar formulários. Ao definir como 'admin', apenas administradores podem usar a personalização. Fonte: Módulo 3 > Seção 3.2 > Personalize form view (classic environment)"
   },
   {
     "question": "Which allows the creation of a task-based record from Service Catalog?",
@@ -2385,5 +2385,16 @@
     ],
     "correctAnswers": ["Plan time before your import to remove obsolete or inaccurate data."],
     "explanation": ""
+  },
+  {
+    "question": "Reports can be created from which different places in the platform. (Choose two.)",
+    "options": [
+      "List column heading",
+      "Metrics module",
+      "Statistics module",
+      "View / Run module"
+    ],
+    "correctAnswers": ["List column heading", "View / Run module"],
+    "explanation": "Relatórios podem ser criados pelo módulo 'View / Run', acessando All > Reports, ou diretamente em listas, clicando com o botão direito no cabeçalho de uma coluna como 'Name' e selecionando 'Bar Chart'."
   }
 ]
