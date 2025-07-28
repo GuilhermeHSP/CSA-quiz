@@ -2,7 +2,8 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, X, Moon, Sun } from 'lucide-react'
+import { Check, X, Moon, Sun, Clock } from 'lucide-react'
+import Image from 'next/image'
 
 type Question = {
   question: string
@@ -38,14 +39,14 @@ export default function ServiceNowCSAQuiz() {
     document.documentElement.classList.toggle('dark')
   }
 
-const shuffleArray = (array: Question[]) => {
-  return [...array]
-    .map((q) => ({
-      ...q,
-      options: [...q.options].sort(() => Math.random() - 0.5) // embaralha alternativas
-    }))
-    .sort(() => Math.random() - 0.5) // embaralha perguntas
-}
+  const shuffleArray = (array: Question[]) => {
+    return [...array]
+      .map((q) => ({
+        ...q,
+        options: [...q.options].sort(() => Math.random() - 0.5)
+      }))
+      .sort(() => Math.random() - 0.5)
+  }
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -171,23 +172,43 @@ const shuffleArray = (array: Question[]) => {
 
   if (mode === 'menu') {
     return (
-      <Card className="w-full max-w-2xl mx-auto mt-8">
-        <CardHeader className="flex justify-between items-center">
-          <CardTitle className="text-2xl text-center">CSA | ServiceNow</CardTitle>
-          <Button onClick={toggleDarkMode} size="icon" variant="ghost">
-            <Moon className="dark:hidden" />
-            <Sun className="hidden dark:inline" />
-          </Button>
-        </CardHeader>
-        <CardContent className="space-y-6 text-center">
-          <Button className="w-full" onClick={() => startQuiz('study')}>
-            Modo Estudo
-          </Button>
-          <Button className="w-full" onClick={() => startQuiz('exam')}>
-            Modo Simulado
-          </Button>
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-2xl mx-auto mt-8 px-4">
+        <Card className="relative w-full p-6 rounded-2xl shadow-lg bg-white dark:bg-zinc-900 border border-zinc-200 text-center">
+          <button
+            onClick={toggleDarkMode}
+            className="absolute top-4 right-4 p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 hover:bg-muted dark:hover:bg-muted/50 rounded-full transition"
+          >
+            <Moon className="dark:hidden w-5 h-5" />
+            <Sun className="hidden dark:inline w-5 h-5" />
+          </button>
+
+          <div className="mb-8">
+            <Image
+              src="/images/ServiceNowBlack.png"
+              alt="ServiceNow logo"
+              width={600}
+              height={60}
+              className="mx-auto max-w-[80%] h-auto dark:hidden"
+            />
+            <Image
+              src="/images/ServiceNowWhite.png"
+              alt="ServiceNow logo"
+              width={600}
+              height={60}
+              className="mx-auto max-w-[80%] h-auto hidden dark:block"
+            />
+          </div>
+
+          <div className="space-y-4">
+            <Button className="w-full" onClick={() => startQuiz('study')}>
+              Study Mode
+            </Button>
+            <Button className="w-full" onClick={() => startQuiz('exam')}>
+              Exam Simulation Mode
+            </Button>
+          </div>
+        </Card>
+      </div>
     )
   }
 
@@ -195,7 +216,7 @@ const shuffleArray = (array: Question[]) => {
     return (
       <Card className="w-full max-w-2xl mx-auto mt-8">
         <CardHeader className="flex justify-between items-center">
-          <CardTitle className="text-2xl text-center">Resultados</CardTitle>
+          <CardTitle className="text-2xl text-center">Results</CardTitle>
           <Button onClick={toggleDarkMode} size="icon" variant="ghost">
             <Moon className="dark:hidden" />
             <Sun className="hidden dark:inline" />
@@ -204,16 +225,14 @@ const shuffleArray = (array: Question[]) => {
         <CardContent className="space-y-6 text-center">
           <p className="text-4xl font-bold mb-2">{calculatePercentage()}%</p>
           <p className="text-lg">
-            Você acertou {score} de {shuffledQuestions.length} questões
+            You answered {score} out of {shuffledQuestions.length} questions correctly!
           </p>
           {mode === 'exam' && (
-            <>
-              {calculatePercentage() >= 70 ? (
-                <p className="text-green-600 font-bold">✅ Aprovado!</p>
-              ) : (
-                <p className="text-red-600 font-bold">❌ Reprovado</p>
-              )}
-            </>
+            calculatePercentage() >= 70 ? (
+              <p className="text-green-600 font-bold">✅ Passed!</p>
+            ) : (
+              <p className="text-red-600 font-bold">❌ Failed</p>
+            )
           )}
           <Button onClick={resetQuiz} className="w-full">Restart</Button>
         </CardContent>
@@ -227,7 +246,24 @@ const shuffleArray = (array: Question[]) => {
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8">
       <CardHeader className="flex justify-between items-center">
-        <CardTitle className="text-2xl">CSA | ServiceNow</CardTitle>
+        <div className="h-8 flex items-center">
+          {/* Logo para tema claro */}
+          <Image
+            src="/images/ServiceNowBlack.png"
+            alt="ServiceNow logo"
+            width={150}
+            height={32}
+            className="dark:hidden block"
+          />
+          {/* Logo para tema escuro */}
+          <Image
+            src="/images/ServiceNowWhite.png"
+            alt="ServiceNow logo"
+            width={150}
+            height={32}
+            className="hidden dark:block"
+          />
+        </div>
         <div className="flex gap-2">
           <Button onClick={resetQuiz} size="sm" variant="outline">Restart</Button>
           <Button onClick={toggleDarkMode} size="icon" variant="ghost">
@@ -237,15 +273,18 @@ const shuffleArray = (array: Question[]) => {
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="flex justify-between text-gray-600 dark:text-gray-400">
+        <div className="flex flex-wrap justify-between items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base gap-y-2">
           <p>Question {currentQuestionIndex + 1} of {shuffledQuestions.length}</p>
+          {mode === 'exam' ? (
+            <div className="flex items-center gap-1 px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800">
+              <Clock className="w-4 h-4" />
+              <span>{Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}</span>
+            </div>
+          ) : (
           <p>Score: {score}</p>
+          )}
         </div>
-        {mode === 'exam' && (
-          <p className="text-lg text-right">
-            Tempo: {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
-          </p>
-        )}
+
         <h2 className="text-xl font-semibold">{current.question}</h2>
 
         <div className="flex flex-col gap-5">
@@ -299,7 +338,7 @@ const shuffleArray = (array: Question[]) => {
           <div className="mt-4 p-4 rounded-lg bg-gray-100 dark:bg-gray-800" aria-live="polite">
             <div className="flex items-start gap-2">
               {new Set(selectedAnswers).size === new Set(current.correctAnswers).size &&
-              [...selectedAnswers].every(ans => current.correctAnswers.includes(ans)) ? (
+                [...selectedAnswers].every(ans => current.correctAnswers.includes(ans)) ? (
                 <Check className="text-green-600 mt-1" />
               ) : (
                 <X className="text-red-600 mt-1" />
@@ -307,7 +346,7 @@ const shuffleArray = (array: Question[]) => {
               <div>
                 <p className="font-semibold">
                   {new Set(selectedAnswers).size === new Set(current.correctAnswers).size &&
-                  [...selectedAnswers].every(ans => current.correctAnswers.includes(ans))
+                    [...selectedAnswers].every(ans => current.correctAnswers.includes(ans))
                     ? 'Correct!'
                     : 'Incorrect!'}
                 </p>
@@ -315,7 +354,7 @@ const shuffleArray = (array: Question[]) => {
               </div>
             </div>
             <Button onClick={moveToNextQuestion} className="mt-4 w-full">
-              {currentQuestionIndex < shuffledQuestions.length - 1 ? 'Próxima Pergunta' : 'Ver Resultados'}
+              {currentQuestionIndex < shuffledQuestions.length - 1 ? 'Next question' : 'View Results'}
             </Button>
           </div>
         )}
