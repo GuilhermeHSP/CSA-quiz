@@ -14,22 +14,11 @@ type Question = {
   validated?: boolean
 }
 
-// Adicionamos o novo modo 'short-simulate'
-type Mode = 'menu' | 'study' | 'exam' | 'short-simulate'
-
-// Função para dividir as questões em blocos fixos
-const splitIntoSimulados = (questions: Question[], size: number = 15) => {
-  const simulados: Question[][] = []
-  for (let i = 0; i < questions.length; i += size) {
-    simulados.push(questions.slice(i, i + size))
-  }
-  return simulados
-}
+type Mode = 'menu' | 'study' | 'exam'
 
 export default function ServiceNowCSAQuiz() {
   const [mode, setMode] = useState<Mode>('menu')
   const [baseQuestions, setBaseQuestions] = useState<Question[]>([])
-  const [simulados, setSimulados] = useState<Question[][]>([])
   const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [score, setScore] = useState(0)
@@ -38,7 +27,6 @@ export default function ServiceNowCSAQuiz() {
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
-  const [selectedSimuladoIndex, setSelectedSimuladoIndex] = useState<number | null>(null)
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -70,63 +58,35 @@ export default function ServiceNowCSAQuiz() {
         correctAnswers: q.correctAnswers ?? [q.correctAnswer]
       }))
       setBaseQuestions(normalized)
-      // Geramos os simulados fixos logo no carregamento
-      setSimulados(splitIntoSimulados(normalized, 15))
     }
     fetchQuestions()
   }, [])
 
-  const startQuiz = (selectedMode: Mode, simuladoIndex?: number) => {
-    setMode(selectedMode);
-    setQuizCompleted(false);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setQuestionsAnswered(0);
-    setSelectedAnswers([]);
-    setShowFeedback(false);
-    setTimeLeft(0);
-    setSelectedSimuladoIndex(null);
-
-    let questionsToUse: Question[] = [];
-
-    if (selectedMode === 'study') {
-      const savedProgress = localStorage.getItem('ServiceNowCSAQuiz');
-      if (savedProgress) {
-        const data = JSON.parse(savedProgress);
-        setShuffledQuestions(data.shuffledQuestions);
-        setCurrentQuestionIndex(data.currentQuestionIndex);
-        setScore(data.score);
-        setSelectedAnswers(data.selectedAnswers);
-        setQuizCompleted(data.quizCompleted);
-        setQuestionsAnswered(data.questionsAnswered);
-        setShowFeedback(data.showFeedback);
-        return;
-      }
-      // Embaralha as questões e as opções
-      questionsToUse = shuffleArray(baseQuestions);
-    }
-    if (selectedMode === 'exam') {
-      // Embaralha as questões e as opções
-      questionsToUse = shuffleArray(baseQuestions).slice(0, 60);
-      setTimeLeft(90 * 60);
-    }
-    if (selectedMode === 'short-simulate' && simuladoIndex !== undefined) {
-      setSelectedSimuladoIndex(simuladoIndex);
-      // Apenas embaralha as opções, mantendo a ordem das questões fixa
-      questionsToUse = (simulados[simuladoIndex] || []).map(q => ({
-        ...q,
-        options: [...q.options].sort(() => Math.random() - 0.5)
-      }));
-      setTimeLeft(30 * 60);
-   }
-
-    // Define o estado com as questões processadas
-    if (questionsToUse.length > 0) {
-        setShuffledQuestions(questionsToUse);
+  const startQuiz = (selectedMode: Mode) => {
+    setMode(selectedMode)
+    if (selectedMode === 'study') {
+      const savedProgress = localStorage.getItem('ServiceNowCSAQuiz')
+      if (savedProgress) {
+        const data = JSON.parse(savedProgress)
+        setShuffledQuestions(data.shuffledQuestions)
+        setCurrentQuestionIndex(data.currentQuestionIndex)
+        setScore(data.score)
+        setSelectedAnswers(data.selectedAnswers)
+        setQuizCompleted(data.quizCompleted)
+        setQuestionsAnswered(data.questionsAnswered)
+        setShowFeedback(data.showFeedback)
+        return
+      }
+      setShuffledQuestions(shuffleArray(baseQuestions))
     }
-  };
+    if (selectedMode === 'exam') {
+      setShuffledQuestions(shuffleArray(baseQuestions).slice(0, 60))
+      setTimeLeft(90 * 60)
+    }
+  }
+
   useEffect(() => {
-    if (mode !== 'exam' && mode !== 'short-simulate' || quizCompleted) return
+    if (mode !== 'exam' || quizCompleted) return
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
@@ -142,7 +102,7 @@ export default function ServiceNowCSAQuiz() {
   }, [mode, quizCompleted])
 
   useEffect(() => {
-    if ((mode === 'exam' || mode === 'short-simulate') && timeLeft === 0 && !quizCompleted) {
+    if (mode === 'exam' && timeLeft === 0 && !quizCompleted) {
       setQuizCompleted(true)
     }
   }, [timeLeft, mode, quizCompleted])
@@ -203,7 +163,6 @@ export default function ServiceNowCSAQuiz() {
     setQuizCompleted(false)
     setQuestionsAnswered(0)
     setTimeLeft(0)
-    setSelectedSimuladoIndex(null)
     localStorage.removeItem('ServiceNowCSAQuiz')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -241,38 +200,14 @@ export default function ServiceNowCSAQuiz() {
             />
           </div>
 
-          {/* Oculta os botões de simulado curto se estivermos em um deles */}
-          {selectedSimuladoIndex === null ? (
-            <div className="space-y-4">
-              <Button className="w-full" onClick={() => startQuiz('study')}>
-                Study Mode
-              </Button>
-              <Button className="w-full" onClick={() => startQuiz('exam')}>
-                Exam Simulation Mode
-              </Button>
-              <Button className="w-full" onClick={() => setSelectedSimuladoIndex(-1)}>
-                Short Simulates (15 questions)
-              </Button>
-            </div>
-          ) : (
-            <>
-              <h3 className="text-xl font-semibold mb-4">Select a short simulate:</h3>
-              <div className="grid grid-cols-2 gap-2">
-                {simulados.map((_, idx) => (
-                  <Button
-                    key={idx}
-                    className="w-full"
-                    onClick={() => startQuiz('short-simulate', idx)}
-                  >
-                    Simulado {idx + 1}
-                  </Button>
-                ))}
-              </div>
-              <Button onClick={() => setSelectedSimuladoIndex(null)} className="mt-4 w-full" variant="outline">
-                Back to Menu
-              </Button>
-            </>
-          )}
+          <div className="space-y-4">
+            <Button className="w-full" onClick={() => startQuiz('study')}>
+              Study Mode
+            </Button>
+            <Button className="w-full" onClick={() => startQuiz('exam')}>
+              Exam Simulation Mode
+            </Button>
+          </div>
         </Card>
       </div>
     )
@@ -293,7 +228,7 @@ export default function ServiceNowCSAQuiz() {
           <p className="text-lg">
             You answered {score} out of {shuffledQuestions.length} questions correctly!
           </p>
-          {(mode === 'exam' || mode === 'short-simulate') && (
+          {mode === 'exam' && (
             calculatePercentage() >= 75 ? (
               <p className="text-green-600 font-bold">✅ Passed!</p>
             ) : (
@@ -307,16 +242,13 @@ export default function ServiceNowCSAQuiz() {
   }
 
   const current = shuffledQuestions[currentQuestionIndex]
-  const isMultipleChoice = current?.correctAnswers.length > 1
-
-  if (!current) {
-    return <div>Loading questions...</div>
-  }
+  const isMultipleChoice = current.correctAnswers.length > 1
 
   return (
     <Card className="w-full max-w-2xl mx-auto mt-8">
       <CardHeader className="flex justify-between items-center">
         <div className="h-8 flex items-center">
+          {/* Logo para tema claro */}
           <Image
             src="/images/ServiceNowBlack.png"
             alt="ServiceNow logo"
@@ -324,6 +256,7 @@ export default function ServiceNowCSAQuiz() {
             height={32}
             className="dark:hidden block"
           />
+          {/* Logo para tema escuro */}
           <Image
             src="/images/ServiceNowWhite.png"
             alt="ServiceNow logo"
@@ -343,7 +276,7 @@ export default function ServiceNowCSAQuiz() {
       <CardContent className="space-y-6">
         <div className="flex flex-wrap justify-between items-center text-gray-600 dark:text-gray-400 text-sm sm:text-base gap-y-2">
           <p>Question {currentQuestionIndex + 1} of {shuffledQuestions.length}</p>
-          {(mode === 'exam' || mode === 'short-simulate') ? (
+          {mode === 'exam' ? (
             <div className="flex items-center gap-1 px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800">
               <Clock className="w-4 h-4" />
               <span>{Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}</span>

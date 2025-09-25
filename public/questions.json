@@ -8,9 +8,10 @@
       "Workflows cannot be moved between instances"
     ],
     "correctAnswers": ["Workflows are moved using Update Sets"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
-  {
+    {
     "question": "Which statement is true about business rules?",
     "options": [
       "A business rule must run before a database action occurs",
@@ -52,7 +53,8 @@
       "If a match is not found using the coalesce fields, the existing record is updated"
     ],
     "correctAnswers": ["If a match is found using the coalesce fields, the existing record is updated with the information being imported"],
-    "explanation": "Os 'Coalesce fields' são usados como chave única para encontrar registros existentes durante uma importação. Se houver correspondência, o registro é atualizado. Caso contrário, um novo é criado, conforme descrito no Módulo 4: Manage Data > Seção 4.3: Import Data > Coalesce fields"
+    "explanation": "Os 'Coalesce fields' são usados como chave única para encontrar registros existentes durante uma importação. Se houver correspondência, o registro é atualizado. Caso contrário, um novo é criado, conforme descrito no Módulo 4: Manage Data > Seção 4.3: Import Data > Coalesce fields",
+    "validated": true
   },
   {
     "question": "Which ServiceNow products can be used to discover and populate the CMDB?",
@@ -178,7 +180,8 @@
       "Record Producers, Order Guides, and Catalog Items"
     ],
     "correctAnswers": ["Record Producers, Order Guides, and Catalog Items"],
-    "explanation": "O Service Catalog pode incluir Record Producers, Order Guides e Catalog Items, conforme descrito no módulo 5 do guia oficial: ServiceNow Administration Fundamentals: Participant Guide, seção 5.2 - 'What is Service Catalog?'"
+    "explanation": "O Service Catalog pode incluir Record Producers, Order Guides e Catalog Items, conforme descrito no módulo 5 do guia oficial: ServiceNow Administration Fundamentals: Participant Guide, seção 5.2 - 'What is Service Catalog?'",
+    "validated": true
   },
   {
     "question": "What is the name of the conversational bot platform that provides assistance?",
@@ -483,7 +486,7 @@
   {
     "question": "From the User menu, which actions can a user select?",
     "options": ["Send Notifications", "Log Out ServiceNow", "Elevate Roles", "Impersonate Users", "Order from Service Catalog", "Approve Records"],
-    "correctAnswers": ["Elevate Roles", "Impersonate Users", "Approve Records"],
+    "correctAnswers": ["Elevate Roles", "Impersonate Users", "Log Out ServiceNow"],
     "explanation": ""
   },
   {
@@ -974,12 +977,6 @@
     "explanation": ""
   },
   {
-    "question": "Which ServiceNow capability allows you to provide knowledge articles, via a conversational messaging interface?",
-    "options": ["Agent Assist", "Virtual Agent", "Now Messenger", "Connect Agent"],
-    "correctAnswers": ["Agent Assist"],
-    "explanation": ""
-  },
-  {
     "question": "What type of field has a drop down list, from which you can pick from pre-defined options?",
     "options": ["Choice", "Picker", "Drop down", "Option"],
     "correctAnswers": ["Choice"],
@@ -1024,7 +1021,7 @@
   {
     "question": "Which collaboration tool opens a sidebar and allows you to create new conversations with other ServiceNow users?",
     "options": ["Skype Now", "Collaborate Now", "Agent Messenger", "Agent Chat", "Connect Chat"],
-    "correctAnswers": ["Agent Chat"],
+    "correctAnswers": ["Connect Chat"],
     "explanation": ""
   },
   {
@@ -1625,7 +1622,7 @@
     "question": "What do you click when you have made modifications to your report, and you want to see the results without saving?",
     "options": ["Preview", "Test", "Run", "Try It", "Execute"],
     "correctAnswers": ["Run"],
-    "explanation": ""
+    "explanation": "O 'Run' executa o report apenas visualmente, sem salvar ou realizar qualquer update."
   },
   {
     "question": "What capability allows users to create dashboards with widgets to visualize data over time in order to identify areas of improvement?",

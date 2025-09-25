@@ -1,76 +1,5 @@
 [
   {
-    "question": "What allows agents to initiate a group discussion from a Workspace task-based or interaction-based record?",
-    "options": [
-      "Connect Hub",
-      "Sidebar",
-      "Help Menu",
-      "Chatbot",
-      "Virtual Agent"
-    ],
-    "correctAnswers": ["Sidebar"],
-    "explanation": "..."
-  },
-  {
-    "question": "What tool allows you to drag and drop to specify links between source fields on an import set table and destination fields on any ServiceNow table?",
-    "options": [
-      "Import workspace",
-      "Data source map",
-      "Mapping assist utility",
-      "Import designer",
-      "Transform designer",
-      "Transform dashboard"
-    ],
-    "correctAnswers": ["Mapping assist utility"],
-    "explanation": "The Mapping Assist Utility in ServiceNow provides a drag-and-drop interface that simplifies the process of mapping fields between an import set and a target table during data transformation."
-  },
-  {
-    "question": "By default, a report is shared with the following:",
-    "options": [
-      "All roles",
-      "The report creator only",
-      "Only groups that the report creator belongs to",
-      "All users and groups"
-    ],
-    "correctAnswers": ["The report creator only"],
-    "explanation": "By default, when a report is created in ServiceNow, it is private and only visible to the report creator. It must be explicitly shared with users, groups, or roles."
-  },
-  {
-    "question": "On a business rule, which setting determines at what points the rule executes? What are the options for specifying that timing?",
-    "options": [
-      "Prior to, synchronous, on update",
-      "Insert, update, delete, query",
-      "Before, synchronous, schedule job, views",
-      "Before, after, Async, display"
-    ],
-    "correctAnswers": ["Before, after, Async, display"],
-    "explanation": "Business rules in ServiceNow can be configured to run at specific times in the transaction: before, after, async (asynchronous), and display (before a form is presented)."
-  },
-  {
-    "question": "If a knowledge base has no access details specified, what users are able to read articles in that knowledge base?",
-    "options": [
-      "No users",
-      "Itil users",
-      "Users with kb_user role",
-      "Any user with an article’s permalink",
-      "Any active user"
-    ],
-    "correctAnswers": ["Any active user"],
-    "explanation": "..."
-  },
-  {
-    "question": "Which ServiceNow products can be used to discover and populate the CMDB? (Choose two.)",
-    "options": [
-      "Discovery",
-      "IntegrationHub ETL",
-      "Finder",
-      "CMDB Plug-in",
-      "CMDB Integration Dashboard"
-    ],
-    "correctAnswers": ["Discovery", "IntegrationHub ETL"],
-    "explanation": "Discovery and IntegrationHub ETL are used to automatically populate the CMDB. Others are not designed for direct CI population."
-  },
-  {
     "question": "How are Workflows moved between instances?",
     "options": [
       "Workflows are moved using Update Sets",
@@ -79,7 +8,8 @@
       "Workflows cannot be moved between instances"
     ],
     "correctAnswers": ["Workflows are moved using Update Sets"],
-    "explanation": "Update Sets are used to move customizations like workflows between instances in ServiceNow."
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "Which statement is true about business rules?",
@@ -90,7 +20,7 @@
       "A business rule monitors fields on a form"
     ],
     "correctAnswers": ["A business rule can be a piece of Javascript"],
-    "explanation": "Business rules in ServiceNow are server-side JavaScript configured to run when records are inserted, updated, or deleted."
+    "explanation": ""
   },
   {
     "question": "Which of the following allows a user to edit field values in a list without opening the form?",
@@ -101,7 +31,7 @@
       "Form Designer"
     ],
     "correctAnswers": ["List Editor"],
-    "explanation": "The List Editor allows users to perform inline editing of fields directly from the list view."
+    "explanation": ""
   },
   {
     "question": "What is a formatter?",
@@ -112,7 +42,7 @@
       "A formatter is a set of conditions applied to a table to help find and work with data"
     ],
     "correctAnswers": ["A formatter is a form element used to display information that is not a field in the record"],
-    "explanation": "Formatters are UI elements used on forms to display contextual information such as approvals, activities, or process flows."
+    "explanation": ""
   },
   {
     "question": "Which one of the following statements applies to a set of fields when they are coalesced during an import?",
@@ -120,13 +50,13 @@
       "If a match is found using the coalesce fields, the existing record is updated with the information being imported",
       "If a match is not found using the coalesce fields, the system does not create a Transform Map",
       "If a match is found using the coalesce fields, the system creates a new record",
-      "If a match is not found using the coalesce fields, the existing record is updated with the information being imported"
+      "If a match is not found using the coalesce fields, the existing record is updated"
     ],
     "correctAnswers": ["If a match is found using the coalesce fields, the existing record is updated with the information being imported"],
-    "explanation": "Coalesce fields allow the import process to determine whether to insert or update records."
+    "explanation": "Os 'Coalesce fields' são usados como chave única para encontrar registros existentes durante uma importação. Se houver correspondência, o registro é atualizado. Caso contrário, um novo é criado, conforme descrito no Módulo 4: Manage Data > Seção 4.3: Import Data > Coalesce fields"
   },
   {
-    "question": "Which ServiceNow products can be used to discover and populate the CMDB? (Choose two.)",
+    "question": "Which ServiceNow products can be used to discover and populate the CMDB?",
     "options": [
       "Discovery",
       "IntegrationHub ETL",
@@ -134,14 +64,11 @@
       "CMDB Plug-in",
       "CMDB Integration Dashboard"
     ],
-    "correctAnswers": [
-      "Discovery",
-      "IntegrationHub ETL"
-    ],
-    "explanation": "Discovery and IntegrationHub ETL are used to automatically populate the CMDB."
+    "correctAnswers": ["Discovery", "IntegrationHub ETL"],
+    "explanation": ""
   },
   {
-    "question": "Which are valid ServiceNow User Authentication Methods? (Choose three.)",
+    "question": "Which are valid ServiceNow User Authentication Methods?",
     "options": [
       "XML feed",
       "Local database",
@@ -149,15 +76,11 @@
       "SSO",
       "FTP authentication"
     ],
-    "correctAnswers": [
-      "Local database",
-      "LDAP",
-      "SSO"
-    ],
-    "explanation": "Valid authentication methods include Local Database, LDAP, and SSO. XML feed and FTP are not authentication methods."
+    "correctAnswers": ["Local database", "LDAP", "SSO"],
+    "explanation": ""
   },
   {
-    "question": "Which of the following concepts are associated with the ServiceNow CMDB? (Choose four.)",
+    "question": "Which concepts are associated with the ServiceNow CMDB?",
     "options": [
       "Service Processes",
       "User Permissions",
@@ -165,35 +88,20 @@
       "A Database",
       "The Dependency View"
     ],
-    "correctAnswers": [
-      "Service Processes",
-      "Tables and Fields",
-      "A Database",
-      "The Dependency View"
-    ],
-    "explanation": "These are core concepts of the ServiceNow CMDB. 'User Permissions' is not part of the CMDB model."
+    "correctAnswers": ["Service Processes", "Tables and Fields", "A Database", "The Dependency View"],
+    "explanation": ""
   },
   {
     "question": "Which tool is used to have conversations with logged-in users in real-time?",
-    "options": [
-      "Connect Chat",
-      "Now Messenger",
-      "User Presence",
-      "Comments"
-    ],
+    "options": ["Connect Chat", "Now Messenger", "User Presence", "Comments"],
     "correctAnswers": ["Connect Chat"],
-    "explanation": "Connect Chat enables real-time messaging between logged-in users within the ServiceNow platform."
+    "explanation": ""
   },
   {
-    "question": "What is generated from the Service Catalog once a user places an order for an item or service?",
-    "options": [
-      "A change request",
-      "An Order Guide",
-      "A request",
-      "An SLA"
-    ],
+    "question": "What is generated from the Service Catalog once a user places an order?",
+    "options": ["A change request", "An Order Guide", "A request", "An SLA"],
     "correctAnswers": ["A request"],
-    "explanation": "When an item is ordered from the Service Catalog, a Request (REQ) is generated."
+    "explanation": ""
   },
   {
     "question": "What is the purpose of a Related List?",
@@ -204,18 +112,18 @@
       "To present related records"
     ],
     "correctAnswers": ["To present related records"],
-    "explanation": "Related lists show related records from other tables that have a relationship with the current record."
+    "explanation": ""
   },
   {
     "question": "What is a Record Producer?",
     "options": [
-      "A Record Producer is a type of Catalog Item that is used for Requests, not Services",
-      "A Record Producer creates user records",
-      "A Record Producer is a type of Catalog Item that provides easy ordering by bundling requests",
-      "A Record Producer is a type of a Catalog Item that allows users to create task-based records from the Service Catalog"
+      "A type of Catalog Item used for Requests, not Services",
+      "Creates user records",
+      "A type of Catalog Item that provides easy ordering by bundling requests",
+      "A type of Catalog Item that allows users to create task-based records from the Service Catalog"
     ],
-    "correctAnswers": ["A Record Producer is a type of a Catalog Item that allows users to create task-based records from the Service Catalog"],
-    "explanation": "Record Producers simplify form creation by allowing users to submit records directly from the catalog."
+    "correctAnswers": ["A type of Catalog Item that allows users to create task-based records from the Service Catalog"],
+    "explanation": ""
   },
   {
     "question": "What is the Import Set Table?",
@@ -226,40 +134,30 @@
       "A repository for Update Set information"
     ],
     "correctAnswers": ["A staging area for imported records"],
-    "explanation": "An Import Set Table temporarily holds data before it is transformed into the target table."
+    "explanation": ""
   },
   {
     "question": "What is a Dictionary Override?",
     "options": [
-      "A Dictionary Override is an incoming customer update in an Update Set which applies to the same objects as a newer local customer update",
-      "A Dictionary Override is the addition, modification, or removal of anything that could have an effect on IT services",
-      "A Dictionary Override is a task within a flow that requests an action before the flow can continue",
-      "A Dictionary Override sets field properties in extended tables"
+      "Incoming customer update in an Update Set for same objects",
+      "Addition, modification, or removal affecting IT services",
+      "A task in a flow requesting an action",
+      "Sets field properties in extended tables"
     ],
-    "correctAnswers": ["A Dictionary Override sets field properties in extended tables"],
-    "explanation": "Dictionary Overrides allow changes to field behavior in extended tables without altering the parent table."
+    "correctAnswers": ["Sets field properties in extended tables"],
+    "explanation": ""
   },
   {
-    "question": "Which term refers to application menus and modules which you may want to access quickly and often?",
-    "options": [
-      "Breadcrumb",
-      "Favorite",
-      "Tag",
-      "Bookmark"
-    ],
+    "question": "Which term refers to application menus and modules you may want to access quickly?",
+    "options": ["Breadcrumb", "Favorite", "Tag", "Bookmark"],
     "correctAnswers": ["Favorite"],
-    "explanation": "Favorites in the Application Navigator help users quickly access frequently used items."
+    "explanation": "'Favorites' é uma funcionalidade que permite ao usuário marcar menus e módulos mais usados, para acessá-los de forma rápida no futuro, sem ter que navegar por toda a estrutura do ServiceNow."
   },
   {
     "question": "Which group of permissions is used to control Application and Module access?",
-    "options": [
-      "Access Control Rules",
-      "UI Policies",
-      "Roles",
-      "Assignment Rules"
-    ],
+    "options": ["Access Control Rules", "UI Policies", "Roles", "Assignment Rules"],
     "correctAnswers": ["Roles"],
-    "explanation": "Roles define access to applications and modules for users in ServiceNow."
+    "explanation": ""
   },
   {
     "question": "Which three Variable Types can be added to a Service Catalog Item?",
@@ -269,8 +167,8 @@
       "Number List, Single Line Text, and Reference",
       "Multiple Choice, Select Box, and Checkbox"
     ],
-    "correctAnswers": ["Multiple Choice", "Select Box", "Checkbox"],
-    "explanation": "These are valid variable types used to build input forms for catalog items."
+    "correctAnswers": ["Multiple Choice, Select Box, and Checkbox"],
+    "explanation": ""
   },
   {
     "question": "A Service Catalog may include which of the following components?",
@@ -281,30 +179,19 @@
       "Record Producers, Order Guides, and Catalog Items"
     ],
     "correctAnswers": ["Record Producers, Order Guides, and Catalog Items"],
-    "explanation": "These are the core building blocks of a Service Catalog in ServiceNow."
+    "explanation": "O Service Catalog pode incluir Record Producers, Order Guides e Catalog Items, conforme descrito no módulo 5 do guia oficial: ServiceNow Administration Fundamentals: Participant Guide, seção 5.2 - 'What is Service Catalog?'"
   },
   {
-    "question": "What is the name of the conversational bot platform that provides assistance to help users obtain information, make decisions, and perform common tasks?",
-    "options": [
-      "Answer Agent",
-      "Live Feed",
-      "Virtual Agent",
-      "Connect Chat"
-    ],
+    "question": "What is the name of the conversational bot platform that provides assistance?",
+    "options": ["Answer Agent", "Live Feed", "Virtual Agent", "Connect Chat"],
     "correctAnswers": ["Virtual Agent"],
-    "explanation": "Virtual Agent is ServiceNow's AI-powered chatbot for guided conversations."
+    "explanation": ""
   },
   {
-    "question": "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three.)",
-    "options": [
-      "Banner Image",
-      "Record Number Format",
-      "Browser Tab Title",
-      "System Date Format",
-      "Form Header Size"
-    ],
-    "correctAnswers": ["Banner Image", "Record Number Format", "System Date Format"],
-    "explanation": "These elements are available in the Basic Configuration UI 16 module."
+    "question": "Which of the following can be customized through the Basic Configuration UI 16 module?",
+    "options": ["Banner Image", "Record Number Format", "Browser Tab Title", "System Date Format", "Form Header Size"],
+    "correctAnswers": ["Banner Image", "Browser Tab Title", "Form Header Size"],
+    "explanation": ""
   },
   {
     "question": "What information does the System Dictionary contain?",
@@ -315,28 +202,2200 @@
       "The language dictionary used for spell checking"
     ],
     "correctAnswers": ["The definition for each table and column"],
-    "explanation": "The System Dictionary holds metadata about tables and fields."
+    "explanation": ""
   },
   {
     "question": "Buttons, form links, and context menu items are all examples of what type of functionality?",
-    "options": [
-      "Business Rule",
-      "UI Action",
-      "Client Script",
-      "UI Policy"
-    ],
+    "options": ["Business Rule", "UI Action", "Client Script", "UI Policy"],
     "correctAnswers": ["UI Action"],
-    "explanation": "UI Actions control buttons, menu items, and links in ServiceNow UI."
+    "explanation": ""
   },
   {
     "question": "A REQ number in the Service Catalog represents:",
+    "options": ["the order number", "the stage", "the task to complete", "the individual item in the order"],
+    "correctAnswers": ["the order number"],
+    "explanation": ""
+  },
+  {
+    "question": "Which one of the following statements best describes the purpose of an Update Set?",
     "options": [
-      "The order number.",
-      "The stage.",
-      "The task to complete.",
-      "The individual item in the order."
+      "An Update Set allows administrators to group a series of changes into a named set and then move this set as a unit to other systems",
+      "By default, an Update Set includes customizations, Business Rules, and homepages",
+      "An Update Set is a group of customizations that is moved from Production to Development",
+      "By default, the changes included in an Update Set are visible only in the instance to which they are applied"
     ],
-    "correctAnswers": ["The order number."],
-    "explanation": "The REQ number uniquely identifies a Service Catalog request."
+    "correctAnswers": ["An Update Set allows administrators to group a series of changes into a named set and then move this set as a unit to other systems"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the platform name for the User table?",
+    "options": ["u_users", "sys_users", "x_users", "sys_user"],
+    "correctAnswers": ["sys_user"],
+    "explanation": ""
+  },
+  {
+    "question": "In what order should filter elements be specified?",
+    "options": [
+      "Field, Operator, then Value",
+      "Field, Operator, then Condition",
+      "Operator, Condition, then Value",
+      "Value, Operator, then Field"
+    ],
+    "correctAnswers": ["Field, Operator, then Value"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following is used to initiate a flow?",
+    "options": ["A Trigger", "Core Action", "A spoke", "An Event"],
+    "correctAnswers": ["A Trigger"],
+    "explanation": ""
+  },
+  {
+    "question": "Which one of the following statements is true about Column Context Menus?",
+    "options": [
+      "It displays actions such as creating quick reports, configuring the list, and exporting data",
+      "It displays actions related to filtering options, assigning tags, and search",
+      "It displays actions related to viewing and filtering the entire list",
+      "It displays actions such as view form, view related task, and add relationship"
+    ],
+    "correctAnswers": ["It displays actions such as creating quick reports, configuring the list, and exporting data"],
+    "explanation": ""
+  },
+  {
+    "question": "Which one of the following statements is a recommendation from ServiceNow about Update Sets?",
+    "options": [
+      "Avoid using the Default Update set as an Update Set for moving customizations from instance to instance",
+      "Before moving customizations from instance to instance with Update Sets, ensure that both instances are different versions",
+      "Use the Baseline Update Set to store the contents of items after they are changed the first time",
+      "Once an Update Set is closed as In Progress change it back to Complete until it is applied to another instance"
+    ],
+    "correctAnswers": ["Avoid using the Default Update set as an Update Set for moving customizations from instance to instance"],
+    "explanation": ""
+  },
+  {
+    "question": "What is a characteristic about Service Catalog variables?",
+    "options": [
+      "Service Catalog variables can only be used in Record Producers",
+      "Service Catalog variables can only be used in Order Guides",
+      "Service Catalog variables cannot affect the order price",
+      "Service Catalog variables are global by default"
+    ],
+    "correctAnswers": ["Service Catalog variables are global by default"],
+    "explanation": ""
+  },
+  {
+    "question": "Access Control rules may be defined with which of the following permission requirements?",
+    "options": ["Roles", "Conditional Expressions", "Assignment Rules", "Scripts", "User Criteria", "Groups"],
+    "correctAnswers": ["Roles", "User Criteria", "Groups"],
+    "explanation": ""
+  },
+  {
+    "question": "When searching using the App Navigator, what can be returned?",
+    "options": [
+      "Names of Applications and Modules",
+      "Names of Modules",
+      "Names of Applications",
+      "Favorites",
+      "History Records",
+      "Titles of Dashboard Gauges"
+    ],
+    "correctAnswers": ["Names of Applications and Modules", "Favorites", "History Records", "Titles of Dashboard Gauges"],
+    "explanation": ""
+  },
+  {
+    "question": "What is a schema map?",
+    "options": [
+      "Enables defining records as trouble sources for CIs",
+      "Graphically organizes visual task boards for the CMDB",
+      "Graphically displays the CIs that support a business service",
+      "Displays details of tables and their relationships visually"
+    ],
+    "correctAnswers": ["Displays details of tables and their relationships visually"],
+    "explanation": ""
+  },
+  {
+    "question": "The display sequence is controlled in a Service Catalog Item using which field?",
+    "options": [
+      "The Default Value field in the Catalog Item form",
+      "The Sequence field in the Catalog Item form",
+      "The Order field in the Variable form",
+      "The Choice field in the Variable form"
+    ],
+    "correctAnswers": ["The Order field in the Variable form"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the difference between Insert and Update operations on a form?",
+    "options": [
+      "Insert creates a new record and Update saves changes, both remain on the form",
+      "Insert creates a new record and Update saves changes, both exit the form",
+      "Insert saves changes and exits the form, Update saves changes and remains on the form",
+      "Insert saves changes and remains on the form, Update saves changes and exits the form"
+    ],
+    "correctAnswers": ["Insert creates a new record and Update saves changes, both exit the form"],
+    "explanation": ""
+  },
+  {
+    "question": "Which statement is true when a new table is created by extending another table?",
+    "options": [
+      "The new table archives the parent table and assumed its roles in the database",
+      "The new table inherits all of the Business Rules, Client Scripts, and UI Policies of the parent table, but none of the existing fields",
+      "The new table inherits all of the fields of the parent table and can also contain new fields unique to itself",
+      "The new table inherits all of the fields, but does not inherit Access Control rules, Client Scripts, and UI Policies of the parent table"
+    ],
+    "correctAnswers": ["The new table inherits all of the fields of the parent table and can also contain new fields unique to itself"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the function of user impersonation?",
+    "options": [
+      "Testing and visibility",
+      "Activate verbose logging",
+      "View custom perspectives",
+      "Unlock Application master list"
+    ],
+    "correctAnswers": ["Testing and visibility"],
+    "explanation": ""
+  },
+  {
+    "question": "As it relate to ServiceNow reporting, which of the following statement describes what a metric can do?",
+    "options": [
+      "A metric is a report gauge used on homepages to display real-time data",
+      "A metric is a time measurement used to report the effectiveness of workflows and SLAs",
+      "A metric is used to measure and evaluate the effectiveness of IT service management processes",
+      "A metric is a comparative measurement used to report the effectiveness of flows and SLAs"
+    ],
+    "correctAnswers": ["A metric is used to measure and evaluate the effectiveness of IT service management processes"],
+    "explanation": "Uma métrica mede e avalia a eficácia dos processos de gerenciamento de serviços de TI. Baseado na documentação do ServiceNow - Managing the Now Platform > Configure core features > Metrics"
+  },
+  {
+    "question": "Which statement describes the purpose of an Order Guide?",
+    "options": [
+      "Order Guides restrict the number of items in an order to only one item per request",
+      "Order Guide provide a list of guidelines for Administrators on how to set up item variables",
+      "Order Guide provide the ability to order multiple, related items as one request",
+      "Order Guides take the user directly to the checkout without prompting for information"
+    ],
+    "correctAnswers": ["Order Guide provide the ability to order multiple, related items as one request"],
+    "explanation": ""
+  },
+  {
+    "question": "Which types of client scripts are supported in ServiceNow?",
+    "options": [
+      "onSubmit",
+      "onUpdate",
+      "onCellEdit",
+      "onLoad",
+      "onChange",
+      "onSave"
+    ],
+    "correctAnswers": ["onSubmit", "onCellEdit", "onLoad", "onChange"],
+    "explanation": ""
+  },
+  {
+    "question": "Table Access Control rules are processed in which order?",
+    "options": [
+      "Any table name (wildcard), parent table name, table name",
+      "Table name, parent table name, any table name (wildcard)",
+      "Parent table name, table name, any table name (wildcard)",
+      "Any table name (wildcard), table name, parent table name"
+    ],
+    "correctAnswers": ["Table name, parent table name, any table name (wildcard)"],
+    "explanation": ""
+  },
+  {
+    "question": "Which technique is used to get information from a series of referenced fields from different tables?",
+    "options": [
+      "Table-Walking",
+      "Sys_ID Pulling",
+      "Dot-Walking",
+      "Record-Hopping"
+    ],
+    "correctAnswers": ["Dot-Walking"],
+    "explanation": ""
+  },
+  {
+    "question": "Which one of the following statements describes the contents of the Configuration Management Database (CMDB)?",
+    "options": [
+      "The CMDB contains data about tangible and intangible business assets",
+      "The CMDB contains the Business Rules that direct the intangible, configurable assets used by a company",
+      "The CMDB archives all Service Management PaaS equipment metadata and usage statistics",
+      "The CMDB contains ITIL process data pertaining to configuration items"
+    ],
+    "correctAnswers": ["The CMDB contains data about tangible and intangible business assets"],
+    "explanation": ""
+  },
+  {
+    "question": "Where can Admins check which release is running on a ServiceNow instance?",
+    "options": [
+      "Memory Stats module",
+      "Stats module",
+      "System.upgraded table",
+      "Transactions log"
+    ],
+    "correctAnswers": ["Stats module"],
+    "explanation": ""
+  },
+  {
+    "question": "When using the Load Data and Transform Map process, what is the Mapping Assist used for?",
+    "options": [
+      "Mapping fields using the Import Log",
+      "Mapping fields using Transform History",
+      "Mapping fields using an SLA",
+      "Mapping fields using a Field Map"
+    ],
+    "correctAnswers": ["Mapping fields using a Field Map"],
+    "explanation": ""
+  },
+  {
+    "question": "How is the Event Log different from the Event Registry?",
+    "options": [
+      "Event Log contains generated Events, the Event Registry is a table of Event definitions",
+      "Event Log is formatted in the Log style, the Event Registry displays different fields",
+      "Event Log lists Events that were triggered by integrations, the Event Registry lists the Events triggered during the day",
+      "Event Log is the same as the Event Registry"
+    ],
+    "correctAnswers": ["Event Log contains generated Events, the Event Registry is a table of Event definitions"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the path an Administrator could take to view the fulfillment stage task list for an order placed by a user?",
+    "options": [
+      "RITM (Number)>REQ (Number)>PROCUREMENT (Number)",
+      "REQ (Number)>RITM (Number)>PROCUREMENT (Number)",
+      "REQ (Number)>RITM (Number)>TASK (Number)",
+      "FULFILLMENT (Number)>RITM (Number)>TASK (Number)"
+    ],
+    "correctAnswers": ["REQ (Number)>RITM (Number)>TASK (Number)"],
+    "explanation": "O caminho correto é acessar o Pedido (REQ), depois o Item Solicitado (RITM) e então as Tarefas (TASK) de fulfillment associadas ao item. Fonte: Módulo 5: Configure self-service, Seção 5.2: Service Catalog, Artigo Service Catalog item request output."
+  },
+  {
+    "question": "Which would NOT appear in the History section of the Application Navigator?",
+    "options": ["Records", "UI Pages", "Lists", "Forms"],
+    "correctAnswers": ["UI Pages"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following is true of Service Catalog Items in relation to the Service Catalog?",
+    "options": ["They run behind the scenes.", "They are the building blocks.", "They are optional.", "They provide options."],
+    "correctAnswers": ["They are the building blocks."],
+    "explanation": ""
+  },
+  {
+    "question": "From the User menu, which actions can a user select?",
+    "options": ["Send Notifications", "Log Out ServiceNow", "Elevate Roles", "Impersonate Users", "Order from Service Catalog", "Approve Records"],
+    "correctAnswers": ["Elevate Roles", "Impersonate Users", "Approve Records"],
+    "explanation": ""
+  },
+  {
+    "question": "What module in the Service Catalog application does an Administrator access to begin creating a new item?",
+    "options": ["Maintain Categories", "Maintain Items", "Content Items", "Items"],
+    "correctAnswers": ["Maintain Items"],
+    "explanation": "O módulo 'Maintain Items' permite visualizar, editar e criar novos itens de catálogo, opções que os usuários podem solicitar através do catálogo de serviços."
+  },
+  {
+    "question": "A knowledge article must be which of the following states to display to a user?",
+    "options": ["Published", "Drafted", "Retired", "Reviewed"],
+    "correctAnswers": ["Published"],
+    "explanation": ""
+  },
+  {
+    "question": "Which term best describes something that is created, has work performed upon it, and is eventually moved to a state of closed?",
+    "options": ["Report", "Flow", "Event", "Task"],
+    "correctAnswers": ["Task"],
+    "explanation": ""
+  },
+  {
+    "question": "Knowledge Base Search can be sorted by which of the following? (Choose three.)",
+    "options": ["Most recent update", "Popularity", "Relevancy", "Manager assignment", "Number of views"],
+    "correctAnswers": ["Most recent update", "Relevancy", "Number of views"],
+    "explanation": "De acordo com a documentação do Search knowledge base: 'It also displays lists of articles by: Featured content (most recent update), Most useful (relevancy) and most viewed (number of views)'"
+  },
+  {
+    "question": "What allows agents to initiate a group discussion from a Workspace task-based or interaction-based record?",
+    "options": ["Connect Hub", "Sidebar", "Help Menu", "Chatbot", "Virtual Agent"],
+    "correctAnswers": ["Sidebar"],
+    "explanation": ""
+  },
+  {
+    "question": "What tool allows you to drag and drop to specify links between source fields on an import set table and destination fields on any ServiceNow table?",
+    "options": ["import workspace", "data source map", "Mapping assist utility", "import designer", "transform designer", "transform dashboard"],
+    "correctAnswers": ["Mapping assist utility"],
+    "explanation": ""
+  },
+  {
+    "question": "By default, a report is shared with the following:",
+    "options": ["All roles", "The report creator only", "Only groups that the report creator belongs to", "All users and groups"],
+    "correctAnswers": ["The report creator only"],
+    "explanation": ""
+  },
+  {
+    "question": "On a business rule, which setting determines at what points the rule executes? What are the options for specifying that timing?",
+    "options": ["Prior to, synchronous, on update", "Insert, update, delete, query", "Before, synchronous, schedule job, views", "Before, after, Async, display"],
+    "correctAnswers": ["Before, after, Async, display"],
+    "explanation": ""
+  },
+  {
+    "question": "What is created by default when you create a new table? (Select 2 Answers)",
+    "options": ["A table-specific admin role", "Application Menu with the same name as the table label", "Module with the plural of the table label", "Dashboard to manage the table's activity"],
+    "correctAnswers": ["Application Menu with the same name as the table label", "Module with the plural of the table label"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following are the UI Actions in a form? (Select 3 Answers)",
+    "options": ["Form context menu items (right-click the header)", "Form buttons", "Form access", "Form relationships", "Form links (related links in a form)"],
+    "correctAnswers": ["Form context menu items (right-click the header)", "Form buttons", "Form links (related links in a form)"],
+    "explanation": ""
+  },
+  {
+    "question": "What are examples of UI actions relating to lists? (Choose 4 Answers)",
+    "options": ["List buttons", "list context menu", "list choices", "list links", "list control", "lists overwrite"],
+    "correctAnswers": ["List buttons", "list context menu", "list choices", "list links"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the different Schema relationship types that are supported for tables? (Select 4 Answers)",
+    "options": ["Referencing", "Referenced By", "Depended By", "Depending", "Exteded by", "Extending"],
+    "correctAnswers": ["Referencing", "Referenced By", "Depended By", "Extending"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following is a true statement regarding Flow Designer actions? (Select 3 Answers)",
+    "options": ["Define when the flow is performed", "Can be contained in a spoke", "Require script to develop", "Represent reusable operations for use across multiple flows", "Provide the ability to build your custom actions"],
+    "correctAnswers": ["Can be contained in a spoke", "Represent reusable operations for use across multiple flows", "Provide the ability to build your custom actions"],
+    "explanation": ""
+  },
+  {
+    "question": "What is a Configuration Item (CI)?",
+    "options": ["Components of an infrastructure required to deliver a product or service", "A database used to store configuration records throughout their lifecycle", "Information that further describes a CI such as name, serial number, or operating system", "A set of tools and databases that are used to manage an organization's configuration data"],
+    "correctAnswers": ["Components of an infrastructure required to deliver a product or service"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the three types of Flow Designer triggers? (Select 3 Answers)",
+    "options": ["Schedule-based", "work-based", "Record-based", "Role-Based", "Application-based"],
+    "correctAnswers": ["Schedule-based", "Record-based", "Role-Based"],
+    "explanation": ""
+  },
+  {
+    "question": "Which CMDB feature tracks the activities and history of data sources as they insert and update CI attributes? (Select 2 Answers)",
+    "options": ["CMDB 360", "CI Class Manager", "MultiSource CMDB", "CMDB Data Manager", "CMDB CI Lifecycle Management"],
+    "correctAnswers": ["CMDB 360", "MultiSource CMDB"],
+    "explanation": ""
+  },
+  {
+    "question": "If a knowledge base has no access details specified, what users are able to read articles in that knowledge base?",
+    "options": ["No users", "Itil users", "Users with kb_user role", "Any user with an articles permalink", "Any active user"],
+    "correctAnswers": ["Any active user"],
+    "explanation": ""
+  },
+  {
+    "question": "What access control rules are created by default when creating a custom table? (Select 4 Answers)",
+    "options": ["Create", "Write", "Archive", "Access", "Delete", "Read"],
+    "correctAnswers": ["Create", "Write", "Delete", "Read"],
+    "explanation": ""
+  },
+  {
+    "question": "Who can add or remove widgets in a dashboard? (Select 3 Answers)",
+    "options": ["Users with edit access to the dashboard", "User with dashboard_Admin role", "Dashboard owner", "User with report_admin role", "Users with view access to the dashboard"],
+    "correctAnswers": ["Users with edit access to the dashboard", "User with dashboard_Admin role", "Dashboard owner"],
+    "explanation": ""
+  },
+  {
+    "question": "Which group of permissions is used to control Application and Module access?",
+    "options": ["Access Control Rules", "UI Policies", "Roles", "Assignment Rules"],
+    "correctAnswers": ["Roles"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tool graphically displays an infrastructure view for a configuration item and its relationship with other CIs?",
+    "options": ["Schema map", "Dependency view", "Dependency map", "Database view"],
+    "correctAnswers": ["Dependency view"],
+    "explanation": ""
+  },
+  {
+    "question": "When a Flow runs an action, it generates a runtime value that stays the same for the duration of the flow. What is the name of that runtime value?",
+    "options": ["Data pill runtime value", "Sequence runtime value", "Starting runtime value", "Trigger runtime value", "Input runtime value"],
+    "correctAnswers": ["Data pill runtime value"],
+    "explanation": ""
+  },
+  {
+    "question": "Which field should you look at if you want a unique identifier record of 32 characters?",
+    "options": ["sys_id", "unique_id", "primary-key", "char_id"],
+    "correctAnswers": ["sys_id"],
+    "explanation": ""
+  },
+  {
+    "question": "When testing a catalog item having a manager approval flow, which best practices would you follow? (Choose 3 Answers)",
+    "options": ["Make sure the latest flows are activated.", "Use the instance incognito setting to quickly toggle between requester and approver", "Impersonate the requester to ensure the form works", "Make sure the requester's user record has a manager specified.", "Create and select your testing Update set, before starting the test cases.", "Use your admin account, so you can approve the items quickly"],
+    "correctAnswers": ["Make sure the latest flows are activated.", "Make sure the requester's user record has a manager specified.", "Create and select your testing Update set, before starting the test cases."],
+    "explanation": ""
+  },
+  {
+    "question": "A Product Owner cannot see tasks on ‘Service Desk > My Group Work List’. What could be the root cause?",
+    "options": [
+      "Product Owner is not a member of Development group",
+      "Product Owner has no assignment group",
+      "Product owner is accessing ServiceNow using incorrect credentials",
+      "Product Owner does not have itil role"
+    ],
+    "correctAnswers": ["Product Owner does not have itil role"],
+    "explanation": "A 'itil role' é uma função padrão no ServiceNow que concede acesso às funcionalidades de gerenciamento de serviços de TI (ITSM), como: visualizar e editar Incidents, Problems, Changes, Requests, Tasks e usar listas como My Work e My Group Work List."
+  },
+  {
+    "question": "Which tab contains the Activity Stream for a task?",
+    "options": ["Related Links", "Related Records", "Notes", "History", "Resolution Information"],
+    "correctAnswers": ["Notes"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow resource can be used as a blueprint to map your IT services to ServiceNow?",
+    "options": [
+      "Configuration management database (CMDB)",
+      "Now learning",
+      "Servicenow wiki",
+      "Service mapping guided setup",
+      "Common service data model (CSDM)",
+      "ITSM"
+    ],
+    "correctAnswers": ["Common service data model (CSDM)"],
+    "explanation": ""
+  },
+  {
+    "question": "As a System Admin, how can you protect an application by identifying and restricting access to application files and data?",
+    "options": ["Access Control Rules", "Web Application Firewall", "Application Scope", "Integrated IAM With ServiceNow"],
+    "correctAnswers": ["Application Scope"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the steps to retrive an Update Set?",
+    "options": ["Verify Update Set is complete, Retrieve, Preview, Apply", "Verify Update Set is Complete, Test Connection, Apply", "Verify Update Set is Complete, Test Connection, Commit", "Verify Update Set is Complete, Retrieve, Preview, Commit"],
+    "correctAnswers": ["Verify Update Set is Complete, Retrieve, Preview, Commit"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tab on the Knowledge Base record would you use to identify the set of users who can read articles?",
+    "options": ["Can read", "Access list", "Accessible to", "Can access"],
+    "correctAnswers": ["Can read"],
+    "explanation": ""
+  },
+  {
+    "question": "The CMDB is the authoritative source of what information? (Select 3 Answers)",
+    "options": ["Owner", "Support Group", "Server Log files", "Contents of all server and application configuration files", "Contact"],
+    "correctAnswers": ["Owner", "Support Group", "Contact"],
+    "explanation": ""
+  },
+  {
+    "question": "An Incident Manager cannot see tasks in the ‘Service Desk > My Group Work’ list. What could explain this? (Select 2 Answers)",
+    "options": [
+      "The incident manager does not have the ITIL or service_fulfiller role",
+      "The incident manager is not listed as the assignment group manager",
+      "The incident manager is not part of the service desk group",
+      "No incident task is assigned to any of the group members",
+      "The incident manager is not a member of the critical incidents group"
+    ],
+    "correctAnswers": ["The incident manager does not have the ITIL or service_fulfiller role", "The incident manager is not a member of the critical incidents group"],
+    "explanation": ""
+  },
+  {
+    "question": "You can use the Data Management plugins to define table relationships or minimize performance issues. What are these plugins? (Select 3 Answers)",
+    "options": ["Table cleaner", "Many to many task relations", "Data archiving", "Database rotations", "Schema map"],
+    "correctAnswers": ["Many to many task relations", "Data archiving", "Database rotations"],
+    "explanation": ""
+  },
+  {
+    "question": "When implementing ITSM, where would you navigate to update the Now Platform UI branding including company logo and colors? (Select 2 Answers)",
+    "options": [
+      "System Properties > My Company",
+      "Team Development > Properties",
+      "Guided Setup > ITSM Guided Setup",
+      "System Properties > Basic Configuration UI16"
+    ],
+    "correctAnswers": ["Guided Setup > ITSM Guided Setup", "System Properties > Basic Configuration UI16"],
+    "explanation": ""
+  },
+  {
+    "question": "When importing data, what happens to imported rows if no coalesce field is specified?",
+    "options": [
+      "All rows are treated as new records, but error will be flagged in the import log",
+      "Duplicate rows are rejected from the import",
+      "All rows are treated as new records. No existing records were updated",
+      "All rows are rejected from the import, as coalesce field is required"
+    ],
+    "correctAnswers": ["All rows are treated as new records. No existing records were updated"],
+    "explanation": ""
+  },
+  {
+    "question": "Access controls are evaluated in this order. Within step one, what order are the table ACLs evaluated?",
+    "options": [
+      "General to specific: table ACL, table.Field ACL, parent table.Field ACL",
+      "Specific to general: table.Field ACL, parent table.Field ACL, * Field ACL",
+      "Top to bottom: wildcard table ACL, parent table ACL, table ACL",
+      "Specific to general: table ACL, parent table ACL, wildcard(*)ACL"
+    ],
+    "correctAnswers": ["Specific to general: table ACL, parent table ACL, wildcard(*)ACL"],
+    "explanation": ""
+  },
+  {
+    "question": "What Visual Task Board type automatically updates the tasks when the respective cards are edited or change lanes?",
+    "options": ["Flexible", "Guided", "Freeform", "List"],
+    "correctAnswers": ["Guided"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the different types of Client Scripts supported in ServiceNow? (Select 4 Answers)",
+    "options": ["OnSave()", "OnChange()", "OnLoad()", "OnCellEdit()", "OnSubmit()", "OnDelete()"],
+    "correctAnswers": ["OnChange()", "OnLoad()", "OnCellEdit()", "OnSubmit()"],
+    "explanation": ""
+  },
+  {
+    "question": "Define Import Set Table",
+    "options": [
+      "A record that defines where to get the data to import",
+      "The conversion of data from an import set table to another table",
+      "Staging location for records imported",
+      "Update existing target table records when transforming import data"
+    ],
+    "correctAnswers": ["Staging location for records imported"],
+    "explanation": ""
+  },
+  {
+    "question": "What allows you to see more information on the same screen while using Visual Task Boards (VTB)?",
+    "options": ["Card Thumbnails", "Compact Cards", "Minimize Tasks", "Card Groups"],
+    "correctAnswers": ["Compact Cards"],
+    "explanation": ""
+  },
+  {
+    "question": "What CMDB Workspace feature lets you visualize the hierarchical map of CIs and relationships centered on a CI you choose?",
+    "options": ["Service Mapping", "Visualization Designer", "Schema Map", "360º Relationship Visualization", "Unified Map"],
+    "correctAnswers": ["Unified Map"],
+    "explanation": ""
+  },
+  {
+    "question": "Which section in the Report Designer is used to specify grouping and calculations to run against data?",
+    "options": ["Data", "Format", "Configure", "Style", "Group by"],
+    "correctAnswers": ["Configure"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following are captured in an Update Set?",
+    "options": ["Report Definitions", "Published Flows", "Business Rules", "New data Records", "Modified CIs"],
+    "correctAnswers": ["Report Definitions", "Published Flows", "Business Rules"],
+    "explanation": ""
+  },
+  {
+    "question": "Where do you navigate to see the notifications currently defined on the Now Platform?",
+    "options": [
+      "System Definitions > Notifications",
+      "System Definitions > Definitions",
+      "System Definitions > Email > Notifications",
+      "NotificationsSystem > Email > Definitions"
+    ],
+    "correctAnswers": ["System Definitions > Email > Notifications"],
+    "explanation": ""
+  },
+  {
+    "question": "What policy type should you use to enforce mandatory fields and read-only rules?",
+    "options": ["UI Policy", "Connect Chat", "Data Policy", "Virtual Agent"],
+    "correctAnswers": ["Data Policy"],
+    "explanation": ""
+  },
+   {
+    "question": "Which of the following statement is correct about Business Rules?",
+    "options": [
+      "Business rule could be Python script",
+      "Business rule should run after a database action",
+      "Business rule depends on form actions",
+      "Business rule could be Javascript"
+    ],
+    "correctAnswers": ["Business rule could be Javascript"],
+    "explanation": ""
+  },
+  {
+    "question": "The display sequence is controlled in a Service Catalog Item using which of the following?",
+    "options": [
+      "The Default value field in the Catalog item form",
+      "The Sequence field in the Catalog Item form",
+      "The Order field in the Variable form",
+      "The Choice field in the variable form"
+    ],
+    "correctAnswers": ["The Order field in the Variable form"],
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following statements is true about the admin role? (Select 3 Answers)",
+    "options": [
+      "Non-admin users cannot add users to a group containing the admin role",
+      "A user with only the user_admin role can grant the admin role to other users",
+      "To grant the admin role to a user, the granting user must also have the admin role",
+      "A user with only the admin role cannot grant the security_admin role to other users",
+      "A non-admin user with only the security_Admin role can add user to a group that contains the security_Admin role"
+    ],
+    "correctAnswers": [
+      "Non-admin users cannot add users to a group containing the admin role",
+      "To grant the admin role to a user, the granting user must also have the admin role",
+      "A user with only the admin role cannot grant the security_admin role to other users"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What catalog tool would you use to create a catalog item or record producer?",
+    "options": [
+      "Catalog formatter",
+      "Catalog flow builder",
+      "Catalog builder",
+      "Catalog designer",
+      "Variable designer",
+      "Form designer"
+    ],
+    "correctAnswers": ["Catalog builder"],
+    "explanation": ""
+  },
+  {
+    "question": "To quickly return to your instance home page, what item would you click?",
+    "options": [
+      "Star icon",
+      "Shortcuts icon",
+      "Navigation header",
+      "Gear icon",
+      "Instance logo",
+      "User menu"
+    ],
+    "correctAnswers": ["Instance logo"],
+    "explanation": ""
+  },
+  {
+    "question": "What function do you use to add buttons, links, and context menu items on forms and lists?",
+    "options": ["UI Policies", "UI Settings", "UI Actions", "UI Config"],
+    "correctAnswers": ["UI Actions"],
+    "explanation": ""
+  },
+  {
+    "question": "Group records are stored in which table?",
+    "options": ["Group [sn_user_group]", "Group [sys_user_group]", "Group [s_sys_group]", "Group [u_sys_group]"],
+    "correctAnswers": ["Group [sys_user_group]"],
+    "explanation": ""
+  },
+  {
+    "question": "Which database provides a logical model of your company infrastructure by identifying, controlling, maintaining and verifying CIs that exist?",
+    "options": ["IMDB", "ITSM", "CSDM", "CMDB", "LDAP"],
+    "correctAnswers": ["CMDB"],
+    "explanation": ""
+  },
+  {
+    "question": "Your customer requires that they be able to monitor which users are performing impersonations in their instance. What would you do to meet that requirement?",
+    "options": [
+      "Add the role Log Write [sn log write] to the Impersonator Group",
+      "Create user update set for impersonation tracking",
+      "Activate the glide.sys.log impersonation prop",
+      "From User icon, select Elevate Roles",
+      "On the Impersonator role record, right click and select Create Log"
+    ],
+    "correctAnswers": ["Activate the glide.sys.log impersonation prop"],
+    "explanation": ""
+  },
+  {
+    "question": "What are benefits of assigning work tasks to a group, rather than to an individual? (Choose four.)",
+    "options": [
+      "Group members can choose their tasks from My Groups Work",
+      "Groups can assign tasks to users based on on-call schedules",
+      "Site support members can pick tasks, based on Location",
+      "Groups can assign tasks to users based on skills",
+      "Group members can avoid tasks, which are nearing SLA breach",
+      "Groups can assign tasks to users based on availability"
+    ],
+    "correctAnswers": [
+      "Group members can choose their tasks from My Groups Work",
+      "Groups can assign tasks to users based on on-call schedules",
+      "Groups can assign tasks to users based on skills",
+      "Groups can assign tasks to users based on availability"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What controls the publishing and retiring process for knowledge articles?",
+    "options": ["Approval Policies", "Approval Definitions", "Workflow Designer", "Workflows", "State Lifecycle"],
+    "correctAnswers": ["Workflows"],
+    "explanation": ""
+  },
+  {
+    "question": "Categories in the knowledge base, by default, can be created and edited by which knowledge workers? (Choose two.)",
+    "options": [
+      "Knowledge Authors",
+      "Knowledge Contributors",
+      "Knowledge Controller",
+      "Knowledge Managers",
+      "Knowledge Category Managers",
+      "Knowledge Submitters",
+      "Knowledge Owners",
+      "Knowledge Taxonomy Owner"
+    ],
+    "correctAnswers": ["Knowledge Contributors", "Knowledge Managers"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the components that make up a filter condition? (Choose three.)",
+    "options": ["Operator", "Match Criteria", "Value", "Column", "Field"],
+    "correctAnswers": ["Operator", "Value", "Field"],
+    "explanation": ""
+  },
+  {
+    "question": "What is a key difference between Reporting and Performance Analytics?",
+    "options": [
+      "Performance Analytics contains snapshots of data taken over time; Reporting shows only the data as it is, at the moment the report is run.",
+      "Performance Analytics can show trends; Reports cannot.",
+      "Reports can be run on a scheduled basis; Performance Analytics cannot.",
+      "Performance Analytics data can be published to Dashboards; Reports cannot.",
+      "Performance Analytics shows KPIs; Reporting does not."
+    ],
+    "correctAnswers": ["Performance Analytics contains snapshots of data taken over time; Reporting shows only the data as it is, at the moment the report is run."],
+    "explanation": ""
+  },
+  {
+    "question": "When a user reports that they are not able to see modules on the application navigator, what can you do, to see what modules are visible to them?",
+    "options": [
+      "Look up their password, so you can login with their account",
+      "Initiate a Connect Chat session",
+      "Install the Bomgar plug-in",
+      "Impersonate the user",
+      "Launch a NowChat window"
+    ],
+    "correctAnswers": ["Impersonate the user"],
+    "explanation": ""
+  },
+  {
+    "question": "Which statement correctly describes the differences between a Client Script and a Business Rule?",
+    "options": [
+      "A Client Script executes before a record is loaded and a Business Rule executes after a record is loaded",
+      "A Client Script executes on the server and a Business Rule executes on the client",
+      "A Client Script executes on the client and a Business Rule executes on the server",
+      "A Client Script executes before a record is loaded and a Business Rule executes after a record is updated"
+    ],
+    "correctAnswers": ["A Client Script executes on the client and a Business Rule executes on the server"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability allows you to provide knowledge articles, via a conversational messaging interface?",
+    "options": ["Agent Assist", "Virtual Agent", "Now Messenger", "Connect Agent"],
+    "correctAnswers": ["Agent Assist"],
+    "explanation": ""
+  },
+  {
+    "question": "What type of field has a drop down list, from which you can pick from pre-defined options?",
+    "options": ["Choice", "Picker", "Drop down", "Option"],
+    "correctAnswers": ["Choice"],
+    "explanation": ""
+  },
+  {
+    "question": "Which collaboration tool is available from the banner, using the bubble icon?",
+    "options": ["Now Messenger", "Agent Chat", "Connect Chat", "Collaborate Now", "Live Feed"],
+    "correctAnswers": ["Connect Chat"],
+    "explanation": ""
+  },
+  {
+    "question": "User records are stored in which table?",
+    "options": ["User [sys_user]", "User [sn_user]", "User [u_sys_user]", "User [s_user]"],
+    "correctAnswers": ["User [sys_user]"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability provides assistance to help users obtain information, make decisions, and perform common work tasks via a messaging interface?",
+    "options": ["Agent Workspace", "Chat bot", "Virtual Agent", "Knowledge Chat", "Now Support"],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": ""
+  },
+  {
+    "question": "While showing a customer their incident form, they ask to change the Priority values to display their internal terminology P1, P2, P3, P4. They want it to be consistent across all Tasks. How would you do that? Right click on Priority and select what?",
+    "options": ["Configure Lists", "Show Options", "Configure Task", "Show Choices", "Show Choice List", "Configure Options"],
+    "correctAnswers": ["Show Choice List"],
+    "explanation": ""
+  },
+  {
+    "question": "When a flow runs an action, it generates a runtime value, which stays the same for the duration of the flow. What is the name of this runtime value?",
+    "options": ["Trigger runtime value", "Sequence runtime value", "Starting runtime value", "Data pill runtime value", "Input runtime value"],
+    "correctAnswers": ["Data pill runtime value"],
+    "explanation": ""
+  },
+  {
+    "question": "What ServiceNow feature allows you to include data from a secondary related table on a report?",
+    "options": ["SQL", "Dot Walking", "Outer Join", "Joins"],
+    "correctAnswers": ["Dot Walking"],
+    "explanation": ""
+  },
+  {
+    "question": "Which collaboration tool opens a sidebar and allows you to create new conversations with other ServiceNow users?",
+    "options": ["Skype Now", "Collaborate Now", "Agent Messenger", "Agent Chat", "Connect Chat"],
+    "correctAnswers": ["Agent Chat"],
+    "explanation": ""
+  },
+  {
+    "question": "When you need to orchestrate business processes across services with little technical user knowledge, which utility would you use?",
+    "options": ["Flow Manager", "Flow Designer", "Flow Editor", "Workflow Editor", "Workflow Designer"],
+    "correctAnswers": ["Flow Designer"],
+    "explanation": ""
+  },
+  {
+    "question": "What module would you use if you wanted to view a list of all of the fields on the Incident table? (Choose two.)",
+    "options": ["Tables & Columns", "Dictionary", "Data Class Manager", "Dictionary Dashboard", "Database View", "Schema"],
+    "correctAnswers": ["Tables & Columns", "Dictionary"],
+    "explanation": ""
+  },
+  {
+    "question": "What feature do you use to specify which users are able to access a Service Catalog Item?",
+    "options": ["Can Read Role", "Catalog User Role", "Can Order Tab", "User Criteria"],
+    "correctAnswers": ["User Criteria"],
+    "explanation": ""
+  },
+  {
+    "question": "What are advantages of using Flow Designer? (Choose three.)",
+    "options": [
+      "Supports advanced developers",
+      "Enables complicated scripting",
+      "Reduces technical debt",
+      "Less manual scripting",
+      "Smooth integration with 3rd party systems"
+    ],
+    "correctAnswers": ["Reduces technical debt", "Less manual scripting", "Smooth integration with 3rd party systems"],
+    "explanation": ""
+  },
+  {
+    "question": "Which type of policy would you use to meet this requirement: 'Incident numbers should be read only on all lists and forms for all users. Short Description field should be mandatory on all records, across all applications, on Insert.'?",
+    "options": ["Data Quality Policy", "Dictionary Design Policy", "UI Data Policy", "UI Policy", "Field Criteria Policy", "Data Policy"],
+    "correctAnswers": ["Data Policy"],
+    "explanation": ""
+  },
+  {
+    "question": "What type of field is Boolean and appears as a check box?",
+    "options": ["Yes/No", "True/False", "On/Off", "Binary", "0/1"],
+    "correctAnswers": ["True/False"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the most common role that has access to almost all platform features, functions, and data?",
+    "options": [
+      "Security Admin [security admin]",
+      "Sys Admin [sys admin]",
+      "Admin [sn admin]",
+      "System Administrator [admin]",
+      "Base Admin [base admin]"
+    ],
+    "correctAnswers": ["System Administrator [admin]"],
+    "explanation": ""
+  },
+  {
+    "question": "When impersonating a user for testing purposes, what is the best way to return the instance, logged in with your user account?",
+    "options": ["Turn your computer off and on again", "Clear browser cache", "End Impersonation", "Log out and back in"],
+    "correctAnswers": ["End Impersonation"],
+    "explanation": ""
+  },
+  {
+    "question": "When importing data, what happens to imported rows if no coalesce field is specified?",
+    "options": [
+      "All rows are rejected from the import, as coalesce field is required.",
+      "All rows are treated as new records. No existing records are updated.",
+      "Duplicate rows are rejected from the import.",
+      "All rows are treated as new records, but errors will be flagged in the import log."
+    ],
+    "correctAnswers": ["All rows are treated as new records. No existing records are updated."],
+    "explanation": ""
+  },
+  {
+    "question": "Which module is used as the first step for importing data?",
+    "options": ["Coalesce Data", "Transform Data", "Import Data", "Load Data"],
+    "correctAnswers": ["Load Data"],
+    "explanation": ""
+  },
+  {
+    "question": "A Role is defined as what?",
+    "options": [
+      "A collection of permissions",
+      "A set of user access policies",
+      "A Persona in a workflow",
+      "A set of access control rules"
+    ],
+    "correctAnswers": ["A collection of permissions"],
+    "explanation": ""
+  },
+  {
+    "question": "You are asked to create an option in the Service Catalog which will allow a user to click Get Help and describe the issue they are having. These forms should create incident records, which are automatically routed to the Service Desk. Which method would you use?",
+    "options": [
+      "Create Record Producer",
+      "Create Catalog Item",
+      "Create Order Guide",
+      "Create Content Item"
+    ],
+    "correctAnswers": ["Create Record Producer"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tool graphically displays an infrastructure view for a configuration item (CI) and its relationship with other CIs?",
+    "options": ["Schema Map", "Dependency View", "Dependency Map", "Database View"],
+    "correctAnswers": ["Dependency View"],
+    "explanation": ""
+  },
+  {
+    "question": "Which module is used to access the knowledge bases which are available to you?",
+    "options": [
+      "Knowledge > Home",
+      "Self Service > Knowledge",
+      "Knowledge > All",
+      "Knowledge > Knowledge Bases",
+      "Knowledge > Overview"
+    ],
+    "correctAnswers": ["Self Service > Knowledge"],
+    "explanation": ""
+  },
+  {
+    "question": "Which component of a table contains a piece of data for one record?",
+    "options": ["Factor", "Field", "Datapoint", "Element", "Item"],
+    "correctAnswers": ["Field"],
+    "explanation": ""
+  },
+  {
+    "question": "What type of query allows you to filter list data using normal words, instead of the condition builder?",
+    "options": [
+      "Natural Language Query",
+      "Alexa Query",
+      "Machine Learning Query",
+      "Predictive Intelligence Query",
+      "Auto-suggest Query"
+    ],
+    "correctAnswers": ["Natural Language Query"],
+    "explanation": ""
+  },
+  {
+    "question": "Which field (or fields) is used as a unique key during imports?",
+    "options": ["Match Fields", "Coalesce Fields", "Key Fields", "Sys IDs"],
+    "correctAnswers": ["Coalesce Fields"],
+    "explanation": ""
+  },
+  {
+    "question": "On the Reports page, what sections allow you to see which reports are visible to different audiences? (Choose four.)",
+    "options": ["Group", "Department", "My reports", "Team", "Dashboards", "Global", "Admin", "Analytics", "All", "Company"],
+    "correctAnswers": ["Group", "My reports", "Global", "All"],
+    "explanation": ""
+  },
+  {
+    "question": "What would you do, on a list, if you wanted to show the records in groups, based on the column category? (Choose two.)",
+    "options": [
+      "On list Context Menu, select Group By > Category",
+      "On the Filter Menu, select Group By > Category",
+      "Click Group On icon, select Category",
+      "On Navigator Filter, type tablename.group.category and press enter",
+      "On the Category column title, click Context menu > Group By Category"
+    ],
+    "correctAnswers": [
+      "On list Context Menu, select Group By > Category",
+      "On the Category column title, click Context menu > Group By Category"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "Which module would you use to customize your instance’s banner image, text and colors?",
+    "options": [
+      "System UI > UI Pages > Branding",
+      "Service Portal > Portals > Branding",
+      "System Properties > Basic Configuration UI16",
+      "System Properties > Branding",
+      "Homepage Admin > Pages > Branding"
+    ],
+    "correctAnswers": ["System Properties > Basic Configuration UI16"],
+    "explanation": ""
+  },
+  {
+    "question": "What are examples of Core tables in the ServiceNow platform?",
+    "options": ["Configuration, Connect, Chat", "Team, Party, Awards", "User, Task, Incident", "Work, Caller, Timecard"],
+    "correctAnswers": ["User, Task, Incident"],
+    "explanation": ""
+  },
+  {
+    "question": "What attributes can you manage, using System Properties > Basic Configuration UI16? (Choose five.)",
+    "options": [
+      "Browser tab title",
+      "Module text color",
+      "Preferred browser",
+      "Base theme",
+      "Font style",
+      "Animation style",
+      "Header background color",
+      "Banner Image"
+    ],
+    "correctAnswers": ["Browser tab title", "Module text color", "Base theme", "Header background color", "Banner Image"],
+    "explanation": ""
+  },
+  {
+    "question": "On the knowledge base record, which tab would you use to define which users are not able to write articles to the knowledge base?",
+    "options": ["Can Contribute", "Cannot Author", "Cannot Contribute", "Cannot Write", "Read Only"],
+    "correctAnswers": ["Cannot Contribute"],
+    "explanation": ""
+  },
+  {
+    "question": "A manager wants to view a snapshot of month-end Sales performance data, as compared to Sales targets. In addition, the manager wants to be able to see those monthly numbers trended over time, and forecasted into the future. What capability do you suggest for this manager?",
+    "options": [
+      "Scheduled Reports, a custom snapshot table, and a Trend report",
+      "Scheduled Reports and Excel",
+      "Scheduled Reports, a custom snapshot table, and a Projection report",
+      "Performance Analytics",
+      "Key Performance Indicators"
+    ],
+    "correctAnswers": ["Performance Analytics"],
+    "explanation": ""
+  },
+  {
+    "question": "On a filter condition, which component is always a choice list?",
+    "options": ["Operator", "Filter Criteria", "Operation", "Match Criteria"],
+    "correctAnswers": ["Operator"],
+    "explanation": ""
+  },
+  {
+    "question": "A user is complaining that they are seeing a blank page, when they click Create New, from your custom Inventory application. You have confirmed that they can see the Inventory application and the Create New module on the application navigator. What could be the cause of this issue?",
+    "options": [
+      "Create New module has a broken link",
+      "Known intermittent issue with UIM5",
+      "User should be using Chrome instead of Explorer for their browser",
+      "User has read role, but not the write role on the Inventory table",
+      "User session has timed out"
+    ],
+    "correctAnswers": ["User has read role, but not the write role on the Inventory table"],
+    "explanation": ""
+  },
+  {
+    "question": "What ServiceNow feature can be triggered by events, and is used to inform users about activities or updates in ServiceNow?",
+    "options": ["Notifications", "Alerts", "Texts", "Events", "Emails"],
+    "correctAnswers": ["Notifications"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the name of the table relationship, where two or more tables are related in a bi-directional relationship, so that the related records are visible from both tables in a related list?",
+    "options": ["Database View", "Many to Many", "One to Many", "Extended"],
+    "correctAnswers": ["Many to Many"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature allows you to automate business logic for a particular application or process such as approvals, tasks notifications, and record operations?",
+    "options": ["Flows", "Action Sequences", "Action Sets", "Task Flows", "Flow Diagrams"],
+    "correctAnswers": ["Flows"],
+    "explanation": ""
+  },
+  {
+    "question": "From a form, what would you click to add additional fields to the form? (Choose two.)",
+    "options": [
+      "Context Menu > Form > Layout",
+      "Context Menu > Configure > Form Layout",
+      "Context Menu > Configure > Form Design",
+      "Right click on header > Add > Field",
+      "Context Menu > Form > Designer",
+      "Right click on header > Configure > UX Dashboard"
+    ],
+    "correctAnswers": ["Context Menu > Configure > Form Layout", "Context Menu > Configure > Form Design"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tool is used to define relationships between fields in an import set table and a target table?",
+    "options": ["Transform Schema", "Schema Map", "Dictionary Map", "Transform Map", "Field Transformer", "Import Designer"],
+    "correctAnswers": ["Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "Tables may have a One to Many relationship. From the Service Catalog, what are examples of tables having a one to many relationship? (Choose three.)",
+    "options": [
+      "One Approval can have many Requests",
+      "One Request can have many Requested Items",
+      "One Requested Item can have many Approvals",
+      "One Requested Item can have many Catalog Tasks",
+      "One Cart can have many Requests"
+    ],
+    "correctAnswers": [
+      "One Request can have many Requested Items",
+      "One Requested Item can have many Approvals",
+      "One Requested Item can have many Catalog Tasks"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What component causes a flow to run after a record has been created or updated?",
+    "options": ["Date-based trigger", "On-change trigger", "Record-based trigger", "Application-based trigger", "Updated-date trigger"],
+    "correctAnswers": ["Record-based trigger"],
+    "explanation": ""
+  },
+  {
+    "question": "On a Form header, what is the three bar icon called?",
+    "options": ["Pancake icon", "Additional Actions or Context Menu", "Hamburger icon", "Cake icon"],
+    "correctAnswers": ["Additional Actions or Context Menu"],
+    "explanation": ""
+  },
+  {
+    "question": "Which role can manage multiple knowledge bases?",
+    "options": ["knowledge-base_admin", "kb_admin", "sn_kb_admin", "knowledge_admin"],
+    "correctAnswers": ["knowledge_admin"],
+    "explanation": ""
+  },
+  {
+    "question": "What resource can you use to view details of the tables and configuration items (CIs) associated with a particular use case?",
+    "options": ["Scenario Dashboard", "CI Use Case Modeler", "CMDB Use Case Modeler", "Common Service Data Model (CSDM) product view"],
+    "correctAnswers": ["Common Service Data Model (CSDM) product view"],
+    "explanation": ""
+  },
+  {
+    "question": "Which features allow you to update multiple records at one time? (Choose two.)",
+    "options": ["List Editor", "Field Update Action", "Bulk Record Update", "Data Remediation Dashboard", "Update Selected Action"],
+    "correctAnswers": ["List Editor", "Update Selected Action"],
+    "explanation": ""
+  },
+  {
+    "question": "What type of user (persona) has clearly defined paths and workflows in the platform and have one or more roles (ie itil and approver user)?",
+    "options": ["Workflow User", "Request Fulfiller", "ITSM User", "Approving Manager", "Service Desk User", "Process User"],
+    "correctAnswers": ["Process User"],
+    "explanation": ""
+  },
+  {
+    "question": "Your customer would like to create a new template to notify users who are affected by network outages at their site. Which module would you use to create a new notification?",
+    "options": [
+      "System Notification > Email > Notifications",
+      "Administration > Notification Overview",
+      "System Properties > Email > Settings",
+      "User Preferences > Email > Notifications",
+      "Click Gear > Notifications > New"
+    ],
+    "correctAnswers": ["System Notification > Email > Notifications"],
+    "explanation": ""
+  },
+  {
+    "question": "The wait time for end users is based on the round-trip between the client and the server. What activities are included in the round-trips?",
+    "options": ["Request + Response", "Save + Update", "Write + Read", "Submit + Query", "Insert + Verify"],
+    "correctAnswers": ["Request + Response"],
+    "explanation": ""
+  },
+  {
+    "question": "On a Business Rule, the When setting determines at what point the rule executes. What are the options for specifying that timing?",
+    "options": [
+      "Before, After, Async, Display",
+      "Prior to, Synchronous, on Update",
+      "Insert, Update, Delete, Query",
+      "Before, Synchronous, Scheduled Job, View"
+    ],
+    "correctAnswers": ["Before, After, Async, Display"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the result of the order in which access controls are evaluated?",
+    "options": [
+      "Ensures user has access to the fields in a table, before considering their access to the table",
+      "Ensures user can get to work as quickly as possible",
+      "Ensures user has access to the application, before evaluating access to a module within the application",
+      "Ensures user has access to a table, before evaluating access to a field in the table"
+    ],
+    "correctAnswers": ["Ensures user has access to a table, before evaluating access to a field in the table"],
+    "explanation": ""
+  },
+  {
+    "question": "What are different types of Data Sources, which may be imported into ServiceNow? (Choose four.)",
+    "options": ["Local Sources (i.e. XML, CSV, Excel)", "Implementation Spoke", "DataHub", "JDBC Connection", "Network Server", "LDAP Connection"],
+    "correctAnswers": ["Local Sources (i.e. XML, CSV, Excel)", "JDBC Connection", "Network Server", "LDAP Connection"],
+    "explanation": ""
+  },
+  {
+    "question": "When designing a flow, how do you reference data from a record, in that flow?",
+    "options": [
+      "Drag the table icon onto the flow definition",
+      "Use the condition builder to specify the desired values",
+      "Specify the source table on the data pill related list",
+      "Drag the data pill onto the flow definition",
+      "Add the table reference using the slush bucket"
+    ],
+    "correctAnswers": ["Drag the data pill onto the flow definition"],
+    "explanation": ""
+  },
+  {
+    "question": "You have heard about a new application released by ServiceNow. You want to try it out, to see if it might be useful for your company's ServiceNow implementation. What would be the best way to get hands-on experience with the new application?",
+    "options": [
+      "Search the wiki for the sales demo request form",
+      "Check the latest release notes at docs servicenow.com",
+      "Activate the application plug in, on your personal dev instance",
+      "Activate the application plug in, on your company's production instance."
+    ],
+    "correctAnswers": ["Activate the application plug in, on your personal dev instance"],
+    "explanation": ""
+  },
+  {
+    "question": "On the Form header, which icon do you use to access form templates?",
+    "options": ["Stamp", "Pages", "More Options (...)", "Paperclip"],
+    "correctAnswers": ["More Options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature enables business process owners to organize Flow Designer content into unified and digitized cross-enterprise processes via a digitized task board interface?",
+    "options": [
+      "Flow Designer",
+      "Workflow Editor",
+      "Process Workflow Designer",
+      "Process Automation Designer"
+    ],
+    "correctAnswers": ["Process Automation Designer"],
+    "explanation": ""
+  },
+  {
+    "question": "When creating a new notification, what must you define? (Choose three.)",
+    "options": [
+      "The associated knowledge base",
+      "Settings for handing inactive user accounts",
+      "Under what conditions is the notification sent",
+      "Who receives the notification",
+      "What the content of the notification"
+    ],
+    "correctAnswers": [
+      "Under what conditions is the notification sent",
+      "Who receives the notification",
+      "What the content of the notification"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What section on a task record would you use to see the most recent update made to a record?",
+    "options": ["Audit Log", "Timeline", "Activity", "Journal"],
+    "correctAnswers": ["Activity"],
+    "explanation": ""
+  },
+  {
+    "question": "When using the Data Pill Picker, use which keys to dot-walk to fields in other tables?",
+    "options": ["Plus, Minus", "Ctrl <, Ctrl >", "Arrows", "Ctrl C, Ctrl V", "Shift F4, Shift F5"],
+    "correctAnswers": ["Arrows"],
+    "explanation": ""
+  },
+  {
+    "question": "What instance resource allows you to access guided tours, information about actions, and instructions on how to use inputs and outputs in your flow?",
+    "options": ["Docs", "Community", "Help Panel (question mark icon)", "Wiki"],
+    "correctAnswers": ["Help Panel (question mark icon)"],
+    "explanation": ""
+  },
+  {
+    "question": "What role enables someone to authorize a request, with no other permissions on the platform?",
+    "options": [
+      "Approval Group [approval_group]",
+      "Authorize [authorize_user]",
+      "Reviewer [reviewer_user]",
+      "Verification [verify_user]",
+      "Approver [approver_user]"
+    ],
+    "correctAnswers": ["Approver [approver_user]"],
+    "explanation": ""
+  },
+  {
+    "question": "You have been asked to create a way for users to order a new iPhone, but only if they get two levels of approval. The approvers and users should be automatically notified at each approval level. What feature would you use to manage the approvals and notifications?",
+    "options": [
+      "Approval Chains",
+      "Flows",
+      "Approver Delegates",
+      "Parent-Child Approvers",
+      "Approval Criteria"
+    ],
+    "correctAnswers": ["Flows"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the main components of the Form Design interface? (Choose three.)",
+    "options": ["Field Layout", "Page Header", "Field Navigator", "Field Picker", "Form Layout"],
+    "correctAnswers": ["Page Header", "Field Navigator", "Form Layout"],
+    "explanation": ""
+  },
+  {
+    "question": "When moving a homepage or dashboard between instances, what must you remember?",
+    "options": [
+      "Manually add them to the update set",
+      "They cannot be moved via update set",
+      "They are automatically added to the update set",
+      "Create a separate update set for them"
+    ],
+    "correctAnswers": ["Manually add them to the update set"],
+    "explanation": ""
+  },
+  {
+    "question": "When looking at a long list of records, you want to quickly filter, to show only those which have Short Description containing email. How might you do that?",
+    "options": [
+      "Click List Magnifier to expand column search, on Short Description, type email, click enter",
+      "On Search box, select text, type email, click enter",
+      "Click List Magnifier to expand column search, on Short Description, type *email, click enter",
+      "Click List Magnifier to expand column search, on Short Description, type %email, click enter"
+    ],
+    "correctAnswers": ["Click List Magnifier to expand column search, on Short Description, type *email, click enter"],
+    "explanation": ""
+  },
+  {
+    "question": "When using Flow Designer, what is the Flow Execution initiated by?",
+    "options": ["A Flow Logic", "An Existing Subflow", "An Execution Data Pill", "A Trigger"],
+    "correctAnswers": ["A Trigger"],
+    "explanation": ""
+  },
+  {
+    "question": "A customer wants to use a client script to validate things on a form in order to make sure the submission makes sense. What type of client script would you recommend to meet this requirement?",
+    "options": ["OnSubmit()", "OnSubmission()", "OnUpdate()", "OnLoad()"],
+    "correctAnswers": ["OnSubmit()"],
+    "explanation": ""
+  },
+  {
+    "question": "How would you describe the relationship between the Incident and Task table?",
+    "options": [
+      "Incident table has a one to many relationship with the Task table",
+      "Incident table is extended from Task table",
+      "Incident table is related to the Task table via the INC number",
+      "Incident table has a many to many relationship with the Task table",
+      "Incident table is a database view of the Task table"
+    ],
+    "correctAnswers": ["Incident table has a one to many relationship with the Task table"],
+    "explanation": ""
+  },
+  {
+    "question": "An order from the Service Catalog has been placed. Two records in the Platform are created as a result. Which two records are associated with this newly ordered item?",
+    "options": [
+      "A record of sc_req_item table",
+      "A record of sc_task",
+      "An incident record",
+      "A change record",
+      "A problem record"
+    ],
+    "correctAnswers": ["A record of sc_req_item table", "A record of sc_task"],
+    "explanation": ""
+  },
+  {
+    "question": "Which is the base table of the configuration management database hierarchy?",
+    "options": ["Cmdb_ci", "Cmdb", "Cmdb_rel_ci", "Ucmdb"],
+    "correctAnswers": ["Cmdb_ci"],
+    "explanation": ""
+  },
+  {
+    "question": "When moving multiple update sets at one time, what might you do to facilitate the move?",
+    "options": ["Preview", "Batch", "List", "Map"],
+    "correctAnswers": ["Batch"],
+    "explanation": ""
+  },
+  {
+    "question": "You are editing a new incident record and would like the 'Save' button to be located on the Form header. Which action would need to be taken for that button to appear?",
+    "options": [
+      "Context Menu > Form Design > add the 'Save' button.",
+      "All > System Properties > UI Properties > Turn on the 'glide.ui.advanced' property.",
+      "All > System Properties > UI Properties > Turn on the 'Save' button.",
+      "Context Menu > Form Layout > add the 'Save' button."
+    ],
+    "correctAnswers": ["All > System Properties > UI Properties > Turn on the 'Save' button."],
+    "explanation": ""
+  },
+  {
+    "question": "What tool is used to import data from various data sources, and map that data into ServiceNow tables?",
+    "options": ["Transform Set", "Data Pack", "Update Set", "Import Set"],
+    "correctAnswers": ["Import Set"],
+    "explanation": ""
+  },
+  {
+    "question": "Which banner icon do you use to change your personal system settings, like your instance color scheme?",
+    "options": ["Magnifier", "Question Mark", "Gear", "Chat Bubbles"],
+    "correctAnswers": ["Gear"],
+    "explanation": ""
+  },
+  {
+    "question": "Which system property is added and set to true in order to see impersonation events in the System Log?",
+    "options": [
+      "Glide.sys.all_impersonation",
+      "Glide.user_setting",
+      "Glide.impersonation_setting",
+      "Glide.sys.log_impersonation",
+      "Glide.sys.admin_login"
+    ],
+    "correctAnswers": ["Glide.sys.log_impersonation"],
+    "explanation": ""
+  },
+  {
+    "question": "Which framework can automatically populate values for the Priority and Category fields based on the Short description field value?",
+    "options": ["Predictive Intelligence", "Assignment Rule", "CSDM", "Action", "UI Policy"],
+    "correctAnswers": ["Predictive Intelligence"],
+    "explanation": ""
+  },
+  {
+    "question": "A new employee joins the IT department and needs to perform work assigned to Network and Hardware groups. How would you set up their access?",
+    "options": [
+      "Add User Account to Hardware group",
+      "Add User Account to IT Knowledgebase",
+      "Create User Account",
+      "Add User Account to itil group",
+      "Add User Account to Network group",
+      "Add User Account to ACL"
+    ],
+    "correctAnswers": ["Add User Account to Hardware group", "Create User Account", "Add User Account to Network group"],
+    "explanation": ""
+  },
+  {
+    "question": "What do you click when you have made modifications to your report, and you want to see the results without saving?",
+    "options": ["Preview", "Test", "Run", "Try It", "Execute"],
+    "correctAnswers": ["Run"],
+    "explanation": "O 'Run' executa o report apenas visualmente, sem salvar ou realizar qualquer update."
+  },
+  {
+    "question": "What capability allows users to create dashboards with widgets to visualize data over time in order to identify areas of improvement?",
+    "options": ["Scheduled Reports", "Performance Analytics", "Analytics Reports", "Reporting"],
+    "correctAnswers": ["Performance Analytics"],
+    "explanation": ""
+  },
+  {
+    "question": "What setting allows users to view a Knowledge Base article even if they are not logged in?",
+    "options": ["The Public setting", "The View All setting", "The ESS role", "The Allow All role"],
+    "correctAnswers": ["The Public setting"],
+    "explanation": ""
+  },
+  {
+    "question": "Here is an example of the criteria set for a knowledge base: Companies: ACME North America; Departments: HR; Groups: ACME Managers; Match All: Yes. In this example, what users would have access to this knowledge base?",
+    "options": [
+      "Members of the ACME Manager group, who are also members of HR Department and part of ACME North America",
+      "Employees of ACME North America, who are members of HR Department or the ACME Managers group",
+      "Users which are members of either ACME North America, or HR Department, or ACME Managers group",
+      "Members of the ACME Managers group, and HR department, regardless of geography"
+    ],
+    "correctAnswers": ["Members of the ACME Manager group, who are also members of HR Department and part of ACME North America"],
+    "explanation": ""
+  },
+  {
+    "question": "How would you distinguish between a Base Class table and a Parent Class table?",
+    "options": [
+      "Extended tables are always extended from Parent tables. Extended tables are usually extended from Base tables.",
+      "Extended tables can be extended from Parent tables or Base tables; but they cannot be extended from both.",
+      "Base Class tables always have tables extended from them. Parent tables do not have tables extended from them.",
+      "Base Class table is not extended from another table, Parent class tables may be extended from another table."
+    ],
+    "correctAnswers": ["Base Class table is not extended from another table, Parent class tables may be extended from another table."],
+    "explanation": ""
+  },
+  {
+    "question": "What module do you use to access the reports that are available to you?",
+    "options": ["Self-Service > My Reports", "Self-Service > My Dashboards", "Reports > View / Run", "Reports > Homepage", "Reports > Overview"],
+    "correctAnswers": ["Reports > View / Run"],
+    "explanation": ""
+  },
+  {
+    "question": "Which admin role is required to make changes to High Security Settings?",
+    "options": ["High_sec_admin", "Sn_acl_admin", "Admin", "Security_admin"],
+    "correctAnswers": ["Security_admin"],
+    "explanation": ""
+  },
+  {
+    "question": "Which testing framework is used to test ServiceNow Applications?",
+    "options": ["Test Driven Framework (TDF)", "Junit", "Selenium", "Automated Test Framework (ATF)"],
+    "correctAnswers": ["Automated Test Framework (ATF)"],
+    "explanation": ""
+  },
+  {
+    "question": "A customer wants to be able to identify and track components of their infrastructure that support their eCommerce service. What ServiceNow products could support this requirement?",
+    "options": ["Asset Management", "Discovery", "Configuration Management (CMDB)", "Service Mapping", "Performance Analytics"],
+    "correctAnswers": ["Discovery", "Configuration Management (CMDB)", "Service Mapping"],
+    "explanation": ""
+  },
+  {
+    "question": "As administrator, what must you do to access features of High Security Settings?",
+    "options": [
+      "Impersonate Security Admin",
+      "Select Elevate Roles",
+      "Add security admin role to your user account",
+      "Use System Administration > Elevate Roles module"
+    ],
+    "correctAnswers": ["Select Elevate Roles"],
+    "explanation": ""
+  },
+  {
+    "question": "What section on the notes tab shows the history of the work documented on the record?",
+    "options": ["Audit Log", "Timeline", "Journal", "Diary", "Activity"],
+    "correctAnswers": ["Activity"],
+    "explanation": ""
+  },
+  {
+    "question": "Which best describes a field in a ServiceNow table?",
+    "options": [
+      "A field is a table row.",
+      "A field is an item that appears in a menu list.",
+      "A field is a table cell that stores data.",
+      "A field is a record in a table."
+    ],
+    "correctAnswers": ["A field is a table cell that stores data."],
+    "explanation": ""
+  },
+  {
+    "question": "Which path would you take to access the table configuration page from a form?",
+    "options": [
+      "The Form Context menu > View > Show Table",
+      "The Form Context menu > View > Table",
+      "The Form Context menu > Configure > Dictionary",
+      "The Form Context menu > Configure > Table"
+    ],
+    "correctAnswers": ["The Form Context menu > Configure > Table"],
+    "explanation": ""
+  },
+  {
+    "question": "While showing a customer their Incident form, they ask to change the Priority field title to display their internal terminology PValue. How would you do that?",
+    "options": [
+      "Right click on Priority and select Configure Label",
+      "Right click on Priority and select Configure Dictionary",
+      "Right click on Priority and select Configure Display Settings",
+      "Right click on Priority and select Configure Column"
+    ],
+    "correctAnswers": ["Right click on Priority and select Configure Label", "Right click on Priority and select Configure Dictionary"],
+    "explanation": ""
+  },
+  {
+    "question": "What process allows users to create, categorize, review, approve and browse important information in a centralized location that is shared by the entire organization?",
+    "options": [
+      "Self Service Management",
+      "Knowledge Management",
+      "Business Information Management",
+      "Information Portal Management",
+      "Knowledge-Centered Management"
+    ],
+    "correctAnswers": ["Knowledge Management"],
+    "explanation": ""
+  },
+  {
+  "question": "Which type of ServiceNow script runs on the web browser?",
+  "options": [
+    "Server script",
+    "Database script",
+    "Client script",
+    "Local script"
+  ],
+  "correctAnswers": ["Client script"],
+  "explanation": ""
+  },
+  {
+    "question": "What data consistency settings can be achieved using UI Policy?",
+    "options": [
+      "Setting fields to accept the data in an expected format",
+      "Setting fields to accept the data with 'n' number of characters",
+      "Setting fields hidden",
+      "Setting fields read-only",
+      "Setting fields mandatory"
+    ],
+    "correctAnswers": ["Setting fields hidden", "Setting fields read-only", "Setting fields mandatory"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the most common role that has access to almost all platform features, functions, and data?",
+    "options": [
+      "Super User [sn_super_user]",
+      "Security Admin [security_admin]",
+      "System Administrator [admin]",
+      "Base Admin [base_admin]",
+      "System Manager [sys_manager]"
+    ],
+    "correctAnswers": ["System Administrator [admin]"],
+    "explanation": ""
+  },
+  {
+    "question": "A colleague wants to rearrange the columns on their My Work List. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+    "options": [
+      "Right click on any column header, Context Menu > Configure > List Layout",
+      "Click List Context Menu > Configure > List Layout",
+      "Click List Context Menu > Personalize List",
+      "Click Personalize List"
+    ],
+    "correctAnswers": ["Click Personalize List"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the name of the string that displays filter criteria?",
+    "options": ["Breadcrumb", "Choice", "Menu", "Topic"],
+    "correctAnswers": ["Breadcrumb"],
+    "explanation": ""
+  },
+  {
+    "question": "When building an extended table from a base table, which fields do you need to create?",
+    "options": [
+      "The fields that are not in the base table.",
+      "The mandatory fields for the base table.",
+      "The fields that are specific to the extended table.",
+      "The reference fields for the base table."
+    ],
+    "correctAnswers": ["The fields that are not in the base table.", "The fields that are specific to the extended table."],
+    "explanation": ""
+  },
+  {
+    "question": "Roles can inherit permissions from other roles. Which role inherits all of the permissions of the catalog role and the user criteria admin role, plus has permissions to create Items and Services?",
+    "options": [
+      "Sys Admin [sys_admin]",
+      "Catalog Admin [catalog_admin]",
+      "Catalog Author [sn_catalog_write]",
+      "Item Admin [sn_item_admin]"
+    ],
+    "correctAnswers": ["Catalog Admin [catalog_admin]"],
+    "explanation": ""
+  },
+  {
+    "question": "For your implementation, the following tables are extended from each other: Incident table is extended from Task table. Super Incident table is extended from Incident table. In this situation, which tables are Parent, Child and Base tables?",
+    "options": [
+      "Super Incident table is a Parent table",
+      "Incident table is a Child table",
+      "Super Incident table is a Base table",
+      "Incident table is a Base table",
+      "Task table is a Child table",
+      "Incident table is a Parent table",
+      "Super Incident table is a Child table",
+      "Task table is a Parent table",
+      "Task table is a Base table"
+    ],
+    "correctAnswers": [
+      "Incident table is a Child table",
+      "Super Incident table is a Child table",
+      "Incident table is a Parent table",
+      "Task table is a Parent table",
+      "Task table is a Base table"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "On what part of the ServiceNow instance would you find the option to Impersonate User?",
+    "options": ["User Menu", "Content Frame", "Application Navigator", "Module"],
+    "correctAnswers": ["User Menu"],
+    "explanation": ""
+  },
+  {
+    "question": "How is the ServiceNow platform set up so that Administrators can easily configure their instances to send an email at the end of an upgrade?",
+    "options": [
+      "Administrators can update the email notification named 'System Upgraded' in the System Logs module by adding the appropriate User to receive it.",
+      "Administrators can update the email notification named 'System Upgraded' in the Notifications module by adding the appropriate User to receive it.",
+      "Administrators can write a Client Script to send out an email to the Administrator when an Update is complete.",
+      "Administrators can write a Business Rule to send out an email to the Administrator when an Update is complete."
+    ],
+    "correctAnswers": ["Administrators can update the email notification named 'System Upgraded' in the Notifications module by adding the appropriate User to receive it."],
+    "explanation": ""
+  },
+  {
+    "question": "The Report Designer contains different sections for configuring your report. Which section is used to specify the name of the report, and the table or data source for the report?",
+    "options": ["Type", "Properties", "Configure", "Sources", "Data"],
+    "correctAnswers": ["Data"],
+    "explanation": ""
+  },
+  {
+    "question": "When you set a policy that is applied to all data entered into the platform (UI, Import Sets, or Web Services), where does this policy run by default?",
+    "options": ["Client", "Network", "Browser", "Server"],
+    "correctAnswers": ["Server"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature ensures data consistency while importing data using import sets and web services?",
+    "options": ["UI Policy", "Data Policy", "Business Rule", "Client Script", "CSDM"],
+    "correctAnswers": ["Data Policy"],
+    "explanation": ""
+  },
+  {
+    "question": "When adding a related list to a form, you choose the related list from the list collector. What is an example of a related list you might see on the list collector? (Choose three.)",
+    "options": [
+      "Problem==Parent",
+      "HR Case->Parent",
+      "Catalog Task->Parent",
+      "Outage->Task number",
+      "Release Phase==Parent"
+    ],
+    "correctAnswers": ["Catalog Task->Parent", "Outage->Task number", "Release Phase==Parent"],
+    "explanation": ""
+  },
+  {
+    "question": "On Access Control Definitions, what are ways you can set the permissions on a Table? (Choose three.)",
+    "options": [
+      "Conditional Expressions",
+      "Roles",
+      "CRUD",
+      "Script that sets the answer variable to true or false",
+      "Groups"
+    ],
+    "correctAnswers": ["Roles", "Script that sets the answer variable to true or false", "Groups"],
+    "explanation": ""
+  },
+  {
+    "question": "An order for new office equipment has been placed through the Service Catalog. How would you view the lists of requests after the orders have been placed?",
+    "options": [
+      "All > Tables and Columns > Tasks",
+      "In the Navigation Filter, type 'requests.list' and press the Enter key",
+      "All > Service Catalog > Requests",
+      "All > Service Catalog > Open Records > Items"
+    ],
+    "correctAnswers": ["All > Service Catalog > Open Records > Items"],
+    "explanation": ""
+  },
+  {
+    "question": "Which flow components allow you to specify when a flow should be run?",
+    "options": [
+      "Trigger and Condition Pill",
+      "Condition and Table",
+      "Trigger Criteria and Clock",
+      "Trigger and Condition",
+      "Scope and Trigger Condition"
+    ],
+    "correctAnswers": ["Trigger and Condition"],
+    "explanation": ""
+  },
+  {
+    "question": "What action will allow you to personalize layouts of columns in a list?",
+    "options": [
+      "Context Menu > View > Personalize",
+      "Click Gear Icon > Personalize window options > Select the appropriate columns",
+      "Select the column to be personalized and right at the header > Choose the options to personalize",
+      "Select the column to be personalized > Click Edit icon (Pencil) > Choose the options to personalize"
+    ],
+    "correctAnswers": ["Click Gear Icon > Personalize window options > Select the appropriate columns"],
+    "explanation": ""
+  },
+  {
+    "question": "How would you navigate to the Schema map for a table?",
+    "options": [
+      "System Definition > Tables; Select Table; Go to Related links and click Show Schema Map",
+      "System Dictionary > Show Schema Map; Select Table",
+      "System Definition > Show Schema Map; Select Table",
+      "System Definition > Dictionary; Select Table; Go to Related links and click Show Schema Map"
+    ],
+    "correctAnswers": ["System Definition > Tables; Select Table; Go to Related links and click Show Schema Map"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature helps to automatically allocate a critical, high-priority, service request to the appropriate assignment group or team member?",
+    "options": ["Assignment Rule", "User Policy", "Predictive Intelligence", "UI Policy"],
+    "correctAnswers": ["Assignment Rule"],
+    "explanation": ""
+  },
+  {
+    "question": "What component of the ServiceNow infrastructure defines every table and field in the system?",
+    "options": ["Schema", "Field Map", "Table Class Manager", "Dictionary", "Data Atlas"],
+    "correctAnswers": ["Dictionary"],
+    "explanation": ""
+  },
+  {
+    "question": "When selecting the Target table for an import, which tables can you select? (Choose three.)",
+    "options": [
+      "Tables outside of ServiceNow",
+      "Tables within the global scope",
+      "Related tables, using Dot Walk",
+      "Tables which allow write access to other applications",
+      "Tables within the existing application scope"
+    ],
+    "correctAnswers": ["Tables within the global scope", "Tables which allow write access to other applications", "Tables within the existing application scope"],
+    "explanation": ""
+  },
+  {
+    "question": "What types of entities can receive task assignments in ServiceNow? (Choose two.)",
+    "options": ["Users", "Departments", "Groups", "Teams"],
+    "correctAnswers": ["Users", "Groups"],
+    "explanation": ""
+  },
+  {
+    "question": "When a custom table is created, which access control rules are automatically created? (Choose four.)",
+    "options": ["Create", "Delete", "Execute", "Update", "Read", "Write"],
+    "correctAnswers": ["Create", "Delete", "Read", "Write"],
+    "explanation": ""
+  },
+  {
+    "question": "You are looking at a list of Active Incidents. You want to exclude Incidents with the state of Resolved. How might you do that?",
+    "options": [
+      "On Search, select State, type not Resolved, press enter",
+      "On State column title, right-click, select Filter Out > Resolved",
+      "On the list of records, locate and right-click on the Resolved value, select Filter Out",
+      "On the list of records, locate and right-click on the Resolved value, select Exclude",
+      "Click Funnel icon, click AND, Select Resolved, is Not, State, click Run"
+    ],
+    "correctAnswers": ["On the list of records, locate and right-click on the Resolved value, select Filter Out"],
+    "explanation": ""
+  },
+  {
+    "question": "On the knowledge base record, which tab would you use to define which users are not able to write articles to the knowledge base?",
+    "options": ["Can Contribute", "Cannot Author", "Can Read", "Can Write", "Can Author"],
+    "correctAnswers": ["Can Read"],
+    "explanation": ""
+  },
+  {
+    "question": "The Report Designer contains different sections for configuring your report. Which section is used to adjust the look of your report, including colors, titles and legend layout?",
+    "options": ["Layout", "Format", "Configure", "Style"],
+    "correctAnswers": ["Style"],
+    "explanation": ""
+  },
+  {
+    "question": "What contains the configuration changes made in an instance (i.e. changes in a form) and helps to implement the changes from the Dev environment to another environment?",
+    "options": ["Transform maps", "Update sets", "Import sets", "System dictionaries"],
+    "correctAnswers": ["Update sets"],
+    "explanation": ""
+  },
+  {
+    "question": "What icon do you use to change the label on a Favorite?",
+    "options": ["Star", "Clock", "Triangle", "Pencil"],
+    "correctAnswers": ["Pencil"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the object name for a rule that applies to the entire Incident table (all rows and fields)?",
+    "options": ["incident.*", "incidental", "incident.!", "incident.None"],
+    "correctAnswers": ["incident.*"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the options that can be set to determine when a Business Rule executes? (Choose four.)",
+    "options": ["Async", "Load", "Change", "Display", "After", "Before", "Submit", "Click"],
+    "correctAnswers": ["Async", "Display", "After", "Before"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the steps for importing data using an import set?",
+    "options": [
+      "Create Import Set; Create transform map; Transform data; Clean up import table",
+      "Create a Transform Map, Load Data, Transform Data, Run Transform Map Script",
+      "Identify source; Import transform map; Run transformer; Verify import",
+      "Select source file; Run AutoMap; Transform data; Clean up target table"
+    ],
+    "correctAnswers": ["Create Import Set; Create transform map; Transform data; Clean up import table"],
+    "explanation": ""
+  },
+  {
+    "question": "What instance resource allows you to access guided tours, information about actions, and instructions on how to use inputs and outputs in your flow?",
+    "options": ["Now Support", "Community", "Docs", "Help Panel (question mark icon)"],
+    "correctAnswers": ["Help Panel (question mark icon)"],
+    "explanation": ""
+  },
+  {
+    "question": "If a user is on an Incident form and is alerted when they change the value of the Priority field, which type of script executes in the Platform?",
+    "options": ["A server script", "A client script", "A fix script", "A business rule"],
+    "correctAnswers": ["A client script"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability provides assistance to help users obtain information, make decisions, and perform common work tasks via a messaging interface?",
+    "options": ["Now Support", "ServiceNow Messenger", "Agent Workspace", "Virtual Agent", "Knowledge Chat"],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": ""
+  },
+  {
+    "question": "After finishing your work on High Security Settings, what is a possible way to return to normal admin security levels?",
+    "options": [
+      "Select Global Update Set",
+      "Log out and back in",
+      "End Impersonation",
+      "Select Normal role",
+      "Use System Administration > Normal Security module"
+    ],
+    "correctAnswers": ["Log out and back in"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tool is used to define relationships between fields in an import set table and a target table?",
+    "options": ["Schema Map", "Field Transformer", "Transform Map", "Transform Schema"],
+    "correctAnswers": ["Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow capability allows you to provide knowledge articles via a conversational messaging interface?",
+    "options": ["Agent Assist", "Virtual Agent", "Now Messenger", "Instance Chat"],
+    "correctAnswers": ["Virtual Agent"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the first step in the process to import spreadsheet data into ServiceNow?",
+    "options": ["Select Import Set", "Run Data Scrubber", "Define Data Source", "Create Import Set", "Set Coalesce"],
+    "correctAnswers": ["Define Data Source"],
+    "explanation": ""
+  },  
+  {
+    "question": "Which action enables personalization in a form for the admin role, only?",
+    "options": [
+      "Navigate to sys_form_properties.list and set the property glide.ui.enable_personalize_form.admin to true.",
+      "Navigate to Context Menu > Configure > Form Layout and select “Enable Personalization” and enter the “admin” role.",
+      "Navigate to Context Menu > Configure > Table and add the role 'Admin' in the “Available User” list box.",
+      "Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."
+    ],
+    "correctAnswers": ["Navigate to sys_properties.list find the property glide.ui.personalize_form.role and set the Value to admin."],
+    "explanation": "A propriedade 'glide.ui.personalize_form.role' define qual papel pode personalizar formulários. Ao definir como 'admin', apenas administradores podem usar a personalização. Fonte: Módulo 3 > Seção 3.2 > Personalize form view (classic environment)"
+  },
+  {
+    "question": "Which allows the creation of a task-based record from Service Catalog?",
+    "options": ["Record Producers", "UI Builder", "Assignment Rule", "UI Actions", "Flow Designer"],
+    "correctAnswers": ["Record Producers"],
+    "explanation": ""
+  },
+  {
+    "question": "If users would like to locate and assign a task to themselves in the Platform, what action could they perform from the list view to make the assignment? (Choose two.)",
+    "options": [
+      "Select the record using the check box, then select the Person icon",
+      "Select the record using the check box then select the Assign To Me UI action on the List Header",
+      "Double click on the Assigned to value, type the name of the user, and select the green check",
+      "Right click on the Task number and select the Assign to me option in the menu",
+      "Select the Task number, and select the Assign to me UI action on the form"
+    ],
+    "correctAnswers": [
+      "Double click on the Assigned to value, type the name of the user, and select the green check",
+      "Right click on the Task number and select the Assign to me option in the menu"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature can be used to categorize a set of records from a list and make them visible to other users?",
+    "options": ["Tags", "History", "Favorites", "Activity Formatter"],
+    "correctAnswers": ["Tags"],
+    "explanation": ""
+  },
+  {
+    "question": "Which element is used to track items not saved with a field, in a record?",
+    "options": ["Sidebar", "List Editor", "Activity formatter", "Dictionary"],
+    "correctAnswers": ["Activity formatter"],
+    "explanation": ""
+  },
+  {
+    "question": "Which ServiceNow utility provides a modern interactive graphical interface to visualize configuration items and their relationships?",
+    "options": ["Flow Design", "CI Class Map", "Dependency View", "Business Service Map"],
+    "correctAnswers": ["Dependency View"],
+    "explanation": ""
+  },
+  {
+    "question": "On the knowledge base record, which tab would you use to define which users are able to write articles to the knowledge base?",
+    "options": ["Can Contribute", "Cannot Author", "Can Read", "Can Write", "Can Author"],
+    "correctAnswers": ["Can Contribute"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the steps to apply an update set retrieved from another instance?",
+    "options": [
+      "Load the Update Set > Import the Update Set > Install",
+      "Verify Update Set is Complete, Retrieve, Preview, Commit",
+      "Verify Update Set is Complete, Test Connection, Apply",
+      "Import the Update Set > Verify the Update Set is complete > Link the Update Set > Publish"
+    ],
+    "correctAnswers": ["Verify Update Set is Complete, Retrieve, Preview, Commit"],
+    "explanation": ""
+  },
+  {
+    "question": "Which role(s) are required to impersonate a user? (Choose two.)",
+    "options": ["security_admin", "sys_admin", "impersonator", "sys_user", "admin"],
+    "correctAnswers": ["sys_admin", "sys_user"],
+    "explanation": ""
+  },
+  {
+    "question": "What enables you to trace the connection from an infrastructure item, like a Server, to the Services that are dependent on that Server?",
+    "options": ["Automapping Utility", "Relationships", "Service Tracer", "Transform Map"],
+    "correctAnswers": ["Relationships"],
+    "explanation": ""
+  },
+  {
+    "question": "Which type of scripts run in the browser?",
+    "options": ["UI Policies", "Script Include Scripts", "Access Control Scripts", "Business Rule Scripts"],
+    "correctAnswers": ["UI Policies"],
+    "explanation": ""
+  },
+  {
+    "question": "What action helps to see which modules are visible to a user?",
+    "options": ["Install the Bomgar plug-in", "Initiate a Connect Chat session", "Launch a NowChat window", "Impersonate the user"],
+    "correctAnswers": ["Impersonate the user"],
+    "explanation": ""
+  },
+  {
+    "question": "What section on a task record is used to see the most recent updates made to a record?",
+    "options": ["Timeline", "Related List", "Activity Stream", "Audit Log"],
+    "correctAnswers": ["Activity Stream"],
+    "explanation": ""
+  },
+  {
+    "question": "When an administrator sets a policy that is applied to all data entered into the Platform (UI, Import Sets, or Web Services), where does this policy run by default?",
+    "options": ["Network", "Server", "Client", "Browser"],
+    "correctAnswers": ["Server"],
+    "explanation": ""
+  },
+  {
+    "question": "On the Form header, which element allows you to access form templates?",
+    "options": ["Stamp", "More Options (...)", "Pages", "Paperclip"],
+    "correctAnswers": ["More Options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tables are available by default in a ServiceNow instance? (Choose three.)",
+    "options": ["User", "Issue", "Incident", "Project", "Task", "Item"],
+    "correctAnswers": ["User", "Incident", "Task"],
+    "explanation": ""
+  },
+  {
+    "question": "Which module in the Service Catalog application is used to create a new catalog item?",
+    "options": ["Configuration Items", "Maintain Items", "Content Items", "Catalog Items"],
+    "correctAnswers": ["Catalog Items"],
+    "explanation": ""
+  },
+  {
+    "question": "Which feature can be used to give users the choice to easily populate the most-used fields for a specific table?",
+    "options": ["Tags", "Formatter", "Template", "Reference type fields"],
+    "correctAnswers": ["Template"],
+    "explanation": ""
+  },
+  {
+    "question": "Which helps to visualize configuration items and their relationships?",
+    "options": ["Tables", "Schema Map", "Flow Design", "Transform Map", "Dependency View"],
+    "correctAnswers": ["Dependency View"],
+    "explanation": ""
+  },
+  {
+    "question": "What is the definition of a group?",
+    "options": [
+      "A collection of subject matter experts",
+      "A department",
+      "An escalation pod",
+      "A collection of users",
+      "A collection of tasks"
+    ],
+    "correctAnswers": ["A collection of users"],
+    "explanation": ""
+  },
+  {
+    "question": "The customer has asked that you change the default layout of the Task list. They would like these columns, in this order: Number, Task Type, Parent, Short Description, Assignment Group, Assignee, Updated. After navigating to the list, where would you click, to meet this requirement?",
+    "options": [
+      "Click List Context Menu > Personalize List",
+      "Click List Context Menu > Configure > Columns",
+      "Right click List Gear icon > Configure > Columns",
+      "Right click on any column header, Context Menu > Configure > List Layout"
+    ],
+    "correctAnswers": ["Right click on any column header, Context Menu > Configure > List Layout"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the different Notification methods that can be used to alert users when events that concern them have occurred? (Choose three.)",
+    "options": ["Meeting Invitation", "Email", "Browser Pop ups", "Messenger", "SMS"],
+    "correctAnswers": ["Meeting Invitation", "Email", "SMS"],
+    "explanation": ""
+  },
+  {
+    "question": "Which displays the list of activities, or history, on a form?",
+    "options": ["Formatter", "Dictionary", "Sidebar", "History Menu"],
+    "correctAnswers": ["History Menu"],
+    "explanation": ""
+  },
+  {
+    "question": "When importing data from a spreadsheet, which step defines where the incoming data columns will be written in the receiving table?",
+    "options": ["Select Data Source", "Schedule Transform", "Load Data", "Create Transform Map", "Field Alignment"],
+    "correctAnswers": ["Create Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "What are the benefits of building flows using Flow Designer? (Choose three.)",
+    "options": [
+      "Provides IDE for complicated scripting",
+      "Provides built-in libraries /API for complex coding",
+      "Automatically populates SLA records",
+      "Provides natural-language descriptions of flow logic",
+      "Supports No-Code application development",
+      "Supports easy integration with 3rd party systems"
+    ],
+    "correctAnswers": [
+      "Provides natural-language descriptions of flow logic",
+      "Supports No-Code application development",
+      "Supports easy integration with 3rd party systems"
+    ],
+    "explanation": ""
+  },
+  {
+    "question": "What helps to define the structure of a catalog item form that is displayed to the customer?",
+    "options": ["Variables", "Catalog Description", "Catalog Definition", "Order Guides"],
+    "correctAnswers": ["Variables"],
+    "explanation": ""
+  },
+  {
+    "question": "While using the CMDB, what do you call the component that needs to be managed in order to deliver services?",
+    "options": ["Configuration Item", "Asset", "Catalog Items", "Data Flow", "Service Offerings"],
+    "correctAnswers": ["Configuration Item"],
+    "explanation": ""
+  },
+  {
+    "question": "An administrator creates “customer_table_admin” and “customer_table_user” roles for the newly created 'Customer Table’. Which ACL rule would grant access to all rows and all fields to both roles?",
+    "options": ["customer.none", "customer.all", "customer.field", "customer.*"],
+    "correctAnswers": ["customer.none"],
+    "explanation": ""
+  },
+  {
+    "question": "In a Knowledge Base record, where can an administrator find the User Criteria for who can read the articles?",
+    "options": ["From the Accessible to tab", "From the Available to tab", "From the Can Access tab", "From the Can Read tab"],
+    "correctAnswers": ["From the Can Read tab"],
+    "explanation": ""
+  },
+  {
+    "question": "On a list, what does each row show?",
+    "options": ["A filter", "A record", "A table", "A field"],
+    "correctAnswers": ["A record"],
+    "explanation": ""
+  },
+  {
+    "question": "When moving a homepage or dashboard between instances, what must you remember?",
+    "options": [
+      "Download both as PDF and XML files",
+      "They cannot be moved via update set",
+      "The Platform will automatically add them to the update set",
+      "Manually add them to the update set"
+    ],
+    "correctAnswers": ["Manually add them to the update set"],
+    "explanation": ""
+  },
+  {
+    "question": "Which set of steps is used to import spreadsheet data into a ServiceNow table?",
+    "options": [
+      "Select Data Source, Schedule Transform",
+      "Load Data, Create Transform Map, Run Transform",
+      "Define Data Source, Select Transform Map, Run Transform",
+      "Select Import Set, Select Transform Map, Run Transform"
+    ],
+    "correctAnswers": ["Load Data, Create Transform Map, Run Transform"],
+    "explanation": ""
+  },
+  {
+    "question": "Which tables are children of the Task table and come with the base system? (Choose three.)",
+    "options": ["Config", "Problem", "Dictionary", "cmdb", "Incident", "Change Request"],
+    "correctAnswers": ["Problem", "Incident", "Change Request"],
+    "explanation": ""
+  },
+  {
+    "question": "Where should an administrator navigate to add the 'Save' button in the form header?",
+    "options": [
+      "Context Menu > Form Design",
+      "All > System Properties > UI Action Settings",
+      "All > System Properties > UI Properties",
+      "Context Menu > Form Layout"
+    ],
+    "correctAnswers": ["All > System Properties > UI Properties"],
+    "explanation": ""
+  },
+  {
+    "question": "The testing team needs to be able to perform activities in the test instance, as though they are a member of the Service Desk group. What role would they need to be able to switch between user accounts, without logging out and back in?",
+    "options": ["service desk", "impersonator", "admin", "incognito"],
+    "correctAnswers": ["impersonator"],
+    "explanation": ""
+  },
+  {
+    "question": "What module enables an administrator to define destinations for imported data on any ServiceNow table?",
+    "options": ["Load Data", "Field Transform", "Schema Map", "Transform Map"],
+    "correctAnswers": ["Transform Map"],
+    "explanation": ""
+  },
+  {
+    "question": "What protects applications by restricting access to data in another application, in the same instance?",
+    "options": ["Admin Center", "Access Control Rules", "Assignment Rules", "Application Scope"],
+    "correctAnswers": ["Application Scope"],
+    "explanation": ""
+  },
+  {
+    "question": "On a form header, what icon would you click to access Template features?",
+    "options": ["Context Menu", "Paper clip", "Stamp", "More options (...)"],
+    "correctAnswers": ["More options (...)"],
+    "explanation": ""
+  },
+  {
+    "question": "What does ServiceNow recommend as a best practice regarding data imports?",
+    "options": [
+      "Adjust your Transform maps, after the data is loaded into the target table.",
+      "Use extremely large Import Sets, instead of multiple large Import Sets.",
+      "Create a new Import set table for each new data load.",
+      "Plan time before your import to remove obsolete or inaccurate data.",
+      "Monitor data quality and clean imported data, using the Data Scrub Workspace."
+    ],
+    "correctAnswers": ["Plan time before your import to remove obsolete or inaccurate data."],
+    "explanation": ""
+  },
+  {
+    "question": "Reports can be created from which different places in the platform. (Choose two.)",
+    "options": [
+      "List column heading",
+      "Metrics module",
+      "Statistics module",
+      "View / Run module"
+    ],
+    "correctAnswers": ["List column heading", "View / Run module"],
+    "explanation": "Relatórios podem ser criados pelo módulo 'View / Run', acessando All > Reports, ou diretamente em listas, clicando com o botão direito no cabeçalho de uma coluna como 'Name' e selecionando 'Bar Chart'."
   }
 ]
