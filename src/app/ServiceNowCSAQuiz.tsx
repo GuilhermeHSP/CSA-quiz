@@ -251,7 +251,7 @@ export default function ServiceNowCSAQuiz() {
                 Exam Simulation Mode
               </Button>
               <Button className="w-full" onClick={() => setSelectedSimuladoIndex(-1)}>
-                Short Simulates (15 questions)
+                Short Practice Tests (15 questions)
               </Button>
             </div>
           ) : (
