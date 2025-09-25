@@ -187,13 +187,15 @@
     "question": "What is the name of the conversational bot platform that provides assistance?",
     "options": ["Answer Agent", "Live Feed", "Virtual Agent", "Connect Chat"],
     "correctAnswers": ["Virtual Agent"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "Which of the following can be customized through the Basic Configuration UI 16 module?",
     "options": ["Banner Image", "Record Number Format", "Browser Tab Title", "System Date Format", "Form Header Size"],
     "correctAnswers": ["Banner Image", "Browser Tab Title", "System Date Format"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "What information does the System Dictionary contain?",
@@ -204,7 +206,8 @@
       "The language dictionary used for spell checking"
     ],
     "correctAnswers": ["The definition for each table and column"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "Buttons, form links, and context menu items are all examples of what type of functionality?",
@@ -301,8 +304,9 @@
       "History Records",
       "Titles of Dashboard Gauges"
     ],
-    "correctAnswers": ["Names of Applications and Modules", "Favorites", "History Records", "Titles of Dashboard Gauges"],
-    "explanation": ""
+    "correctAnswers": ["Names of Applications and Modules", "Names of Modules", "Names of Applications", "Favorites"],
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "What is a schema map?",
