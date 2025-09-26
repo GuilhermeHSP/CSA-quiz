@@ -76,55 +76,55 @@ export default function ServiceNowCSAQuiz() {
     fetchQuestions()
   }, [])
 
-  const startQuiz = (selectedMode: Mode, simuladoIndex?: number) => {
-    setMode(selectedMode);
-    setQuizCompleted(false);
-    setCurrentQuestionIndex(0);
-    setScore(0);
-    setQuestionsAnswered(0);
-    setSelectedAnswers([]);
-    setShowFeedback(false);
-    setTimeLeft(0);
-    setSelectedSimuladoIndex(null);
+  const startQuiz = (selectedMode: Mode, simuladoIndex?: number) => {
+    setMode(selectedMode);
+    setQuizCompleted(false);
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setQuestionsAnswered(0);
+    setSelectedAnswers([]);
+    setShowFeedback(false);
+    setTimeLeft(0);
+    setSelectedSimuladoIndex(null);
 
-    let questionsToUse: Question[] = [];
+    let questionsToUse: Question[] = [];
 
-    if (selectedMode === 'study') {
-      const savedProgress = localStorage.getItem('ServiceNowCSAQuiz');
-      if (savedProgress) {
-        const data = JSON.parse(savedProgress);
-        setShuffledQuestions(data.shuffledQuestions);
-        setCurrentQuestionIndex(data.currentQuestionIndex);
-        setScore(data.score);
-        setSelectedAnswers(data.selectedAnswers);
-        setQuizCompleted(data.quizCompleted);
-        setQuestionsAnswered(data.questionsAnswered);
-        setShowFeedback(data.showFeedback);
-        return;
-      }
-      // Embaralha as questões e as opções
-      questionsToUse = shuffleArray(baseQuestions);
-    }
-    if (selectedMode === 'exam') {
-      // Embaralha as questões e as opções
-      questionsToUse = shuffleArray(baseQuestions).slice(0, 60);
-      setTimeLeft(90 * 60);
-    }
-    if (selectedMode === 'short-simulate' && simuladoIndex !== undefined) {
-      setSelectedSimuladoIndex(simuladoIndex);
-      // Apenas embaralha as opções, mantendo a ordem das questões fixa
-      questionsToUse = (simulados[simuladoIndex] || []).map(q => ({
-        ...q,
-        options: [...q.options].sort(() => Math.random() - 0.5)
-      }));
-      setTimeLeft(30 * 60);
-   }
+    if (selectedMode === 'study') {
+      const savedProgress = localStorage.getItem('ServiceNowCSAQuiz');
+      if (savedProgress) {
+        const data = JSON.parse(savedProgress);
+        setShuffledQuestions(data.shuffledQuestions);
+        setCurrentQuestionIndex(data.currentQuestionIndex);
+        setScore(data.score);
+        setSelectedAnswers(data.selectedAnswers);
+        setQuizCompleted(data.quizCompleted);
+        setQuestionsAnswered(data.questionsAnswered);
+        setShowFeedback(data.showFeedback);
+        return;
+      }
+      // Embaralha as questões e as opções
+      questionsToUse = shuffleArray(baseQuestions);
+    }
+    if (selectedMode === 'exam') {
+      // Embaralha as questões e as opções
+      questionsToUse = shuffleArray(baseQuestions).slice(0, 60);
+      setTimeLeft(90 * 60);
+    }
+    if (selectedMode === 'short-simulate' && simuladoIndex !== undefined) {
+      setSelectedSimuladoIndex(simuladoIndex);
+      // Apenas embaralha as opções, mantendo a ordem das questões fixa
+      questionsToUse = (simulados[simuladoIndex] || []).map(q => ({
+        ...q,
+        options: [...q.options].sort(() => Math.random() - 0.5)
+      }));
+      setTimeLeft(30 * 60);
+    }
 
     // Define o estado com as questões processadas
     if (questionsToUse.length > 0) {
-        setShuffledQuestions(questionsToUse);
+      setShuffledQuestions(questionsToUse);
     }
-  };
+  };
   useEffect(() => {
     if (mode !== 'exam' && mode !== 'short-simulate' || quizCompleted) return
 

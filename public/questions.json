@@ -20,7 +20,8 @@
       "A business rule monitors fields on a form"
     ],
     "correctAnswers": ["A business rule can be a piece of Javascript"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "Which of the following allows a user to edit field values in a list without opening the form?",
@@ -169,7 +170,8 @@
       "Multiple Choice, Select Box, and Checkbox"
     ],
     "correctAnswers": ["Multiple Choice, Select Box, and Checkbox"],
-    "explanation": ""
+    "explanation": "",
+    "validated": true
   },
   {
     "question": "A Service Catalog may include which of the following components?",
@@ -217,8 +219,8 @@
   },
   {
     "question": "A REQ number in the Service Catalog represents:",
-    "options": ["the order number", "the stage", "the task to complete", "the individual item in the order"],
-    "correctAnswers": ["the order number"],
+    "options": ["The order number", "The stage", "The task to complete", "The individual item in the order"],
+    "correctAnswers": ["The order number"],
     "explanation": ""
   },
   {
@@ -291,8 +293,9 @@
   {
     "question": "Access Control rules may be defined with which of the following permission requirements?",
     "options": ["Roles", "Conditional Expressions", "Assignment Rules", "Scripts", "User Criteria", "Groups"],
-    "correctAnswers": ["Roles", "User Criteria", "Groups"],
-    "explanation": ""
+    "correctAnswers": ["Roles", "Conditional Expressions", "Scripts"],
+    "explanation": "Baseado na Seção 4.2: Application or Access Control > Access Control Definition: Permission Requiriments do ServiceNow Administration Fundamentals",
+    "validated": true
   },
   {
     "question": "When searching using the App Navigator, what can be returned?",
@@ -525,7 +528,7 @@
   },
   {
     "question": "What tool allows you to drag and drop to specify links between source fields on an import set table and destination fields on any ServiceNow table?",
-    "options": ["import workspace", "data source map", "Mapping assist utility", "import designer", "transform designer", "transform dashboard"],
+    "options": ["Import workspace", "Data source map", "Mapping assist utility", "Import designer", "Transform designer", "Transform dashboard"],
     "correctAnswers": ["Mapping assist utility"],
     "explanation": ""
   },
@@ -561,9 +564,9 @@
   },
   {
     "question": "What are the different Schema relationship types that are supported for tables? (Select 4 Answers)",
-    "options": ["Referencing", "Referenced By", "Depended By", "Depending", "Exteded by", "Extending"],
-    "correctAnswers": ["Referencing", "Referenced By", "Depended By", "Extending"],
-    "explanation": ""
+    "options": ["Reference", "Referenced By", "Depended By", "Depending", "Extended by", "Extend"],
+    "correctAnswers": ["Referenced By","Reference", "Extended by", "Extend"],
+    "explanation": "Uma série de filtros na parte superior do Schema Map permite que você mostre ou oculte tabelas com base em critérios como: 'Referenced by' (referenciadas pela) tabela Task, 'Reference' (referenciam) a tabela Task, 'Extended by' (estendidas pela) tabela Task ou 'Extend' (estendem) a tabela Task. Baseado na Seção 4.1: Table Administration > Schema Map: Permission Requiriments do ServiceNow Administration Fundamentals"
   },
   {
     "question": "Which of the following is a true statement regarding Flow Designer actions? (Select 3 Answers)",
