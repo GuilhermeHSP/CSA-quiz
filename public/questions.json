@@ -583,8 +583,9 @@
   {
     "question": "What are the three types of Flow Designer triggers? (Select 3 Answers)",
     "options": ["Schedule-based", "work-based", "Record-based", "Role-Based", "Application-based"],
-    "correctAnswers": ["Schedule-based", "Record-based", "Role-Based"],
-    "explanation": ""
+    "correctAnswers": ["Schedule-based", "Record-based", "Application-based"],
+    "explanation": "Baseado na Seção 5.3: Workflow automation > Flow components: Triggers do ServiceNow Administration Fundamentals em 'Triggers'.",
+    "validated": true
   },
   {
     "question": "Which CMDB feature tracks the activities and history of data sources as they insert and update CI attributes? (Select 2 Answers)",
@@ -637,8 +638,9 @@
   {
     "question": "When testing a catalog item having a manager approval flow, which best practices would you follow? (Choose 3 Answers)",
     "options": ["Make sure the latest flows are activated.", "Use the instance incognito setting to quickly toggle between requester and approver", "Impersonate the requester to ensure the form works", "Make sure the requester's user record has a manager specified.", "Create and select your testing Update set, before starting the test cases.", "Use your admin account, so you can approve the items quickly"],
-    "correctAnswers": ["Make sure the latest flows are activated.", "Make sure the requester's user record has a manager specified.", "Create and select your testing Update set, before starting the test cases."],
-    "explanation": ""
+    "correctAnswers": ["Make sure the latest flows are activated", "Make sure the requester's user record has a manager specified", "Impersonate the requester to ensure the form works"],
+    "explanation": "Baseado em respostas do ServiceNow Community.",
+    "validated": true
   },
   {
     "question": "A Product Owner cannot see tasks on ‘Service Desk > My Group Work List’. What could be the root cause?",
@@ -1544,8 +1546,9 @@
       "Incident table has a many to many relationship with the Task table",
       "Incident table is a database view of the Task table"
     ],
-    "correctAnswers": ["Incident table has a one to many relationship with the Task table"],
-    "explanation": ""
+    "correctAnswers": ["Incident table is extended from Task table"],
+    "explanation": "Baseado na Seção 4.1: Table administration > Table relationships: Extended tables do ServiceNow Administration Fundamentals.",
+    "validated": true
   },
   {
     "question": "An order from the Service Catalog has been placed. Two records in the Platform are created as a result. Which two records are associated with this newly ordered item?",
@@ -1562,8 +1565,9 @@
   {
     "question": "Which is the base table of the configuration management database hierarchy?",
     "options": ["Cmdb_ci", "Cmdb", "Cmdb_rel_ci", "Ucmdb"],
-    "correctAnswers": ["Cmdb_ci"],
-    "explanation": ""
+    "correctAnswers": ["Cmdb"],
+    "explanation": "A tabela base da hierarquia do CMDB (Configuration Management Database) no ServiceNow é a tabela cmdb — chamada Base Configuration Item — que é o ponto raiz na hierarquia de configuração dos itens.",
+    "validated": true
   },
   {
     "question": "When moving multiple update sets at one time, what might you do to facilitate the move?",
