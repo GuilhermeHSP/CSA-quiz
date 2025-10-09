@@ -637,7 +637,7 @@
   },
   {
     "question": "When testing a catalog item having a manager approval flow, which best practices would you follow? (Choose 3 Answers)",
-    "options": ["Make sure the latest flows are activated.", "Use the instance incognito setting to quickly toggle between requester and approver", "Impersonate the requester to ensure the form works", "Make sure the requester's user record has a manager specified.", "Create and select your testing Update set, before starting the test cases.", "Use your admin account, so you can approve the items quickly"],
+    "options": ["Make sure the latest flows are activated", "Use the instance incognito setting to quickly toggle between requester and approver", "Impersonate the requester to ensure the form works", "Make sure the requester's user record has a manager specified", "Create and select your testing Update set, before starting the test cases", "Use your admin account, so you can approve the items quickly"],
     "correctAnswers": ["Make sure the latest flows are activated", "Make sure the requester's user record has a manager specified", "Impersonate the requester to ensure the form works"],
     "explanation": "Baseado em respostas do ServiceNow Community.",
     "validated": true
@@ -1895,7 +1895,7 @@
       "Outage->Task number",
       "Release Phase==Parent"
     ],
-    "correctAnswers": ["Catalog Task->Parent", "Outage->Task number", "Release Phase==Parent"],
+    "correctAnswers": ["HR Case->Parent", "Catalog Task->Parent", "Outage->Task number"],
     "explanation": ""
   },
   {
