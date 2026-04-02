@@ -71,6 +71,7 @@ export default function QuizApp() {
   const [showFeedback, setShowFeedback] = useState(false)
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>([])
   const [quizCompleted, setQuizCompleted] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/ni-unused-vars
   const [questionsAnswered, setQuestionsAnswered] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
   const [selectedSimuladoIndex, setSelectedSimuladoIndex] = useState<number | null>(null)
