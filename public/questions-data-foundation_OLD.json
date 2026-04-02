@@ -1,0 +1,3360 @@
+[
+  {
+    "question": "In CI Class Manager, which action most directly reduces downstream technical debt when introducing a new CI specialization?",
+    "options": [
+      "Extend a baseline class and inherit attributes",
+      "Create a parallel custom base class for the specialization",
+      "Clone an existing child class and delete unused attributes",
+      "Attach custom fields directly on cmdb_ci"
+    ],
+    "correctAnswers": [
+      "Extend a baseline class and inherit attributes"
+    ],
+    "explanation": "Extending an out-of-the-box baseline class preserves inheritance, upgrade compatibility, and data model consistency, reducing long-term technical debt.",
+    "validated": true
+  },
+  {
+    "question": "You need to represent Docker hosts and their Linux distribution details. Where should OS attributes live to maximize reuse across subclasses?",
+    "options": [
+      "On an Asset table record and synced one-way",
+      "On cmdb_ci_docker_host (child) only",
+      "On cmdb_ci_computer (parent), inheritable by child classes",
+      "On cmdb_ci (root), duplicated to all descendants"
+    ],
+    "correctAnswers": [
+      "On cmdb_ci_computer (parent), inheritable by child classes"
+    ],
+    "explanation": "Common OS attributes belong on the correct parent class so multiple child CIs inherit them without duplication.",
+    "validated": true
+  },
+  {
+    "question": "Which IRE capability prevents duplicate CIs when importing from multiple authoritative sources?",
+    "options": [
+      "CI Class Manager 'Lock class' feature",
+      "MID Server selection rules",
+      "Discovery schedule concurrency control",
+      "Identification rules with reconciliation precedence"
+    ],
+    "correctAnswers": [
+      "Identification rules with reconciliation precedence"
+    ],
+    "explanation": "IRE uses identifiers to match CIs and reconciliation precedence to determine which source updates attributes, preventing duplicates.",
+    "validated": true
+  },
+  {
+    "question": "When should you configure a multi-source CMDB (CMDB 360) view for stakeholders?",
+    "options": [
+      "Only in non-production to reduce performance impact",
+      "Only when Discovery is not licensed",
+      "For stakeholder 360° view with source and quality badges",
+      "When the class has no identifiers"
+    ],
+    "correctAnswers": [
+      "For stakeholder 360° view with source and quality badges"
+    ],
+    "explanation": "CMDB 360 provides consolidated CI views with provenance and data quality indicators for stakeholders.",
+    "validated": true
+  },
+  {
+    "question": "Where is the best place to store 'Managed by group' for servers?",
+    "options": [
+      "As a non-discoverable attribute on the server CI class",
+      "As a discoverable attribute via Discovery probes",
+      "On the asset only and let users infer",
+      "On the user (sys_user) record as a reference back"
+    ],
+    "correctAnswers": [
+      "As a non-discoverable attribute on the server CI class"
+    ],
+    "explanation": "Support and management groups are operational attributes and should not be populated by Discovery.",
+    "validated": true
+  },
+  {
+    "question": "What is the principal class for a production Oracle database instance used by a payment application?",
+    "options": [
+      "cmdb_ci_database",
+      "cmdb_ci_appl",
+      "cmdb_ci_service_auto",
+      "cmdb_ci_service"
+    ],
+    "correctAnswers": [
+      "cmdb_ci_appl"
+    ],
+    "explanation": "Applications (cmdb_ci_appl) represent deployed, operational instances such as database instances used by applications.",
+    "validated": true
+  },
+  {
+    "question": "You must reclassify 500 VMs from 'Server' to 'Linux Server'. Which approach is most controlled?",
+    "options": [
+      "Generate a reclassification task to change the class of the CIs",
+      "Delete and recreate as Linux Server with import",
+      "Bulk update the sys_class_name via list or fix script",
+      "Map a transform to overwrite class on load without testing"
+    ],
+    "correctAnswers": [
+      "Generate a reclassification task to change the class of the CIs"
+    ],
+    "explanation": "Reclassification tasks provide governance, tracking, and rollback control when changing CI classes at scale.",
+    "validated": true
+  },
+  {
+    "question": "Which statement about Business Application vs Application Service is correct?",
+    "options": [
+      "Business Application is portfolio inventory; Application Service is an operational CI instance",
+      "Both are operational CIs used in Incident and Change",
+      "Application Service holds meta-data; Business Application is discoverable bits",
+      "Business Application should be created per environment (e.g. Dev/Prod)"
+    ],
+    "correctAnswers": [
+      "Business Application is portfolio inventory; Application Service is an operational CI instance"
+    ],
+    "explanation": "Business Applications represent portfolio-level definitions, while Application Services represent deployed operational services.",
+    "validated": true
+  },
+  {
+    "question": "A schema map shows a child class with many added attributes that are identical to the parent. What is the likely anti-pattern?",
+    "options": [
+      "Use of dynamic CI groups",
+      "Missing identifier rules",
+      "Improper relationship cardinality",
+      "Attributes defined at too deep a level causing duplication"
+    ],
+    "correctAnswers": [
+      "Attributes defined at too deep a level causing duplication"
+    ],
+    "explanation": "Attributes should be placed at the highest appropriate parent to maximize inheritance and avoid duplication.",
+    "validated": true
+  },
+  {
+    "question": "Which attribute set is most critical to define as 'required' for CMDB Health completeness on server CIs?",
+    "options": [
+      "Lifecycle stage/status, location, assignment/support groups",
+      "Monitor name and runbook wiki link",
+      "Warranty expiry and rack unit height",
+      "Change approver and business owner email"
+    ],
+    "correctAnswers": [
+      "Lifecycle stage/status, location, assignment/support groups"
+    ],
+    "explanation": "CMDB completeness focuses on key non-discoverable operational attributes required for lifecycle management, routing, and support.",
+    "validated": true
+  },
+  {
+    "question": "Which ingestion method best suits a monthly HR Location file that must create referenced locations before CIs load?",
+    "options": [
+      "Discovery schedule with CSV probe",
+      "Direct import set with onCreate script only",
+      "IH ETL with staged loads and reference creation",
+      "Service Mapping with tag-based entry points"
+    ],
+    "correctAnswers": [
+      "IH ETL with staged loads and reference creation"
+    ],
+    "explanation": "IntegrationHub ETL supports sequencing, transformations, and reference data creation prior to CI loads.",
+    "validated": true
+  },
+  {
+    "question": "What is the recommended sequence when merging SCCM and Discovery for computers?",
+    "options": [
+      "Load SCCM first, then disable Discovery for computers",
+      "Establish IRE identifiers, set source precedence, then load both",
+      "Run Discovery first to lock the class, then import SCCM",
+      "Create two CI classes to avoid collisions"
+    ],
+    "correctAnswers": [
+      "Establish IRE identifiers, set source precedence, then load both"
+    ],
+    "explanation": "Proper identifiers and reconciliation precedence enable safe multi-source ingestion without CI duplication.",
+    "validated": true
+  },
+  {
+    "question": "Which two capabilities directly reduce duplicate CIs during ingestion? (Select 2)",
+    "options": [
+      "MID Server load balancing",
+      "Timed imports during off-hours",
+      "IRE reconciliation precedence",
+      "Strong identifiers (e.g., serial + FQDN)"
+    ],
+    "correctAnswers": [
+      "IRE reconciliation precedence",
+      "Strong identifiers (e.g., serial + FQDN)"
+    ],
+    "explanation": "Strong identifiers combined with IRE reconciliation prevent duplicates; timing and load balancing do not resolve identity.",
+    "validated": true
+  },
+  {
+    "question": "You must populate 'Managed by group' on 20k servers from a CSV. Which approach minimizes technical debt?",
+    "options": [
+      "Hard code the value in a business rule on insert",
+      "Add a custom probe to Discovery to guess groups",
+      "Create a free-text field and let agents type it during incidents",
+      "Use Data Manager with a certification policy"
+    ],
+    "correctAnswers": [
+      "Use Data Manager with a certification policy"
+    ],
+    "explanation": "Data Manager provides governed, auditable population of non-discoverable attributes at scale.",
+    "validated": true
+  },
+  {
+    "question": "Which scenario requires Service Graph Connector Central over raw import sets?",
+    "options": [
+      "Importing devices with IRE-ready mappings and update semantics",
+      "Loading a one-time vendor spreadsheet",
+      "Bringing in lab test data to a custom table",
+      "Updating two reference choices"
+    ],
+    "correctAnswers": [
+      "Importing devices with IRE-ready mappings and update semantics"
+    ],
+    "explanation": "Service Graph Connectors deliver tested, IRE-aligned integrations for enterprise data sources.",
+    "validated": true
+  },
+  {
+    "question": "You need to track SBOM/package data for application CIs. Which two ingestion patterns are aligned? (Select 2)",
+    "options": [
+      "Service Graph connectors for observability/dev tools",
+      "Dynamic CI Group imports",
+      "Manual updates by service owners",
+      "Application file inventory via Discovery patterns"
+    ],
+    "correctAnswers": [
+      "Service Graph connectors for observability/dev tools",
+      "Application file inventory via Discovery patterns"
+    ],
+    "explanation": "Service Graph Connectors and Discovery patterns scale for software/package relationships; manual updates do not.",
+    "validated": true
+  },
+  {
+    "question": "Tag-based Service Mapping is appropriate when...",
+    "options": [
+      "No one can provide service owners",
+      "You lack any tagging standards",
+      "You only have on-prem with no HTTP/S endpoints",
+      "Cloud tags reliably denote entry points and ownership"
+    ],
+    "correctAnswers": [
+      "Cloud tags reliably denote entry points and ownership"
+    ],
+    "explanation": "Tag-based mapping relies on consistent cloud tagging to seed service entry points and ownership.",
+    "validated": true
+  },
+  {
+    "question": "Agent Client Collector (ACC) adds which ingestion advantage over agentless discovery?",
+    "options": [
+      "No installation effort",
+      "Faster ping sweeps",
+      "Software utilization metrics per endpoint",
+      "Network topology mapping"
+    ],
+    "correctAnswers": [
+      "Software utilization metrics per endpoint"
+    ],
+    "explanation": "ACC enables endpoint-level utilization and configuration data not feasible with agentless discovery.",
+    "validated": true
+  },
+  {
+    "question": "What's the safest way to delete stale CIs from a source system via multi-source reconciliation?",
+    "options": [
+      "Rely on users to close incidents referencing them",
+      "Delete directly from cmdb_ci via scheduled job",
+      "Use Data Manager retirement policies",
+      "Disable IRE to allow hard deletes"
+    ],
+    "correctAnswers": [
+      "Use Data Manager retirement policies"
+    ],
+    "explanation": "Retirement policies govern CI end-of-life safely instead of uncontrolled or hard deletes.",
+    "validated": true
+  },
+  {
+    "question": "To connect discoverable and non-discoverable data reliably, which two are key? (Select 2)",
+    "options": [
+      "Choice lists localized per team",
+      "Manual updates by Tier-1 agents",
+      "Reference to foundational data (users, groups, locations)",
+      "Consistent identifiers/keys across sources"
+    ],
+    "correctAnswers": [
+      "Reference to foundational data (users, groups, locations)",
+      "Consistent identifiers/keys across sources"
+    ],
+    "explanation": "Foundational references and consistent identifiers enable deterministic joins between discovered and manually maintained data.",
+    "validated": true
+  },
+  {
+    "question": "Which import approach best prevents 'class drift' during bulk loads?",
+    "options": [
+      "Let users reclassify post-load via list edit",
+      "Allow IRE to infer sys_class_name from attributes and validate outcome",
+      "Transform Map sets sys_class_name and validates allowed classes",
+      "Temporarily disable class hierarchy enforcement during processing"
+    ],
+    "correctAnswers": [
+      "Transform Map sets sys_class_name and validates allowed classes"
+    ],
+    "explanation": "Explicitly setting and validating sys_class_name in transforms avoids unintended subclassing or base class pollution.",
+    "validated": true
+  },
+  {
+    "question": "When should you prefer Import Sets + Transform Maps over IntegrationHub ETL?",
+    "options": [
+      "When native connectors exist in the Store",
+      "When orchestrating multi-stage pipelines with dependencies",
+      "For ad-hoc, one-time loads with simple transforms",
+      "When you need reconciliation policies"
+    ],
+    "correctAnswers": [
+      "For ad-hoc, one-time loads with simple transforms"
+    ],
+    "explanation": "Import Sets are best for simple, one-time or low-complexity loads; ETL suits orchestrated, recurring pipelines.",
+    "validated": true
+  },
+  {
+    "question": "You must enrich servers with 'Support group' from a CSV keyed by serial number. Which field should be the join key in the transform?",
+    "options": [
+      "Location",
+      "Display name",
+      "Manufacturer",
+      "Serial number"
+    ],
+    "correctAnswers": [
+      "Serial number"
+    ],
+    "explanation": "Stable identifiers like serial number are preferred join keys over mutable display attributes.",
+    "validated": true
+  },
+  {
+    "question": "Which discovery pattern choice best maps a three-tier web app for Application Services?",
+    "options": [
+      "Horizontal discovery only on subnets",
+      "Top-down mapping from entry URL to app/mid tiers and DB",
+      "Manual creation of relationships on the Business Application",
+      "Dependency View approximations from incidents"
+    ],
+    "correctAnswers": [
+      "Top-down mapping from entry URL to app/mid tiers and DB"
+    ],
+    "explanation": "Top-down Service Mapping builds Application Services from entry points through discovered dependencies.",
+    "validated": true
+  },
+  {
+    "question": "Which metric is NOT one of the six core CMDB Health metrics?",
+    "options": [
+      "Timeliness",
+      "Correctness",
+      "Approvals",
+      "Completeness"
+    ],
+    "correctAnswers": [
+      "Approvals"
+    ],
+    "explanation": "Core CMDB Health metrics include Completeness, Correctness, Compliance, Coverage, Duplication, and Timeliness.",
+    "validated": true
+  },
+  {
+    "question": "Which dashboard primarily helps identify missing required attributes across classes?",
+    "options": [
+      "CMDB Health Dashboard",
+      "CMDB and CSDM Data Foundations Dashboard",
+      "Unified Map",
+      "Query Builder"
+    ],
+    "correctAnswers": [
+      "CMDB Health Dashboard"
+    ],
+    "explanation": "The CMDB Health Dashboard highlights completeness and correctness issues by class, including missing required attributes.",
+    "validated": true
+  },
+  {
+    "question": "Which two actions directly reduce duplication in the CMDB? (Select 2)",
+    "options": [
+      "Increase Discovery frequency",
+      "Use the Duplicate CI Remediator with templates",
+      "Configure IRE identifiers properly",
+      "Enable CI autofill on forms"
+    ],
+    "correctAnswers": [
+      "Use the Duplicate CI Remediator with templates",
+      "Configure IRE identifiers properly"
+    ],
+    "explanation": "Proper identifiers and deduplication tools address CI duplication; scan frequency and autofill do not.",
+    "validated": true
+  },
+  {
+    "question": "What governance artifact defines who owns data quality for each class?",
+    "options": [
+      "CAB calendar",
+      "Incident priority matrix",
+      "RACI",
+      "Service catalog taxonomy"
+    ],
+    "correctAnswers": [
+      "RACI"
+    ],
+    "explanation": "A RACI model clarifies accountability and stewardship for CMDB data quality and lifecycle.",
+    "validated": true
+  },
+  {
+    "question": "Which role is responsible for overall CMDB strategy and policy?",
+    "options": [
+      "Problem Manager",
+      "Change Manager",
+      "Service Desk Manager",
+      "Configuration Manager"
+    ],
+    "correctAnswers": [
+      "Configuration Manager"
+    ],
+    "explanation": "The Configuration Manager owns CMDB governance, strategy, and policy, while other roles consume CMDB data.",
+    "validated": true
+  },
+  {
+    "question": "Which Data Manager policy type would you use to task owners to attest 'Managed by group' quarterly?",
+    "options": [
+      "Certification policy",
+      "Retirement policy",
+      "Deduplication policy",
+      "Identification policy"
+    ],
+    "correctAnswers": [
+      "Certification policy"
+    ],
+    "explanation": "Certification policies schedule periodic attestations of specific attributes by assigned owners.",
+    "validated": true
+  },
+  {
+    "question": "What's the first step to operationalize CMDB value across ITSM?",
+    "options": [
+      "Migrate all assets into the CMDB",
+      "Publish a schema map to Confluence",
+      "Tie CI usage with required CI references",
+      "Disable free text categorization on incidents"
+    ],
+    "correctAnswers": [
+      "Tie CI usage with required CI references"
+    ],
+    "explanation": "Requiring CI references in ITSM processes drives adoption and creates measurable CMDB value.",
+    "validated": true
+  },
+  {
+    "question": "A spike in 'Compliance' violations on CMDB Health most likely indicates which two issues? (Select 2)",
+    "options": [
+      "Classes not enabled for Discovery",
+      "Missing required attributes",
+      "Incorrect relationship cardinalities",
+      "Fields not meeting regex/value policies"
+    ],
+    "correctAnswers": [
+      "Incorrect relationship cardinalities",
+      "Fields not meeting regex/value policies"
+    ],
+    "explanation": "Compliance covers policy violations such as cardinality constraints and value/format rules; missing fields impact completeness.",
+    "validated": true
+  },
+  {
+    "question": "Which Workspace feature helps triage class-specific data quality and tasks in one place?",
+    "options": [
+      "CMDB Workspace tiles and guided actions",
+      "Guided Setup for ITSM",
+      "Event Management Workbench",
+      "Incident Workspace 'Agent Assist'"
+    ],
+    "correctAnswers": [
+      "CMDB Workspace tiles and guided actions"
+    ],
+    "explanation": "CMDB Workspace centralizes health insights, tasks, and remediation actions across ingest, govern, and insight pillars.",
+    "validated": true
+  },
+  {
+    "question": "Which action best prevents 'custom attribute sprawl' over time?",
+    "options": [
+      "Add all attributes at base table cmdb_ci",
+      "Permit any team to add attributes on demand",
+      "Require design review for business value and correct class level before adding attributes",
+      "Replace attributes with tags before adding attributes"
+    ],
+    "correctAnswers": [
+      "Require design review for business value and correct class level before adding attributes"
+    ],
+    "explanation": "Design reviews ensure attributes are governed, necessary, and placed at the correct inheritance level.",
+    "validated": true
+  },
+  {
+    "question": "You find 12 custom classes added under 'Server' that mirror OOTB children. What do you do?",
+    "options": [
+      "Leave as is to avoid risk",
+      "Reclassify into OOTB classes",
+      "Flatten to base cmdb_ci",
+      "Create more customs for clarity"
+    ],
+    "correctAnswers": [
+      "Reclassify into OOTB classes"
+    ],
+    "explanation": "Using OOTB classes preserves compatibility with ServiceNow features and reduces long-term technical debt.",
+    "validated": true
+  },
+  {
+    "question": "Which process ensures CI lifecycle transitions (e.g., from 'Operational' to 'Retired') are applied consistently?",
+    "options": [
+      "Data Manager retirement policies",
+      "Manual updates by agents",
+      "CAB notes during change approval",
+      "Discovery schedules"
+    ],
+    "correctAnswers": [
+      "Data Manager retirement policies"
+    ],
+    "explanation": "Retirement policies automate and govern lifecycle transitions consistently across CI classes.",
+    "validated": true
+  },
+  {
+    "question": "Which two stakeholder groups should be permanent members of the CMDB CCB? (Select 3)",
+    "options": [
+      "External auditors",
+      "Enterprise Architects",
+      "Tier-1 Service Desk",
+      "Configuration Manager",
+      "Process Owner"
+    ],
+    "correctAnswers": [
+      "Enterprise Architects",
+      "Configuration Manager",
+      "Process Owner"
+    ],
+    "explanation": "CCB requires decision-makers responsible for model design, governance, and process ownership; consumers are not core members.",
+    "validated": true
+  },
+  {
+    "question": "Which statement about asset vs CI lifecycle is correct?",
+    "options": [
+      "A CI always maps to exactly one asset forever",
+      "One asset can correspond to multiple CIs over time as it's redeployed",
+      "Assets are always non-operational; CIs are always financial",
+      "Deleting an asset deletes the CI automatically"
+    ],
+    "correctAnswers": [
+      "One asset can correspond to multiple CIs over time as it's redeployed"
+    ],
+    "explanation": "A single hardware asset may back different CI instances as its operational role changes over time.",
+    "validated": true
+  },
+  {
+    "question": "What does the 'Coverage' metric in CMDB Health primarily measure?",
+    "options": [
+      "Percent of policy rules met in CMDB",
+      "Number of CI relationships per CI in CMDB",
+      "Percent of required attributes filled in CMDB",
+      "Proportion of in-scope infrastructure actually represented in CMDB"
+    ],
+    "correctAnswers": [
+      "Proportion of in-scope infrastructure actually represented in CMDB"
+    ],
+    "explanation": "Coverage compares discovered or in-scope items against what is actually represented in the CMDB.",
+    "validated": true
+  },
+  {
+    "question": "How do you enforce that every Application Service has an owning group?",
+    "options": [
+      "Compliance rule in CMDB Health",
+      "Rely on Discovery patterns to set it",
+      "Populate via business rule on view",
+      "Let Incident auto-assignment infer ownership"
+    ],
+    "correctAnswers": [
+      "Compliance rule in CMDB Health"
+    ],
+    "explanation": "Compliance rules, combined with Data Manager, enforce and remediate required ownership attributes consistently.",
+    "validated": true
+  },
+  {
+    "question": "Which two tools help visualize and validate relationship cardinality during governance? (Select 2)",
+    "options": [
+      "Schema Map",
+      "Unified Map / Dependency Views",
+      "Change Calendar",
+      "SLM dashboards"
+    ],
+    "correctAnswers": [
+      "Schema Map",
+      "Unified Map / Dependency Views"
+    ],
+    "explanation": "Schema Map and dependency views make CI relationships and cardinality visible for validation; calendars and SLM dashboards do not.",
+    "validated": true
+  },
+  {
+    "question": "You detect frequent accidental deletes from a source import. What guard should you add?",
+    "options": [
+      "Disable ACLs on cmdb_ci",
+      "Turn off IRE",
+      "Quarantine stage with review plus 'retire-then-delete' policy",
+      "Reduce import frequency"
+    ],
+    "correctAnswers": [
+      "Quarantine stage with review plus 'retire-then-delete' policy"
+    ],
+    "explanation": "Quarantine and retire-then-delete patterns prevent data loss and allow controlled review before deletion.",
+    "validated": true
+  },
+  {
+    "question": "Which CMDB Health metric would flag unexpected values like 'n/a' in lifecycle fields?",
+    "options": [
+      "Compliance",
+      "Completeness",
+      "Coverage",
+      "Timeliness"
+    ],
+    "correctAnswers": [
+      "Compliance"
+    ],
+    "explanation": "Compliance validates value policies and formats, not just presence of data.",
+    "validated": true
+  },
+  {
+    "question": "What's a pragmatic KPI to evidence CMDB value to executives?",
+    "options": [
+      "Lines of custom scripts removed",
+      "Number of CIs in the CMDB",
+      "Reduction in failed changes correlated with higher completeness",
+      "Count of import sets executed"
+    ],
+    "correctAnswers": [
+      "Reduction in failed changes correlated with higher completeness"
+    ],
+    "explanation": "Linking CMDB health improvements to operational outcomes demonstrates tangible business value.",
+    "validated": true
+  },
+  {
+    "question": "Which two activities are part of 'operationalizing' the CMDB? (Select 2)",
+    "options": [
+      "Publishing an internal wiki page about CMDB",
+      "Embedding CI lookups in IPC forms and automation",
+      "Automating change impact analysis using relationships",
+      "Hiding the CI field to simplify forms"
+    ],
+    "correctAnswers": [
+      "Embedding CI lookups in IPC forms and automation",
+      "Automating change impact analysis using relationships"
+    ],
+    "explanation": "Operationalization means using CMDB data in live processes and automation, not just documentation.",
+    "validated": true
+  },
+  {
+    "question": "Which role should NOT typically be combined with CMDB Admin to preserve checks and balances?",
+    "options": [
+      "CMDB Process Owner",
+      "Service Owner",
+      "Change Manager",
+      "IT Asset Manager"
+    ],
+    "correctAnswers": [
+      "CMDB Process Owner"
+    ],
+    "explanation": "Separating CMDB Admin and Process Owner roles preserves governance and avoids conflicts of interest.",
+    "validated": true
+  },
+  {
+    "question": "What is the most reliable signal to retire a CI representing a cloud VM?",
+    "options": [
+      "Manual request from any user",
+      "Incident inactivity for 30 days",
+      "Change calendar gaps",
+      "Cloud provider events via connector"
+    ],
+    "correctAnswers": [
+      "Cloud provider events via connector"
+    ],
+    "explanation": "Authoritative de-provision events from cloud providers are the most reliable retirement signals.",
+    "validated": true
+  },
+  {
+    "question": "When configuring deduplication templates, what should you avoid?",
+    "options": [
+      "Using FQDN",
+      "Including serial number or GUID",
+      "Matching only on display name",
+      "Combining multiple identifiers"
+    ],
+    "correctAnswers": [
+      "Matching only on display name"
+    ],
+    "explanation": "Display names are mutable and ambiguous; deduplication should rely on stable identifiers.",
+    "validated": true
+  },
+  {
+    "question": "Which artifact best captures allowed classes, required attributes, and relationship rules for a given use case?",
+    "options": [
+      "CAB minutes",
+      "CMDB data model design document",
+      "Incident knowledge article",
+      "Change model"
+    ],
+    "correctAnswers": [
+      "CMDB data model design document"
+    ],
+    "explanation": "The data model design document governs class, attribute, and relationship decisions and underpins health policies.",
+    "validated": true
+  },
+  {
+    "question": "Which CMDB Health metric most directly measures data freshness?",
+    "options": [
+      "Timeliness",
+      "Compliance",
+      "Completeness",
+      "Coverage"
+    ],
+    "correctAnswers": [
+      "Timeliness"
+    ],
+    "explanation": "Timeliness measures how recently CIs were updated or discovered compared to defined expectations.",
+    "validated": true
+  },
+  {
+    "question": "You need to prevent non-standard values for 'Operational status'. What's the right control?",
+    "options": [
+      "Allow any value and clean monthly",
+      "Hide the field from forms",
+      "Free-text string with UI Policy",
+      "Use choice list constraints and compliance policy checks"
+    ],
+    "correctAnswers": [
+      "Use choice list constraints and compliance policy checks"
+    ],
+    "explanation": "Constraining allowed values and enforcing them through compliance policies prevents data drift.",
+    "validated": true
+  },
+  {
+    "question": "Which tool best supports building a complex query that returns servers with a path to their business services and owning groups?",
+    "options": [
+      "Schema map",
+      "List view with dot-walking",
+      "CMDB Query Builder",
+      "Report Designer 'Table'"
+    ],
+    "correctAnswers": [
+      "CMDB Query Builder"
+    ],
+    "explanation": "Query Builder supports graph queries across CIs and relationships, returning full paths and related attributes.",
+    "validated": true
+  },
+  {
+    "question": "Unified Map is primarily used for...",
+    "options": [
+      "Visualization of a CI and its related CIs",
+      "Configuring identifiers",
+      "Creating transform maps",
+      "Editing class hierarchy"
+    ],
+    "correctAnswers": [
+      "Visualization of a CI and its related CIs"
+    ],
+    "explanation": "Unified Map (Dependency Views) visualizes CI relationships for impact analysis and troubleshooting.",
+    "validated": true
+  },
+  {
+    "question": "Which two outcomes rely on CMDB insight across products? (Select 2)",
+    "options": [
+      "Change risk calculation based on blast radius",
+      "Branding the portal",
+      "Email routing rules",
+      "SAM reclaim rights based on utilization"
+    ],
+    "correctAnswers": [
+      "Change risk calculation based on blast radius",
+      "SAM reclaim rights based on utilization"
+    ],
+    "explanation": "Change Management and SAM leverage CMDB relationships and utilization data to drive outcomes.",
+    "validated": true
+  },
+  {
+    "question": "Natural Language Query over CMDB Saved Queries enables what?",
+    "options": [
+      "Voice-to-text incident creation",
+      "Ad-hoc, plain-English retrieval of saved graph queries",
+      "Regex validation of attributes",
+      "Scheduling of Discovery"
+    ],
+    "correctAnswers": [
+      "Ad-hoc, plain-English retrieval of saved graph queries"
+    ],
+    "explanation": "NLQ interprets plain English to execute saved CMDB graph queries for easier insights.",
+    "validated": true
+  },
+  {
+    "question": "Which visualization would you use to explain the impact path from a failed database to user-facing services?",
+    "options": [
+      "Dependency view map from the DB CI",
+      "Schema map of cmdb_ci_appl",
+      "Service Catalog taxonomy",
+      "Incident trend chart"
+    ],
+    "correctAnswers": [
+      "Dependency view map from the DB CI"
+    ],
+    "explanation": "Dependency views show upstream and downstream relationships for impact analysis.",
+    "validated": true
+  },
+  {
+    "question": "Which CMDB Foundation Dashboard value helps prioritize clean-up work?",
+    "options": [
+      "Average MTTR",
+      "Number of MID Servers",
+      "Count of change requests",
+      "Playbook guidance linked to specific indicators"
+    ],
+    "correctAnswers": [
+      "Playbook guidance linked to specific indicators"
+    ],
+    "explanation": "Foundations Dashboard playbooks provide guided remediation tied to health indicators.",
+    "validated": true
+  },
+  {
+    "question": "Which two are valid ways to build out complex relationship paths in a query? (Select 2)",
+    "options": [
+      "Use 'contains' operators on text attributes",
+      "Traverse upstream and downstream relationships",
+      "Filter by relationship type and direction",
+      "Export to CSV and join in Excel"
+    ],
+    "correctAnswers": [
+      "Traverse upstream and downstream relationships",
+      "Filter by relationship type and direction"
+    ],
+    "explanation": "Graph queries rely on relationship traversal and filtering, not text search or external joins.",
+    "validated": true
+  },
+  {
+    "question": "Which report best demonstrates improved coverage over time?",
+    "options": [
+      "Stacked bar of incidents by category",
+      "Pie chart of CI counts by class",
+      "Time-series of discovered vs. expected CIs per class",
+      "List of orphan CIs"
+    ],
+    "correctAnswers": [
+      "Time-series of discovered vs. expected CIs per class"
+    ],
+    "explanation": "Coverage improvement is shown by trending discovered versus expected in-scope items over time.",
+    "validated": true
+  },
+    {
+    "question": "A service outage occurs. Which CMDB-driven artifact should Change use to assess blast radius?",
+    "options": [
+      "Discovery schedule",
+      "List of assets by vendor",
+      "Incident work notes",
+      "Dependency view of the targeted CI(s)"
+    ],
+    "correctAnswers": [
+      "Dependency view of the targeted CI(s)"
+    ],
+    "explanation": "Impact analysis relies on upstream and downstream dependency paths to assess risk and affected services.",
+    "validated": true
+  },
+  {
+    "question": "Which Query Builder feature ensures you don't lose CIs that lack one of the optional relationships in a path?",
+    "options": [
+      "Outer relationship hops",
+      "Strict inner joins only",
+      "Regex filters",
+      "Saved report schedules"
+    ],
+    "correctAnswers": [
+      "Outer relationship hops"
+    ],
+    "explanation": "Outer hops (optional relationships) keep root nodes even when some relationships are missing.",
+    "validated": true
+  },
+  {
+    "question": "Which two are appropriate consumers of CMDB insights for proactive ops? (Select 2)",
+    "options": [
+      "Event Management correlation rules",
+      "Change collision detection",
+      "Portal theme engine",
+      "Outbound email templating"
+    ],
+    "correctAnswers": [
+      "Event Management correlation rules",
+      "Change collision detection"
+    ],
+    "explanation": "Topology-aware event correlation and change collision detection use CMDB insights to reduce noise and risk.",
+    "validated": true
+  },
+  {
+    "question": "What's the best way to share a reusable complex graph filter with analysts?",
+    "options": [
+      "Email the JSON",
+      "Send a screenshot",
+      "Save it as a CMDB Saved Query and share via role",
+      "Paste into a wiki"
+    ],
+    "correctAnswers": [
+      "Save it as a CMDB Saved Query and share via role"
+    ],
+    "explanation": "Saved Queries are reusable, versioned, and permissioned for consistent analysis.",
+    "validated": true
+  },
+  {
+    "question": "Which insight helps IRM/GRC align risk to business impact?",
+    "options": [
+      "Number of MID Servers",
+      "Counting ACLs on cmdb_ci",
+      "Mapping technology CIs to Business Services",
+      "Average number of attributes per class"
+    ],
+    "correctAnswers": [
+      "Mapping technology CIs to Business Services"
+    ],
+    "explanation": "Linking technology components to business services enables risk prioritization based on business impact.",
+    "validated": true
+  },
+  {
+    "question": "You need a one-click overview of a CI’s source systems and quality badges. What feature do you open?",
+    "options": [
+      "Discovery Status",
+      "Form Related Links: 'Show XML'",
+      "Incident module 'View CI'",
+      "CMDB 360 / multi-source CMDB view"
+    ],
+    "correctAnswers": [
+      "CMDB 360 / multi-source CMDB view"
+    ],
+    "explanation": "CMDB 360 aggregates provenance and quality indicators across multiple sources for a CI.",
+    "validated": true
+  },
+  {
+    "question": "Which artifact documents measurable improvements when teams follow Playbooks?",
+    "options": [
+      "Foundations Dashboard",
+      "Change templates",
+      "Problem tasks",
+      "Wiki pages"
+    ],
+    "correctAnswers": [
+      "Foundations Dashboard"
+    ],
+    "explanation": "Indicator history in the Foundations Dashboard shows measurable improvements from playbook actions over time.",
+    "validated": true
+  },
+  {
+    "question": "Which statement aligns with CSDM guidance on services?",
+    "options": [
+      "Business Service should be a hierarchy of multiple layers",
+      "Business and Technology Services are single-level service types used operationally",
+      "Application Service is not an operational Configuration Item",
+      "Business Application is used in Incident and Change Management"
+    ],
+    "correctAnswers": [
+      "Business and Technology Services are single-level service types used operationally"
+    ],
+    "explanation": "CSDM defines Business and Technology Services as single-level, operational services; Business Applications are portfolio-level.",
+    "validated": true
+  },
+  {
+    "question": "How should environments be modeled per CSDM?",
+    "options": [
+      "Use one Application Service with a string field for environment",
+      "Create separate Business Applications per environment; keep one Application Service",
+      "Put environments only on assets",
+      "Create separate Application Services per environment; keep one Business Application"
+    ],
+    "correctAnswers": [
+      "Create separate Application Services per environment; keep one Business Application"
+    ],
+    "explanation": "Application Services represent deployed instances (e.g., Dev/Prod), while the Business Application remains a single portfolio entry.",
+    "validated": true
+  },
+  {
+    "question": "Which two choices reflect conformant table usage per CSDM? (Select 2)",
+    "options": [
+      "Store Business Applications in cmdb_ci_service",
+      "Use cmdb_ci_service_auto for Application Services",
+      "Represent Business Services in cmdb_ci_service",
+      "Represent apps in alm_asset only"
+    ],
+    "correctAnswers": [
+      "Use cmdb_ci_service_auto for Application Services",
+      "Represent Business Services in cmdb_ci_service"
+    ],
+    "explanation": "CSDM maps Application Services to cmdb_ci_service_auto and Business Services to cmdb_ci_service.",
+    "validated": true
+  },
+  {
+    "question": "What's the CSDM-aligned way to relate an Application Service to a Business Service?",
+    "options": [
+      "Only via tags, not relationships",
+      "Make Business Service a child of Application Service",
+      "Relate Application Service as 'Depends on' for the Business Service",
+      "Relate Business Application directly to servers only"
+    ],
+    "correctAnswers": [
+      "Relate Application Service as 'Depends on' for the Business Service"
+    ],
+    "explanation": "In CSDM, Business Services are underpinned by Application Services through dependency relationships, enabling impact and service-level reporting.",
+    "validated": true
+  },
+  {
+    "question": "Which domain would hold Teams and Owners referenced by services?",
+    "options": [
+      "Service Delivery",
+      "Foundation",
+      "Build and Integrate",
+      "Service Consumption"
+    ],
+    "correctAnswers": [
+      "Foundation"
+    ],
+    "explanation": "Users, groups, and locations are foundational data managed in the Foundation domain and referenced across all other domains.",
+    "validated": true
+  },
+  {
+    "question": "A microservice platform with dozens of independent services should be represented as...",
+    "options": [
+      "Multiple Application Services, possibly hierarchical per entry points",
+      "One Business Service with no relationships",
+      "One Application record with many attributes",
+      "Only assets, not CIs"
+    ],
+    "correctAnswers": [
+      "Multiple Application Services, possibly hierarchical per entry points"
+    ],
+    "explanation": "CSDM supports modeling microservices as multiple Application Services with hierarchical dependencies to reflect real operational architecture.",
+    "validated": true
+  },
+  {
+    "question": "Which two consequences often occur when not following CSDM? (Select 2)",
+    "options": [
+      "Less technical debt",
+      "Reduced ability to report at service level",
+      "Faster upgrades",
+      "Incompatibility with new products"
+    ],
+    "correctAnswers": [
+      "Reduced ability to report at service level",
+      "Incompatibility with new products"
+    ],
+    "explanation": "ServiceNow products assume CSDM-aligned data; misalignment limits service reporting and causes incompatibilities with new capabilities.",
+    "validated": true
+  },
+  {
+    "question": "Which domain primarily contains deployed service instances and their discoverable components?",
+    "options": [
+      "Foundation",
+      "Ideation & Strategy",
+      "Design & Planning",
+      "Service Delivery"
+    ],
+    "correctAnswers": [
+      "Service Delivery"
+    ],
+    "explanation": "The Service Delivery domain contains operational CIs such as Application Services and their underlying technical components.",
+    "validated": true
+  },
+  {
+    "question": "Which capability of CMDB 360 / multi-source CMDB is most valuable during a data conflict investigation?",
+    "options": [
+      "Creating service maps",
+      "Visual comparison of attribute values from multiple data sources",
+      "Exporting CSVs of all tables",
+      "Generating discovery schedules"
+    ],
+    "correctAnswers": [
+      "Visual comparison of attribute values from multiple data sources"
+    ],
+    "explanation": "CMDB 360 displays side-by-side attribute values from different sources, including lineage and provenance, enabling faster resolution of data conflicts.",
+    "validated": true
+  },
+  {
+    "question": "What does the Duplicate CI Remediation Wizard help you do?",
+    "options": [
+      "Create new classes",
+      "Manually merge or delete duplicate CI records",
+      "Change reconciliation priorities",
+      "Schedule discovery probes"
+    ],
+    "correctAnswers": [
+      "Manually merge or delete duplicate CI records"
+    ],
+    "explanation": "The Duplicate CI Remediation Wizard guides administrators through safe consolidation or removal of duplicate CIs.",
+    "validated": true
+  },
+  {
+    "question": "Which tool highlights which classes most affect the Completeness KPI?",
+    "options": [
+      "Discovery Dashboard",
+      "Change Workspace",
+      "Unified Map",
+      "CMDB Health Top 10"
+    ],
+    "correctAnswers": [
+      "CMDB Health Top 10"
+    ],
+    "explanation": "CMDB Health Top 10 views rank classes by KPI impact, helping teams focus remediation where it matters most.",
+    "validated": true
+  },
+  {
+    "question": "If two CIs have the same serial number and model, which tool should you use first?",
+    "options": [
+      "Duplicate CI Remediation Wizard",
+      "Incident Workspace",
+      "Service Mapping",
+      "Unified Map"
+    ],
+    "correctAnswers": [
+      "Duplicate CI Remediation Wizard"
+    ],
+    "explanation": "The remediation wizard is designed specifically to resolve identity conflicts and duplicates in the CMDB.",
+    "validated": true
+  },
+  {
+    "question": "Which KPI detects records with missing required or recommended fields?",
+    "options": [
+      "Correctness",
+      "Cost",
+      "Compliance",
+      "Completeness"
+    ],
+    "correctAnswers": [
+      "Completeness"
+    ],
+    "explanation": "Completeness measures whether required and recommended attributes are populated on CI records.",
+    "validated": true
+  },
+  {
+    "question": "Which outcome is most improved by accurate CI relationships?",
+    "options": [
+      "MTTR for incidents",
+      "User permission grants",
+      "Email delivery speed",
+      "Printer availability"
+    ],
+    "correctAnswers": [
+      "MTTR for incidents"
+    ],
+    "explanation": "Accurate CI relationships enable faster impact analysis and triage, directly reducing mean time to restore service.",
+    "validated": true
+  },
+  {
+    "question": "Which feature lets you expand and collapse nodes to explore service topology?",
+    "options": [
+      "Query Builder",
+      "Health Inclusion Rules",
+      "Transform Map",
+      "Unified Map"
+    ],
+    "correctAnswers": [
+      "Unified Map"
+    ],
+    "explanation": "Unified Map provides interactive visualization of CI relationships, allowing users to expand or collapse nodes.",
+    "validated": true
+  },
+  {
+    "question": "Which combination BEST supports sustainable CMDB quality? (Choose 3)",
+    "options": [
+      "Defined ownership",
+      "Regular health reviews",
+      "Lifecycle policies",
+      "Ad-hoc manual updates"
+    ],
+    "correctAnswers": [
+      "Defined ownership",
+      "Regular health reviews",
+      "Lifecycle policies"
+    ],
+    "explanation": "Sustainable CMDB quality depends on clear accountability, continuous monitoring, and governed lifecycle automation.",
+    "validated": true
+  },
+  {
+    "question": "Who typically owns CMDB governance and policies?",
+    "options": [
+      "Service Desk Agent",
+      "CMDB Manager/Administrator",
+      "Request Fulfillment Manager",
+      "End User"
+    ],
+    "correctAnswers": [
+      "CMDB Manager/Administrator"
+    ],
+    "explanation": "CMDB Managers or Administrators are responsible for governance, standards, and policy enforcement.",
+    "validated": true
+  },
+  {
+    "question": "Reconciliation rules are used to...",
+    "options": [
+      "Run Discovery more often",
+      "Prioritize data sources that can update attributes",
+      "Auto-create business services",
+      "Attach incidents to CIs"
+    ],
+    "correctAnswers": [
+      "Prioritize data sources that can update attributes"
+    ],
+    "explanation": "Reconciliation rules determine which data source is authoritative per attribute when multiple sources attempt updates.",
+    "validated": true
+  },
+    {
+    "question": "Which choice best limits future upgrade friction in CMDB design?",
+    "options": [
+      "Avoid OOB tables",
+      "Disable the IRE",
+      "Leverage OOB classes and extend only as needed",
+      "Use bespoke base tables"
+    ],
+    "correctAnswers": [
+      "Leverage OOB classes and extend only as needed"
+    ],
+    "explanation": "Extending out-of-the-box classes only when necessary preserves upgrade compatibility and alignment with the platform data model.",
+    "validated": true
+  },
+  {
+    "question": "Which statement about Health Inclusion Rules is TRUE?",
+    "options": [
+      "They determine which classes count toward Health KPIs",
+      "They set IRE identifiers",
+      "They configure Unified Map views",
+      "They control discovery scan ranges"
+    ],
+    "correctAnswers": [
+      "They determine which classes count toward Health KPIs"
+    ],
+    "explanation": "Health Inclusion Rules define which CI classes are included in CMDB Health KPI calculations.",
+    "validated": true
+  },
+  {
+    "question": "You need a new CI class for a proprietary appliance. What is the leading practice?",
+    "options": [
+      "Create a brand-new top table",
+      "Use a dynamic CI group instead",
+      "Store it as a Business Application",
+      "Extend the closest OOB class and use IRE"
+    ],
+    "correctAnswers": [
+      "Extend the closest OOB class and use IRE"
+    ],
+    "explanation": "Extending the nearest out-of-the-box class maintains upgrade safety and keeps identification and reconciliation aligned.",
+    "validated": true
+  },
+  {
+    "question": "Operationalizing the CMDB primarily requires…",
+    "options": [
+      "Manual data entry",
+      "Bigger MID servers",
+      "More incident categories",
+      "Governance processes, ownership, and regular remediation"
+    ],
+    "correctAnswers": [
+      "Governance processes, ownership, and regular remediation"
+    ],
+    "explanation": "Sustainable CMDB value comes from governance, accountability, and continuous remediation, not scale or manual effort.",
+    "validated": true
+  },
+  {
+    "question": "Business Service Offerings live in…",
+    "options": [
+      "Service Consumption",
+      "Foundation",
+      "Design & Planning",
+      "Service Delivery"
+    ],
+    "correctAnswers": [
+      "Service Consumption"
+    ],
+    "explanation": "Service offerings and catalogs are modeled in the Service Consumption domain.",
+    "validated": true
+  },
+  {
+    "question": "What business outcome does dependency mapping most directly enable?",
+    "options": [
+      "Password resets",
+      "User onboarding",
+      "Change impact analysis",
+      "Faster SLA creation"
+    ],
+    "correctAnswers": [
+      "Change impact analysis"
+    ],
+    "explanation": "Dependency mapping enables understanding blast radius and risk before executing changes.",
+    "validated": true
+  },
+  {
+    "question": "Which dashboard provides playbooks to remediate data issues quickly?",
+    "options": [
+      "Incident Overview",
+      "Change Calendar",
+      "CMDB & CSDM Data Foundations",
+      "Service Portfolio"
+    ],
+    "correctAnswers": [
+      "CMDB & CSDM Data Foundations"
+    ],
+    "explanation": "The Foundations dashboard includes guided playbooks tied to CMDB health indicators.",
+    "validated": true
+  },
+  {
+    "question": "A CI has no relationships and no parent services. Which metric flags this?",
+    "options": [
+      "Audit",
+      "Staleness",
+      "Orphan",
+      "Duplicate"
+    ],
+    "correctAnswers": [
+      "Orphan"
+    ],
+    "explanation": "Orphan metrics identify CIs that lack expected relationships or parent services.",
+    "validated": true
+  },
+  {
+    "question": "Which dashboard view would you use to confirm a class is excluded from health calculations?",
+    "options": [
+      "Unified Map",
+      "Service Catalog",
+      "Health Inclusion Rules",
+      "Correctness Top 10"
+    ],
+    "correctAnswers": [
+      "Health Inclusion Rules"
+    ],
+    "explanation": "Health Inclusion Rules define and display which classes are included or excluded from CMDB Health KPIs.",
+    "validated": true
+  },
+  {
+    "question": "How does IRE prevent duplicates at insert time?",
+    "options": [
+      "By ACLs",
+      "By staleness audits",
+      "By Unified Map constraints",
+      "By running identification rules before insert"
+    ],
+    "correctAnswers": [
+      "By running identification rules before insert"
+    ],
+    "explanation": "IRE evaluates identification rules to match existing CIs before inserting new records, preventing duplicates.",
+    "validated": true
+  },
+  {
+      "question": "Saved queries from CMDB 360 can be used to...",
+      "options": [
+        "Schedule Discovery",
+        "Change identifiers",
+        "Create ACLs",
+        "Build custom reports and filters"
+      ],
+      "correctAnswers": ["Build custom reports and filters"],
+      "explanation": "Saved queries in CMDB 360 are reusable filters that support reporting and analytics across teams."
+    },
+    {
+      "question": "Which statement about Transform Maps is TRUE?",
+      "options": [
+        "They schedule Discovery",
+        "They create business services",
+        "They map fields and can call IRE",
+        "They define uniqueness keys"
+      ],
+      "correctAnswers": ["They map fields and can call IRE"],
+      "explanation": "Transform Maps handle field mapping during ingestion and can invoke IRE; uniqueness is defined by identification rules."
+    },
+    {
+      "question": "Application Services are modeled in which domain?",
+      "options": [
+        "Build & Integration",
+        "Service Delivery",
+        "Ideation & Strategy",
+        "Design & Planning"
+      ],
+      "correctAnswers": ["Service Delivery"],
+      "explanation": "Application Services represent running, operational services and are modeled in the Service Delivery domain."
+    },
+    {
+      "question": "Which report helps prioritize which classes to clean first?",
+      "options": [
+        "Top 10 impact by KPI in CMDB Health",
+        "All incidents by CI",
+        "All changes last month",
+        "Discovery IP ranges"
+      ],
+      "correctAnswers": ["Top 10 impact by KPI in CMDB Health"],
+      "explanation": "Top 10 KPI impact reports highlight the classes with the greatest effect on CMDB health."
+    },
+    {
+      "question": "Non-discoverable attributes like support group should be populated...",
+      "options": [
+        "Never",
+        "Only during audits",
+        "Only by Discovery",
+        "As a post-ingest enrichment step"
+      ],
+      "correctAnswers": ["As a post-ingest enrichment step"],
+      "explanation": "Attributes such as ownership and support groups are typically enriched after ingestion."
+    },
+    {
+      "question": "Business Applications belong to which CSDM domain?",
+      "options": [
+        "Design & Planning",
+        "Service Delivery",
+        "Service Consumption",
+        "Foundation"
+      ],
+      "correctAnswers": ["Design & Planning"],
+      "explanation": "Business Applications are defined in the Design & Planning domain according to CSDM."
+    },
+    {
+      "question": "Which lifecycle adoption step should come first per CSDM guidance?",
+      "options": [
+        "Run first for quick wins",
+        "Only Walk then Run",
+        "Start with Fly to cover all",
+        "Foundation → Crawl → Walk → Run → Fly"
+      ],
+      "correctAnswers": ["Foundation → Crawl → Walk → Run → Fly"],
+      "explanation": "CSDM recommends a staged adoption to reduce risk and technical debt."
+    },
+    {
+      "question": "What is the goal of lifecycle policies in Data Manager?",
+      "options": [
+        "Create discovery schedules",
+        "Build service maps",
+        "Assign managed by groups",
+        "Retire/archive/delete CIs based on rules"
+      ],
+      "correctAnswers": ["Retire/archive/delete CIs based on rules"],
+      "explanation": "Lifecycle policies automate CI state transitions to keep the CMDB current."
+    },
+    {
+      "question": "Which action protects attribute truth from low-quality sources?",
+      "options": [
+        "Incident SLAs",
+        "Reconciliation rules per attribute",
+        "Unified Map filters",
+        "Discovery credentials"
+      ],
+      "correctAnswers": ["Reconciliation rules per attribute"],
+      "explanation": "Reconciliation rules define which sources are trusted to update specific attributes."
+    },
+    {
+      "question": "To auto-populate L2 relationships for services discovered in cloud tags, you would use...",
+      "options": [
+        "CMDB Data Manager",
+        "Tag-based Service Mapping",
+        "CMDB Health inclusion rules",
+        "Duplicate CI Remediator"
+      ],
+      "correctAnswers": ["Tag-based Service Mapping"],
+      "explanation": "Tag-based Service Mapping uses cloud tags to automatically create service relationships."
+    },
+      {
+    "question": "You need to expose a new attribute to IRE matching for a child class. What should you configure?",
+    "options": [
+      "A duplicate remediation template",
+      "A health inclusion rule",
+      "A reconciliation job",
+      "An identification rule entry for that class"
+    ],
+    "correctAnswer": "An identification rule entry for that class",
+    "explanation": "Identifier entries specify which attributes the IRE uses to uniquely match CIs."
+  },
+  {
+    "question": "Which view helps validate whether recommended fields are populated?",
+    "options": [
+      "Completeness scorecards",
+      "Correctness scorecards",
+      "Compliance exceptions",
+      "Unified Map"
+    ],
+    "correctAnswer": "Completeness scorecards",
+    "explanation": "Completeness covers required and recommended field population."
+  },
+  {
+    "question": "Which three KPI scorecards make up CMDB Health?",
+    "options": [
+      "Cost",
+      "Correctness",
+      "Compliance",
+      "Completeness"
+    ],
+    "correctAnswers": [
+      "Correctness",
+      "Compliance",
+      "Completeness"
+    ],
+    "explanation": "CMDB Health aggregates Completeness, Correctness, and Compliance."
+  },
+  {
+    "question": "Unified Map is best used to...",
+    "options": [
+      "Set lifecycle rules",
+      "Define identifiers",
+      "Visualize dependencies and explore impact paths",
+      "Design class hierarchy"
+    ],
+    "correctAnswer": "Visualize dependencies and explore impact paths",
+    "explanation": "Unified Map provides interactive dependency and impact visualization."
+  },
+  {
+    "question": "Which is a key benefit of adopting CSDM?",
+    "options": [
+      "Unlimited custom tables",
+      "Skipping discovery forever",
+      "Less need for governance",
+      "Standardized service modeling across products"
+    ],
+    "correctAnswer": "Standardized service modeling across products",
+    "explanation": "CSDM enables consistent service modeling across the ServiceNow platform."
+  },
+  {
+    "question": "Which dashboard should you consult to see which classes most impact Correctness?",
+    "options": [
+      "CMDB Health Dashboard Top 10",
+      "Discovery Admin",
+      "Unified Map",
+      "Service Operations Workspace"
+    ],
+    "correctAnswer": "CMDB Health Dashboard Top 10",
+    "explanation": "Top 10 dashboards highlight which classes most affect each KPI."
+  },
+  {
+    "question": "Which metric set belongs to the Correctness scorecard?",
+    "options": [
+      "Duplicates, Orphans, Staleness",
+      "Audit pass rate only",
+      "Compliance exceptions only",
+      "Required, Recommended"
+    ],
+    "correctAnswer": "Duplicates, Orphans, Staleness",
+    "explanation": "Correctness measures duplicates, orphaned CIs, and stale records."
+  },
+  {
+    "question": "When mapping CIs to CSDM, who are key stakeholders to involve?",
+    "options": [
+      "Architecture team",
+      "Service owners",
+      "Random end users",
+      "CMDB governance"
+    ],
+    "correctAnswers": [
+      "Architecture team",
+      "Service owners",
+      "CMDB governance"
+    ],
+    "explanation": "Cross-functional stakeholders ensure accurate modeling and governance alignment."
+  },
+  {
+    "question": "Which rules decide whether incoming data updates an existing CI or inserts a new one?",
+    "options": [
+      "ACL rules",
+      "Update sets",
+      "Identification rules",
+      "Transform maps"
+    ],
+    "correctAnswer": "Identification rules",
+    "explanation": "Identification rules (via IRE) determine match vs insert behavior."
+  },
+    {
+    "question": "Which is a risk of bypassing IRE during bulk loads?",
+    "options": [
+      "Creating duplicate CIs",
+      "Inaccurate incident SLAs",
+      "Broken ACLs",
+      "Slower UI rendering"
+    ],
+    "correctAnswers": ["Creating duplicate CIs"],
+    "explanation": "Bypassing the IRE during bulk inserts can skip identification rules, resulting in duplicate CI records.",
+    "validated": true
+  },
+  {
+    "question": "During an audit, you must evidence that CIs adhere to configuration standards. Which KPI is key?",
+    "options": [
+      "Compliance",
+      "Completeness",
+      "Performance",
+      "Correctness"
+    ],
+    "correctAnswers": ["Compliance"],
+    "explanation": "Compliance KPIs measure adherence to defined policies, standards, and audit requirements.",
+    "validated": true
+  },
+  {
+    "question": "IntegrationHub ETL is best used to...",
+    "options": [
+      "Visualize dependencies",
+      "Run orchestration playbooks",
+      "Define principal classes",
+      "Extract/Transform/Load structured external data into CMDB"
+    ],
+    "correctAnswers": ["Extract/Transform/Load structured external data into CMDB"],
+    "explanation": "IntegrationHub ETL pipelines external structured data into ServiceNow in a governed and repeatable way.",
+    "validated": true
+  },
+  {
+    "question": "Which policy verifies the physical existence of infrastructure periodically?",
+    "options": [
+      "Audit policy",
+      "Lifecycle Delete policy",
+      "Reconciliation policy",
+      "Attestation policy"
+    ],
+    "correctAnswers": ["Attestation policy"],
+    "explanation": "Attestation policies validate that CIs represent real, existing assets through periodic verification.",
+    "validated": true
+  },
+  {
+    "question": "Which CSDM domain captures and assesses new ideas against strategy?",
+    "options": [
+      "Build & Integration",
+      "Service Delivery",
+      "Design & Planning",
+      "Ideation & Strategy"
+    ],
+    "correctAnswers": ["Ideation & Strategy"],
+    "explanation": "Ideation & Strategy is the CSDM domain responsible for capturing ideas and aligning them with business strategy.",
+    "validated": true
+  },
+  {
+    "question": "To avoid technical debt during ingestion...",
+    "options": [
+      "Create custom base classes",
+      "Bypass the IRE",
+      "Normalize to OOB classes and use IRE",
+      "Disable reconciliation"
+    ],
+    "correctAnswers": ["Normalize to OOB classes and use IRE"],
+    "explanation": "Normalizing to out-of-box classes and using IRE prevents duplication and preserves upgradeability.",
+    "validated": true
+  },
+  {
+    "question": "What can you do with a CMDB saved query? (Choose 2)",
+    "options": [
+      "Schedule discovery scans",
+      "Populate CMDB groups",
+      "Drive dashboards and reports",
+      "Set ACLs"
+    ],
+    "correctAnswers": [
+      "Populate CMDB groups",
+      "Drive dashboards and reports"
+    ],
+    "explanation": "Saved queries can populate dynamic groups and serve as reusable data sources for reports and dashboards.",
+    "validated": true
+  },
+  {
+    "question": "What is the BEST way to prevent low-priority sources from overwriting trusted data?",
+    "options": [
+      "Run De-dup Wizard daily",
+      "Shorten staleness thresholds",
+      "Configure reconciliation definitions with attribute precedence",
+      "Use Unified Map filters"
+    ],
+    "correctAnswers": ["Configure reconciliation definitions with attribute precedence"],
+    "explanation": "Reconciliation rules with attribute-level precedence control which sources are allowed to update specific fields.",
+    "validated": true
+  },
+  {
+    "question": "Which workspace tool lets you view and edit CMDB class hierarchy, attributes, and rules in one place?",
+    "options": [
+      "CI Class Manager",
+      "Discovery Schedule",
+      "Unified Map",
+      "CMDB Query Builder"
+    ],
+    "correctAnswers": ["CI Class Manager"],
+    "explanation": "CI Class Manager centralizes class hierarchy, attributes, and identification/reconciliation rules.",
+    "validated": true
+  },
+  {
+    "question": "What is the main benefit of Service Graph Connectors?",
+    "options": [
+      "Visual dependency maps",
+      "Out-of-box integrations to 3rd-party sources",
+      "Managing CMDB Health KPIs",
+      "Incremental transforms in Update Sets"
+    ],
+    "correctAnswers": ["Out-of-box integrations to 3rd-party sources"],
+    "explanation": "Service Graph Connectors provide prebuilt integrations to ingest data from external systems into the CMDB.",
+    "validated": true
+  },
+  {
+    "question": "Which capability would you use to show a director a service map during a major incident?",
+    "options": [
+      "Dependency view (Unified Map)",
+      "Transform Map",
+      "Health Inclusion Rules",
+      "De-dup Wizard"
+    ],
+    "correctAnswers": [
+      "Dependency view (Unified Map)"
+    ],
+    "explanation": "The dependency view provides a live topology useful for executive decision-making during incidents."
+  },
+  {
+    "question": "Which query would find servers missing a Support group?",
+    "options": [
+      "Query Builder with filter Support group is empty",
+      "Unified Map path search",
+      "De-dup template",
+      "Discovery IP scan"
+    ],
+    "correctAnswers": [
+      "Query Builder with filter Support group is empty"
+    ],
+    "explanation": "Query Builder allows filtering CIs by empty attributes."
+  },
+  {
+    "question": "Which action reduces orphan CIs over time?",
+    "options": [
+      "Improve Service Mapping coverage",
+      "Delete all unknown CIs",
+      "Disable reconciliation",
+      "Lower staleness threshold"
+    ],
+    "correctAnswers": [
+      "Improve Service Mapping coverage"
+    ],
+    "explanation": "Better mapping establishes relationships and reduces orphaned CIs."
+  },
+  {
+    "question": "A visualization of upstream providers and downstream consumers of a CI is called...",
+    "options": [
+      "Dependency view",
+      "Identifier tree",
+      "Reconciliation sheet",
+      "Lifecycle view"
+    ],
+    "correctAnswers": [
+      "Dependency view"
+    ],
+    "explanation": "Dependency view shows upstream and downstream relationships."
+  },
+  {
+    "question": "Which tool lets you create drag-and-drop multi-table CI queries?",
+    "options": [
+      "Transform Maps",
+      "Unified Map",
+      "Discovery Admin",
+      "CMDB Query Builder"
+    ],
+    "correctAnswers": [
+      "CMDB Query Builder"
+    ],
+    "explanation": "CMDB Query Builder enables visual, multi-table queries without SQL."
+  },
+  {
+    "question": "Which is a typical identifier for hardware during identification?",
+    "options": [
+      "Serial number",
+      "Assignment group",
+      "Incident priority",
+      "Location only"
+    ],
+    "correctAnswers": [
+      "Serial number"
+    ],
+    "explanation": "Stable hardware identifiers like serial numbers improve matching accuracy."
+  },
+  {
+    "question": "Which workspace centralizes CMDB Health, Data Manager, and remediation tasks?",
+    "options": [
+      "CMDB Workspace",
+      "App Engine Studio",
+      "Change Workspace",
+      "Incident Workspace"
+    ],
+    "correctAnswers": [
+      "CMDB Workspace"
+    ],
+    "explanation": "CMDB Workspace centralizes governance, health, and remediation."
+  },
+  {
+    "question": "Which product discovers devices agentlessly using IP ranges, probes and sensors?",
+    "options": [
+      "ServiceNow Discovery",
+      "IntegrationHub ETL",
+      "Service Mapping",
+      "Agent Client Collector (ACC)"
+    ],
+    "correctAnswers": [
+      "ServiceNow Discovery"
+    ],
+    "explanation": "ServiceNow Discovery is agentless and probe-based."
+  },
+  {
+    "question": "ACC adds unique value by collecting...",
+    "options": [
+      "Only discovery schedules",
+      "Only virtual topology",
+      "Only network routes",
+      "Software usage and real-time endpoint config"
+    ],
+    "correctAnswers": [
+      "Software usage and real-time endpoint config"
+    ],
+    "explanation": "ACC collects endpoint usage and configuration data."
+  },
+  {
+    "question": "Which statement about custom CI attributes is TRUE?",
+    "options": [
+      "They are ignored by IRE",
+      "They should be justified by concrete use cases and health KPIs",
+      "They must be added on the base CMDB table",
+      "They require Discovery credentials"
+    ],
+    "correctAnswers": [
+      "They should be justified by concrete use cases and health KPIs"
+    ],
+    "explanation": "Custom attributes should be governed and driven by real value."
+  },
+  {
+    "question": "Which is a direct benefit of combining CMDB data with Event/Incident Management?",
+    "options": [
+      "No need for change approvals",
+      "Fewer users",
+      "Lower license costs automatically",
+      "Automated impact correlation and faster triage"
+    ],
+    "correctAnswers": [
+      "Automated impact correlation and faster triage"
+    ],
+    "explanation": "Topology-aware correlation improves incident triage and root cause analysis."
+  },
+    {
+    "question": "Service Mapping primarily...",
+    "options": [
+      "Runs natural language queries",
+      "Builds business service topologies and relationships",
+      "Sets lifecycle policies",
+      "Creates reconciliation definitions"
+    ],
+    "correctAnswers": [
+      "Builds business service topologies and relationships"
+    ],
+    "explanation": "Service Mapping builds top-down service topologies and dependency relationships that enable impact analysis."
+  },
+  {
+    "question": "Tag-based and ML-powered mapping are capabilities of...",
+    "options": [
+      "Discovery",
+      "Unified Map",
+      "CMDB Health",
+      "Service Mapping"
+    ],
+    "correctAnswers": [
+      "Service Mapping"
+    ],
+    "explanation": "Tag-based and ML-powered mapping are variants of Service Mapping used to accelerate topology creation."
+  },
+  {
+    "question": "When would you favor CMDB 360 over Unified Map?",
+    "options": [
+      "When visualizing real-time service impact",
+      "When building change risk views",
+      "When analyzing per-source attribute values and lineage",
+      "When tracing dependency paths"
+    ],
+    "correctAnswers": [
+      "When analyzing per-source attribute values and lineage"
+    ],
+    "explanation": "CMDB 360 focuses on multi-source data analysis, attribute lineage, and source-level visibility."
+  },
+  {
+    "question": "De-duplication templates primarily...",
+    "options": [
+      "Populate non-discoverable fields",
+      "Visualize relationships",
+      "Assign incidents",
+      "Automate scheduled duplicate resolution"
+    ],
+    "correctAnswers": [
+      "Automate scheduled duplicate resolution"
+    ],
+    "explanation": "De-duplication templates are used to automatically resolve duplicates at scale on a schedule."
+  },
+  {
+    "question": "Which tool offers guided playbooks to fix common CMDB data issues?",
+    "options": [
+      "Service Catalog",
+      "Discovery Admin Workspace",
+      "Update Sets",
+      "CMDB & CSDM Data Foundations Dashboards"
+    ],
+    "correctAnswers": [
+      "CMDB & CSDM Data Foundations Dashboards"
+    ],
+    "explanation": "Foundations dashboards include guided remediation playbooks for common CMDB and CSDM issues."
+  },
+  {
+    "question": "What does the Principal class flag primarily affect in ITSM records?",
+    "options": [
+      "Field visibility on forms",
+      "User role permissions",
+      "Which CIs appear in the Configuration Item reference field",
+      "Discovery credentials used"
+    ],
+    "correctAnswers": [
+      "Which CIs appear in the Configuration Item reference field"
+    ],
+    "explanation": "Principal classes control which CI classes are selectable in CI reference fields across ITSM."
+  },
+  {
+    "question": "Which metric detects CI records that have not been updated within a threshold?",
+    "options": [
+      "Duplicate",
+      "Audit",
+      "Staleness",
+      "Orphan"
+    ],
+    "correctAnswers": [
+      "Staleness"
+    ],
+    "explanation": "Staleness identifies CIs that have not been updated within a defined time threshold."
+  },
+  {
+    "question": "Natural Language Query for CMDB is available via...",
+    "options": [
+      "Query Builder only",
+      "Discovery",
+      "Service Catalog",
+      "Intelligent Search"
+    ],
+    "correctAnswers": [
+      "Intelligent Search"
+    ],
+    "explanation": "Intelligent Search enables natural language queries across CMDB data."
+  },
+  {
+    "question": "Which team is BEST suited to approve lifecycle delete policies?",
+    "options": [
+      "Only service desk",
+      "Only network team",
+      "All end users",
+      "CMDB governance board"
+    ],
+    "correctAnswers": [
+      "CMDB governance board"
+    ],
+    "explanation": "Lifecycle delete policies require governance oversight to prevent accidental data loss."
+  },
+  {
+    "question": "Which method is recommended for CSV loads into CMDB tables?",
+    "options": [
+      "Direct insert to target tables",
+      "Orchestration activities",
+      "Import Sets + Transform Maps (using IRE)",
+      "Manual entry on CI forms"
+    ],
+    "correctAnswers": [
+      "Import Sets + Transform Maps (using IRE)"
+    ],
+    "explanation": "Import Sets with Transform Maps ensure data passes through IRE to preserve identity and avoid duplicates."
+  },
+    {
+    "question": "CSDM 5 introduced which notable addition?",
+    "options": [
+      "Elimination of Business Apps",
+      "Ideation & Strategy domain",
+      "Abandonment of relationships",
+      "Removal of Service Delivery"
+    ],
+    "correctAnswers": ["Ideation & Strategy domain"],
+    "explanation": "CSDM 5 introduced the Ideation & Strategy domain to capture ideas, goals, and strategic intent earlier in the lifecycle."
+  },
+  {
+    "question": "Where would you set a Managed by group for all CIs of the same class?",
+    "options": [
+      "CMDB Data Manager",
+      "Incident form",
+      "CI Class Manager",
+      "Unified Map"
+    ],
+    "correctAnswers": ["CI Class Manager"],
+    "explanation": "Class-level defaults such as Managed by group are configured in CI Class Manager."
+  },
+  {
+    "question": "What advantage do Foundations dashboards provide over ad-hoc reporting?",
+    "options": [
+      "Better SNMP coverage",
+      "Opinionated KPIs and guided remediation",
+      "Faster MID Server installs",
+      "Automatic discovery"
+    ],
+    "correctAnswers": ["Opinionated KPIs and guided remediation"],
+    "explanation": "Foundations dashboards provide curated KPIs and guided remediation playbooks, not just raw reports."
+  },
+  {
+    "question": "Which domain underpins all others with shared references like Location and Groups?",
+    "options": [
+      "Service Consumption",
+      "Foundation",
+      "Design & Planning",
+      "Service Delivery"
+    ],
+    "correctAnswers": ["Foundation"],
+    "explanation": "The Foundation domain provides shared reference data used consistently across all other domains."
+  },
+  {
+    "question": "Which feature lets you bulk manage CI retirement across many classes?",
+    "options": [
+      "Query Builder only",
+      "Unified Map filters",
+      "Discovery credentials",
+      "Data Manager policies"
+    ],
+    "correctAnswers": ["Data Manager policies"],
+    "explanation": "Data Manager lifecycle policies allow bulk retirement, archival, or deletion of CIs across classes."
+  },
+    {
+    "question": "Which statement reflects a benefit of adopting CSDM?",
+    "options": [
+      "Consistent modeling across products enabling OOTB value",
+      "Requires only custom tables",
+      "Removes requirement for Discovery",
+      "Eliminates need for CMDB Health"
+    ],
+    "correctAnswers": [
+      "Consistent modeling across products enabling OOTB value"
+    ],
+    "explanation": "CSDM standardizes data models across products, enabling out-of-the-box value, interoperability, and consistent reporting."
+  },
+  {
+    "question": "Tag-based discovery of cloud services is a capability of...",
+    "options": [
+      "Service Mapping",
+      "Unified Map",
+      "CMDB Health",
+      "Discovery only"
+    ],
+    "correctAnswers": [
+      "Service Mapping"
+    ],
+    "explanation": "Service Mapping supports tag-based mapping to relate cloud resources to application and business services."
+  },
+  {
+    "question": "Which domain captures ideas, goals, and strategic priorities before delivery work begins?",
+    "options": [
+      "Service Consumption",
+      "Build & Integration",
+      "Design & Planning",
+      "Ideation & Strategy"
+    ],
+    "correctAnswers": [
+      "Ideation & Strategy"
+    ],
+    "explanation": "The Ideation & Strategy domain captures business ideas, goals, and strategic priorities before execution begins."
+  },
+  {
+    "question": "Where would you confirm that a class is intentionally excluded from CMDB Health calculations?",
+    "options": [
+      "Incident workspace",
+      "Unified Map",
+      "Health Inclusion Rules view",
+      "Discovery Dashboard"
+    ],
+    "correctAnswers": ["Health Inclusion Rules view"],
+    "explanation": "Health Inclusion Rules define which CI classes are included or excluded from CMDB Health calculations."
+  },
+  {
+    "question": "Which method helps automatically relate discovered components to an application service when cloud tags exist?",
+    "options": [
+      "Health Inclusion Rules",
+      "ACLs",
+      "Tag-based Service Mapping",
+      "Duplicate CI Remediator"
+    ],
+    "correctAnswers": [
+      "Tag-based Service Mapping"
+    ],
+    "explanation": "Tag-based Service Mapping uses cloud tags to infer and automatically create relationships between components and services."
+  },
+  {
+    "question": "Unified Map is primarily used to...",
+    "options": [
+      "Define identification rules",
+      "Create import transforms",
+      "Explore dependencies and impact paths",
+      "Configure reconciliation"
+    ],
+    "correctAnswers": ["Explore dependencies and impact paths"],
+    "explanation": "Unified Map provides an interactive topology view to explore CI dependencies and analyze impact and risk paths."
+  },
+  {
+    "question": "Which workspace unifies Health, Data Manager, and remediation?",
+    "options": [
+      "CMDB Workspace",
+      "Service Operations Workspace",
+      "Event Management",
+      "Change Workspace"
+    ],
+    "correctAnswers": ["CMDB Workspace"],
+    "explanation": "CMDB Workspace centralizes CMDB health monitoring, data management, and remediation activities in one place."
+  },
+  {
+    "question": "What is the primary objective of CMDB governance?",
+    "options": [
+      "Faster UI response",
+      "Sustained accuracy, completeness, and policy alignment",
+      "More manual updates",
+      "More custom classes"
+    ],
+    "correctAnswers": ["Sustained accuracy, completeness, and policy alignment"],
+    "explanation": "CMDB governance focuses on maintaining long-term data quality, completeness, and alignment with defined policies."
+  },
+  {
+    "question": "A governance board asks for proof that server CIs meet naming standards. Which area helps?",
+    "options": [
+      "Correctness KPI",
+      "Unified Map",
+      "Completeness KPI",
+      "Compliance KPI/Audits"
+    ],
+    "correctAnswers": ["Compliance KPI/Audits"],
+    "explanation": "Compliance KPIs and audits measure adherence to defined standards, such as CI naming conventions."
+  },
+  {
+    "question": "Which domain in CSDM contains Business Capabilities and Business Applications?",
+    "options": [
+      "Build & Integration",
+      "Service Consumption",
+      "Design & Planning",
+      "Service Delivery"
+    ],
+    "correctAnswers": ["Design & Planning"],
+    "explanation": "The Design & Planning domain defines business capabilities and business applications that support organizational needs."
+  },
+    {
+    "question": "Accurate CI relationships most directly improve...",
+    "options": [
+      "User license counts",
+      "Change impact assessment",
+      "UI theme options",
+      "SMTP throughput"
+    ],
+    "correctAnswers": ["Change impact assessment"],
+    "explanation": "Accurate CI relationships provide reliable dependency data, which improves change impact analysis and risk assessment."
+  },
+  {
+    "question": "Which statement about Service Mapping is TRUE?",
+    "options": [
+      "It builds relationships and service topologies from entry points down",
+      "It sets CMDB KPIs",
+      "It configures user roles",
+      "It is primarily for CSV ingestion"
+    ],
+    "correctAnswers": ["It builds relationships and service topologies from entry points down"],
+    "explanation": "Service Mapping discovers services top-down from entry points, creating dependency maps used for impact analysis."
+  },
+  {
+    "question": "Select valid uses for CMDB saved queries. (Select 2)",
+    "options": [
+      "Set user ACLs",
+      "Schedule probe runs",
+      "Feed dashboard widgets/reports",
+      "Populate dynamic CI groups"
+    ],
+    "correctAnswers": [
+      "Feed dashboard widgets/reports",
+      "Populate dynamic CI groups"
+    ],
+    "explanation": "Saved queries can be reused to power dashboards, reports, and dynamically populated CI groups."
+  },
+  {
+    "question": "Which are characteristics of effective CMDB governance? (Select 3)",
+    "options": [
+      "Clear ownership and RACI",
+      "Ad-hoc manual fixes only",
+      "Defined policies and KPIs",
+      "Regular review cadence"
+    ],
+    "correctAnswers": [
+      "Clear ownership and RACI",
+      "Defined policies and KPIs",
+      "Regular review cadence"
+    ],
+    "explanation": "Effective CMDB governance relies on clear ownership, defined policies with KPIs, and regular review cycles to sustain data quality."
+  },
+  {
+    "question": "IntegrationHub ETL is primarily used to...",
+    "options": [
+      "Set class principal flags",
+      "Run real-time orchestration on CIs",
+      "Render dependency maps",
+      "Build repeatable pipelines from external sources into CMDB"
+    ],
+    "correctAnswers": ["Build repeatable pipelines from external sources into CMDB"],
+    "explanation": "IntegrationHub ETL consolidates, transforms, and normalizes external data into the CMDB using governed, repeatable pipelines."
+  },
+  {
+    "question": "Which domain was not part of CSDM 4?",
+    "options": [
+      "Design & Planning",
+      "Service Delivery",
+      "Ideation & Strategy",
+      "Service Consumption"
+    ],
+    "correctAnswers": ["Ideation & Strategy"],
+    "explanation": "Ideation & Strategy was introduced later and was not part of the CSDM 4 model."
+  },
+  {
+    "question": "Which is the most appropriate tool to list datacenters with no CIs attached?",
+    "options": [
+      "CMDB Query Builder",
+      "Discovery Schedule",
+      "Portal search",
+      "Unified Map"
+    ],
+    "correctAnswers": ["CMDB Query Builder"],
+    "explanation": "CMDB Query Builder is best suited for structured queries that identify missing or absent CI relationships."
+  },
+  {
+    "question": "Which statement about Health Inclusion Rules is accurate?",
+    "options": [
+      "They filter the incident list",
+      "They restrict which classes are evaluated in Health KPIs",
+      "They replace reconciliation",
+      "They define CMDB ACLs"
+    ],
+    "correctAnswers": ["They restrict which classes are evaluated in Health KPIs"],
+    "explanation": "Health Inclusion Rules control the scope of CI classes included in CMDB Health KPI calculations."
+  },
+  {
+    "question": "Which outcome often results from integrating CMDB with Event Management?",
+    "options": [
+      "New MID Server creation",
+      "Default ACL expansion",
+      "Better alert correlation using service context",
+      "Automatic payroll updates"
+    ],
+    "correctAnswers": ["Better alert correlation using service context"],
+    "explanation": "Integrating CMDB with Event Management provides service context, improving alert correlation and speeding up triage."
+  },
+  {
+    "question": "Business Service Offering records belong to which domain?",
+    "options": [
+      "Build & Integration",
+      "Service Consumption",
+      "Foundation",
+      "Design & Planning"
+    ],
+    "correctAnswers": ["Service Consumption"],
+    "explanation": "Business Service Offerings are part of the Service Consumption domain, where consumers view and request services."
+  },
+    {
+    "question": "To reduce future upgrade risk, what is the recommended approach when modeling new device classes?",
+    "options": [
+      "Disable reconciliation entirely",
+      "Extend an appropriate OOB class",
+      "Use a custom app table unrelated to CMDB",
+      "Create a new base table"
+    ],
+    "correctAnswers": ["Extend an appropriate OOB class"],
+    "explanation": "Extending the closest out-of-the-box class preserves alignment with CSDM and IRE, reducing upgrade and maintenance risk."
+  },
+  {
+    "question": "What should be configured to systematically retire CIs that meet defined criteria?",
+    "options": [
+      "Transform coalesce",
+      "Health Inclusion Rules",
+      "Unified Map filter",
+      "Data Manager lifecycle policies"
+    ],
+    "correctAnswers": ["Data Manager lifecycle policies"],
+    "explanation": "Lifecycle policies automate CI retirement, archiving, or deletion based on defined conditions."
+  },
+  {
+    "question": "Which feature enforces that only the 'SCCM' source can update the 'installed_software' list?",
+    "options": [
+      "Reconciliation definition",
+      "Transform script",
+      "Query Builder",
+      "Identification rule"
+    ],
+    "correctAnswers": ["Reconciliation definition"],
+    "explanation": "Reconciliation definitions enforce attribute-level source precedence, preventing unauthorized overwrites."
+  },
+  {
+    "question": "Which lifecycle adoption approach aligns with CSDM guidance?",
+    "options": [
+      "Skip to Fly stage",
+      "Run first for speed",
+      "Walk only",
+      "Foundation → Crawl → Walk → Run → Fly"
+    ],
+    "correctAnswers": ["Foundation → Crawl → Walk → Run → Fly"],
+    "explanation": "CSDM recommends staged adoption to reduce risk and build sustainable maturity over time."
+  },
+  {
+    "question": "Select the capabilities provided by CI Class Manager. (Select 3)",
+    "options": [
+      "Edit class attributes",
+      "Set identification rules",
+      "Create suggested relationships",
+      "Run CMDB Health KPIs"
+    ],
+    "correctAnswers": [
+      "Edit class attributes",
+      "Set identification rules",
+      "Create suggested relationships"
+    ],
+    "explanation": "CI Class Manager governs class schema, identification rules, and suggested relationships; health KPIs are managed separately."
+  },
+  {
+    "question": "Which team should sign off on delete policies before production rollout?",
+    "options": [
+      "Only DBA team",
+      "Any developer",
+      "Only service desk",
+      "CMDB governance/owners"
+    ],
+    "correctAnswers": ["CMDB governance/owners"],
+    "explanation": "Formal approval by CMDB governance ensures controlled lifecycle management and prevents accidental data loss."
+  },
+  {
+    "question": "Which KPI contains the Duplicate, Orphan, and Staleness metrics?",
+    "options": [
+      "Completeness",
+      "Governance",
+      "Compliance",
+      "Correctness"
+    ],
+    "correctAnswers": ["Correctness"],
+    "explanation": "Correctness KPIs measure data accuracy, including duplicates, orphaned records, and staleness."
+  },
+  {
+    "question": "Which dashboard offers out-of-the-box KPIs and guided fixes for CMDB issues?",
+    "options": [
+      "Change Calendar",
+      "Incident Overview",
+      "CMDB & CSDM Data Foundations",
+      "Service Catalog"
+    ],
+    "correctAnswers": ["CMDB & CSDM Data Foundations"],
+    "explanation": "The CMDB & CSDM Data Foundations dashboard provides curated KPIs and guided remediation playbooks."
+  },
+  {
+    "question": "Which dashboard view helps you see which classes most degrade the Correctness KPI?",
+    "options": [
+      "Unified Map",
+      "Change Calendar",
+      "Discovery Schedules",
+      "Top 10 (Correctness)"
+    ],
+    "correctAnswers": ["Top 10 (Correctness)"],
+    "explanation": "The Top 10 view ranks CI classes by their negative impact on the Correctness KPI."
+  },
+  {
+    "question": "You merged duplicates yesterday. Which KPI should improve?",
+    "options": [
+      "Compliance",
+      "Correctness",
+      "None of the above",
+      "Completeness"
+    ],
+    "correctAnswers": ["Correctness"],
+    "explanation": "Removing duplicates directly improves Correctness by increasing data accuracy."
+  },
+    {
+    "question": "Which action most directly improves the Compliance KPI for a server class?",
+    "options": [
+      "Defining and running configuration audits",
+      "Reducing CI reference ACL scopes",
+      "Adding more relationship types",
+      "Increasing MID Server thread count"
+    ],
+    "correctAnswers": ["Defining and running configuration audits"],
+    "explanation": "Compliance KPIs measure adherence to defined policies and standards, which is directly validated through configuration audits."
+  },
+  {
+    "question": "You need to see which discovery source last updated a particular attribute on a CI. Which feature helps most?",
+    "options": [
+      "Discovery status page",
+      "CI Class Manager",
+      "CMDB Health Dashboard",
+      "CMDB 360"
+    ],
+    "correctAnswers": ["CMDB 360"],
+    "explanation": "CMDB 360 shows per-source values and attribute lineage, allowing you to see which source last updated a specific attribute."
+  },
+  {
+    "question": "Which KPI view would show classes contributing most to missing Support group fields?",
+    "options": [
+      "Top 10 (Completeness)",
+      "Top 10 (Correctness)",
+      "Compliance audit exceptions",
+      "Discovery status"
+    ],
+    "correctAnswers": ["Top 10 (Completeness)"],
+    "explanation": "Missing required fields such as Support group reduce Completeness, and the Top 10 (Completeness) view highlights the most impactful classes."
+  },
+  {
+    "question": "Which domain underpins all others with Locations, Users, Groups, and Contracts?",
+    "options": [
+      "Service Consumption",
+      "Foundation",
+      "Design & Planning",
+      "Service Delivery"
+    ],
+    "correctAnswers": ["Foundation"],
+    "explanation": "The Foundation domain provides shared reference data used across all other CSDM domains."
+  },
+  {
+    "question": "Choose benefits of using Service Graph Connectors. (Select 2)",
+    "options": [
+      "Real-time event suppression",
+      "Automated change collisions",
+      "Normalized data aligned to CMDB",
+      "Prebuilt integrations to common systems"
+    ],
+    "correctAnswers": [
+      "Normalized data aligned to CMDB",
+      "Prebuilt integrations to common systems"
+    ],
+    "explanation": "Service Graph Connectors normalize external data to the CMDB schema and provide prebuilt integrations with systems like Azure and SCCM."
+  },
+  {
+    "question": "Who should own CMDB governance and policy approvals?",
+    "options": [
+      "Any end user",
+      "CMDB Manager/Steering Board",
+      "Only service desk supervisors",
+      "Only network admins"
+    ],
+    "correctAnswers": ["CMDB Manager/Steering Board"],
+    "explanation": "CMDB governance and policy approvals should be owned by a dedicated CMDB manager or steering board to ensure enterprise oversight."
+  },
+  {
+    "question": "How does IRE handle a new payload for an existing server CI?",
+    "options": [
+      "It always inserts a new record",
+      "It matches by identification rules and updates attributes",
+      "It refuses the update",
+      "It deletes the old record first"
+    ],
+    "correctAnswers": ["It matches by identification rules and updates attributes"],
+    "explanation": "IRE uses identification rules to match existing CIs and then applies reconciliation rules to update attributes."
+  },
+  {
+    "question": "Which tool schedules and runs bulk duplicate resolution based on matching rules?",
+    "options": [
+      "Duplicate CI Remediator (wizard)",
+      "Unified Map",
+      "De-duplication templates",
+      "CI Class Manager"
+    ],
+    "correctAnswers": ["De-duplication templates"],
+    "explanation": "De-duplication templates can be scheduled and run at scale using defined matching rules, unlike the wizard which is manual."
+  },
+  {
+    "question": "Which feature allows interactive expand/collapse of nodes to trace a service path?",
+    "options": [
+      "Unified Map",
+      "Reconciliation Editor",
+      "Health Inclusion Rules",
+      "Import Set Transform"
+    ],
+    "correctAnswers": ["Unified Map"],
+    "explanation": "Unified Map provides interactive topology exploration with expand and collapse capabilities for tracing service paths."
+  },
+  {
+    "question": "CMDB 360 is MOST useful for which task?",
+    "options": [
+      "Scheduling discovery scans",
+      "Configuring MID Servers",
+      "Viewing per-source values of a CI attribute",
+      "Plotting dependency trees"
+    ],
+    "correctAnswers": ["Viewing per-source values of a CI attribute"],
+    "explanation": "CMDB 360 is designed to compare and trace attribute values by source, providing detailed lineage visibility."
+  },
+    {
+    "question": "Which tool provides guided steps/playbooks to fix common CMDB issues?",
+    "options": [
+      "MID Server Dashboard",
+      "Discovery Schedule",
+      "ACL Editor",
+      "CMDB & CSDM Data Foundations Dashboards"
+    ],
+    "correctAnswers": ["CMDB & CSDM Data Foundations Dashboards"],
+    "explanation": "CMDB & CSDM Data Foundations dashboards include out-of-the-box KPIs with guided remediation playbooks for common CMDB issues."
+  },
+  {
+    "question": "Which rule prevents a low-priority source from updating the serial_number field on servers?",
+    "options": [
+      "ACL rule",
+      "Transform map coalesce",
+      "Reconciliation definition",
+      "Data policy"
+    ],
+    "correctAnswers": ["Reconciliation definition"],
+    "explanation": "Reconciliation definitions control attribute-level source precedence, ensuring only authoritative sources can update specific fields."
+  },
+  {
+    "question": "Which statements about custom attributes are valid? (Select 3)",
+    "options": [
+      "Consider IRE/reconciliation impacts",
+      "Add only when they support a defined use case/KPI",
+      "Prefer adding them on the base CMDB table",
+      "Document their purpose and owners"
+    ],
+    "correctAnswers": [
+      "Consider IRE/reconciliation impacts",
+      "Add only when they support a defined use case/KPI",
+      "Document their purpose and owners"
+    ],
+    "explanation": "Well-governed custom attributes should support clear use cases, account for IRE/reconciliation impacts, and be documented with ownership."
+  },
+  {
+    "question": "Which identifier is commonly used for physical asset matching?",
+    "options": [
+      "Incident number",
+      "Serial number",
+      "Change state",
+      "Assignment group"
+    ],
+    "correctAnswers": ["Serial number"],
+    "explanation": "Serial numbers are stable, device-specific identifiers commonly used to accurately match physical assets."
+  },
+  {
+    "question": "During a major incident bridge, which visualization helps executives understand blast radius?",
+    "options": [
+      "Transform Map",
+      "CMDB Class Manager",
+      "ACL Debugger",
+      "Dependency view (Unified Map)"
+    ],
+    "correctAnswers": ["Dependency view (Unified Map)"],
+    "explanation": "The dependency view in Unified Map shows upstream and downstream relationships, helping visualize impact and blast radius during outages."
+  },
+  {
+    "question": "Which page helps prioritize which class to fix first for Completeness?",
+    "options": [
+      "Top 10 (Completeness)",
+      "ACC usage report",
+      "Change schedule",
+      "Dependency view"
+    ],
+    "correctAnswers": ["Top 10 (Completeness)"],
+    "explanation": "The Top 10 (Completeness) view highlights the CI classes that most negatively impact Completeness, guiding remediation priority."
+  },
+  {
+    "question": "Which is TRUE about Transform Maps?",
+    "options": [
+      "They define attribute precedence across sources",
+      "They map import fields and can invoke IRE",
+      "They maintain KPI thresholds",
+      "They visualize service maps"
+    ],
+    "correctAnswers": ["They map import fields and can invoke IRE"],
+    "explanation": "Transform Maps handle source-to-target field mapping during imports and can invoke IRE for identification and reconciliation."
+  },
+  {
+    "question": "Which is the best way to find Windows servers running unsupported antivirus?",
+    "options": [
+      "Discovery IP sweeps only",
+      "Unified Map node colors",
+      "CMDB Query Builder with class filters and attribute conditions",
+      "ETL batch size tuning"
+    ],
+    "correctAnswers": ["CMDB Query Builder with class filters and attribute conditions"],
+    "explanation": "CMDB Query Builder supports class-based and attribute-based filtering to identify servers running unsupported antivirus software."
+  },
+  {
+    "question": "Which is a leading practice for schema design?",
+    "options": [
+      "Avoid creating custom classes whenever an OOB class fits",
+      "Disable IRE to speed imports",
+      "Put service data on non-CMDB tables",
+      "Favor custom base tables for flexibility"
+    ],
+    "correctAnswers": ["Avoid creating custom classes whenever an OOB class fits"],
+    "explanation": "Using out-of-the-box classes and extending only when necessary reduces technical debt and improves upgrade supportability."
+  },
+  {
+    "question": "Which action is MOST effective to reduce stale application CIs?",
+    "options": [
+      "Increase Discovery/ACC cadence",
+      "Exclude apps from Health",
+      "Disable reconciliation",
+      "Add more custom attributes"
+    ],
+    "correctAnswers": ["Increase Discovery/ACC cadence"],
+    "explanation": "Increasing discovery and ACC update frequency keeps CI data fresh, directly reducing staleness."
+  },
+    {
+    "question": "Which policy verifies CI existence in the physical or logical environment?",
+    "options": [
+      "Lifecycle Retire policy",
+      "Attestation policy",
+      "Audit policy",
+      "Transformation policy"
+    ],
+    "correctAnswers": ["Attestation policy"],
+    "explanation": "Attestation policies require periodic confirmation that CIs still exist in the physical or logical environment, helping eliminate ghost or phantom records."
+  },
+  {
+    "question": "Pick the elements that drive the Correctness KPI upward. (Select 3)",
+    "options": [
+      "Fixing orphaned records",
+      "Creating more custom attributes",
+      "Resolving duplicates",
+      "Reducing staleness"
+    ],
+    "correctAnswers": [
+      "Fixing orphaned records",
+      "Resolving duplicates",
+      "Reducing staleness"
+    ],
+    "explanation": "Correctness improves when orphaned relationships are fixed, duplicates are resolved, and CI data is kept fresh."
+  },
+  {
+    "question": "Which capability enables plain-English questions like 'Show servers without support group'?",
+    "options": [
+      "MID Server logs",
+      "Update Sets",
+      "Intelligent Search (NLQ)",
+      "ETL pipelines"
+    ],
+    "correctAnswers": ["Intelligent Search (NLQ)"],
+    "explanation": "Natural Language Query (NLQ) allows users to ask plain-English questions and retrieve results without building structured queries."
+  },
+  {
+    "question": "A team asks for a report showing all services impacted if a database cluster is taken down. What do you use first?",
+    "options": [
+      "Health Inclusion Rules",
+      "Transform map test load",
+      "Dependency view (impact analysis)",
+      "MID Server log viewer"
+    ],
+    "correctAnswers": ["Dependency view (impact analysis)"],
+    "explanation": "Dependency views traverse upstream and downstream relationships to show service impact when a CI is unavailable."
+  },
+  {
+    "question": "A saved query created in CMDB 360 can be reused to...",
+    "options": [
+      "Populate a CMDB group or drive a report",
+      "Create a new table",
+      "Define ACL scripts",
+      "Configure MID Servers"
+    ],
+    "correctAnswers": ["Populate a CMDB group or drive a report"],
+    "explanation": "Saved queries are reusable building blocks that can populate CI groups and power reports or dashboards."
+  },
+  {
+    "question": "Which capability belongs to ServiceNow Discovery?",
+    "options": [
+      "Top-down service mapping",
+      "Agentless classification and exploration",
+      "Agent-based software usage metering",
+      "CI lifecycle governance"
+    ],
+    "correctAnswers": ["Agentless classification and exploration"],
+    "explanation": "ServiceNow Discovery is agentless and uses probes and patterns to classify infrastructure and update the CMDB."
+  },
+  {
+    "question": "Where are Application Services typically modeled in CSDM?",
+    "options": [
+      "Ideation & Strategy",
+      "Service Consumption",
+      "Service Delivery",
+      "Foundation"
+    ],
+    "correctAnswers": ["Service Delivery"],
+    "explanation": "Application Services represent running, operational services and are modeled in the Service Delivery domain."
+  },
+  {
+    "question": "Which metric would you examine to reduce CIs that have no upstream/downstream relationships?",
+    "options": [
+      "Orphan",
+      "Duplicate",
+      "Audit",
+      "Recommended"
+    ],
+    "correctAnswers": ["Orphan"],
+    "explanation": "The Orphan metric identifies CIs missing expected relationships, indicating gaps in service modeling."
+  },
+  {
+    "question": "What is an advantage of the Foundations dashboards versus ad-hoc reports?",
+    "options": [
+      "Opinionated KPIs with standard definitions and playbooks",
+      "No need for reconciliation",
+      "Automatic change approvals",
+      "Less need for MID Servers"
+    ],
+    "correctAnswers": ["Opinionated KPIs with standard definitions and playbooks"],
+    "explanation": "Foundations dashboards provide standardized KPIs with guided remediation, enabling consistent governance across teams."
+  },
+  {
+    "question": "Which tool lets you build a multi-table CI query without SQL?",
+    "options": [
+      "Discovery Admin",
+      "Foundation Dashboard",
+      "CMDB Query Builder",
+      "Transform Maps"
+    ],
+    "correctAnswers": ["CMDB Query Builder"],
+    "explanation": "CMDB Query Builder provides a visual canvas to build complex, multi-table CI queries without writing SQL."
+  },
+    {
+    "question": "Which KPI tracks whether required and recommended fields are populated for a class?",
+    "options": [
+      "Compliance",
+      "Completeness",
+      "Correctness",
+      "Performance"
+    ],
+    "correctAnswers": ["Completeness"],
+    "explanation": "Completeness measures whether required and recommended fields are populated for CIs."
+  },
+  {
+    "question": "Which control ensures only trusted sources may update a specific attribute like 'install_status'?",
+    "options": [
+      "Query Builder filter",
+      "Identification rule",
+      "Reconciliation definition",
+      "Transform coalesce"
+    ],
+    "correctAnswers": ["Reconciliation definition"],
+    "explanation": "Reconciliation definitions enforce attribute-level source precedence, allowing only authoritative sources to update specific attributes."
+  },
+  {
+    "question": "Which action minimizes technical debt during data ingestion?",
+    "options": [
+      "Insert raw data to custom tables",
+      "Skip ownership fields",
+      "Disable reconciliation on attributes",
+      "Normalize incoming data to OOB classes"
+    ],
+    "correctAnswers": ["Normalize incoming data to OOB classes"],
+    "explanation": "Normalizing incoming data to out-of-the-box CMDB classes reduces fragmentation and long-term technical debt."
+  },
+  {
+    "question": "Skipping IRE during bulk loads most likely leads to...",
+    "options": [
+      "Lower change risk",
+      "Faster Unified Map rendering",
+      "Duplicate CIs",
+      "Invalid ACLs"
+    ],
+    "correctAnswers": ["Duplicate CIs"],
+    "explanation": "Skipping IRE bypasses identification checks, increasing the likelihood of duplicate CI creation."
+  },
+  {
+    "question": "Agent Client Collector (ACC) is best for...",
+    "options": [
+      "MID Server installation",
+      "Discovering network gear via SNMP only",
+      "Change approvals",
+      "Endpoint software usage and configuration details"
+    ],
+    "correctAnswers": ["Endpoint software usage and configuration details"],
+    "explanation": "ACC is agent-based and provides detailed endpoint software usage and configuration data."
+  },
+  {
+    "question": "If many CIs miss the 'Support group' field, which area should you tackle to lift KPIs?",
+    "options": [
+      "ACL wildcard grants",
+      "Completeness metrics and data population flows",
+      "ETL batch size",
+      "Unified Map styling"
+    ],
+    "correctAnswers": ["Completeness metrics and data population flows"],
+    "explanation": "Improving completeness metrics and enrichment flows ensures required fields like Support group are populated."
+  },
+  {
+    "question": "Which CMDB feature lets you mark a class so its records appear by default in the CI field on incidents/changes?",
+    "options": [
+      "Discovery schedule",
+      "Principal class flag",
+      "Lifecycle policy",
+      "Health inclusion rule"
+    ],
+    "correctAnswers": ["Principal class flag"],
+    "explanation": "The Principal class flag controls which CI classes appear by default in CI reference fields for ITSM processes."
+  },
+  {
+    "question": "Populating non-discoverable attributes like Support group should occur...",
+    "options": [
+      "Only during Discovery scans",
+      "Never—these are optional",
+      "As a post-ingest enrichment step",
+      "Only at audit time"
+    ],
+    "correctAnswers": ["As a post-ingest enrichment step"],
+    "explanation": "Non-discoverable attributes should be enriched after ingestion using flows, rules, or policies."
+  },
+  {
+    "question": "Select actions that improve the Completeness KPI. (Select 2)",
+    "options": [
+      "Populate Support/Managed by groups",
+      "Define mandatory/recommended fields per class",
+      "Lower the KPI threshold",
+      "Exclude the class from inclusion rules"
+    ],
+    "correctAnswers": [
+      "Populate Support/Managed by groups",
+      "Define mandatory/recommended fields per class"
+    ],
+    "explanation": "Completeness improves when required ownership fields are populated and mandatory/recommended fields are properly defined."
+  },
+  {
+    "question": "Where can you set a default Managed by group for an entire CI class?",
+    "options": [
+      "Data Foundations dashboard",
+      "CI Class Manager",
+      "Incident form",
+      "Unified Map"
+    ],
+    "correctAnswers": ["CI Class Manager"],
+    "explanation": "CI Class Manager allows setting class-level defaults, such as the Managed by group, across all CIs of that class."
+  },
+  {
+    "question": "Which policy verifies physical existence of assets quarterly?",
+    "options": [
+      "Knowledge",
+      "Incident",
+      "Attestation",
+      "Change freeze"
+    ],
+    "correctAnswers": ["Attestation"],
+    "explanation": "Attestation tasks are used to periodically validate that assets and CIs still physically exist."
+  },
+  {
+    "question": "Business Service Offerings reside primarily in...",
+    "options": [
+      "Service Delivery",
+      "Service Consumption",
+      "Build & Integration",
+      "Design & Planning"
+    ],
+    "correctAnswers": ["Service Consumption"],
+    "explanation": "Business Service Offerings are customer-facing and reside in the Service Consumption domain."
+  },
+  {
+    "question": "Which step should follow a successful initial import via Import Sets?",
+    "options": [
+      "Turn off reconciliation",
+      "Disable IRE for speed",
+      "Validate with CMDB Health and correct issues",
+      "Delete all source data"
+    ],
+    "correctAnswers": ["Validate with CMDB Health and correct issues"],
+    "explanation": "After ingestion, CMDB Health should be used to validate data quality and remediate gaps."
+  },
+  {
+    "question": "Which visualization helps executives grasp affected services quickly? Choose the most appropriate option.",
+    "options": [
+      "ACL matrix",
+      "Unified Map with path highlighting",
+      "Table schema map",
+      "Transform Map preview"
+    ],
+    "correctAnswers": ["Unified Map with path highlighting"],
+    "explanation": "Unified Map with path highlighting clearly shows service dependencies and impact for executives."
+  },
+  {
+    "question": "In practice, which metric indicates CIs have not been updated within the expected timeframe?",
+    "options": [
+      "Orphan",
+      "Audit",
+      "Duplicate",
+      "Staleness"
+    ],
+    "correctAnswers": ["Staleness"],
+    "explanation": "Staleness measures how long it has been since a CI was last updated."
+  },
+  {
+    "question": "Which approach best limits future upgrade friction?",
+    "options": [
+      "Fork OOB tables for flexibility",
+      "Minimize custom classes; extend OOB judiciously",
+      "Use non-standard column names",
+      "Disable IRE and write directly"
+    ],
+    "correctAnswers": ["Minimize custom classes; extend OOB judiciously"],
+    "explanation": "Extending out-of-the-box classes minimizes upgrade risk and maintains platform alignment."
+  },
+  {
+    "question": "Which feature helps you bulk-retire decommissioned CIs across several classes? Consider standard leading practices.",
+    "options": [
+      "Incident rules",
+      "Unified Map filters",
+      "Data Manager lifecycle policies",
+      "Transform test load"
+    ],
+    "correctAnswers": ["Data Manager lifecycle policies"],
+    "explanation": "Lifecycle policies automate retirement and deletion of CIs across multiple classes."
+  },
+  {
+    "question": "Which playbook helps standardize remediation of common data issues? Consider standard leading practices.",
+    "options": [
+      "Knowledge template",
+      "On-call scheduling",
+      "Runtime security policies",
+      "CMDB Foundation Playbook"
+    ],
+    "correctAnswers": ["CMDB Foundation Playbook"],
+    "explanation": "CMDB Foundation Playbooks provide guided, standardized remediation steps for common data issues."
+  },
+  {
+    "question": "ACC contributes which unique value to CMDB data quality?",
+    "options": [
+      "De-duplication templates",
+      "Cloud tag correlation",
+      "Agent-based software usage and telemetry",
+      "IP range classification via probes"
+    ],
+    "correctAnswers": ["Agent-based software usage and telemetry"],
+    "explanation": "ACC uniquely provides agent-based endpoint usage and telemetry data that Discovery alone cannot collect."
+  },
+  {
+    "question": "Which outcome most benefits from accurate relationships? Consider standard leading practices.",
+    "options": [
+      "Attachment upload limits",
+      "Email delivery speed",
+      "Role inheritance",
+      "Incident triage and MTTR"
+    ],
+    "correctAnswers": ["Incident triage and MTTR"],
+    "explanation": "Accurate relationships enable faster impact analysis, improving incident triage and reducing MTTR."
+  },
+    {
+    "question": "What would you use to compare attribute values from SCCM vs. Discovery for a single CI? Consider standard leading practices.",
+    "options": [
+      "Change schedule",
+      "CMDB 360 source comparison",
+      "A MID Server property",
+      "Event Management dashboard"
+    ],
+    "correctAnswers": ["CMDB 360 source comparison"],
+    "explanation": "CMDB 360 provides per-source attribute comparison, allowing you to see values from SCCM and Discovery side by side."
+  },
+  {
+    "question": "In practice, which domain underpins others with Locations, Users, and Groups?",
+    "options": [
+      "Foundation",
+      "Service Consumption",
+      "Service Delivery",
+      "Design & Planning"
+    ],
+    "correctAnswers": ["Foundation"],
+    "explanation": "Foundation contains shared reference data such as users, groups, and locations used across all other domains."
+  },
+  {
+    "question": "What is a practical way to reduce Orphan counts for application services? Consider standard leading practices.",
+    "options": [
+      "Disable correctness KPI",
+      "Add more UI policies",
+      "Improve Service Mapping coverage",
+      "Reduce MID threads"
+    ],
+    "correctAnswers": ["Improve Service Mapping coverage"],
+    "explanation": "Improving Service Mapping builds relationships, reducing orphaned application services."
+  },
+  {
+    "question": "What is the main objective of CMDB governance? Choose the most appropriate option.",
+    "options": [
+      "Minimizing MID Server count",
+      "Faster UI rendering",
+      "Sustained data quality and policy alignment",
+      "Disabling all customizations"
+    ],
+    "correctAnswers": ["Sustained data quality and policy alignment"],
+    "explanation": "CMDB governance focuses on maintaining long-term data quality, consistency, and adherence to defined policies."
+  },
+  {
+    "question": "What is the best approach to find database clusters with no failover nodes?",
+    "options": [
+      "CMDB Query Builder with relationship filters",
+      "Change calendar heatmap",
+      "MID Server status",
+      "Service Portal search"
+    ],
+    "correctAnswers": ["CMDB Query Builder with relationship filters"],
+    "explanation": "Query Builder can filter CIs based on missing or incomplete relationships, such as absent failover nodes."
+  },
+  {
+    "question": "Which choice best explains tag-based mapping?",
+    "options": [
+      "Using tag labels as SNMP OIDs",
+      "Using tag fields as ACL roles",
+      "Using tag names as table names",
+      "Using cloud tags to infer service membership"
+    ],
+    "correctAnswers": ["Using cloud tags to infer service membership"],
+    "explanation": "Tag-based mapping uses cloud resource tags to infer relationships and service membership."
+  },
+  {
+    "question": "Who should participate when aligning services to CSDM? (Select 3)",
+    "options": [
+      "Random end users",
+      "Service owners",
+      "Enterprise architects",
+      "CMDB governance"
+    ],
+    "correctAnswers": [
+      "Service owners",
+      "Enterprise architects",
+      "CMDB governance"
+    ],
+    "explanation": "Aligning services to CSDM requires business ownership, architectural integrity, and governance oversight."
+  },
+  {
+    "question": "Which ingestion path best prevents duplicates when loading laptops from CSV?",
+    "options": [
+      "Manual entry on forms",
+      "Import Set + Transform using IRE",
+      "Email inbound action",
+      "Direct insert to cmdb_ci_computer"
+    ],
+    "correctAnswers": ["Import Set + Transform using IRE"],
+    "explanation": "Using Import Sets with IRE ensures identification rules are applied to prevent duplicate CIs."
+  },
+  {
+    "question": "What is the safest way to model a new storage array type?",
+    "options": [
+      "Create a brand-new base table",
+      "Use a non-CMDB table",
+      "Extend an OOB storage class",
+      "Bypass CMDB entirely"
+    ],
+    "correctAnswers": ["Extend an OOB storage class"],
+    "explanation": "Extending an out-of-the-box storage class minimizes technical debt and reduces upgrade risk."
+  },
+  {
+    "question": "Which capability belongs to CMDB & CSDM Data Foundations dashboards? Choose the most appropriate option.",
+    "options": [
+      "Email notification templates",
+      "SNMP credential management",
+      "Guided playbooks to fix common issues",
+      "Role inheritance"
+    ],
+    "correctAnswers": ["Guided playbooks to fix common issues"],
+    "explanation": "Data Foundations dashboards include opinionated KPIs and guided playbooks for standardized remediation."
+  },
+    {
+    "question": "Which dashboard helps prioritize efforts for Compliance exceptions?",
+    "options": [
+      "Compliance views within Health",
+      "MID properties",
+      "CI form header",
+      "Discovery schedule list"
+    ],
+    "correctAnswers": ["Compliance views within Health"],
+    "explanation": "Compliance dashboards within CMDB Health highlight audit/policy failures and exceptions to prioritize remediation."
+  },
+  {
+    "question": "A class is excluded from Health KPIs intentionally. Where do you verify that? Choose the most appropriate option.",
+    "options": [
+      "Service portal",
+      "Incident workspace",
+      "Health Inclusion Rules",
+      "Change calendar"
+    ],
+    "correctAnswers": ["Health Inclusion Rules"],
+    "explanation": "Health Inclusion Rules define which CI classes are included or excluded from CMDB Health KPI calculations."
+  },
+  {
+    "question": "What happens if you bypass IRE during ETL loads?",
+    "options": [
+      "Duplicate/fragmented CIs likely increase",
+      "Health KPIs calculate faster",
+      "Change Risk improves",
+      "ACLs auto-correct identity"
+    ],
+    "correctAnswers": ["Duplicate/fragmented CIs likely increase"],
+    "explanation": "Bypassing IRE skips identification/reconciliation logic, increasing the risk of duplicates and fragmented CI records."
+  },
+  {
+    "question": "In practice, which view is best to explain blast radius during a change window?",
+    "options": [
+      "Inbox",
+      "Form designer",
+      "Dependency view (Unified Map)",
+      "Import Set table view"
+    ],
+    "correctAnswers": ["Dependency view (Unified Map)"],
+    "explanation": "Dependency View (Unified Map) visualizes upstream/downstream relationships to communicate blast radius and impact paths."
+  },
+  {
+    "question": "Where do you expose a new key attribute for server identity?",
+    "options": [
+      "Identification rule entry for the class",
+      "Unified Map filter",
+      "The incident form layout",
+      "ACL on cmdb_ci_server"
+    ],
+    "correctAnswers": ["Identification rule entry for the class"],
+    "explanation": "To use a new attribute for matching, you add it to the class's Identification Rule so IRE can match/update vs insert."
+  },
+  {
+    "question": "In CMDB 360, what would you use to diagnose conflicting values for 'install_status'? Consider standard leading practices.",
+    "options": [
+      "Discovery schedule list",
+      "MID Server logs",
+      "Service map toolbar",
+      "Attribute lineage by source"
+    ],
+    "correctAnswers": ["Attribute lineage by source"],
+    "explanation": "CMDB 360 exposes per-source attribute values and lineage to identify which source is supplying conflicting values."
+  },
+  {
+    "question": "Which report helps show progress on reducing stale CIs month over month?",
+    "options": [
+      "MID Server queue length",
+      "Correctness trend for Staleness",
+      "Compliance audit summary",
+      "Completeness heatmap"
+    ],
+    "correctAnswers": ["Correctness trend for Staleness"],
+    "explanation": "Trend views for Staleness show improvement or regression over time, enabling month-over-month tracking of stale CI reduction."
+  },
+  {
+    "question": "In practice, which CI Class Manager capability helps prevent schema drift?",
+    "options": [
+      "Designing Flow actions",
+      "Scheduling MID Servers",
+      "Creating Event rules",
+      "Managing identification rules"
+    ],
+    "correctAnswers": ["Managing identification rules"],
+    "explanation": "Identification rules standardize how CIs are uniquely matched across classes, helping maintain consistent identity logic and reducing model drift."
+  },
+  {
+    "question": "Which step operationalizes the CMDB?",
+    "options": [
+      "Change the UI theme",
+      "Disable import logs",
+      "Define remediation cadence and owners",
+      "Increase report refresh rate"
+    ],
+    "correctAnswers": ["Define remediation cadence and owners"],
+    "explanation": "Operationalizing CMDB requires accountable owners and a recurring remediation cadence to sustain data quality and governance."
+  },
+  {
+    "question": "Service Mapping pattern updates failed after a release. What should you check first?",
+    "options": [
+      "MID Server permissions and credentials",
+      "Change calendar holidays",
+      "User criteria for portal",
+      "Discovery IP range size"
+    ],
+    "correctAnswers": ["MID Server permissions and credentials"],
+    "explanation": "Pattern failures after releases commonly relate to access issues—validate MID Server permissions and target credentials first."
+  },
+    {
+    "question": "Which domain contains Business Capabilities and Applications in CSDM?",
+    "options": [
+      "Design & Planning",
+      "Service Consumption",
+      "Service Delivery",
+      "Foundation"
+    ],
+    "correctAnswers": ["Design & Planning"],
+    "explanation": "Business capabilities and applications are modeled in the Design & Planning domain within CSDM."
+  },
+  {
+    "question": "Which action reduces ingestion technical debt long-term?",
+    "options": [
+      "Creating many custom base tables",
+      "Mapping to CSDM-aligned classes from day one",
+      "Ignoring duplicate warnings",
+      "Skipping attribute normalization"
+    ],
+    "correctAnswers": ["Mapping to CSDM-aligned classes from day one"],
+    "explanation": "Aligning to OOB/CSDM classes early minimizes refactoring and long-term technical debt."
+  },
+  {
+    "question": "How does IRE decide whether to insert or update a CI?",
+    "options": [
+      "It evaluates identification rules on incoming payloads",
+      "It checks the change calendar",
+      "It compares incident counts",
+      "It reads user roles"
+    ],
+    "correctAnswers": ["It evaluates identification rules on incoming payloads"],
+    "explanation": "IRE uses identification rules to match incoming data to existing CIs and decide insert vs update."
+  },
+  {
+    "question": "What is the purpose of declaring a principal class?",
+    "options": [
+      "Limit which classes appear in CI reference fields",
+      "Speed up MID Server performance",
+      "Define SNMP credentials",
+      "Grant edit ACLs"
+    ],
+    "correctAnswers": ["Limit which classes appear in CI reference fields"],
+    "explanation": "Principal classes control which CI classes are selectable in reference fields across ITSM processes."
+  },
+  {
+    "question": "Which tool lets you assemble a cross-class CMDB query without writing SQL?",
+    "options": [
+      "MID Server dashboard",
+      "Unified Map",
+      "CMDB Query Builder",
+      "Scripted REST API"
+    ],
+    "correctAnswers": ["CMDB Query Builder"],
+    "explanation": "CMDB Query Builder provides a visual interface to create multi-class queries without SQL."
+  },
+  {
+    "question": "Which action best prevents low-trust feeds from overwriting 'serial_number'?",
+    "options": [
+      "ACL read roles",
+      "Query Builder filters",
+      "Discovery schedule order",
+      "Reconciliation attribute precedence"
+    ],
+    "correctAnswers": ["Reconciliation attribute precedence"],
+    "explanation": "Reconciliation definitions enforce per-attribute source precedence to protect trusted values."
+  },
+  {
+    "question": "Which choice is incorrect about CSDM 5 domains?",
+    "options": [
+      "Keeping Build & Integration domain",
+      "Addition of Ideation & Strategy domain",
+      "Removal of Service Delivery domain",
+      "Keeping Foundations domain"
+    ],
+    "correctAnswers": ["Removal of Service Delivery domain"],
+    "explanation": "Service Delivery remains a core CSDM domain; it was not removed."
+  },
+  {
+    "question": "Which action improves Completeness for data center devices?",
+    "options": [
+      "Disable inclusion rules",
+      "Create a new base table",
+      "Populate required fields via policy/flow",
+      "Only increase Discovery frequency"
+    ],
+    "correctAnswers": ["Populate required fields via policy/flow"],
+    "explanation": "Automated enrichment via policies or flows ensures required fields are populated, improving Completeness."
+  },
+  {
+    "question": "To make ownership mandatory for application CIs, you should…",
+    "options": [
+      "Increase Discovery intervals",
+      "Create a custom base table",
+      "Set required/recommended fields for the class",
+      "Disable completeness checks"
+    ],
+    "correctAnswers": ["Set required/recommended fields for the class"],
+    "explanation": "Configuring required/recommended fields at the class level enforces ownership population."
+  },
+  {
+    "question": "IntegrationHub ETL is well-suited to…",
+    "options": [
+      "Bulk, repeatable pipelines from external data sources",
+      "SNMP traps",
+      "Flow Designer subflows only",
+      "One-off manual entry"
+    ],
+    "correctAnswers": ["Bulk, repeatable pipelines from external data sources"],
+    "explanation": "IntegrationHub ETL is designed for governed, repeatable bulk data ingestion into CMDB."
+  },
+    {
+    "question": "Which domain captures ideas and strategic goals before design begins?",
+    "options": [
+      "Build & Integration",
+      "Service Consumption",
+      "Service Delivery",
+      "Ideation & Strategy"
+    ],
+    "correctAnswers": ["Ideation & Strategy"],
+    "explanation": "Ideation & Strategy captures business ideas and strategic goals before design and delivery phases begin."
+  },
+  {
+    "question": "Where should Application Services be modeled according to CSDM?",
+    "options": [
+      "Service Consumption",
+      "Service Delivery",
+      "Foundation",
+      "Ideation & Strategy"
+    ],
+    "correctAnswers": ["Service Delivery"],
+    "explanation": "Application Services represent operational services and are modeled in the Service Delivery domain."
+  },
+  {
+    "question": "Which metric view shows which classes most affect Correctness?",
+    "options": [
+      "Service catalog popularity",
+      "Task SLA by assignment",
+      "SLA breach count",
+      "Top 10 for Correctness"
+    ],
+    "correctAnswers": ["Top 10 for Correctness"],
+    "explanation": "The Top 10 for Correctness view ranks CI classes by their impact on the Correctness KPI."
+  },
+  {
+    "question": "Which feature supports asking \"Show Linux servers without support group\"?",
+    "options": [
+      "Service Catalog",
+      "Discovery Pattern Editor",
+      "MID Server logs",
+      "Intelligent Search (NLQ)"
+    ],
+    "correctAnswers": ["Intelligent Search (NLQ)"],
+    "explanation": "Natural Language Query (NLQ) allows users to query CMDB data using human-readable language."
+  },
+  {
+    "question": "For network devices, which identifier improves match accuracy?",
+    "options": [
+      "Incident number",
+      "Assignment group",
+      "SLA definition",
+      "Serial number or chassis ID"
+    ],
+    "correctAnswers": ["Serial number or chassis ID"],
+    "explanation": "Hardware identifiers like serial number or chassis ID are stable and improve identification accuracy."
+  },
+  {
+    "question": "In practice, which combination strengthens governance?",
+    "options": [
+      "Rely on manual updates",
+      "Remove reconciliation",
+      "Only ad-hoc fixes",
+      "RACI, documented policies, KPI reviews"
+    ],
+    "correctAnswers": ["RACI, documented policies, KPI reviews"],
+    "explanation": "Strong governance combines clear ownership (RACI), documented policies, and regular KPI reviews."
+  },
+  {
+    "question": "Which capability allows interactive expand/collapse for components in a service?",
+    "options": [
+      "Update Sets",
+      "Upgrade Monitor",
+      "Table cleaner",
+      "Unified Map"
+    ],
+    "correctAnswers": ["Unified Map"],
+    "explanation": "Unified Map provides an interactive topology view with expand and collapse capabilities."
+  },
+  {
+    "question": "Which capability is typical of Service Graph Connectors?",
+    "options": [
+      "ACL migration",
+      "Incident deflection",
+      "MID Server installation automation",
+      "Normalized field mapping to OOB classes"
+    ],
+    "correctAnswers": ["Normalized field mapping to OOB classes"],
+    "explanation": "Service Graph Connectors normalize external data into out-of-the-box CMDB classes."
+  },
+  {
+    "question": "Who should approve CMDB delete policies before rollout?",
+    "options": [
+      "Only database team",
+      "Any sysadmin",
+      "Service desk agent",
+      "CMDB governance board/owner"
+    ],
+    "correctAnswers": ["CMDB governance board/owner"],
+    "explanation": "CMDB delete policies require approval from the governance board or owner to ensure accountability and prevent data loss."
+  },
+  {
+    "question": "Which dashboard provides out-of-the-box KPIs and guided fixes for CMDB?",
+    "options": [
+      "Change Schedule",
+      "Flow Designer",
+      "Incident Overview",
+      "CMDB & CSDM Data Foundations"
+    ],
+    "correctAnswers": ["CMDB & CSDM Data Foundations"],
+    "explanation": "CMDB & CSDM Data Foundations provides built-in KPIs and guided playbooks to improve CMDB data quality."
+  }
+]

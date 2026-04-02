@@ -1,0 +1,1451 @@
+[
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "In the CSDM framework, when mapping an Application Service (Parent) to the underlying Windows/Linux Server (Child), which specific CI Relationship Type describes the dependency?",
+    "options": [
+      "Runs on::Runs",
+      "Consumes::Consumed by",
+      "Depends on::Used by",
+      "Connected to::Connected by"
+    ],
+    "correctAnswers": [
+      "Depends on::Used by"
+    ],
+    "explanation": "In CSDM, an Application Service depends on the underlying infrastructure that supports it. The correct relationship to express this dependency is Depends on::Used by, where the Application Service depends on the server, and the server is used by the service."
+  },
+  {
+    "domain": "Govern",
+    "question": "Which application automatically imports external scan data to identify infrastructure weaknesses and prioritizes remediation tasks based on calculated risk scores?",
+    "options": [
+      "Hardware Asset Management",
+      "Service Portfolio Management",
+      "Software Asset Management",
+      "Project Management",
+      "Event Management",
+      "Vulnerability Response"
+    ],
+    "correctAnswers": [
+      "Vulnerability Response"
+    ],
+    "explanation": "Vulnerability Response integrates with external vulnerability scanners to import scan data, calculate risk scores, and prioritize remediation activities based on the severity and exposure of vulnerabilities."
+  },
+  {
+    "domain": "Ingest",
+    "question": "Your company is building a new IntegrationHub ETL pipeline to load CI data into the CMDB. During testing, the CMDB admin wants to:\n• Limit the volume of rows used for the sample preview\n• Be able to roll back the test load if something goes wrong\n\nWhich combination in the ETL configuration best supports these goals?",
+    "options": [
+      "Increase the Preview Size Override and run the transform directly in production without rollback",
+      "Set the ETL to skip insert and only allow update, then roll back manually if needed",
+      "Run the transform from the Transform Map form and use the global Rollback feature in CMDB Workspace",
+      "Disable Preview Size Override and enable Test and Rollback Integration Results from the Import Set table",
+      "Use the Preview Size Override and run the transform from the ETL configuration with Test and Rollback Integration Results"
+    ],
+    "correctAnswers": [
+      "Use the Preview Size Override and run the transform from the ETL configuration with Test and Rollback Integration Results"
+    ],
+    "explanation": "Preview Size Override limits the number of rows used for preview, while Test and Rollback Integration Results allows the admin to safely test the ETL execution and roll back changes if issues occur."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Often confused with the CI lifecycle, which table stores the Vendor's support timeline for a specific hardware or software model (containing fields like End of Support Date and End of Life Date) rather than the state of a specific CI instance?",
+    "options": [
+      "product_lifecycle_mapping",
+      "cmdb_model_lifecycle",
+      "life_cycle_stage_status",
+      "life_cycle_stage"
+    ],
+    "correctAnswers": [
+      "cmdb_model_lifecycle"
+    ],
+    "explanation": "The cmdb_model_lifecycle table stores vendor lifecycle information such as End of Support and End of Life dates at the model level, independent of individual CI instances."
+  },
+  {
+    "domain": "Govern",
+    "question": "You have opened a specific De-duplication Task (e.g., DUP000102) in the CMDB Workspace to resolve a conflict between two business applications. You click the Remediate button to begin the resolution process. Which two options does the system present in the \"Remediate\" dialog box? (Choose two)",
+    "options": [
+      "Archive the duplicate CI",
+      "Delete the duplicate record",
+      "Duplicate CI Remediator",
+      "Use a custom remediation workflow"
+    ],
+    "correctAnswers": [
+      "Duplicate CI Remediator",
+      "Use a custom remediation workflow"
+    ],
+    "explanation": "The Remediate dialog allows using the standard Duplicate CI Remediator or invoking a custom remediation workflow. Deleting or archiving is not offered directly in this dialog."
+  },
+  {
+    "domain": "Insight",
+    "question": "A CMDB Admin is analyzing infrastructure dependencies in the Unified Map inside the CMDB Workspace and wants to temporarily hide all Business and Application layer elements to focus only on technical infrastructure. Which section of the Map filter should be used to achieve this?",
+    "options": [
+      "Owned by",
+      "CI type",
+      "Location",
+      "Layer",
+      "Discovery source"
+    ],
+    "correctAnswers": [
+      "Layer"
+    ],
+    "explanation": "The Layer filter in Unified Map allows toggling visibility of Business, Application, and Technical layers, enabling focused infrastructure analysis."
+  },
+  {
+    "domain": "Insight",
+    "question": "A CMDB admin has created a CMDB Query Builder schedule called \"Computers to Mass Storage Report\". The Hardware group complains that they receive daily emails with either no rows in the attachment or very large attachments that are slow to open. Which option on the scheduled query record should the admin enable to both avoid empty emails and reduce the size of large attachments?",
+    "options": [
+      "Enable Zip Output and send the report even when there are no records",
+      "Enable Conditional so the query only runs if the previous run returned records",
+      "Enable Omit If No Records and leave attachments uncompressed",
+      "Enable Omit If No Records and Zip Output on the schedule",
+      "Enable Display Relationships in Results in Query Builder settings"
+    ],
+    "correctAnswers": [
+      "Enable Omit If No Records and Zip Output on the schedule"
+    ],
+    "explanation": "Omit If No Records prevents empty emails, and Zip Output compresses large attachments, improving usability and performance."
+  },
+  {
+    "domain": "Govern",
+    "question": "Moves configuration items out of active operational use while keeping them stored for audit, legal, or historical reference.",
+    "options": [
+      "Archive",
+      "Attestation",
+      "Retire",
+      "Delete",
+      "Data Certification"
+    ],
+    "correctAnswers": [
+      "Archive"
+    ],
+    "explanation": "Archiving removes CIs from active use while preserving them for compliance, audit, and historical purposes without deleting them."
+  },
+  {
+    "domain": "Govern",
+    "question": "Which CMDB feature enables the bulk remediation of duplicate CIs by applying a predefined standard logic, such as prioritizing Discovery-created records, without requiring manual intervention for each task?",
+    "options": [
+      "De-duplication Task",
+      "Duplicate CI Remediator",
+      "Reconciliation Rule",
+      "Data Manager Policy",
+      "De-duplication Template"
+    ],
+    "correctAnswers": [
+      "De-duplication Template"
+    ],
+    "explanation": "De-duplication Templates apply standardized remediation logic across multiple duplicate tasks, enabling automated and consistent bulk remediation."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "Who is primarily responsible for defining the Service Level Agreements (SLAs) and Service Offerings during the \"Run\" phase of CSDM implementation?",
+    "options": [
+      "Enterprise Architect",
+      "Application Developer",
+      "Service Owner",
+      "Discovery Administrator"
+    ],
+    "correctAnswers": [
+      "Service Owner"
+    ],
+    "explanation": "During the Run phase of CSDM, the Service Owner is accountable for defining SLAs and Service Offerings to ensure services meet business expectations."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "Which statement best describes the lifecycle_stage field for a CI in a CSDM-aligned CMDB?",
+    "options": [
+      "It stores a free-text description of where the CI is in its life",
+      "It stores the high-level phase of the CI's life (for example, Plan, Design, Implement, Operate, Retire), taken from the Life Cycle Stage [life_cycle_stage] table",
+      "It stores the detailed technical condition of a CI within a phase (for example, Active, Pending Change, Retired)",
+      "It stores the legacy install_status values for server CIs only",
+      "It stores a numeric score for how healthy the CI is"
+    ],
+    "correctAnswers": [
+      "It stores the high-level phase of the CI's life (for example, Plan, Design, Implement, Operate, Retire), taken from the Life Cycle Stage [life_cycle_stage] table"
+    ],
+    "explanation": "In a CSDM-aligned CMDB, the lifecycle_stage field represents the high-level lifecycle phase of a CI, sourced from the life_cycle_stage table, rather than free text, detailed status, legacy install status, or health scoring."
+  },
+  {
+    "domain": "Govern",
+    "question": "You configure reconciliation rules for the Windows Server class **[cmdb_ci_win_server]** to control which data sources are trusted to update CI attributes.\n\n**Rules Configuration:**\n\n| Priority | Discovery Source        | Authorized Attributes |\n|----------|-------------------------|-----------------------|\n| **10**   | **ServiceNow Discovery**| **All Attributes**    |\n| **20**   | **SG-SCCM**             | **All Attributes**    |\n\n**Existing Data:** There is an existing CI (Configuration Item) in the CMDB (Configuration Management Database).\n- CI Name: **WIN-HR-01**\n- Operating System: **Windows Server 2016 Standard**\n- Most Recent Discovery Source: **ServiceNow Discovery** (last updated 2 days ago)\n\n**The Event:** The scheduled import from **SG-SCCM (Service Graph Connector for SCCM)** runs today. It successfully identifies the same CI (**WIN-HR-01**) and attempts to update the record with the following payload:\n- Operating System: **Windows Server 2019 Datacenter**\n- RAM: **32 GB** (**the existing RAM value in the CMDB is null/empty**)\n\n**Question:** How does the Identification and Reconciliation Engine (IRE) handle this update request from **SG-SCCM**?",
+    "options": [
+      "It creates a Multi-Source Data record but does not update the actual CI [cmdb_ci] record for any attribute",
+      "It creates a Reconciliation Task for a CMDB Admin to manually approve the Operating System version change",
+      "It blocks the entire payload (both Operating System and RAM) because SG-SCCM has a lower priority (20) than the source that last updated the CI (priority 10)",
+      "It blocks the update for the Operating System (skips it) but allows the update for RAM because the existing RAM value was empty",
+      "It updates both the Operating System and RAM because SG-SCCM is an authorized source and the payload is newer than the existing data"
+    ],
+    "correctAnswers": [
+      "It blocks the update for the Operating System (skips it) but allows the update for RAM because the existing RAM value was empty"
+    ],
+    "explanation": "The Identification and Reconciliation Engine (IRE) evaluates reconciliation rules at the attribute level. A lower-priority source such as SG-SCCM cannot overwrite an attribute that was last set by a higher-priority source. However, it can populate attributes that are currently empty."
+  },
+  {
+    "domain": "Govern",
+    "question": "Which feature provides a guided wizard that allows a user to manually select a Main CI, merge attributes, and reconcile relationships to resolve a specific De-duplication Task?",
+    "options": [
+      "Data Manager Policy",
+      "De-duplication Template",
+      "Duplicate CI Remediator",
+      "Reconciliation Rule"
+    ],
+    "correctAnswers": [
+      "Duplicate CI Remediator"
+    ],
+    "explanation": "The Duplicate CI Remediator provides a guided interface to manually resolve a specific de-duplication task by selecting the primary CI, merging attributes, and reconciling relationships."
+  },
+  {
+    "domain": "Govern",
+    "question": "Responsible for the technical configuration, access controls (ACLs), and setting up Discovery schedules.",
+    "options": [
+      "CMDB Process Owner",
+      "CMDB Admin",
+      "Service Owner",
+      "Configuration Manager",
+      "CI Analyst"
+    ],
+    "correctAnswers": [
+      "CMDB Admin"
+    ],
+    "explanation": "The CMDB Admin is responsible for the technical configuration of the CMDB, including ACLs and Discovery schedules."
+  },
+  {
+    "domain": "Insight",
+    "question": "A Service Desk Manager needs to generate a quick list of \"All critical Linux Servers in the New York datacenter\" to prepare for an audit. They do not have the technical skills to build a formal query in the CMDB Query Builder, nor do they want to navigate complex filter conditions in a standard list view. They are currently logged into the CMDB Workspace.\n\nWhere can they type this plain English sentence to immediately generate the list of CIs?",
+    "options": [
+      "In the \"Global Search\" bar in the top Unified Navigation banner (without any additional configuration)",
+      "In the \"Intelligent Search\" field located at the top of the CMDB Workspace Home dashboard",
+      "In the \"Dependency View\" map settings for the Linux Server class",
+      "In the \"CMDB 360\" dashboard under the \"Multisource\" column"
+    ],
+    "correctAnswers": [
+      "In the \"Intelligent Search\" field located at the top of the CMDB Workspace Home dashboard"
+    ],
+    "explanation": "CMDB Workspace provides an Intelligent Search capability that allows users to enter natural language queries to quickly generate CI lists."
+  },
+  {
+    "domain": "Insight",
+    "question": "The CMDB team configures health inclusion rules so that:\n- Network devices in a certain lab are excluded from CMDB Health\n- All other network devices remain included\n\nLater, a manager asks why the health score for the Network gear looks higher after this change. Which is the most accurate explanation?",
+    "options": [
+      "Inclusion rules only change the dashboard layout, not the scores",
+      "Inclusion rules move excluded CIs to a separate archive table",
+      "Inclusion rules automatically repair all CIs covered by them",
+      "Inclusion rules turn off metrics at class level for all network devices",
+      "Excluding the lab devices means they are no longer counted in the health calculations"
+    ],
+    "correctAnswers": [
+      "Excluding the lab devices means they are no longer counted in the health calculations"
+    ],
+    "explanation": "When CIs are excluded via health inclusion rules, they are removed from the scope of health calculations, which can increase overall health scores."
+  },
+  {
+    "domain": "Govern",
+    "question": "Defines policies for retiring CIs that are no longer in use, often based on criteria like age or lack of discovery.",
+    "options": [
+      "Data Certification",
+      "Attestation",
+      "Delete",
+      "Archive",
+      "Retire"
+    ],
+    "correctAnswers": [
+      "Retire"
+    ],
+    "explanation": "Retire defines controlled policies for removing CIs from active use based on criteria such as age or lack of discovery."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "Accountable for the delivery of a specific service and validating the accuracy of that service's data.",
+    "options": [
+      "CMDB Process Owner",
+      "Configuration Manager",
+      "CMDB Admin",
+      "Service Owner",
+      "CI Analyst"
+    ],
+    "correctAnswers": [
+      "Service Owner"
+    ],
+    "explanation": "The Service Owner is accountable for service delivery and ensuring the accuracy of data related to that service."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You are using IntegrationHub ETL to load data into the Location table **[cmn_location]**, which is not a CMDB class. You want to:\n- Control how the Identification Engine decides if a location already exists\n- Use a specific field (for example, name) as the key\n\nAccording to the Ingest Data into the CMDB course snippet, what configuration step is required?",
+    "options": [
+      "Turn off the Identification Engine, because IH ETL only works with CMDB classes",
+      "Configure CMDB Data Manager to treat locations as stale if not updated",
+      "Add cmn_location to the list of blacklisted non-CMDB tables",
+      "Create a CI Identifier entry for the Location table and define an identifier entry using the Name field",
+      "Create a CMDB Health orphan rule for the Location table"
+    ],
+    "correctAnswers": [
+      "Create a CI Identifier entry for the Location table and define an identifier entry using the Name field"
+    ],
+    "explanation": "For non-CMDB tables like cmn_location, a CI Identifier entry must be configured so the Identification Engine can determine record uniqueness."
+  },
+  {
+    "domain": "Insight",
+    "question": "You are a CMDB Administrator responsible for operational data quality. You need to identify Configuration Items (CIs) that are \"Stale\", \"Orphaned\", and \"Incomplete\". Which dashboard is specifically designed to display these?",
+    "options": [
+      "CSDM Data Foundations Dashboard",
+      "CMDB Health Dashboard",
+      "Integration Commons Dashboard",
+      "CMDB Data Foundations Dashboard"
+    ],
+    "correctAnswers": [
+      "CMDB Health Dashboard"
+    ],
+    "explanation": "The CMDB Health Dashboard is designed to surface data quality issues such as stale, orphaned, and incomplete CIs."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Traverses the infrastructure starting from a specific entry point (URL) to map the dependencies and relationships that make up a specific Application Service.",
+    "options": [
+      "Cloud Discovery",
+      "Service Mapping",
+      "Import Sets",
+      "Agent Client Collector",
+      "Discovery",
+      "Service Graph Connector"
+    ],
+    "correctAnswers": [
+      "Service Mapping"
+    ],
+    "explanation": "Service Mapping starts from an entry point such as a URL and dynamically discovers the underlying infrastructure, mapping dependencies and relationships that compose an Application Service."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You are a CMDB Architect designing a new integration to bring hardware assets into the CMDB from a third-party source. You need a solution that processes data through the Identification and Reconciliation Engine (IRE) to respect CI Identification Rules and Reconciliation Rules. Which data ingestion method inherently leverages the IRE for this purpose?",
+    "options": [
+      "IntegrationHub ETL",
+      "Import sets with transform maps",
+      "Table API (REST or SOAP)"
+    ],
+    "correctAnswers": [
+      "IntegrationHub ETL"
+    ],
+    "explanation": "IntegrationHub ETL is designed to ingest data into the CMDB while inherently leveraging the Identification and Reconciliation Engine to apply identification and reconciliation logic."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "You are planning a CSDM Assessment – Total for your organization.\n\nOne role is responsible for:\n- Leading the CSDM assessment\n- Designing how services and CIs should be modeled\n- Working closely with the platform owner on governance and long-term data model decisions\n\nWho drives the CSDM assessment and design?",
+    "options": [
+      "Platform Owner",
+      "CI analyst / CI owner",
+      "Service Owner",
+      "Platform Arch (CSDM design lead)"
+    ],
+    "correctAnswers": [
+      "Platform Arch (CSDM design lead)"
+    ],
+    "explanation": "The Platform Architect acting as the CSDM design lead is responsible for driving the CSDM assessment, defining service and CI modeling, and aligning governance decisions with long-term strategy."
+  },
+  {
+    "domain": "Insight",
+    "question": "Which application provides a structured framework to define, categorize, and track the business value and lifecycle status (e.g., Pipeline, Catalog, Retired) of the IT services offered to the organization?",
+    "options": [
+      "Service Portfolio Management",
+      "Event Management",
+      "Hardware Asset Management",
+      "Project Management",
+      "Vulnerability Response",
+      "Software Asset Management"
+    ],
+    "correctAnswers": [
+      "Service Portfolio Management"
+    ],
+    "explanation": "Service Portfolio Management provides a structured framework for managing IT services across their lifecycle, including business value, status, and categorization."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "A financial services company is implementing Vulnerability Response (VR) and Security Incident Response (SIR). One of their critical requirements is to ensure that security incidents are automatically prioritized based on the sensitivity of the data being processed. Specifically, if a vulnerability is detected on an asset supporting an application that handles confidential information (such as PII or Credit Card numbers), the system must flag it with a higher business impact score than an application handling only public data.\n\nTo achieve this granular risk scoring within the Common Service Data Model (CSDM) framework, which specific configuration item (CI) class must be defined and related to the Business Application to logically describe the type of data it processes?",
+    "options": [
+      "Asset [alm_asset]",
+      "Database Instance [cmdb_ci_db_instance]",
+      "Information Object [cmdb_ci_information_object]",
+      "Data Domain [cmdb_ci_data_domain]"
+    ],
+    "correctAnswers": [
+      "Information Object [cmdb_ci_information_object]"
+    ],
+    "explanation": "Information Objects represent the type and sensitivity of data processed by an application, enabling risk-based prioritization in Vulnerability Response when aligned with CSDM."
+  },
+  {
+    "domain": "Insight",
+    "question": "Which application consolidates technical alerts from disparate monitoring tools to filter out noise and visualize the real-time operational health of business services?",
+    "options": [
+      "Software Asset Management",
+      "Project Management",
+      "Hardware Asset Management",
+      "Event Management",
+      "Vulnerability Response",
+      "Service Portfolio Management"
+    ],
+    "correctAnswers": [
+      "Event Management"
+    ],
+    "explanation": "Event Management aggregates and correlates alerts from multiple monitoring sources, reducing noise and providing real-time visibility into service health."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which table contains the configuration logic that translates legacy fields (like install_status or hardware_status) into the new CSDM standard fields, ensuring that updates to legacy fields automatically update the CSDM fields?",
+    "options": [
+      "life_cycle_mapping",
+      "life_cycle_definition",
+      "life_cycle_control",
+      "csdm_lifecycle_bridge"
+    ],
+    "correctAnswers": [
+      "life_cycle_mapping"
+    ],
+    "explanation": "The life_cycle_mapping table defines how legacy lifecycle-related fields are translated into standardized CSDM lifecycle fields."
+  },
+  {
+    "domain": "Govern",
+    "question": "You are processing a de-duplication task for two Database Instance CIs.\n\n- CI-A (Master): Discovered by ServiceNow Discovery. It has no active tickets associated with it.\n- CI-B (Duplicate): Created manually. It is currently listed as the \"Configuration Item\" on an active P1 Incident.\n\nYou launch the Duplicate CI Remediation Wizard and select CI-A as the Master. You carefully merge the attribute data and the CMDB relationships. However, you skip the \"Related Items\" step (leaving all checkboxes cleared/unselected). You set the action for CI-B to Delete and finish the wizard.\n\nWhat is the result on the P1 Incident record?",
+    "options": [
+      "The remediation job fails with an error: \"Cannot delete CI with active references.\"",
+      "The Incident remains open, but the \"Configuration Item\" field becomes empty (blank).",
+      "The Incident is automatically updated to point to CI-A because the system detects the merge.",
+      "The Incident is deleted because its reference record (CI-B) was deleted.",
+      "The Incident is marked as \"Canceled\" and a new Incident is generated for CI-A."
+    ],
+    "correctAnswers": [
+      "The Incident remains open, but the \"Configuration Item\" field becomes empty (blank)."
+    ],
+    "explanation": "If related items are not reassigned during remediation, references to the deleted CI are removed, leaving the Incident record intact but with a blank CI reference."
+  },
+  {
+    "domain": "Govern",
+    "question": "Accountable for the overall strategy, governance, and defining the policies of the CMDB.",
+    "options": [
+      "Configuration Manager",
+      "Service Owner",
+      "CI Analyst",
+      "CMDB Admin",
+      "CMDB Process Owner"
+    ],
+    "correctAnswers": [
+      "CMDB Process Owner"
+    ],
+    "explanation": "The CMDB Process Owner is accountable for defining CMDB strategy, governance, and policies, ensuring alignment with organizational objectives."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Service owners complain that when they create relationships for the Apache Web Server class, the relationship picker shows many relationship types that do not make sense. The CMDB team wants to give them a short, guided list of valid relationships (for example, that Apache Web Server exports to Application Software) and manage this list centrally at the class level. These options should appear when users create relationships from Apache Web Server CIs.\n\nWhich CMDB configuration should you use?",
+    "options": [
+      "A CMDB group populated from a CMDB Query Builder query",
+      "Suggested relationships stored in the cmdb_rel_type_suggested table for Apache Web Server",
+      "Dependent relationships on the class to control valid relationship patterns",
+      "A health inclusion rule that hides invalid relationships from CMDB Health",
+      "A reconciliation rule that limits which discovery sources can update relationships"
+    ],
+    "correctAnswers": [
+      "Suggested relationships stored in the cmdb_rel_type_suggested table for Apache Web Server"
+    ],
+    "explanation": "Suggested relationships define a curated list of valid relationship types at the class level, improving usability and consistency when creating CI relationships."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which option best describes the content of the Life Cycle Stage [life_cycle_stage] table?",
+    "options": [
+      "A list of all possible combinations of lifecycle stage + lifecycle status value pairs",
+      "A list of all tables in the CMDB that support lifecycle fields",
+      "A catalog of standard lifecycle stages (for example, Plan, Design, Implement, Operate, Retire) that CIs and assets can reference through the lifecycle_stage field",
+      "A row for each mapping rule from legacy status to lifecycle values",
+      "A row for each CI that has any lifecycle data"
+    ],
+    "correctAnswers": [
+      "A catalog of standard lifecycle stages (for example, Plan, Design, Implement, Operate, Retire) that CIs and assets can reference through the lifecycle_stage field"
+    ],
+    "explanation": "The life_cycle_stage table stores the standardized, high-level lifecycle stages that CIs and assets reference, not combinations, mappings, or CI-specific data."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "In a CSDM assessment for Business Services, you need someone who:\n- Is accountable for the service itself and its outcomes\n- Decides which applications and technical services support that service\n- Uses CSDM views to understand how the service is modeled and how it performs\n\nWho owns the Service in CSDM?",
+    "options": [
+      "CI analyst / CI owner",
+      "Platform Owner",
+      "Service Owner",
+      "Platform Arch (CSDM design lead)"
+    ],
+    "correctAnswers": [
+      "Service Owner"
+    ],
+    "explanation": "In CSDM, the Service Owner is accountable for the service outcomes, determines supporting services, and uses CSDM views to assess service performance."
+  },
+  {
+    "domain": "Insight",
+    "question": "A CMDB Admin is reviewing complex service dependencies in the Unified Map within the CMDB Workspace and wants to hide irrelevant nodes and connection lines to focus only on what matters. Which of the following elements can be toggled in the primary filter panel to hide specific nodes or relationships? (Choose two)",
+    "options": [
+      "Locations",
+      "Relationship type",
+      "Managed by group",
+      "CI type",
+      "Discovery source"
+    ],
+    "correctAnswers": [
+      "Relationship type",
+      "CI type"
+    ],
+    "explanation": "Unified Map filters allow toggling visibility by relationship type and CI type, enabling focused analysis of relevant nodes and dependencies."
+  },
+  {
+    "domain": "Govern",
+    "question": "Which CMDB feature allows administrators to configure automated, policy-driven rules for the bulk retirement, archival, or deletion of Configuration Items (CIs) that meet specific criteria, such as being stale or outdated?",
+    "options": [
+      "De-duplication Template",
+      "Reconciliation Rule",
+      "Duplicate CI Remediator",
+      "De-duplication Task",
+      "Data Manager Policy"
+    ],
+    "correctAnswers": [
+      "Data Manager Policy"
+    ],
+    "explanation": "Data Manager Policies enable automated, criteria-based actions such as retiring, archiving, or deleting CIs at scale."
+  },
+  {
+    "domain": "Govern",
+    "question": "Responsible for executing data quality tasks, fixing orphans and staleness, and remediating duplicates.",
+    "options": [
+      "Service Owner",
+      "CI Analyst",
+      "CMDB Admin",
+      "CMDB Process Owner",
+      "Configuration Manager"
+    ],
+    "correctAnswers": [
+      "CI Analyst"
+    ],
+    "explanation": "The CI Analyst role is focused on hands-on data quality execution, including resolving orphans, stale CIs, and duplicate records."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "While reviewing the health of the Common Service Data Model (CSDM), the Configuration Manager notices a high volume of \"Orphaned\" Application Services. These represent technical stacks (e.g., \"SAP-PROD-01\") that are being discovered and monitored, but they lack a relationship to a parent Business Application. This orphan status prevents leadership from understanding which business capability relies on these services.\n\nThe manager needs a guided interface that will list these specific orphaned services and provide a step-by-step workflow to select the correct parent Business Application for each one.\n\nWhich feature should be launched to remediate this specific structural gap?",
+    "options": [
+      "CMDB Data Manager",
+      "De-duplication Task Wizard",
+      "CSDM Data Foundations Playbook",
+      "Duplicate CI Remediator"
+    ],
+    "correctAnswers": [
+      "CSDM Data Foundations Playbook"
+    ],
+    "explanation": "The CSDM Data Foundations Playbook provides guided workflows to identify and remediate CSDM structural gaps such as orphaned services."
+  },
+  {
+    "domain": "Govern",
+    "question": "Automatically validates CMDB data against predefined standards to ensure accuracy and completeness (for example, verifying specific attributes like \"Managed By\" are populated).",
+    "options": [
+      "Archive",
+      "Delete",
+      "Retire",
+      "Attestation",
+      "Data Certification"
+    ],
+    "correctAnswers": [
+      "Data Certification"
+    ],
+    "explanation": "Data Certification enforces automated validation rules to ensure CMDB data meets predefined quality and completeness standards."
+  },
+  {
+    "domain": "Insight",
+    "question": "A customer has integrated several external inventory tools and enabled CMDB 360. They want a single place to see:\n- Raw records from each external source\n- How those records relate to the CMDB CIs after reconciliation\n\nwhile keeping the main cmdb_ci tables clean.\n\nWhich feature provides this view?",
+    "options": [
+      "The Duplicate CI Remediator task queue",
+      "The cmdb_rel_ci relationship table",
+      "The CMDB Group records built from Query Builder",
+      "The Import Set staging tables used by IntegrationHub ETL",
+      "The CMDB Multisource Data Table"
+    ],
+    "correctAnswers": [
+      "The CMDB Multisource Data Table"
+    ],
+    "explanation": "The CMDB Multisource Data Table stores raw source records and their linkage to reconciled CIs, supporting CMDB 360 without polluting core CI tables."
+  },
+  {
+    "domain": "Insight",
+    "question": "Which application focuses on the financial and contractual lifecycle of IT resources, enabling the organization to track costs, manage contracts, and optimize procurement spend without necessarily managing physical stockroom workflows?",
+    "options": [
+      "Hardware Asset Management",
+      "Service Portfolio Management",
+      "Project Management",
+      "Event Management",
+      "Software Asset Management",
+      "Vulnerability Response"
+    ],
+    "correctAnswers": [
+      "Software Asset Management"
+    ],
+    "explanation": "Software Asset Management focuses on financial, contractual, and licensing aspects of software assets rather than physical inventory handling."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Your organization is migrating from the legacy status fields (like install_status and hardware_status) to the new standardized CSDM Lifecycle model. You need to configure the mappings in the \"Life Cycle Mapping\" table.\n\nTo correctly map your data, you must know the five standard top-level phases (Stages) defined by ServiceNow CSDM to organize every CI and Asset's journey from concept to disposal.\n\nWhich of the following represents the correct standard list of Life Cycle Stages?",
+    "options": [
+      "Request, Procurement, Deployment, Maintenance, Disposal",
+      "Pipeline, Catalog, Available, Consumed, Retired",
+      "Plan, Build, Run, Optimize, Retire",
+      "Ideation, Purchase, Inventory, Operational, End of Life"
+    ],
+    "correctAnswers": [
+      "Ideation, Purchase, Inventory, Operational, End of Life"
+    ],
+    "explanation": "ServiceNow CSDM defines five top-level lifecycle stages: Ideation, Purchase, Inventory, Operational, and End of Life, which are used for standardized lifecycle mapping."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which table serves as a reference for the \"high-level\" phase of a Configuration Item's existence, containing standard values such as Design, Build, Operational, and End of Life?",
+    "options": [
+      "life_cycle_stage",
+      "lifecycle_status",
+      "life_cycle_mapping",
+      "life_cycle_stage_status"
+    ],
+    "correctAnswers": [
+      "life_cycle_stage"
+    ],
+    "explanation": "The life_cycle_stage table is the reference table that stores the standardized, high-level lifecycle phases used by CSDM, such as Design, Build, Operational, and End of Life."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You have configured the Identification Rules for the Linux Server **[cmdb_ci_linux_server]** class with the following priorities.\n\n### Identification Rules Configuration\n\n| Priority | Identifier Entry (Attribute) | Search Table |\n|----------|------------------------------|--------------|\n| **100**  | Serial Number                | Linux Server |\n| **200**  | Name                         | Linux Server |\n| **300**  | MAC Address                  | Network Adapter |\n| **400**  | IP Address                   | IP Address |\n\n### Existing Data\n\nYour CMDB currently contains two Linux Server CIs:\n\n- **CI-A**\n  - Name: **LNX-SRV-01**\n  - IP Address: **10.10.10.1**\n  - Serial Number: *(Empty)*\n\n- **CI-B**\n  - Name: **LNX-SRV-99**\n  - IP Address: **192.168.2.50**\n  - Serial Number: *(Empty)*\n\n### The Event\n\nServiceNow Discovery identifies a machine with the following payload:\n\n- Name: **LNX-SRV-01**\n- IP Address: **192.168.2.50**\n- Serial Number: *(Empty)*\n\n> The payload matches **CI-A** based on **Name (Priority 200)**, but it matches **CI-B** based on **IP Address (Priority 400)**.\n\n### **Question:**\n\nWhat action does the Identification and Reconciliation Engine (IRE) take?",
+    "options": [
+      "It updates both records: CI-A takes the name confirmation, and CI-B takes the IP confirmation",
+      "It creates a new CI because the payload did not perfectly match all attributes of either existing record",
+      "It creates a Duplicate CI Task and blocks the update because two different CIs were matched",
+      "It updates CI-B with the new Name (LNX-SRV-01) because IP Address is a more reliable identifier",
+      "It updates CI-A with the new IP address (192.168.2.50) and ignores CI-B"
+    ],
+    "correctAnswers": [
+      "It updates CI-A with the new IP address (192.168.2.50) and ignores CI-B"
+    ],
+    "explanation": "IRE selects the match based on the highest-priority successful identifier. Since Name (Priority 200) matches CI-A and is higher priority than IP Address (Priority 400), CI-A is selected as the target CI and updated."
+  },
+  {
+    "domain": "Ingest",
+    "question": "A new customer is moving to ServiceNow and wants to start CMDB and CSDM implementation. Before any CI imports or Service Mapping work start, the implementation team wants to ensure:\n- Assignment groups\n- User records\n- Companies and locations\n\nare ready to use so CI data can be correctly assigned and owned.\n\nWhich activity described in the Ingest training best fits this need?",
+    "options": [
+      "Run CMDB Multisource Data Table reconciliation jobs",
+      "Configure Dynamic Reconciliation Rules for all CI classes",
+      "Build CMDB Groups using CMDB Query Builder conditions",
+      "Use Populate Foundational Group Data before any CI ingestion",
+      "Run CMDB Health completeness checks on all server classes"
+    ],
+    "correctAnswers": [
+      "Use Populate Foundational Group Data before any CI ingestion"
+    ],
+    "explanation": "Populating foundational data such as users, groups, companies, and locations is a required prerequisite before ingesting CI data to ensure proper ownership and assignment."
+  },
+  {
+    "domain": "Govern",
+    "question": "You have configured the CMDB for a CI class with:\n\n- Several CI Identifier rules (for identification)\n- Three Reconciliation rules for updates\n\n### Reconciliation Rules Configuration\n\n| Reconciliation rule | Priority | Data source     | Attributes it can update |\n|---------------------|----------|------------------|---------------------------|\n| **Rule A**          | **300**  | **Snow_Prop_300**| **cpu_count, os_version** |\n| **Rule B**          | **200**  | **Snow_Prop_200**| **ip_address, location** |\n| **Rule C**          | **100**  | **Snow_Prop_100**| **name, serial_number, asset_tag** |\n\n### Scenario\n\nFor a given incoming payload:\n\n- The Identification Engine (CI Identifiers) finds an existing CI and returns **exactly one match**\n- All Reconciliation rules match this CI (same class, same data source conditions)\n- For some attributes, the data source has **lower priority**, so the values are **not allowed to update**\n- For other attributes, the data source has **no rule** that allows updates, so the values are **also not updated**\n\n### Observation\n\nThe admin notices that **no attribute values** on the identified CI are changed after the import and wonders:\n\n> \"Because nothing was updated and I have several reconciliation rules, will the system insert a new CI instead?\"\n\n### **Question:**\n\nWhat actually happens?",
+    "options": [
+      "The IRE deletes the existing CI and inserts a new one when no reconciliation rule allows any attribute to be updated",
+      "A new CI is inserted, because if reconciliation cannot update attributes, the IRE assumes a new CI is needed",
+      "The existing CI is still the only target; the Identification Engine has already selected it, and reconciliation only decides which attributes can be updated, not whether to insert a new CI",
+      "The IRE creates a duplicate CI and marks both with a \"reconciliation conflict\" flag",
+      "The IRE rolls back identification and re-runs it using reconciliation-rule priorities instead of identifier priorities"
+    ],
+    "correctAnswers": [
+      "The existing CI is still the only target; the Identification Engine has already selected it, and reconciliation only decides which attributes can be updated, not whether to insert a new CI"
+    ],
+    "explanation": "Identification and reconciliation are separate processes in the IRE. Identification determines the target CI. Reconciliation only controls which attributes can be updated on that CI. Even if no attributes are updated, the IRE never inserts a new CI when identification has already returned a single match."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which application utilizes a content library to automatically normalize manufacturer model data and orchestrates the physical workflows for device auditing and disposal?",
+    "options": [
+      "Vulnerability Response",
+      "Hardware Asset Management",
+      "Service Portfolio Management",
+      "Project Management",
+      "Software Asset Management",
+      "Event Management"
+    ],
+    "correctAnswers": [
+      "Hardware Asset Management"
+    ],
+    "explanation": "Hardware Asset Management provides normalization libraries and physical asset lifecycle workflows, including audits and disposal processes."
+  },
+  {
+    "domain": "Ingest",
+    "question": "Provides a standard framework to upload data from generic data sources (CSV, Excel, XML, JDBC) and map it to target CMDB tables using Transform Maps.",
+    "options": [
+      "Agent Client Collector",
+      "Cloud Discovery",
+      "Discovery",
+      "Service Mapping",
+      "Service Graph Connector",
+      "Import Sets"
+    ],
+    "correctAnswers": [
+      "Import Sets"
+    ],
+    "explanation": "Import Sets are the standard ServiceNow mechanism for loading external data and mapping it to target tables using Transform Maps."
+  },
+  {
+    "domain": "Ingest",
+    "question": "Connects directly to cloud provider APIs (AWS, Azure, GCP) to retrieve inventory data on virtual resources without requiring IP-based scanning.",
+    "options": [
+      "Service Mapping",
+      "Agent Client Collector",
+      "Cloud Discovery",
+      "Import Sets",
+      "Discovery",
+      "Service Graph Connector"
+    ],
+    "correctAnswers": [
+      "Cloud Discovery"
+    ],
+    "explanation": "Cloud Discovery integrates directly with cloud provider APIs to collect inventory data without relying on traditional IP-based discovery."
+  },
+  {
+    "domain": "Govern",
+    "question": "Your organization is formalizing data governance for CMDB and CSDM.\n\nOne role is described as:\n- Responsible for overall management and maintenance of ServiceNow data, not just one service\n- Works with Platform Owner, architects, security, and process owners\n- Helps define and enforce standards for CMDB, CSDM, and foundational data use across products\n\nWho owns overall ServiceNow data governance?",
+    "options": [
+      "Foundational Data Manager",
+      "Data Manager",
+      "CI analyst / CI owner",
+      "Service Owner"
+    ],
+    "correctAnswers": [
+      "Data Manager"
+    ],
+    "explanation": "The Data Manager role is responsible for governing ServiceNow data across the platform, defining standards, and ensuring consistent data usage."
+  },
+  {
+    "domain": "Govern",
+    "question": "Which CMDB feature allows you to define data precedence rules to ensure that a trusted data source (for example, ServiceNow Discovery) is not overwritten by a lower-priority source (for example, a manual spreadsheet import) for specific CI attributes?",
+    "options": [
+      "De-duplication Template",
+      "De-duplication Task",
+      "Reconciliation Rule",
+      "Data Manager Policy",
+      "Duplicate CI Remediator"
+    ],
+    "correctAnswers": [
+      "Reconciliation Rule"
+    ],
+    "explanation": "Reconciliation Rules define source priority and attribute-level update permissions, ensuring trusted data sources are not overwritten."
+  },
+  {
+    "domain": "Insight",
+    "question": "The CMDB Administrator has just manually remediated 50 duplicate CI records to improve the \"Correctness\" score. He immediately navigates to the CMDB View dashboard to show his manager the improved score, but the dashboard still shows the old, low score.\n\nHe asks why the dashboard did not update the moment he fixed the records.\n\nWhat is the technical reason the score did not update immediately?",
+    "options": [
+      "The Health Dashboard relies on a Scheduled Job to calculate health, which has not run yet",
+      "The Admin must clear his browser cache to see the new Health score",
+      "The Health Dashboard is active by default and updates in real time, so this is a system bug",
+      "The Health Dashboard only updates when a new Discovery schedule is triggered"
+    ],
+    "correctAnswers": [
+      "The Health Dashboard relies on a Scheduled Job to calculate health, which has not run yet"
+    ],
+    "explanation": "CMDB Health metrics are calculated by scheduled jobs, so changes to data quality are reflected only after the next scheduled calculation."
+  },
+    {
+    "domain": "Govern",
+    "question": "What record is automatically generated by the Identification and Reconciliation Engine (IRE) when it detects that an incoming payload matches more than one existing Configuration Item (CI) in the CMDB?",
+    "options": [
+      "Data Manager Policy",
+      "De-duplication Template",
+      "Reconciliation Rule",
+      "De-duplication Task",
+      "Duplicate CI Remediator"
+    ],
+    "correctAnswers": [
+      "De-duplication Task"
+    ],
+    "explanation": "When the IRE matches more than one CI for the same payload, it automatically creates a De-duplication Task so the conflict can be reviewed and resolved."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which of the following are valid methods or features used to populate relationships between Configuration Items (CIs) in the ServiceNow CMDB? (Choose 3)",
+    "options": [
+      "Suggested Relationships",
+      "ServiceNow Discovery",
+      "Service Mapping",
+      "CMDB Health Dashboard",
+      "Service Mapping Suggestions"
+    ],
+    "correctAnswers": [
+      "Suggested Relationships",
+      "ServiceNow Discovery",
+      "Service Mapping"
+    ],
+    "explanation": "Relationships in the CMDB can be populated manually using Suggested Relationships, automatically via Discovery, or dynamically through Service Mapping."
+  },
+  {
+    "domain": "Govern",
+    "question": "A global company wants to be sure that critical application servers really exist in the data center. At the same time, they already have staleness rules configured in CMDB Health Correctness to flag servers that have not been updated recently.\n\nWhat is the primary purpose of using an Attestation policy in CMDB Data Manager in this context?",
+    "options": [
+      "To automatically change the lifecycle state of stale servers to Retired",
+      "To remove duplicate servers from the CMDB without manual review",
+      "To create tasks asking local contacts to physically verify specific CIs",
+      "To compress CMDB Health scores into a higher overall percentage",
+      "To replace staleness rules so that CMDB Health Correctness no longer needs them"
+    ],
+    "correctAnswers": [
+      "To create tasks asking local contacts to physically verify specific CIs"
+    ],
+    "explanation": "Attestation policies are used to request human validation of CI existence or accuracy, typically by creating tasks for responsible parties to confirm the CI."
+  },
+  {
+    "domain": "Govern",
+    "question": "When an administrator reaches the \"Select Main CI\" step in the Duplicate CI Remediator wizard, the list of potential master records is organized into two distinct tabs.\n\nWhat are the names of these two tabs?",
+    "options": [
+      "High Confidence and Low Confidence",
+      "Master and Duplicate",
+      "Primary and Secondary",
+      "Recommended and All"
+    ],
+    "correctAnswers": [
+      "Recommended and All"
+    ],
+    "explanation": "The Duplicate CI Remediator groups potential master records into the Recommended and All tabs to guide the remediation process."
+  },
+  {
+    "domain": "Govern",
+    "question": "You are resolving a duplicate CI task for two records in the Linux Server class:\n\n- **CI-A (Master Candidate):** Discovered by ServiceNow Discovery. It has a serial number and IP Address but no related storage details.\n- **CI-B (Duplicate):** Created manually. It lacks a serial number but has a Related List of three File System CIs that are \"Hosted on\" CI-B.\n\nIn the Duplicate CI Remediation Wizard, you select CI-A as the Master. On the Relationships step of the wizard, you leave the default selection, which only keeps relationships associated with CI-A (the Master). You do not manually check the box to move the \"Hosted on::Hosts\" relationships from CI-B. You proceed to finish the remediation.\n\nWhat happens to the three File System CIs that were on CI-B?",
+    "options": [
+      "They are deleted from the CMDB because their parent (CI-B) is deleted and the relationship was not preserved",
+      "They are automatically moved to CI-A because they are dependent items of the same class",
+      "They are moved to the \"Unidentified Hardware\" table until the next discovery runs",
+      "They remain in the CMDB as orphan records with no parent relationship",
+      "The remediation fails and triggers an error because dependent CIs cannot be deleted by a wizard"
+    ],
+    "correctAnswers": [
+      "They are deleted from the CMDB because their parent (CI-B) is deleted and the relationship was not preserved"
+    ],
+    "explanation": "If dependent relationships are not explicitly preserved or reassigned during remediation, deleting the duplicate CI causes its dependent CIs to be removed."
+  },
+  {
+    "domain": "Govern",
+    "question": "Responsible for the day-to-day operations, reporting on KPIs, and ensuring teams follow the process.",
+    "options": [
+      "Service Owner",
+      "CMDB Process Owner",
+      "CI Analyst",
+      "CMDB Admin",
+      "Configuration Manager"
+    ],
+    "correctAnswers": [
+      "Configuration Manager"
+    ],
+    "explanation": "The Configuration Manager oversees daily CMDB operations, KPI reporting, and ensures adherence to configuration management processes."
+  },
+  {
+    "domain": "Insight",
+    "question": "You are building a query in the CMDB Query Builder. You have selected a \"Server\" class node on the canvas. You want the final report to include the \"Serial Number\" and \"Asset Tag\" columns, but you do not want to filter the results by these values.\n\nWhich tab on the canvas must you use to add these fields to the output?",
+    "options": [
+      "Report Settings",
+      "Applied Filters Tab",
+      "Properties Tab",
+      "Connection Properties"
+    ],
+    "correctAnswers": [
+      "Properties Tab"
+    ],
+    "explanation": "The Properties tab in Query Builder controls which fields are included in the output without applying filter conditions."
+  },
+  {
+    "domain": "Configuration",
+    "question": "You have just activated the CSDM Life Cycle plugin. However, your existing integrations and discovery sources are still writing to the legacy **install_status** and **operational_status** fields on your Server records.\n\nYou want to ensure that when Discovery updates a server's legacy status to \"Installed\", the new CSDM **life_cycle_stage** is automatically updated to \"Operational\" without manual intervention.\n\nWhich specific mechanism must be configured and activated to achieve this legacy-to-new translation?",
+    "options": [
+      "The CMDB Health Correctness Policy",
+      "The CSDM Data Foundations Scheduled Job",
+      "The Life Cycle Mapping table and its associated Business Rules",
+      "The Asset-CI Hardware Status Transform Map"
+    ],
+    "correctAnswers": [
+      "The Life Cycle Mapping table and its associated Business Rules"
+    ],
+    "explanation": "The Life Cycle Mapping table, together with its Business Rules, synchronizes legacy status fields with the standardized CSDM lifecycle fields."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You are configuring CI identification for network switches **[cmdb_ci_netgear]**.\n\n### Identifier Rules Configuration\n\n| Rule | Priority | Attributes used (all enforced) |\n|------|----------|--------------------------------|\n| Rule 1 | 200 | serial_number |\n| Rule 2 | 150 | name, ip_address |\n| Rule 3 | 100 | mac_address |\n\n### Current CIs in CMDB\n\n| CI | name | ip_address | mac_address | serial_number |\n|----|------|------------|-------------|---------------|\n| CI-1 | EDGE-SW-01 | 172.16.1.10 | AA:AA:AA:AA:AA:01 | SN-EDGE-001 |\n| CI-2 | EDGE-SW-01-BK | 172.16.1.11 | BB:BB:BB:BB:BB:02 | SN-EDGE-002 |\n\n### **A new payload is received**\n\n- name: **EDGE-SW-01**\n- ip_address: **172.16.1.10**\n- mac_address: **BB:BB:BB:BB:BB:02**\n- serial_number: *(empty / not provided)*\n\n### **Matching behavior for each identifier:**\n\n- Rule 1 (Priority 200): Serial is empty → no match\n- Rule 2 (Priority 150): Name + IP matches **CI-1**\n- Rule 3 (Priority 100): MAC would match **CI-2** if evaluated\n\nBased on Identification Engine behavior with rule priority and \"first match wins\", what will the Identification Engine do with this payload?",
+    "options": [
+      "It uses Rule 1 – Serial, finds no match, then Rule 2 – Name + IP, finds CI-1 as a single match, and updates CI-1; Rule 3 is never evaluated",
+      "It updates both CI-1 and CI-2 to keep their data aligned with the payload",
+      "It uses Rule 3 – MAC, because MAC is a stronger attribute than Name + IP, and updates CI-2",
+      "It creates a duplicate CI remediation task because Rule 2 and Rule 3 would select different CIs",
+      "It treats this as a conflict and inserts a new network CI"
+    ],
+    "correctAnswers": [
+      "It uses Rule 3 – MAC, because MAC is a stronger attribute than Name + IP, and updates CI-2"
+    ],
+    "explanation": "Identification rules are evaluated in priority order, and the first rule that results in a single match wins. Lower-priority rules are not evaluated once a match is found."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "You are manually mapping a legacy Application Service (\"Mainframe Billing\") to the physical Server that hosts it. According to CSDM standards, the Application Service relies on the infrastructure to function.\n\nWhich relationship type pair must be selected to describe this dependency?",
+    "options": [
+      "Runs on::Runs on",
+      "Runs on::Runs",
+      "Used on::Used",
+      "Used by::Used"
+    ],
+    "correctAnswers": [
+      "Used by::Used"
+    ],
+    "explanation": "In CSDM, an Application Service depends on infrastructure. The correct relationship expresses that the service is used by the server, using the Used by::Used relationship pair."
+  },
+    {
+    "domain": "Insight",
+    "question": "A support engineer wants to quickly find CI information and related records by typing something like:\n\n\"web servers serving payroll in production\"\n\nThey do not know the CI class names or field names and want the platform to interpret natural language.\n\nWhich tool from the Gain Insight from CMDB Data module is the best fit?",
+    "options": [
+      "Intelligent Search with natural language query (NLQ)",
+      "CMDB Group Health Dashboard",
+      "Unified Map",
+      "CMDB Health Dashboard",
+      "CMDB Query Builder"
+    ],
+    "correctAnswers": [
+      "Intelligent Search with natural language query (NLQ)"
+    ],
+    "explanation": "Intelligent Search with NLQ allows users to search CMDB data using natural language without knowing schema details such as class or field names."
+  },
+  {
+    "domain": "Configuration",
+    "question": "You are a CMDB Administrator tasked with improving the structural integrity of your CMDB implementation. You want to identify specific configuration gaps, such as custom classes that should be standard, duplicate CIs lacking identification rules, or hardware CIs missing serial numbers, which are preventing the CMDB from following ServiceNow best practices.\n\nWhich dashboard provides these specific indicators to help you align your CMDB?",
+    "options": [
+      "CMDB Health Dashboard",
+      "CMDB Data Foundations Dashboard",
+      "Integration Commons Dashboard",
+      "CSDM Data Foundations Dashboard"
+    ],
+    "correctAnswers": [
+      "CMDB Data Foundations Dashboard"
+    ],
+    "explanation": "The CMDB Data Foundations Dashboard highlights foundational and structural gaps, such as missing identifiers and nonstandard modeling, helping align the CMDB with best practices."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Which table stores the granular, detailed states of a Configuration Item (such as In Use, In Maintenance, Pending Disposal, or Sold) that provide specific context within a broader lifecycle phase?",
+    "options": [
+      "life_cycle_status",
+      "life_cycle_stage",
+      "life_cycle_mapping",
+      "life_cycle_stage_status"
+    ],
+    "correctAnswers": [
+      "life_cycle_stage_status"
+    ],
+    "explanation": "The life_cycle_stage_status table stores the detailed lifecycle statuses that sit under a broader lifecycle stage in the CSDM hierarchy."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "Your organization uses ServiceNow Impact and runs a CSDM Assessment – Total.\n\nOne role on the customer side is described as:\n\n- Overall owner of the Now Platform internally\n- Accountable for platform direction, including CSDM adoption\n- Partnering with the Platform Architect and other roles to prioritize changes, funding, and roadmap\n\nWho is accountable for CMDB/CSDM direction on the customer side?",
+    "options": [
+      "CI analyst / CI owner",
+      "Service Owner",
+      "Platform Arch (CSDM design lead)",
+      "Customer Platform Owner"
+    ],
+    "correctAnswers": [
+      "Customer Platform Owner"
+    ],
+    "explanation": "The Customer Platform Owner is accountable for overall platform direction and adoption, including CMDB and CSDM strategy."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "A multinational healthcare provider is preparing for a HIPAA compliance audit. The Chief Privacy Officer (CPO) needs an immediate report of every Business Application in the portfolio that processes or transmits \"Patient Diagnosis Records\".\n\nThe CMDB team has already mapped all Application Services to their underlying Servers and Database Instances. However, the CPO needs to know where the data lives physically (for example, ORACLE-DB-01).\n\nTo satisfy this requirement using the CSDM framework, you need to create a logical record representing \"Patient Diagnosis Records\" and associate it with the relevant Business Applications.\n\nWhich specific CI class should be used to create this logical data record?",
+    "options": [
+      "Data Domain [cmdb_ci_data_domain]",
+      "DB Catalog [cmdb_ci_db_catalog]",
+      "Business Capability [cmdb_ci_business_capability]",
+      "Information Object [cmdb_ci_information_object]"
+    ],
+    "correctAnswers": [
+      "Information Object [cmdb_ci_information_object]"
+    ],
+    "explanation": "Information Objects represent logical data entities in CSDM and are used to associate sensitive data with Business Applications."
+  },
+  {
+    "domain": "Configuration",
+    "question": "ServiceNow Discovery has just finished scanning a data center. It identified a physical Linux Server and also detected that a specific PostgreSQL Database Instance (Software/Process) is active on that server.\n\nTo correctly model the physical dependency between the Software Process (Child) and the Server (Parent) in the CMDB, which specific relationship type is automatically created?",
+    "options": [
+      "Used by::Used",
+      "Used on::Used",
+      "Runs on::Runs"
+    ],
+    "correctAnswers": [
+      "Runs on::Runs"
+    ],
+    "explanation": "Discovery models software processes as running on infrastructure, using the Runs on::Runs relationship."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Before creating a brand-new custom CI class to meet a business requirement, what actions should a CMDB Administrator take first to avoid technical debt and prevent duplication of existing functionality? (Select 3)",
+    "options": [
+      "Modify the base cmdb_ci table",
+      "Create a new table directly under System Definition",
+      "Search existing base system CI classes to see if one can be reused",
+      "Install and review the CMDB CI Class Models Store application",
+      "Create a Database View to simulate a CI class",
+      "Extend an existing standard CI class instead of creating a brand-new one"
+    ],
+    "correctAnswers": [
+      "Search existing base system CI classes to see if one can be reused",
+      "Install and review the CMDB CI Class Models Store application",
+      "Extend an existing standard CI class instead of creating a brand-new one"
+    ],
+    "explanation": "Best practices recommend reusing or extending existing standard CI classes and reviewing available class models before creating new custom classes."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "According to ServiceNow best practices, what is the correct chronological order of the stages for implementing the Common Service Data Model (CSDM)?",
+    "options": [
+      "Crawl → Run → Walk → Fly → Foundation",
+      "Crawl → Run → Walk → Fly → Foundation",
+      "Foundation → Walk → Run → Fly → Crawl",
+      "Foundation → Crawl → Walk → Run → Fly"
+    ],
+    "correctAnswers": [
+      "Foundation → Crawl → Walk → Run → Fly"
+    ],
+    "explanation": "ServiceNow recommends starting with foundational data, then progressing through Crawl, Walk, Run, and Fly stages."
+  },
+  {
+    "domain": "Insight",
+    "question": "An operations team wants a health dashboard that focuses only on:\n\n- Windows Server and Linux Server CIs\n- That are Operational\n\nThey do not want other classes included, and they want this filtered view to be available as a standard dashboard, not a one-off ad-hoc filter.\n\nWhich configuration best meets this goal?",
+    "options": [
+      "Create a CMDB Group of type Health with encoded queries for Windows and Linux servers, then use the Group Health Dashboard",
+      "Create a separate CMDB Health dashboard clone limited only to server classes",
+      "Build a CMDB Query Builder saved query and export results to a BI tool",
+      "Adjust CMDB Health inclusion rules to remove all other classes from the health system",
+      "Filter the main CMDB Health Dashboard manually each time by class and operational status"
+    ],
+    "correctAnswers": [
+      "Create a CMDB Group of type Health with encoded queries for Windows and Linux servers, then use the Group Health Dashboard"
+    ],
+    "explanation": "Health Groups allow targeted, reusable health dashboards scoped to specific CI sets."
+  },
+  {
+    "domain": "Configuration",
+    "question": "Scans IP ranges using probes, sensors, and patterns to identify hardware and software connected to the network.",
+    "options": [
+      "Service Graph Connector",
+      "Discovery",
+      "Cloud Discovery",
+      "Agent Client Collector",
+      "Import Sets"
+    ],
+    "correctAnswers": [
+      "Discovery"
+    ],
+    "explanation": "ServiceNow Discovery scans IP ranges using probes, sensors, and patterns to identify infrastructure and software."
+  },
+    {
+    "domain": "Ingest",
+    "question": "Ingests data from external third-party systems (like SCCM or SolarWinds) using certified, pre-built integration models.",
+    "options": [
+      "Cloud Discovery",
+      "Discovery",
+      "Service Graph Connector",
+      "Import Sets",
+      "Service Mapping",
+      "Agent Client Collector"
+    ],
+    "correctAnswers": [
+      "Service Graph Connector"
+    ],
+    "explanation": "Service Graph Connectors provide certified, pre-built integrations to ingest data from third-party systems such as SCCM and SolarWinds while respecting CMDB identification and reconciliation rules."
+  },
+  {
+    "domain": "Govern",
+    "question": "A CMDB Administrator is processing a de-duplication task for two \"Linux Server\" CIs that represent the same physical machine:\n\n- **CI-A (Master Candidate):** Created by Discovery 2 years ago. Has the correct Name and IP Address, but the Cost Center field is empty.\n- **CI-B (Duplicate):** Created by a manual import yesterday. Has the incorrect Name (typo), but contains the correct Cost Center value.\n\nThe administrator selects CI-A as the Master CI.\n\nWhich action in the Duplicate CI Remediation Wizard allows the admin to keep CI-A as the survivor while ensuring it captures the Cost Center value from CI-B?",
+    "options": [
+      "Delete CI-B first, then manually update CI-A",
+      "Select \"Use Master Value\" for the Cost Center attribute",
+      "Change the Reconciliation Rule for the Linux Server class to trust the Import Set",
+      "Create a \"Third CI\" option to combine data from both records",
+      "Select \"Merge\" (or \"Other Values\") for the Cost Center attribute"
+    ],
+    "correctAnswers": [
+      "Select \"Merge\" (or \"Other Values\") for the Cost Center attribute"
+    ],
+    "explanation": "Using the Merge (Other Values) option allows attributes from the duplicate CI to be copied into the master CI during remediation."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You have configured the Identification Rules for the Network Switch class with the following priorities:\n\n| Priority | Attribute | Search Table |\n|----------|----------|--------------|\n| **10** | Serial Number | Network Switch |\n| **20** | MAC Address | Network Adapter |\n| **30** | Name | Network Switch |\n\n### Existing Data\n\nDue to a previous bad import (which bypassed the IRE), your CMDB currently contains two duplicate switches:\n\n- **CI-A:** Serial Number: **SN-999**, Name: **Switch-NY-01**\n- **CI-B:** Serial Number: **SN-999**, Name: **Switch-NY-02**\n\n### The Event\n\nServiceNow Discovery scans the network and brings in a payload for a switch with:\n\n- Serial Number: **SN-999**\n- Name: **Switch-NY-01**\n\nHow does the Identification and Reconciliation Engine (IRE) handle this situation?",
+    "options": [
+      "It updates CI-A because the Name in the payload also matches CI-A",
+      "It ignores the Serial Number rule and proceeds to Name matching",
+      "It updates CI-A because it was created first (oldest record), assuming it is the valid original",
+      "It halts processing and creates a De-duplication Task because the highest priority rule returned multiple results",
+      "It updates both records to synchronize them"
+    ],
+    "correctAnswers": [
+      "It updates CI-A because it was created first (oldest record), assuming it is the valid original"
+    ],
+    "explanation": "When the highest-priority identifier returns multiple matches, the IRE selects the oldest record as the target CI."
+  },
+  {
+    "domain": "Configuration",
+    "question": "What is the main purpose of the Life Cycle Mapping **[life_cycle_mapping]** table?",
+    "options": [
+      "It stores CMDB group definitions used by CMDB Health dashboards",
+      "It stores the current lifecycle values for every CI and asset, one row per record",
+      "It stores mapping rules from one legacy status field (for example, install_status or operational_status) to a CSDM lifecycle pair (lifecycle stage + lifecycle status), including an optional reverse-sync choice",
+      "It stores all possible combinations of lifecycle stage and lifecycle status that are allowed in the system",
+      "It stores mappings from lifecycle fields to Service Portfolio entries only"
+    ],
+    "correctAnswers": [
+      "It stores mapping rules from one legacy status field (for example, install_status or operational_status) to a CSDM lifecycle pair (lifecycle stage + lifecycle status), including an optional reverse-sync choice"
+    ],
+    "explanation": "The Life Cycle Mapping table defines how legacy status fields map to standardized CSDM lifecycle stage and status values."
+  },
+  {
+    "domain": "Govern",
+    "question": "A CMDB analyst wants to resolve duplicate CIs in a controlled way. They already see high duplicate counts in the CMDB Health Correctness dashboard and want a workspace where they can:\n\n- See individual duplicate groups\n- Decide which record to keep\n- Merge attributes or remove extra CIs\n\nWhere should they perform this work?",
+    "options": [
+      "In the CI Class Manager, under the Attributes tab of each class",
+      "In CMDB Data Manager, by creating lifecycle policies for duplicates",
+      "Directly in the Duplicate CI metric details in CMDB Health",
+      "In CMDB Query Builder, by exporting lists and merging in Excel",
+      "In the Duplicate CI Remediation Wizard in CMDB Workspace"
+    ],
+    "correctAnswers": [
+      "In the Duplicate CI Remediation Wizard in CMDB Workspace"
+    ],
+    "explanation": "The Duplicate CI Remediation Wizard provides a guided interface to review duplicates, select the master CI, and merge or remove records."
+  },
+  {
+    "domain": "Ingest",
+    "question": "Pushes configuration and metric data to the instance using a lightweight service installed directly on the host OS.",
+    "options": [
+      "Service Mapping",
+      "Import Sets",
+      "Cloud Discovery",
+      "Service Graph Connector",
+      "Discovery",
+      "Agent Client Collector"
+    ],
+    "correctAnswers": [
+      "Agent Client Collector"
+    ],
+    "explanation": "The Agent Client Collector uses a lightweight agent installed on the host OS to push data directly to ServiceNow."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You have configured the Identification Rules for the Server class with the following priorities:\n\n| Priority | Attribute | Search Table |\n|----------|----------|--------------|\n| **100** | Asset Tag | Server |\n| **200** | Serial Number | Server |\n| **300** | Name | Server |\n\n### Existing Data\n\nYour CMDB contains two Server CIs:\n\n- **CI-A:** Asset Tag *(Empty)*, Serial Number **SN-500**, Name **Server-Alpha**\n- **CI-B:** Asset Tag **AST-999**, Serial Number **SN-900**, Name **Server-Beta**\n\n### Incoming Payload\n\n- Asset Tag: **AST-NEW-01**\n- Serial Number: **SN-500**\n- Name: **Server-Beta**\n\nHow does the Identification and Reconciliation Engine (IRE) process this payload?",
+    "options": [
+      "It creates a new CI because the payload did not perfectly match any existing record",
+      "It identifies the record as CI-A and updates it, overwriting CI-A's Name with \"Server-Beta\" and adding the new Asset Tag; CI-B is ignored",
+      "It merges CI-A and CI-B into a single record",
+      "It halts processing and creates a De-duplication Task",
+      "It identifies the record as CI-B because Name is considered stronger than Serial Number"
+    ],
+    "correctAnswers": [
+      "It identifies the record as CI-A and updates it, overwriting CI-A's Name with \"Server-Beta\" and adding the new Asset Tag; CI-B is ignored"
+    ],
+    "explanation": "The highest-priority matching identifier is Serial Number, which matches CI-A, making it the target CI."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "In the ServiceNow CSDM framework, when defining the architecture of a new microservices-based platform, you need to map how data flows between different Business Applications.\n\nTo accurately model the exchange of a specific data set (for example, \"Customer Profile\") between a \"sending\" application and a \"receiving\" application, which CSDM table is strictly required to act as the connector in the Information Exchange relationship?",
+    "options": [
+      "API Endpoint [cmdb_ci_endpoint_api]",
+      "Request Item [sc_req_item]",
+      "Application Service [cmdb_ci_service_auto]",
+      "Information Object [cmdb_ci_information_object]"
+    ],
+    "correctAnswers": [
+      "Information Object [cmdb_ci_information_object]"
+    ],
+    "explanation": "Information Objects represent logical data entities and are required to model Information Exchange relationships between applications in CSDM."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "Your organization is implementing Hardware Asset Management (HAM) to automate the disposal flow of old laptops. The implementation consultant warns that the new workflows rely strictly on the standardized **life_cycle_stage** and **life_cycle_stage_status** fields.\n\nYour CMDB is 10 years old and relies on legacy **install_status** and **hardware_status** fields. You need a guided method to map old custom status values (for example, \"In the Warehouse\" → \"Inventory\") to the new CSDM standard values and bulk-update the records.\n\nWhich specific Playbook is designed to guide the administrator through this lifecycle migration logic?",
+    "options": [
+      "HAM Normalization Playbook",
+      "CSDM Life Cycle Migration Playbook",
+      "CSDM Data Foundations Playbook",
+      "CI Class Manager Remediation Playbook"
+    ],
+    "correctAnswers": [
+      "CSDM Life Cycle Migration Playbook"
+    ],
+    "explanation": "The CSDM Life Cycle Migration Playbook guides administrators through mapping legacy lifecycle fields to standardized CSDM lifecycle values."
+  },
+  {
+    "domain": "Govern",
+    "question": "You are configuring the CMDB Health Dashboard to assist the CI maintenance team. You need to set up automated or guided actions to fix data quality issues found during the health scans.\n\nWhich of the following specific mechanisms are used by ServiceNow to execute these remediation actions? (Choose two)",
+    "options": [
+      "Business Rule",
+      "Scheduled Job",
+      "Duplicate CI Remediator",
+      "Workflow"
+    ],
+    "correctAnswers": [
+      "Duplicate CI Remediator",
+      "Workflow"
+    ],
+    "explanation": "CMDB Health remediation actions use tools such as the Duplicate CI Remediator and guided workflows to correct data quality issues."
+  },
+  {
+    "domain": "Ingest",
+    "question": "A ServiceNow engineer is preparing to map CSV data into the CMDB using IntegrationHub ETL.\n\nThe source file includes:\n- A header row\n- A block of real data rows\n- Several test rows used by the source system team (marked with **is_test = true**)\n\nThe engineer wants to exclude the test rows from the integration **without changing the target class mapping**.\n\nWhere is the most appropriate place to remove these test rows?",
+    "options": [
+      "In the CMDB after load, by building a Delete Policy in Data Manager for CIs with is_test = true",
+      "In CMDB Query Builder, by creating a saved query that ignores test rows in reports",
+      "In CMDB Health, by configuring an orphan rule for CIs with is_test = true",
+      "In the Prepare Source Data step of the ETL, by filtering on is_test = false",
+      "In the Transform Map onBefore script, by deleting test rows from the Import Set table"
+    ],
+    "correctAnswers": [
+      "In the Prepare Source Data step of the ETL, by filtering on is_test = false"
+    ],
+    "explanation": "Filtering test data during the Prepare Source Data step ensures unwanted rows are excluded early in the ETL process without impacting target mappings or requiring post-load cleanup."
+  },
+  {
+    "domain": "Govern",
+    "question": "You are logged in as a CMDB Administrator and need to address a backlog of duplicate records.\n\nWhich navigation path allows you to access and remediate De-duplication Tasks?",
+    "options": [
+      "CMDB Admin > My Tasks",
+      "All > My Groups Work > De-duplication Tasks",
+      "CMDB Workspace > Important Actions > De-duplication dashboard > View de-duplication tasks"
+    ],
+    "correctAnswers": [
+      "CMDB Workspace > Important Actions > De-duplication dashboard > View de-duplication tasks"
+    ],
+    "explanation": "The CMDB Workspace provides a centralized dashboard for reviewing and remediating de-duplication tasks."
+  },
+  {
+    "domain": "Ingest",
+    "question": "You are configuring CI identification for the Server class.\n\n### Identifier Rules (Priority Order)\n\n| Rule | Attribute | Priority |\n|-----|----------|----------|\n| Rule 1 | Name | 100 |\n| Rule 2 | IP Address | 90 |\n| Rule 3 | Name + MAC | 80 |\n| Rule 4 | Serial Number | 70 |\n\n### Existing CIs\n\n| CI | name | ip_address | mac_address | serial_number |\n|----|------|------------|-------------|---------------|\n| CI-1 | SRV-100 | 10.10.10.50 | AA:AA:AA:AA:AA:01 | S-001 |\n| CI-2 | APP-200 | 10.10.10.99 | BB:BB:BB:BB:BB:02 | S-002 |\n\n### Incoming Payload\n\n- name: **SRV-100**\n- ip_address: **10.10.10.99**\n- mac_address: **CC:CC:CC:CC:CC:03**\n- serial_number: **S-003**\n\nBased on identifier priorities, what happens?",
+    "options": [
+      "The IRE detects conflicting identifiers and creates a de-duplication task",
+      "The IRE uses Rule 1 (Name) and updates CI-1, including changing its IP Address",
+      "The IRE evaluates all rules and updates both CI-1 and CI-2",
+      "The IRE inserts a new CI because no rule fully matches",
+      "The IRE uses Rule 2 (IP Address) and updates CI-2, changing its Name to SRV-100"
+    ],
+    "correctAnswers": [
+      "The IRE uses Rule 2 (IP Address) and updates CI-2, changing its Name to SRV-100"
+    ],
+    "explanation": "IRE evaluates identifiers in priority order and selects the first rule that produces a single match. Rule 2 matches CI-2 and is therefore applied."
+  },
+  {
+    "domain": "Govern",
+    "question": "You are analyzing a duplicate pair of Windows Server CIs.\n\n- **CI-A (Master Candidate):** Correct attributes, but no downstream relationships\n- **CI-B (Duplicate):** Outdated attributes, but 50 valid downstream relationships\n\nYou want to preserve all 50 relationships from CI-B and move them to CI-A **without manually selecting each one**.\n\nWhich action in the Duplicate CI Remediation Wizard achieves this?",
+    "options": [
+      "Set the action to Archive instead of Delete for the duplicate CI",
+      "Use the Merge Attribute Values step and select Relationships",
+      "Cancel the wizard and use a manual merge script",
+      "In the Merge Relationships step, choose the option to merge all relationships from the duplicate CI to the main CI"
+    ],
+    "correctAnswers": [
+      "In the Merge Relationships step, choose the option to merge all relationships from the duplicate CI to the main CI"
+    ],
+    "explanation": "The wizard provides an option to merge all relationships in bulk, preserving downstream dependencies during remediation."
+  },
+  {
+    "domain": "Insight",
+    "question": "Which application provides a centralized workspace to track timeline variances, manage resource allocations, and monitor the financial health of temporary initiatives?",
+    "options": [
+      "Service Portfolio Management",
+      "Vulnerability Response",
+      "Hardware Asset Management",
+      "Project Management",
+      "Event Management"
+    ],
+    "correctAnswers": [
+      "Project Management"
+    ],
+    "explanation": "Project Management is designed to track schedules, resources, and financial performance of temporary initiatives."
+  },
+  {
+    "domain": "Insight",
+    "question": "An internal audit report shows that many Server CIs:\n- Have all required attributes filled\n- Are up to date and not stale\n- Do not follow company naming standards in the **Name** field\n\nWhich CMDB Health KPI is most directly affected?",
+    "options": [
+      "Coverage",
+      "Correctness",
+      "Completeness",
+      "Compliance",
+      "Performance"
+    ],
+    "correctAnswers": [
+      "Compliance"
+    ],
+    "explanation": "Naming standards are enforced through compliance rules, making the Compliance KPI the most directly affected."
+  },
+  {
+    "domain": "Govern",
+    "question": "When configuring a Dynamic Reconciliation Rule to resolve attribute conflicts from multisource CMDB data, which validation types (statuses) can be selected? (Choose two)",
+    "options": [
+      "Owner approved",
+      "Most reported",
+      "Highest priority",
+      "Last created",
+      "Last updated",
+      "Smallest value"
+    ],
+    "correctAnswers": [
+      "Most reported",
+      "Smallest value"
+    ],
+    "explanation": "Dynamic reconciliation rules support validation strategies such as Most reported and Smallest value to resolve conflicts."
+  },
+  {
+    "domain": "Insight",
+    "question": "You are responsible for performance and data protection in CMDB Query Builder.\n\nYou need to:\n- Prevent scheduled queries from returning excessive rows\n- Ensure non-CMDB tables never appear as query options\n\nWhich two system properties should be configured?",
+    "options": [
+      "Reduce time limit for running one batch of query results",
+      "Increase time limit for running an entire query",
+      "Configure blacklist of non-CMDB tables",
+      "Set limit number of results for a scheduled query or Load All Results",
+      "Turn off Display Suggested Connection in Query Builder settings"
+    ],
+    "correctAnswers": [
+      "Configure blacklist of non-CMDB tables",
+      "Set limit number of results for a scheduled query or Load All Results"
+    ],
+    "explanation": "These properties control table visibility and limit result size, protecting performance and data exposure."
+  },
+  {
+    "domain": "Govern",
+    "question": "Your CMDB / CSDM Data Foundations dashboards are live.\n\nOne role:\n- Reviews health scores and CI lists\n- Fixes CI-level data issues (duplicates, wrong class, missing attributes)\n- Works in CMDB Workspace, Data Manager, and de-dup tasks\n\nWho performs this role?",
+    "options": [
+      "Platform Architect (CSDM design lead)",
+      "CI analyst / CI owner",
+      "Platform Owner",
+      "Service Owner"
+    ],
+    "correctAnswers": [
+      "CI analyst / CI owner"
+    ],
+    "explanation": "CI Analysts or CI Owners are responsible for reviewing and fixing CI-level data issues using CMDB tools."
+  },
+  {
+    "domain": "Govern",
+    "question": "During an investigation into why some external records are not matching existing CIs, a CMDB architect needs detailed logs for Identification Engine activity related to CMDB 360 multisource data.\n\nWhich system property enables this logging?",
+    "options": [
+      "glide.class.switch.enabled",
+      "glide.cmdb.query.nlq.activated",
+      "glide.identification_engine.skip_duplicates",
+      "glide.cmdb.logger.source.cmdb_multisource"
+    ],
+    "correctAnswers": [
+      "glide.cmdb.logger.source.cmdb_multisource"
+    ],
+    "explanation": "This system property enables detailed logging for multisource CMDB activity in the Identification Engine."
+  },
+    {
+    "domain": "CSDM Fundamentals",
+    "question": "In a CSDM-based CMDB, you are defining Business Services that support end users and lines of business.\n\nOne role is described as:\n\n- The business-side owner of a given business service (often outside core IT)\n- Accountable for the value and outcomes of that service\n- Requests audits or reviews of CMDB data for their service and collaborates with the configuration/CMDB manager\n- Needs a correctly modeled service in CSDM so impact, continuity, and reporting reflect reality\n\n### Question\n\nWho owns the business service from the business side?",
+    "options": [
+      "Platform Owner",
+      "Platform Arch (CSDM design lead)",
+      "Business Service Owner",
+      "Service Owner (IT Service Owner)"
+    ],
+    "correctAnswers": [
+      "Business Service Owner"
+    ],
+    "explanation": "In CSDM, the Business Service Owner represents the business-side accountability for a business service. This role owns the service outcomes and value, collaborates with IT and CMDB stakeholders, and relies on accurate CSDM modeling to reflect real business impact."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "In the CSDM \"Fly\" stage, the organization focuses on mapping Business Capabilities to understand strategic needs.\n\n### Question\n\nWhich specific role is primarily responsible for defining and managing this hierarchy of capabilities?",
+    "options": [
+      "Application Owner",
+      "Enterprise Architect",
+      "Service Owner",
+      "CMDB Administrator"
+    ],
+    "correctAnswers": [
+      "Enterprise Architect"
+    ],
+    "explanation": "The Enterprise Architect is responsible for defining and managing the Business Capability hierarchy. In the CSDM Fly stage, this role ensures capabilities are aligned with enterprise strategy and properly mapped across services and applications."
+  },
+  {
+    "domain": "Configuration",
+    "question": "A CI Manager has synchronized the group attributes for a class of Configuration Items.\n\nWhile the **Change Group** field on the CIs is used for Change Requests, which specific field on an **Incident** record will be automatically populated when one of these CIs is selected?\n\n### Question",
+    "options": [
+      "Approval group",
+      "Assignment group",
+      "Managed by group",
+      "Change group"
+    ],
+    "correctAnswers": [
+      "Assignment group"
+    ],
+    "explanation": "When a CI with synchronized group attributes is selected on an Incident, the Assignment group field is automatically populated. This supports proper incident routing and resolution responsibility."
+  },
+  {
+    "domain": "Govern",
+    "question": "Permanently removes obsolete CIs from the CMDB in accordance with data retention policies.\n\n### Question",
+    "options": [
+      "Attestation",
+      "Delete",
+      "Retire",
+      "Archive"
+    ],
+    "correctAnswers": [
+      "Delete"
+    ],
+    "explanation": "Delete permanently removes Configuration Items from the CMDB, ensuring compliance with data retention policies. Retire and Archive preserve records in a non-active state, while Attestation validates data rather than removing it."
+  },
+  {
+    "domain": "CSDM Fundamentals",
+    "question": "For a CI that already has a **lifecycle_stage** value, what does the **lifecycle_status** field represent?\n\n### Question",
+    "options": [
+      "The CI’s discovery status (discovered / not discovered)",
+      "The specific condition inside the stage (for example, In design, In test, In production, Decommissioned), taken from the Life Cycle Stage Status [life_cycle_stage_status] table",
+      "The CI’s financial status from Asset Management (capitalized / expensed)",
+      "The CI’s CMDB health score (complete / correct / compliant)",
+      "The CI’s risk level in Vulnerability Response"
+    ],
+    "correctAnswers": [
+      "The specific condition inside the stage (for example, In design, In test, In production, Decommissioned), taken from the Life Cycle Stage Status [life_cycle_stage_status] table"
+    ],
+    "explanation": "The lifecycle_status field represents the granular state within a broader lifecycle_stage. These values are sourced from the life_cycle_stage_status table and describe the CI’s precise condition within its lifecycle phase."
+  },
+  {
+    "domain": "Insight",
+    "question": "A service owner wants to answer one specific question:\n\n> “For Product X, which ServiceNow products rely on its CMDB data, and what benefit do they get from better CMDB quality?”\n\nThey are not interested in raw completeness or correctness numbers, but in the **impact across ServiceNow products**.\n\n### Question\n\nWhich feature described in the **Gain Insight from CMDB Data** course is best suited to this use case?",
+    "options": [
+      "Product View",
+      "Intelligent Search",
+      "CMDB Health Dashboard",
+      "CMDB Group Health Dashboard",
+      "Unified Map"
+    ],
+    "correctAnswers": [
+      "Product View"
+    ],
+    "explanation": "Product View shows how CMDB data quality impacts different ServiceNow products, making it ideal for understanding cross-product dependency and value rather than raw health metrics."
+  },
+  {
+    "domain": "Govern",
+    "question": "A customer configures an orphan rule on the Application class to flag applications that do not have a **Runs on::Runs** relationship to a server.\n\nAfter the first Correctness calculation, many **\"Default Web Site\"** records (IIS virtual directory CIs) appear as orphans.\n\nThe CMDB team explains that these items are contained by a web server application and should never be treated as orphan applications.\n\n### Question\n\nHow should you adjust CMDB Health so that these \"Default Web Site\" CIs are not counted in the orphan metric, while keeping the orphan rule for real applications?",
+    "options": [
+      "Add a health inclusion rule that omits these specific CIs from the orphan metric",
+      "Change the orphan rule from a relationship rule to an attribute rule on the Application class",
+      "Mark all \"Default Web Site\" CIs as Retired so they are skipped by CMDB Health",
+      "Delete all \"Default Web Site\" CIs from the CMDB"
+    ],
+    "correctAnswers": [
+      "Add a health inclusion rule that omits these specific CIs from the orphan metric"
+    ],
+    "explanation": "Health Inclusion Rules allow administrators to explicitly include or exclude specific CI classes or records from CMDB Health calculations without changing the underlying orphan rules."
+  },
+  {
+    "domain": "Govern",
+    "question": "An Application Server, **Server-X**, was originally discovered by ServiceNow Discovery (CI-A).\n\nA project team later manually bulk-imported a duplicate record (CI-B):\n\n- CI-A (Discovery) has correct IP and Serial Number but is missing a relationship\n- CI-B (Manual import) has incomplete attributes but includes a critical **Depends on::Used by** relationship\n- CI-A is selected as the Master CI in the Duplicate CI Remediation Wizard\n\n### Question\n\nWhich specific configuration in the wizard ensures that the relationship from CI-B is moved to CI-A before CI-B is deleted?",
+    "options": [
+      "On the Attribute selection screen, verify that the Discovery Source for the relationship table is set to Manual Entry",
+      "On the Relationships screen, locate the unique relationship under CI-B and manually check the box to include it in the final record",
+      "Do nothing special; the wizard automatically merges all non-conflicting relationships by default",
+      "Create a Reconciliation Rule for the Relationship [cmdb_rel_ci] table that prioritizes Manual Entry over ServiceNow Discovery",
+      "Select CI-B as the Master instead, but use the Override Attributes feature to copy the Serial Number and IP from CI-A"
+    ],
+    "correctAnswers": [
+      "On the Relationships screen, locate the unique relationship under CI-B and manually check the box to include it in the final record"
+    ],
+    "explanation": "Relationships are handled explicitly in the Duplicate CI Remediation Wizard. To preserve a relationship that exists only on the duplicate CI, it must be manually selected on the Relationships step before completing the remediation."
+  }
+]

@@ -120,3 +120,39 @@
     @apply bg-background text-foreground;
   }
 }
+
+.quiz-markdown {
+  line-height: 1.8;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.quiz-markdown p { margin: 0.75rem 0; }
+
+.quiz-markdown strong { font-weight: 700; }
+
+.quiz-markdown ul, .quiz-markdown ol {
+  margin: 0.75rem 0 0.75rem 1.25rem;
+}
+
+.quiz-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;          /* chave: permite scroll horizontal */
+  overflow-x: auto;        /* chave: tabela grande não estoura */
+  white-space: nowrap;
+  margin: 0.75rem 0;
+}
+
+.quiz-markdown th,
+.quiz-markdown td {
+  border: 1px solid rgba(120,120,120,.35);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.quiz-markdown th {
+  font-weight: 600;
+  background: rgba(120,120,120,.10);
+}
+
